@@ -1,4 +1,5 @@
 window.onload=function(){
+    //PROGRESS BAR CODE START
     var bar = document.getElementById("progress-bar");
     window.addEventListener("scroll", function(){
         //adding px is vital otherwise it will not work properly
@@ -25,12 +26,13 @@ window.onload=function(){
     totalScroll /= height; 
     var totalWidth = document.body.offsetWidth;
     bar.style.width = totalWidth * totalScroll + 'px';
-
-    
     })
-    
-    
-    
+        //PROGRESS BAR CODE END
+
+
+
+
+
     }
 
 

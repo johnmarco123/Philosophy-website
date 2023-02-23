@@ -1,42 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Report</h1>
-    <h2>Your name</h2>
-    <h2>Introduction:</h2>
-    <h3>What is the essential story being told by your site and what type of structure did you choose
-        to implement?</h3>
-    <h2>Inspiration:</h2>
-    <h3>State 3 things that have inspired you when creating your website (e.g. guest speakers,
-        websites, artists, blogs).</h3>
-        <p>Ryan Holiday's books on stoicism inspired me to create this newsletter website for helping yourself become
-            a better individual
-        </p>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+        <title>𝓚𝓷𝓸𝔀𝓵𝓮𝓭𝓰𝓮 𝓝𝓮𝔀𝓼</title>
+    </head>
+    <body>
+        <nav>
+            <a href="index.html"><h1 id="header">Knowledge News</h1></a>
+            <ul>
+                <li><a href="index.html">News</a></li>
+                <li><a href="quotes.html">Quotes</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="stoicism.html">Stoicism</a></li>
+                <li><a href="meditations.html">Meditations</a></li>
+                <li><a href="report.html">Report.html</a></li>
+            </ul>
+        </nav>
+        <div id="nav-mobile">
+            <div class="dropdown">
+                <img id="dropdown-pic" onclick="myFunction()" class="dropbtn" src="assets/drop.png" alt="">
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="index.html">News</a>
+                    <a href="quotes.html">Quotes</a>
+                    <a href="books.html">Books</a>
+                    <a href="stoicism.html">Stoicism</a>
+                    <a href="meditations.html">Meditations</a>
+                    <a href="report.html">Report</a>
+                </div>
+            </div>
+        </div>
+        <script>
+        
+                    function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+            }
 
+            // Close the dropdown menu if the user clicks outside of it
+            window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+                }
+            }
+            }
+        </script>
 
-    <h2>Accessibility:</h2>
-    <h3>State 3 ways in which your site is accessible.</h3>
-    <h2>Usability:</h2>
-    <h3>State 3 ways in which you considered the usability of your site.</h3>
-    <h2>Learning:</h2>
-    <h3>State 3 things you had to learn or find out to create your site. How did you achieve that?</h3>
-    <h2>Evaluation I:</h2>
-    <h3>What aspects of your work do you think were particularly successful? Why?</h3>
-    <h2>Evaluation II:</h2>
-    <h3>What aspects of your work could be improved? How might you do things differently another
-        time?</h3>
-    <h2>Resources:</h2>
-    <h3>What resources did you use in your work? List any sources of information, libraries, plugins,
-        code or tools (you should also indicate inclusions from other sources within your code using
-        comments)</h3>
-    <h2>Appendices:</h2>
-    <h3>Site map (if useful), wireframes and mock-ups</h3>
+        <div id="progress-bar"></div>
+
+    <div id="main-container">
+        <h1>Report</h1>
+        <h2>Your name</h2>
+        <h2>Introduction:</h2>
+        <h3>What is the essential story being told by your site and what type of structure did you choose
+            to implement?</h3>
+        <h2>Inspiration:</h2>
+        <h3>State 3 things that have inspired you when creating your website (e.g. guest speakers,
+            websites, artists, blogs).</h3>
+            <p>Ryan Holiday's books on stoicism inspired me to create this newsletter website for helping yourself become
+                a better individual
+            </p>
+    
+    
+        <h2>Accessibility:</h2>
+        <h3>State 3 ways in which your site is accessible.</h3>
+        <h2>Usability:</h2>
+        <h3>State 3 ways in which you considered the usability of your site.</h3>
+        <h2>Learning:</h2>
+        <h3>State 3 things you had to learn or find out to create your site. How did you achieve that?</h3>
+        <h2>Evaluation I:</h2>
+        <h3>What aspects of your work do you think were particularly successful? Why?</h3>
+        <h2>Evaluation II:</h2>
+        <h3>What aspects of your work could be improved? How might you do things differently another
+            time?</h3>
+        <h2>Resources:</h2>
+        <h3>What resources did you use in your work? List any sources of information, libraries, plugins,
+            code or tools (you should also indicate inclusions from other sources within your code using
+            comments)</h3>
+        <h2>Appendices:</h2>
+        <h3>Site map (if useful), wireframes and mock-ups</h3>
+    </div>
+   
 
 <!-- information, libraries, plug-ins or other code that you used to create your site. You should
 also reference any code you've used by inserting comments at the start of the scripts.</h2>
@@ -68,5 +120,5 @@ clear which material you have written and which you have used from elsewhere you
 expected to provide comprehensive comments within your HTML, CSS and Javascript files
 indicating code you have used, code you have adopted and edited and code that you have
 written. -->
-</body>
+    </body>
 </html>

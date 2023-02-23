@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+         <!--using handlebars so i don't have to make 12 seperate pages for every person who has quotes-->
+
+        <title>𝓚𝓷𝓸𝔀𝓵𝓮𝓭𝓰𝓮 𝓝𝓮𝔀𝓼</title>
+    </head>
+    <body>
+        <nav>
+                <a href="index.html"><h1 id="header">Knowledge News</h1></a>
+            <ul>
+                <li><a href="index.html">News</a></li>
+                <li><a href="quotes.html">Quotes</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="stoicism.html">Stoicism</a></li>
+                <li><a href="meditations.html">Meditations</a></li>
+                <li><a href="report.html">Report.html</a></li>
+            </ul>
+        </nav>
+        <div id="nav-mobile">
+            <div class="dropdown">
+                <img id="dropdown-pic" onclick="dropdown()" class="dropbtn" src="assets/drop.png" alt="">
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="index.html">News</a>
+                    <a href="quotes.html">Quotes</a>
+                    <a href="books.html">Books</a>
+                    <a href="stoicism.html">Stoicism</a>
+                    <a href="meditations.html">Meditations</a>
+                    <a href="report.html">Report</a>
+                </div>
+            </div>
+        </div>
+        <script>
+        
+                    function dropdown() {
+            document.getElementById("myDropdown").classList.toggle("show");
+            }
+
+            // Close the dropdown menu if the user clicks outside of it
+/***************************************************************************************
+    *    Title: How TO - Clickable Dropdown
+    *    Author: w3SCHOOLS
+    *    Date: Unknown
+    *    Code version: 1.0
+    *    Availability: https://www.w3schools.com/howto/howto_js_dropdown.asp#:~:text=Example%20Explained,dropdown%20menu%20correctly%20with%20CSS.
+    *
+    ***************************************************************************************/
+            window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+                }
+            }
+            }
+        </script>
+
+        <div id="progress-bar"></div>
+
+       
+        <div id="main-container">
+            <!--IF YOU GO ON THIS PAGE WITHOUT CLICKING ON SOMEONE AT QUOTES.HTML-->
+            <div id="uh-oh-page">
+                <a href="quotes.html">
+                    <img id='uh-oh-img'src="assets/uh-oh.png" alt="">
+                </a>
+            </div>
+
+            <div id="quote-page">
+                <h2 id="quote-page-name"></h2>
+                <div id="quote-page-landing-container">
+                    <img id="quote-page-img" src="" alt="">
+                    <span id="quote-page-description-container">
+                        <p id="quote-page-intro"></p>
+                    </span>
+                </div>
+                <div id="quotes">
+                    <ol id=quotes-list>
+                        <li><blockquote class="quote-page-quotes" id="quote-0"><p></p></blockquote></li>
+                        <li><blockquote class="quote-page-quotes" id="quote-1"><p></p></blockquote></li>
+                        <li><blockquote class="quote-page-quotes" id='quote-2'><p></p></blockquote></li>
+                        <li><blockquote class="quote-page-quotes" id="quote-3"><p></p></blockquote></li>
+                        <li><blockquote class="quote-page-quotes" id="quote-4"><p></p></blockquote></li>
+                        <li><blockquote class="quote-page-quotes" id="quote-5"><p></p></blockquote></li>
+                        <li><blockquote class="quote-page-quotes" id="quote-6"><p></p></blockquote></li>
+                        <li><blockquote class="quote-page-quotes" id="quote-7"><p></p></blockquote></li>
+                        <li><blockquote class="quote-page-quotes" id="quote-8"><p></p></blockquote></li>
+                        <li><blockquote class="quote-page-quotes" id="quote-9"><p></p></blockquote></li>
+                    </ol>
+                    <button id="randomizer" onclick="quote_page('random')">Randomizer</button>
+                </div>
+            </div>
+
+        </div>
+        <script>
+            //grab the url
+            const url = window.location.href
+            let array_name = []
+
+            //here we iterate over the url from the end first, and stop once we reach our question mark.
+            //in other words we capture the name of the person who was clicked upon in quotes.html
+            for(let i = url.length - 1; i > 0; i--)
+            {
+                if(url[i] == '?')
+                {
+                    break;
+                }
+                array_name.push(url[i]);
+            }
+            //the array_name is a backwards array of the person whom the client clicked.
+            //Therefore we must...
+            //1.)reverse it back with .reverse()
+            //2.)turn it into a string with .join('')
+            //3.)replace the '-' with '_' to grab the appropriate data in script.js (javascript variables cant have '-')
+            let databaseName = array_name.reverse().join('').replace('-', '_');
+            
+            
+                //the only reason the names are with underscores is because it would be an
+                // absolute nightmare to camelcase them
+                //from the data we recieve from quote-page.html
+
+            let virtualDatabase = {
+                eric_thomas:
+                {
+                    name:'Eric Thomas',
+                    intro:`
+                            Eric Thomas is an American motivational speaker, author, consultant and minister.
+                            After various arguments with his parents he dropped out of highschool and lived
+                            homeless on the streets of detroit for two years. It was then he met a preacher whom
+                            inspired him to go back to school and eventually change lives.
+                          `,
+                    quotes:
+                    [
+                        `"Are you ready to sacrifice who you are, for what you will become." -Eric Thomas`,
+                        `"All roads that lead to success have to pass through hard work Boulevard at some point." -Eric Thomas`,
+                        `"No alarm clock needed, my passion wakes me." -Eric Thomas`,
+                        `"Some of you love sleep more than you love success. If you want to be successful, you gotta be willing to give up sleep. If you go to sleep, you might miss the opportunity to be successful." -Eric Thomas`,
+                        `"At the end of pain is success." -Eric Thomas`,
+                        `"I used my pain to push me to greatness." -Eric Thomas`,
+                        `"I dare you to be great. I challenge you to be great in every single thing you do." -Eric Thomas`,
+                        `"Don't cry to give up, cry to keep going." -Eric Thomas`,
+                        `"I dare you to take a little pain. I dare you!" -Eric Thomas`,
+                        `"The problem is, you get more excited talking about it, than you do when you actually doing it!" -Eric Thomas`
+                    ],
+                    img:'assets/eric-thomas.png'
+                },
+                dalai_lama:
+                {
+                    name:'Dalai Lama',
+                    intro:`
+                        His Holiness the 14th Dalai Lama, Tenzin Gyatso, describes himself as a simple
+                        Buddhist monk. He was born on 6 July 1935 and is the spiritual leader of Tibet.
+                        In 1950, after China's invasion of Tibet, His Holiness was called upon
+                        to assume full political power. In 1959, following the terrible suppression
+                        of the Tibetan national uprising in Lhasa by Chinese troops, His
+                        Holiness was forced to escape into exile. Since then he has been
+                        living in Dharamsala, northern India. Although he was forced into exile he miraculously
+                        had a positive outlook on it as a whole.
+                    `,
+                    quotes:
+                    [
+                        `"Every day, think as you wake up: Today I am fortunate to be alive, I have a precious human life, I am not going to waste it." -Dalai Lama`,
+                        `"Carefully consider, what prevents you from living the way you want to live your life?" -Dalai Lama`,
+                        `"The goal is not to be better than the other man, but your previous self." -Dalai Lama`,
+                        `"Let us try to recognize the precious nature of each day." -Dalai Lama`,
+                        `"As you breathe in, cherish yourself. As you breathe out, cherish all beings." -Dalai Lama`,
+                        `"An open heart is an open mind." -Dalai Lama`,
+                        `"Happiness is not something ready-made. It comes from your own actions." -Dalai Lama`,
+                        `"It is very rare or almost impossible that an event can be negative from all points of view." -Dalai Lama`,
+                        `"A disciplined mind leads to happiness, and an undisciplined mind leads to suffering." -Dalai Lama`,
+                        `"Be kind whenever possible. It is always possible." -Dalai Lama`
+                    ],
+                    img:'assets/dalai-lama.png'
+                },
+                tony_robbins:
+                {
+                    name:'Tony Robbins',
+                    intro:`
+                    Tony Robbins is an Multi millionare American Motivational Speaker, Author, and Father. He has written many great books such as 
+                    Awaken The Giant Within, LifeForce, and Unshakeable. His career started off by selling Motivational Tapes on television
+                    and eventually lead to him creating books, running seminars, making YouTube Videos, as well as a successful Podcast.
+                     `,
+                    quotes:
+                    [
+                        `"The power of positive thinking is the ability to generate a feeling of certainty in yourself when nothing in the environment supports you." -Tony Robbins`,
+                        `"If you can't, you must. If you must, you can." -Tony Robbins`,
+                        `"Your past does not equal your future." -Tony Robbins`,
+                        `"Goals are like magnets. They'll attract the things that make them come true." -Tony Robbins`,
+                        `"It's what you practice in private that you'll be rewarded for in public." -Tony Robbins`,
+                        `"When you are grateful, fear disappears and abundance appears" -Tony Robbins`,
+                        `"The only thing that's keeping you from getting what you want is the story you keep telling yourself." -Tony Robbins`,
+                        `"Persistence overshadows even talent as the most valuable resource shaping the quality of life." -Tony Robbins`,
+                        `"In life you need either inspiration or desperation." -Tony Robbins`,
+                        `"If you talk about it, it's a dream. If you envision it, it's possible. If you schedule it, it's real." -Tony Robbins`,
+                    ],
+                    img:'assets/tony-robbins.png'
+                },
+                aristotle:
+                {
+                    name:'Aristotle',
+                    intro:`
+                    Aristotle was an Ancient Greek philosopher. He  who was born in the city of Stagira in Northern Greece.
+                    His intellectual range was vast, covering most of the sciences and many of the arts, including biology,
+                    botany, chemistry, ethics, ethics, history, logic, metaphysics, rhetoric, philosophy of mind, philosophy
+                    of science, physics, poetics, political theory, psychology, and zoology.
+
+                    `,
+                    quotes:
+                    [
+                        `"Knowing yourself is the beginning of all wisdom." -Aristotle`,
+                        `"It is the mark of an educated mind to be able to entertain a thought without accepting it." -Aristotle`,
+                        `"Patience is bitter, but its fruit is sweet." -Aristotle`,
+                        `"He who has overcome his fears will truly be free." -Aristotle`,
+                        `"To perceive is to suffer." -Aristotle`,
+                        `"Pleasure in the job puts perfection in the work." -Aristotle`,
+                        `"Learning is not child's play; we cannot learn without pain." -Aristotle`,
+                        `"It is not enough to win a war; it is more important to organize the peace." -Aristotle`,
+                        `"I count him braver who overcomes his desires than him who conquers his enemies, for the hardest victory is over self." -Aristotle`,
+                        `"Whosoever is delighted in solitude, is either a wild beast or a god." -Aristotle`
+                    ],
+                    img:'assets/aristotle.png'
+                },
+                thomas_edison:
+                {
+                    name:'Thomas Edison',
+                    intro:'Thomas Edison was an  ',
+                    quotes:
+                    [
+                        `"Being busy does not always mean real work. The object of all work is production or accomplishment and to either of these ends there must be forethought, system, planning, intelligence and honest purpose, as well as perspiration." -Thomas Edison`,
+                        `"A genius is often merely a talented person who has done all of his or her homework." -Thomas Edison`,
+                        `"When I have finally decided that a result is worth getting, I go ahead on it and make trial after trial until it comes." -Thomas Edison`,
+                        `"Opportunity is missed by most people because it is dressed in overalls and looks like work." -Thomas Edison`,
+                        `"Unfortunately, there seems to be far more opportunity out there than ability…. We should remember that good fortune often happens when opportunity meets with preparation." -Thomas Edison`,
+                        `"I'd put my money on the sun and solar energy. What a source of power! I hope we don't have to wait until oil and coal run out before we tackle that. I wish I had more years left." -Thomas Edison`,
+                        `"I never did a day's work in my life, it was all fun." -Thomas Edison`,
+                        `"The world owes nothing to any man, but every man owes something to the world." -Thomas Edison`,
+                        `"It's obvious that we don't know one millionth of one percent about anything." -Thomas Edison`,
+                        `"Fools call wise men fools. A wise man never calls any man a fool." -Thomas Edison`
+                    ],
+                    img:'assets/thomas-edison.png'
+                },
+                dr_seuss:
+                {
+                    name:'Dr.Seuss',
+                    intro:'Dr Seuss intro information goes here',
+                    quotes:
+                    [
+                        `"Today you are You, that is truer than true. There is no one alive who is Youer than You." -Dr.Seuss`,
+                        `"You're off to Great Places! Today is your day! Your mountain is waiting, So... get on your way!" -Dr.Seuss`,
+                        `"Unless someone like you cares a whole awful lot, Nothing is going to get better. It's not." -Dr.Seuss`,
+                        `"Think left and think right and think low and think high. Oh, the thinks you can think up if only you try!" -Dr.Seuss`,
+                        `"Don't give up. I believe in you all. A person's a person. No matter how small." -Dr.Seuss`,
+                        `"The more that you read, the more things you will know. The more that you learn, the more places you'll go." -Dr.Seuss`,
+                        `"So be sure when you step, Step with care and great tact. And remember that life is a great balancing act." -Dr.Seuss`,
+                        `"I'm afraid that sometimes you'll play lonely games too. Games you can't win 'cause you'll play against you." -Dr.Seuss`,
+                        `"Be who you are and say what you feel because those who mind don't matter and those who matter don't mind." -Dr.Seuss`,
+                        `"I know it is wet and the sun is not sunny, but we can have lots of good fun that is funny." -Dr.Seuss`
+                    ],
+                    img:'assets/dr-seuss.png'
+                },
+                winston_churchill:
+                {
+                    name:'Winston Churchill',
+                    intro:'Winston Churchill intro information goes here',
+                    quotes:
+                    [
+                        `"If you are going through hell, keep going." -Winston Churchill`,
+                        `"Time and money are largely interchangeable terms." -Winston Churchill`,
+                        `"Success is not final, failure is not fatal, it is the courage to continue that counts." -Winston Churchill`,
+                        `"To improve is to change, so to be perfect is to change often." -Winston Churchill`,
+                        `"The price of greatness is responsibility." -Winston Churchill`,
+                        `"The greatest lesson in life is to know that even fools are right sometimes." -Winston Churchill`,
+                        `"The farther backward you can look, the farther forward you are likely to see." -Winston Churchill`,
+                        `"I never worry about action, but only about inaction." -Winston Churchill`,
+                        `"All wisdom is not new wisdom." -Winston Churchill`,
+                        `"Attitude is a little thing that makes a big difference." -Winston Churchill`
+                    ],
+                    img:'assets/winston-churchill.png'
+                },
+                plato:
+                {
+                    name:'Plato',
+                    intro:'Plato intro information goes here',
+                    quotes:
+                    [
+                        `"Be kind, for everyone you meet is fighting a harder battle." -Plato`,
+                        `"Only the dead have seen the end of war." -Plato`,
+                        `"The price good men pay for indifference to public affairs is to be ruled by evil men." -Plato`,
+                        `"I am the wisest man alive, for I know one thing, and that is that I know nothing." -Plato`,
+                        `"Never discourage anyone...who continually makes progress, no matter how slow." -Plato`,
+                        `"Good people do not need laws to tell them to act responsibly, while bad people will find a way around the laws" -Plato`,
+                        `"There are two things a person should never be angry at, what they can help, and what they cannot." -Plato`,
+                        `"You should not honor men more than truth." -Plato`,
+                        `"When men speak ill of thee, live so as nobody may believe them." -Plato`,
+                        `"The beginning is the most important part of the work." -Plato`
+                    ],
+                    img:'assets/plato.png'
+                },
+                jocko_willink:
+                {
+                    name:'Jocko Willink',
+                    intro:'Jocko Willink intro information goes here',
+                    quotes:
+                    [
+                        `"Discipline equals freedom." -Jocko Willink`,
+                        `"Relax. Look around. Make a call." -Jocko Willink`,
+                        `"Is this what I want to be? This? Is this all I've got—is this everything I can give? Is this going to be my life? Do I accept that?" -Jocko Willink`,
+                        `"Calm but not robotic, logical but not devoid of emotions." -Jocko Willink`,
+                        `"If you don't think you are disciplined, it is because you haven't decided to be disciplined. Yet." -Jocko Willink`,
+                        `"Live in defiance of the weakness and in rebellion against the decay." -Jocko Willink`,
+                        `"The shortcut is a lie." -Jocko Willink`,
+                        `"Detach. Whatever problems or stress you are experiencing, detach from them." -Jocko Willink`,
+                        `"Your actions are a statement of what you believe." -Jocko Willink`,
+                        `"Ego clouds and disrupts everything: the planning process, the ability to take good advice, and the ability to accept constructive criticism." -Jocko Willink`
+                    ],
+                    img:'assets/jocko-willink.png'
+                },
+                socrates:
+                {
+                    name:'Socrates',
+                    intro:'Socrates intro information goes here',
+                    quotes:
+                    [
+                        `"The unexamined life is not worth living." -Socrates`,
+                        `"I cannot teach anybody anything. I can only make them think" -Socrates`,
+                        `"There is only one good, knowledge, and one evil, ignorance." -Socrates`,
+                        `"Strong minds discuss ideas, average minds discuss events, weak minds discuss people." -Socrates`,
+                        `"Wonder is the beginning of wisdom." -Socrates`,
+                        `"Education is the kindling of a flame, not the filling of a vessel." -Socrates`,
+                        `"To find yourself, think for yourself." -Socrates`,
+                        `"Let him who would move the world first move himself." -Socrates`,
+                        `"Do not do to others what angers you if done to you by others." -Socrates`,
+                        `"Prefer knowledge to wealth, for the one is transitory, the other perpetual." -Socrates`
+                    ],
+                    img:'assets/socrates.png'
+                },
+                marcus_aurelius:
+                {
+                    name:'Marcus aurelius',
+                    intro:`Born in 121 CE and educated extensively in rhetoric and philosophy,
+                           Marcus Aurelius succeeded his adoptive father Antoninus Pius as Emperor of
+                           Rome in 161 CE and reigned until his own death in 180 Marcus would often
+                           journal to himself to help remind him of the virtues he wanted to follow.
+                           Marcus used this practice as a way to keep himself in line, and based on
+                           how he lived his life it is apparent that he followed through with his
+                           virtues. These writings were recovered, interpreted, and turned into the
+                           book we know him by, Meditations.`,
+                    quotes:
+                    [
+                        `"To be like the rock that waves keep crashing over. It stands unmoved and the raging of the sea falls still around it." -Marcus Aurelius`,
+                        `"The best revenge is not to be like that." -Marcus Aurelius`,
+                        `"Look inward. Don't let the true nature or value of anything elude you." -Marcus Aurelius`,
+                        `"You can hold your breathe until your blue, but they'll still go on doing it." -Marcus Aurelius`,
+                        `"Stick to what's infront of you-idea, action, utterance." -Marcus Aurelius`,
+                        `"To do harm is to do yourself harm. To do an injustice is to do yourself an injustice-it degrades you." -Marcus Aurelius`,
+                        `"Leave other people's mistakes where they lie." -Marcus Aurelius`,
+                        `"Not to be driven this way and that, but always to behave with justice and see things as they are." -Marcus Aurelius`,
+                        `"Blot out your imagination. Turn your desire to stone. Quence your appetites. Keep your mind centered on itself." -Marcus Aurelius`,
+                        `"Today I escaped anxiety. Or no, I discarded it, because it was within me, in my own perceptions-not outside." -Marcus Aurelius`,
+                    ],
+                    img:'assets/stoicism/stoic25.png'
+                },
+                muhammad_ali:
+                {
+                    name:'Muhammad Ali',
+                    intro:'Muhammad Ali intro information goes here',
+                    quotes:
+                    [
+                        `"Don't count the days; make the days count." -Muhammad Ali`,
+                        `"A man who has no imagination has no wings." -Muhammad Ali`,
+                        `"A man who views the world the same at 50 as he did at 20 has wasted 30 years of his life." -Muhammad Ali`,
+                        `"If my mind can conceive it, and my heart can believe it - then I can achieve it." -Muhammad Ali`,
+                        `"Often it isn't the mountains ahead that wear you out, it's the little pebble in your shoe." -Muhammad Ali`,
+                        `"The best way to make your dreams come true is to wake up." -Muhammad Ali`,
+                        `"What you're thinking is what you're becoming." -Muhammad Ali`,
+                        `"We can't be brave without fear." -Muhammad Ali`,
+                        `"Wisdom is knowing when you can't be wise." -Muhammad Ali`,
+                        `"If your dreams don't scare you, they aren't big enough." -Muhammad Ali`
+                    ],
+                    img:'assets/muhammad-ali.png'
+                }
+                
+            }
+
+            const quote_page = personInDatabase =>
+            {
+                if(personInDatabase == 'random')
+                {
+                    document.getElementById('quote-page-description-container').style.display = 'none';
+                    document.getElementById('quote-page-name').style.display = 'none';
+                    const arrayOfPeople = Object.keys(virtualDatabase);
+
+                    //each person has ten quotes, therefore totalAllowedQuotes = 10;
+                    //a higher number wont break the program, but a lower one will reject some quotes
+                    const totalAllowedQuotes = 10
+                    const random = () => Math.floor(Math.random() * totalAllowedQuotes);
+                    let outputQuotes = {}; 
+
+                    //this number must remain ten unless you add more quotes directly into the html
+                    const howManyQuotes = 10
+
+
+                    //The main point of this long complicated function, is to make sure we NEVER get two of
+                    //the same quote when the client wants random quotes
+                    //while we don't have 10 quotes we continue is what this basically means
+                    for(let i = 0; i < 10; i++)
+                    {
+                        let randomName = arrayOfPeople[random()]
+                        let randomPerson = virtualDatabase[randomName]
+                        let randomNumber = random()
+                        //if the person exists in the object 'outputQuotes'
+                        if(outputQuotes[randomName])
+                        {
+                            //then we check if the number exists under that person
+                            if(outputQuotes[randomName].includes(randomNumber))
+                            {
+                                //if it reaches this stage, that means we would of had a duplicate quote,
+                                //therefore we decrease the counter by one as if we 'skipped' this quote
+                                i--
+                                console.log("DUPLICATE FIXED")
+                            }
+                            //if it doesn't, we put it there, and we assign it the number one
+                            else{
+                                outputQuotes[randomName].push(randomNumber)
+                            }
+                        }else{
+                            //if the person does not exist, we assign the value of a object
+                            outputQuotes[randomName] = []
+                            outputQuotes[randomName].push(randomNumber)
+                        }
+                    }
+
+                    //basically here we just display 
+                    let counter = 0;
+                    for(person in outputQuotes)
+                    {
+                        for(quoteNum of outputQuotes[person])
+                        {
+                            let quoteElement = 'quote-' + counter;
+                            document.getElementById(quoteElement).innerHTML = virtualDatabase[person].quotes[quoteNum];
+                            counter++;
+                        }
+                    }
+                    document.getElementById('quote-page-img').setAttribute('src', virtualDatabase[arrayOfPeople[Math.floor(Math.random() * 12)]].img)
+                }
+                else
+                {
+                    const person = virtualDatabase[personInDatabase]
+                    const doc = document
+                    doc.getElementById('quote-page-name').innerHTML = person.name;
+                    doc.getElementById('quote-page-img').setAttribute('src', person.img)
+                    doc.getElementById('quote-page-intro').innerHTML = person.intro
+                    //here we get the quotes and display them
+                    for(let i = 0; i < person.quotes.length; i++){
+                        let quoteElement = 'quote-' + i
+                        doc.getElementById(quoteElement).innerHTML = person.quotes[i]
+                }
+                }
+                
+            }
+            try{
+                quote_page(databaseName)
+             }catch(err){
+                document.getElementById('quote-page').style.display = 'none';
+                 document.getElementById('uh-oh-page').style.display = 'block';
+             }
+
+            
+
+        </script>
+
+    </body>
+    <footer>
+        <div id="footer-container">
+            <h5>USEFUL LINKS</h5>
+            <ul id="footer-items">
+                <li>Home</li>
+                <li>Quotes</li>
+                <li>Stoicism</li>
+                <li>Books</li>
+                <li>Meditations</li>
+            </ul>
+            <div id="email-container">
+                <label>Sign up for our newsletter
+                    <input id="email" type="email" size="30" maxlength="40" placeholder="Email">
+                </label>
+            </div>
+        </div>
+    </footer>
+</html>

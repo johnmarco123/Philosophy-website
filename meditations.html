@@ -10,7 +10,7 @@
     </head>
     <body>
         <nav>
-            <h1 id="header">𝓚𝓷𝓸𝔀𝓵𝓮𝓭𝓰𝓮 𝓝𝓮𝔀𝓼</h1>
+                <a href="index.html"><h1 id="header">Knowledge News</h1></a>
             <ul>
                 <li><a href="index.html">News</a></li>
                 <li><a href="quotes.html">Quotes</a></li>
@@ -19,10 +19,83 @@
                 <li><a href="meditations.html">Meditations</a></li>
                 <li><a href="report.html">Report.html</a></li>
             </ul>
-        <div id="progress-bar"></div>
         </nav>
-        <div id="main-container">
-           <h1>meditations page</h1>
+        <div id="nav-mobile">
+            <div class="dropdown">
+                <img id="dropdown-pic" onclick="dropdown()" class="dropbtn" src="assets/drop.png" alt="">
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="index.html">News</a>
+                    <a href="quotes.html">Quotes</a>
+                    <a href="books.html">Books</a>
+                    <a href="stoicism.html">Stoicism</a>
+                    <a href="meditations.html">Meditations</a>
+                    <a href="report.html">Report</a>
+                </div>
+            </div>
         </div>
+        <script>
+        
+                    function dropdown() {
+            document.getElementById("myDropdown").classList.toggle("show");
+            }
+
+            // Close the dropdown menu if the user clicks outside of it
+/***************************************************************************************
+    *    Title: How TO - Clickable Dropdown
+    *    Author: w3SCHOOLS
+    *    Date: Unknown
+    *    Code version: 1.0
+    *    Availability: https://www.w3schools.com/howto/howto_js_dropdown.asp#:~:text=Example%20Explained,dropdown%20menu%20correctly%20with%20CSS.
+    *
+    ***************************************************************************************/
+            window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+                }
+            }
+            }
+        </script>
+
+        <div id="progress-bar"></div>
+
+        <div id="main-container">
+                <article id="meditations-landing">
+                    <div>
+                        <div class="meditations-landing-pic-container">
+                            <img class="meditations-landing-pic"src="assets/monk.jpg" alt="">
+                        </div>
+
+                    </div>
+                    <div>
+                        <div class="meditations-landing-pic-container">
+                            <img class="meditations-landing-pic"src="assets/headspace.png" alt="">
+                        </div>
+
+                    </div>
+                </article>
+                
     </body>
+    <footer>
+        <div id="footer-container">
+            <h5>USEFUL LINKS</h5>
+            <ul id="footer-items">
+                <li>Home</li>
+                <li>Quotes</li>
+                <li>Stoicism</li>
+                <li>Books</li>
+                <li>Meditations</li>
+            </ul>
+            <div id="email-container">
+                <label>Sign up for our newsletter
+                    <input id="email" type="email" size="30" maxlength="40" placeholder="Email">
+                </label>
+            </div>
+        </div>
+    </footer>
 </html>

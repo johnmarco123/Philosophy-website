@@ -2,159 +2,657 @@ html, body{
     margin: 0px;
     font-family: Playfair Display Bold, sans-serif;
     font-size:18px;
-    word-spacing: 3px;
+    word-spacing: 4px;
     color:grey;
+    background-color:white;
+}
+b, blockquote{
+    color:black;
+    word-spacing:2px;
+}
+p{
+    text-align:left;
+    line-height:24px;
+    padding-bottom:50px;
+
 }
 nav{
     display:flex;
     width:100%;
     justify-content: center;
-    background-color: rgb(218, 218, 218);
+    gap: 100px;
+    background-color:#1f1f19;
     position:fixed;
-    z-index:10;
-    top:0px;
+    z-index:1;
+    height:50px;
 }
-
+a{
+    text-decoration:none;
+}
 nav li{
     float:left;
     list-style-type: none;
 }
 nav li a {
-    display:block;
     padding: 10px;
-    text-decoration:none;
-    color:black;
+    color:white;
 }
 nav li a:hover{
-    color:white;
+    color:grey;
     transition: color .1s ease;
 }
 
-
-#progress-bar{
-    border-bottom: 6px solid green;
-    position:fixed;
-    top: 70px;
-    left: 0px;
-}
-
-#main-container{
-    width:100%;
-    padding-top:70px;
-    font-family: Arial, Helvetica, sans-serif;
-    
-}
-#landing-container{
-    display:flex;
-    justify-content:space-evenly;
-    padding:0px 100px
-}
-#container{
-    margin-top: 250px;
-    display:flex;
-    justify-content:center;
-}
-
-#container > section{
-float: left;
-}
-#container > section, .medium
-{
- width:350px;
-}
-
-.small, .side{
-    width:250px;
-}
-
-.center,.big{
-    width:500px;
-    float:left;
-}
-
-
-.book-container > p{
-    text-align:left;
-}
-.book-container > ul{
-    text-align:left;
-    
-}
-h1, h2, h3{
+h1, h2, h3, h4{
     color:black; 
+    text-align:center
 }
+
 h2{
     font-size:35px;
 }
 h3{
     font-size:25px;
 }
-.book-container > h3{
+li > a:hover{
+    color:grey;
+}
+#main-body > p{
+    margin-top:-25px;
+}
+#main-body{
+    max-width:700px;
+    
+}
+#header{
+    color:white;
+    position:relative;
+}
+
+
+#navigation-links{
+    max-width:50%;
+    width:100%;
+}
+
+#nav-mobile{
+    display:none;
+    width:100%;
+    justify-content: center;
+    background-color:#181819;
+    position:fixed;
+    z-index:10;
+    height:50px;
+}
+#dropdown-pic{
+    width:50px;
+    height:50px;
+    float:right;
+}
+
+
+/*DROPDOWN MENU START*/
+/***************************************************************************************
+    *    Title: How TO - Clickable Dropdown
+    *    Author: w3SCHOOLS
+    *    Date: Unknown
+    *    Code version: 1.0
+    *    Availability: https://www.w3schools.com/howto/howto_js_dropdown.asp#:~:text=Example%20Explained,dropdown%20menu%20correctly%20with%20CSS.
+    *
+    ***************************************************************************************/
+/* Dropdown Button */
+.dropbtn {
+    cursor: pointer;
+  }
+  
+  /* Dropdown button on hover & focus */
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #b0d6f0;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top:50px;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {display:block;}
+
+/*DROPDOWN MENU END*/
+  /***********************************/
+
+
+
+@media (max-width: 808px) {
+    nav{display:none}
+    #nav-mobile{display:inline-block;}
+}
+
+
+
+
+
+
+#progress-bar{
+    border-bottom: 6px solid green;
+    position:fixed;
+    top: 50px;
+    left: 0px;
+}
+
+#main-container{
+    font-family: Arial, Helvetica, sans-serif;
+    padding:0px 10px;
+    padding-top:80px;
+    
+}
+#landing-container{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    padding-top:75px;
+}
+#container{
+    margin-top: 250px;
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+}
+
+
+.small, .side{
+    width:100%;
+    max-width:250px;
+}
+
+.center,.big{
+    width:100%;
+    max-width:500px;
+}
+.medium, #container > section{
+    width:100%;
+    max-width:450px;
+}
+.news{
+    float:left;
+}
+
+
+
+
+
+
+#styled-list{
+    color:blue;
+    text-decoration:underline blue;
+}
+
+.vertical-container > h3{
     margin-top:50px;
 }
-.books{
-    width:350px;
+
+.top10book{
     border-radius:3%;
     box-shadow: 4px 4px 10px 0px #000000;
-    margin-top:10px;
     margin-bottom:25px;
-    transition:transform .2s; 
+    max-width:400px;
+    width:100%;
 }
-.books:hover{
+
+.zoom:hover{
     transform:scale(1.02)
+}
+.zoom{
+    transition:transform .2s;
 }
 
 #main-books-container{
-    padding:100px 100px 0px 80px;
-    width:40%;
-    margin-left:auto;
-    margin-right:auto;
-    text-align:center;
+    padding:100px 50px 0px 50px;
+    display:flex;
 }
-#books-header{
+
+#top10-header{
     font-family: Playfair Display Bold, sans-serif;
     font-size:50px;
-    margin-top:100px;
 }
-#books-front-page{
+#top10-front-page{
     text-align:center;
+    padding-top: 50px;
 }
+
+
 .frontpage-pic{
-    width:auto;
+    width:100%;
     max-width: 800px;
-    display:block;
-    margin-left:auto;
-    margin-right:auto;
     margin-top:60px;
     margin-bottom:150px;
 }
 
-.image-gallery {
+
+.vertical-container{
+    max-width:600px;
+    width:100%;
+    text-align:center;
+}
+.frontpage-pic, .top10book, .vertical-container{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#image-gallery {
     display: flex;
     flex-wrap:wrap;
     justify-content: center;
-    background-color: red;
     padding:0px;
     list-style:none;
+    gap:50px;
 
   }
   
-  .image-gallery > li {
-    flex-basis: 506.3px; /* width: 'n'px; */
+  #image-gallery > li, .overlay{
+    flex-basis: 200px; /* width: 'n'px; */
   }
   
-  .image-gallery li img {
+  #image-gallery li img, .overlay{
     object-fit: cover;
     max-width: 100%;
-    height: auto;
+    height: 300px;
     vertical-align: middle;
-    border-radius: 5px;
+  }
+  .overlay{
+    width:200px;/*this must match flex-basis*/
+    position:absolute;
+    background-color:black;
+    opacity:0;
+    transition:.5s ease;
+    padding:15px;
+    text-align:center;
+  }
+  #image-gallery > li:hover .overlay{
+    opacity: 0.85;
+  }
+
+  .stoic-container{
+    padding-top:100px;
+    padding-bottom:100px;
+    background-color: black;
+    height:100%;
+  }
+  .stoic-container > h2, .stoic-container{
+    color:white;
+  }
+
+  .picz{
+    width:300px;
+  }
+
+  
+/*start meditation page*/
+#meditations-landing{
+    max-width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-around;
+  }
+  .meditations-landing-pic, .meditations-landing-pic-container{
+    width:100%;
   }
 
 
 
+/*meditation page end*/
+
+
+
+  /* BOOK.HTML START*/
+#books-container{
+    text-align:center;
+    max-width:1200px;
+    margin-left:auto;
+    margin-right:auto;
+}
+#books-landing-page{
+    list-style-type: none;
+    display:flex;
+    width:100%;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    padding-left:0px;
+    
+}
+
+#books-landing-left{
+    max-width:400px;
+    width:100%;
+    padding-top:50px;
+}
+
+#books-landing-center{
+    max-width:300px;
+    width:100%;
+    padding:0px 20px;
+    border-right: grey solid 1px;
+    border-left: grey solid 1px;
+}
+
+#books-landing-right{
+    max-width:350px;
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.main-book{
+    max-width:250px;
+}
+.secondary-book{
+    max-width:150px;
+    padding-top:110px;
+
+}
+.third-book{
+    max-width:80px;
+    float:right;
+}
+.book-group{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-evenly;
+}
+#books-secondary{
+    border-top: grey solid 1px;
+    list-style-type:none;
+    padding-left:0px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-evenly;
+
+}
+.books-first-row{
+    max-width:300px;
+}
+@media (max-width: 727px) {
+    #books-secondary,
+    #books-landing-center{
+        border:none;
+    }
+    .books-first-row,
+    .landing-books{
+        border-top:1px grey solid;
+        max-width:350px;
+    }
+    .secondary-book{
+        padding-top:25px;
+    }
+
+}
+@media (max-width: 1078px) {
+    #books-landing-center,
+    #books-secondary{
+        border:none;
+    }
+    .secondary-book{
+        max-width:200px;
+    }
+
+}
+
+
+  /* BOOK.HTML END*/
+/*stoicism.html start*/
+#three-container{
+    list-style-type:none;
+    display:flex;
+    flex-wrap:wrap;
+    max-width:1200px;
+    margin-left:auto;
+    margin-right:auto;
+    justify-content:space-evenly
+}
+.stoic{
+    max-height:300px;
+}
+.stoic-article{
+    max-width:300px;
+    text-align:center;
+}
+
+#four-container{
+    display:flex;
+    flex-wrap:wrap;
+    list-style-type:none;
+    max-width:1200px;
+    margin-left:auto;
+    margin-right:auto;
+    justify-content:center;
+    padding-left:0px;
+}
+.stoic-books > img{
+    max-height:200px;
+}
+.stoic-books{
+    max-width:250px;
+    text-align:center;
+}
+
+.stoic-book-group{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-around;
+    max-width:600px;
+    width:100%;
+}
+
+/*stoicism.html end*/
 
 
 
 
+/*what is stoicism page*/
+
+#sub-container{
+    max-width:900px;
+    width:100%;
+    margin-top:100px;
+    margin-left:auto;
+    margin-right:auto;
+    justify-content:center;
+    gap:50px;
+    display:flex;
+    flex-wrap: wrap;
+
+}
+.description{
+    max-width:300px;
+}
+#marcus-container{
+    width:100%;
+    max-width:900px;
+    margin-top:45px;
+    display:flex;
+    flex-wrap:wrap;
+    margin-left:auto;
+    margin-right:auto;
+    justify-content:center;
+    gap:40px;
+}
+#marcus-img
+{
+    width:100%;
+    max-width:450px;
+}
+.wide-description{
+    margin-top:auto;
+    margin-bottom:auto;
+}
+.wide-description > p{
+    max-width:400px;
+    margin-bottom: -40px;
+}
+#marcus-aurelius-main{
+    max-width:900px;
+}
+/*life changing quotes page start*/
+#life-changing-quotes-container{
+    text-align:center;
+    max-width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/*life changing quotes page end*/
+/*quotes.html start*/
+#quotes-container{
+    margin-top:50px;
+    padding-left:0px;
+    max-width:1400px;
+    margin-left:auto;
+    margin-right:auto;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-evenly;
+    list-style-type:none;
+    text-align:center;
+}
+#quotes-container-header{
+    margin-top:100px;
+}
+.quote-author{
+    height:300px;
+}
+#quotes-landing{
+    margin-top:100px;
+    text-align:center;
+}
+#quotes-landing-description{
+    width:400px;
+    padding:10px 20px 0px 10px;
+}
+.quotes-article{
+    justify-content:space-evenly;
+    max-width:400px;
+    width:100%;
+    margin-bottom:50px;
+}
+/*quotes.html end*/
+/*quote-page.html start*/
+#uh-oh-page{
+    text-align:center;
+    display:none;
+}
+#quote-page-landing-container{
+    display:flex;
+    flex-wrap: wrap;
+    max-width:1030px;
+    justify-content:center;
+    margin-left:auto;
+    margin-right:auto
+    
+}
+#quote-page-intro
+{
+    max-width:450px;
+}
+#quote-page-img{
+    height:450px;
+}
+#quote-page-description-container,
+#quote-page-img{
+    padding:30px;
+}
+#quotes-list{
+    max-width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+    padding-left:0px;
+    list-style-type: none;
+}
+.quote-page-quotes{
+    padding-bottom:50px;
+    border-bottom:grey solid 1px;
+}
+#quote-9{
+    border-bottom:none;
+}
+#randomizer{
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:50px;
+    cursor: pointer;
+    font-weight: 500;
+    border-radius: 50px;
+    padding: 12px 24px;
+    border: 0;
+    background: #1f1f19;
+    color:white;
+    font-size: 16px;
+}
+#randomizer:hover{
+        transition: all .1s ease;
+        box-shadow: 0 0 0 3px #1f1f19;
+}
+#quotes{
+    text-align:center;
+}
+/*quote-page.html end*/
+
+/*universal footer code*/
+footer{
+    height:auto;
+    width:auto;
+    padding-bottom:20px;
+    background-color:#1f1f19;
+}
+#footer-container{
+    padding-top:20px;
+    margin-left:auto;
+    margin-right:auto;
+    max-width:600px;
+    text-align: center;
+}
+
+#footer-items{
+    display:flex;
+    flex-wrap:wrap;
+    gap: 50px;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+#footer-items > li {
+    float:left;
+}
+#email-container{
+    margin-top:40px;
+}
+input, label{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
 

@@ -10,7 +10,7 @@
     </head>
     <body>
         <nav>
-            <h1 id="header">𝓚𝓷𝓸𝔀𝓵𝓮𝓭𝓰𝓮 𝓝𝓮𝔀𝓼</h1>
+                <a href="index.html"><h1 id="header">Knowledge News</h1></a>
             <ul>
                 <li><a href="index.html">News</a></li>
                 <li><a href="quotes.html">Quotes</a></li>
@@ -19,10 +19,146 @@
                 <li><a href="meditations.html">Meditations</a></li>
                 <li><a href="report.html">Report.html</a></li>
             </ul>
-        <div id="progress-bar"></div>
         </nav>
+        <div id="nav-mobile">
+            <div class="dropdown">
+                <img id="dropdown-pic" onclick="dropdown()" class="dropbtn" src="assets/drop.png" alt="">
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="index.html">News</a>
+                    <a href="quotes.html">Quotes</a>
+                    <a href="books.html">Books</a>
+                    <a href="stoicism.html">Stoicism</a>
+                    <a href="meditations.html">Meditations</a>
+                    <a href="report.html">Report</a>
+                </div>
+            </div>
+        </div>
+        <script>
+        
+                    function dropdown() {
+            document.getElementById("myDropdown").classList.toggle("show");
+            }
+
+            // Close the dropdown menu if the user clicks outside of it
+/***************************************************************************************
+    *    Title: How TO - Clickable Dropdown
+    *    Author: w3SCHOOLS
+    *    Date: Unknown
+    *    Code version: 1.0
+    *    Availability: https://www.w3schools.com/howto/howto_js_dropdown.asp#:~:text=Example%20Explained,dropdown%20menu%20correctly%20with%20CSS.
+    *
+    ***************************************************************************************/
+            window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+                }
+            }
+            }
+        </script>
+
+        <div id="progress-bar"></div>
+
         <div id="main-container">
-            <h1>stoicism page!</h1>
+            <ol id="three-container">
+                <li>
+                    <article class="stoic-article">
+                        <figure>
+                            <a href="what_is_stoicism.html">
+                                <img class="stoic zoom" src="assets/stoicism/stoic1.png" alt="">
+                            </a>
+                        </figure>
+                        <h3>What is stoicism?</h3>
+                        <p>
+                            The lost art of practicing stoicism, a philosophy for how to live a great life
+                            despite adversity
+                        </p>
+                    </article>
+                </li>
+                <li>
+                    <article class="stoic-article">
+                        <figure>
+                            <img class="stoic" src="assets/stoicism/stoic17.png" alt="">
+                        </figure>
+                        <h3>The History Of Stoicism</h3>
+                        <p>
+                            Learn about the great well-known stoics, as well as lesser known stoics which guided 
+                            stoicism to where it is today.
+                        </p>
+                    </article>
+                </li>
+                <li>
+                    <article class="stoic-article">
+                        <figure>
+                            <a href="quote-page.html?marcus-aurelius">
+                                <img class="stoic zoom" src="assets/stoicism/stoic25.png" alt="">
+                            </a>
+                        </figure>
+                        <h3>Roman Emperer Marcus Aurelius</h3>
+                        <p>
+                            What lessons can we learn about life from the great Roman Emperor Marcus Aurelius?
+                        </p>
+                    </article>
+                </li>
+            </ol>
+            <ol id="four-container">
+                <li class="stoic-book-group">
+                    <article class="stoic-books">
+                        <img src="assets/book1.jpeg" alt="">
+                        <h3>The Obstacle Is The Way</h3>
+                        <p>
+                            This exceptional book teaches you how to turn challenges into your greatest opportunities
+                        </p>
+                    </article>
+                    <article class="stoic-books">
+                        <img src="assets/book7.jpeg" alt="">
+                        <h3>Ego Is The Enemy</h3>
+                        <p>
+                            A practical guide on how to deal with your ego before success, during success, and after failure
+
+                        </p>
+                    </article>
+                </li>
+                <li class="stoic-book-group">
+                    <article class="stoic-books">
+                        <img src="assets/book2.jpeg" alt="">
+                        <h3>Stillness Is The Key</h3>
+                        <p>
+                            An outstanding book that guides you through how to slow down and enjoy the simple things in life
+                        </p>
+                    </article>
+                    <article class="stoic-books">
+                        <img src="assets/book4.jpeg" alt="">
+                        <h3>Meditaitons</h3>
+                        <p>
+                            Originally written by the emperer Marcus aurelius, this book contains insightful knowledge on how to deal
+                            with the many difficulties life presents
+                        </p>
+                    </article>
+                </li>
+            </ol>
         </div>
     </body>
+    <footer>
+        <div id="footer-container">
+            <h5>USEFUL LINKS</h5>
+            <ul id="footer-items">
+                <li>Home</li>
+                <li>Quotes</li>
+                <li>Stoicism</li>
+                <li>Books</li>
+                <li>Meditations</li>
+            </ul>
+            <div id="email-container">
+                <label>Sign up for our newsletter
+                    <input id="email" type="email" size="30" maxlength="40" placeholder="Email">
+                </label>
+            </div>
+        </div>
+    </footer>
 </html>
