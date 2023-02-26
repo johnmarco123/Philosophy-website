@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <script src="script.js"></script>
-        <title>𝓚𝓷𝓸𝔀𝓵𝓮𝓭𝓰𝓮 𝓝𝓮𝔀𝓼</title>
-    </head>
-    <body>
-        <nav>
-            <a href="index.html"><h1 id="header">Knowledge News</h1></a>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>𝓚𝓷𝓸𝔀𝓵𝓮𝓭𝓰𝓮 𝓝𝓮𝔀𝓼</title>
+</head>
+
+<body>
+    <nav>
+        <a class="left"href="index.html"><h1 id="header">Knowledge News</h1></a>
+
+        <div class="center" id="navigation-links">
             <ul>
                 <li><a href="index.html">News</a></li>
                 <li><a href="quotes.html">Quotes</a></li>
@@ -19,140 +23,165 @@
                 <li><a href="meditations.html">Meditations</a></li>
                 <li><a href="report.html">Report.html</a></li>
             </ul>
-        </nav>
-        <div id="nav-mobile">
-            <div class="dropdown">
+        </div>
+        <div class="right">
+
+        </div>
+
+    </nav>
+    <div id="nav-mobile">
+        <div class="dropdown">
+            <span id="dropdown-container">
                 <img id="dropdown-pic" onclick="dropdown()" class="dropbtn" src="assets/drop.png" alt="">
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="index.html">News</a>
-                    <a href="quotes.html">Quotes</a>
-                    <a href="books.html">Books</a>
-                    <a href="stoicism.html">Stoicism</a>
-                    <a href="meditations.html">Meditations</a>
-                    <a href="report.html">Report</a>
-                </div>
+            </span>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="index.html">News</a>
+                <a href="quotes.html">Quotes</a>
+                <a href="books.html">Books</a>
+                <a href="stoicism.html">Stoicism</a>
+                <a href="meditations.html">Meditations</a>
+                <a href="report.html">Report</a>
             </div>
         </div>
-        <script>
-        
-                    function dropdown() {
-            document.getElementById("myDropdown").classList.toggle("show");
-            }
+    </div>
+    <script>
 
-            // Close the dropdown menu if the user clicks outside of it
-/***************************************************************************************
-    *    Title: How TO - Clickable Dropdown
-    *    Author: w3SCHOOLS
-    *    Date: Unknown
-    *    Code version: 1.0
-    *    Availability: https://www.w3schools.com/howto/howto_js_dropdown.asp#:~:text=Example%20Explained,dropdown%20menu%20correctly%20with%20CSS.
-    *
-    ***************************************************************************************/
-            window.onclick = function(event) {
+        function dropdown() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown menu if the user clicks outside of it
+        /***************************************************************************************
+            *    Title: How TO - Clickable Dropdown
+            *    Author: w3SCHOOLS
+            *    Date: Unknown
+            *    Code version: 1.0
+            *    Availability: https://www.w3schools.com/howto/howto_js_dropdown.asp#:~:text=Example%20Explained,dropdown%20menu%20correctly%20with%20CSS.
+            *
+            ***************************************************************************************/
+        window.onclick = function (event) {
             if (!event.target.matches('.dropbtn')) {
                 var dropdowns = document.getElementsByClassName("dropdown-content");
                 var i;
                 for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
                 }
             }
-            }
-        </script>
+        }
+    </script>
 
-        <div id="progress-bar"></div>
- 
+    <div id="progress-bar"></div>
+
     <div id="main-container">
         <div class="vertical-container">
-            <div id="meditation-landing">
+            <div id="life-changing-meditation-landing">
                 <h1>What is meditation?</h1>
-                    <h4>Definition</h4>
-                    <p>
-                        Meditation put simply, is using ones
-                        attention on a given object of focus (for example your breathe)
-                        to train attention and awareness. 
-                    </p>
-                    <h4>Why should I meditate?</h4>
-                    <p>Meditation has many benefits which include, but aren't limited to:
-                    <ul>
-                        <li>Reduced stress</li>
-                        <li>Controls anxiety</li>
-                        <li>Promotes emotional health</li>
-                        <li>Greatly enhances self awareness</li>
-                        <li>Increases attention span</li>
-                        <li>Can help fight addiction</li>
-                        <li>Improves sleep</li>
-                        <li>Helps control pain</li>
-                        <li>Can do it anywhere</li>
-                    </ul>
-                    </p>
+                <h4>Definition</h4>
+                <p>
+                    Meditation put simply, is using ones
+                    attention on a given object of focus (for example your breathe)
+                    to train attention and awareness.
+                </p>
+                <h4>Why should I meditate?</h4>
+                <p>Meditation has many benefits which include, but aren't limited to:
+                <ul class="life-changing-lists">
+                    <li>Reduced stress</li>
+                    <li>Controls anxiety</li>
+                    <li>Promotes emotional health</li>
+                    <li>Greatly enhances self awareness</li>
+                    <li>Increases attention span</li>
+                    <li>Can help fight addiction</li>
+                    <li>Improves sleep</li>
+                    <li>Helps control pain</li>
+                    <li>Can do it anywhere</li>
+                </ul>
+                </p>
 
-                    <h4>Are there different types of meditation?</h4>
-                    <p>There are many forms of meditations, some different types of meditation are 
+                <h4>Are there different types of meditation?</h4>
+                <p>There are many forms of meditations, some different types of meditation are
                     mantra meditation, mindful meditation, movement meditation, loving kindness meditation,
                     and visualization meditation.</p>
 
-                    <h4>Mantra meditation</h4>
-                    <p>
-                        In performing Mantra meditation, the object of focus
-                        for producing a relaxation response is a repeated word or phrase called a mantra.
-                        You may choose any word for your mantra, and your only task is to repeat the mantra either
-                        verbally or nonverbally in your mind. The purpose of this is to set your attention on repeating
-                        this word or phrase and when your mind wanders you gently return it back to your mantra.
-                    </p>
-                    <h4>Mindful meditation</h4>
-                    <p>
-                        In mindful meditation you pay attention to your thoughts as they pass through your mind.
-                        You don't judge your thoughts or become involved with them you just simply ovserve them.
-                        Often when doing mindful meditation you have a singular focus which can be the breathe, 
-                        the feeling of your body touching the surface underneath you, or any other bodily sensation.
-                        This practice combines awareness and concentration. As you steadily observe your object of focus
-                        your mind may wander or you may have a bodily sensation or feeling, simply note it and return
-                        back to your object of focus.
-                    </p>
-                    <h4>Movement meditation</h4>
-                    <p>
-                        Most people think movement meditation is exclusively yoga, however this is not the case.
-                        There are many forms of movement meditation such as:
-                    </p>
-                    <ul>
-                        <li>walking</li>
-                        <li>tai chi</li>
-                        <li>yoga</li>
-                        <li>gardening</li>
-                        <li>qi gong</li>
-                        <li>any other gentle forms of movement</li>
-                    </ul>
-                    <p>
-                        The focus of movement meditation is to be focused on whatever movement or task you are doing
-                        with as much attention as possible. If your mind wanders you gently bring it back to the task
-                        at hand.
-                    </p>
-                    <h4>Loving kindness meditation</h4>
-                    <p>
-                        This form of meditation is used to strengthen feelings of compassion, acceptance and kindness
-                        toward oneself and others.
-                        Usually this meditation involves thinking about loved ones, friends, acquaintances and all living beings and 
-                        sending them well wishes.
-                        This meditation is ideal if you hold feelings of anger or resentment that you want to overcome.
-                    </p>
-                    <h4>Visualization meditation</h4>
-                    <p>
-                        This form of meditation can help enhance feelings of relaxation,
-                        peace and calmness by visualizaing positive scenes, images or figures.
+                <h4>Mantra meditation</h4>
+                <p>
+                    In performing Mantra meditation, the object of focus
+                    for producing a relaxation response is a repeated word or phrase called a mantra.
+                    You may choose any word for your mantra, and your only task is to repeat the mantra either
+                    verbally or nonverbally in your mind. The purpose of this is to set your attention on repeating
+                    this word or phrase and when your mind wanders you gently return it back to your mantra.
+                </p>
+                <h4>Mindful meditation</h4>
+                <p>
+                    In mindful meditation you pay attention to your thoughts as they pass through your mind.
+                    You don't judge your thoughts or become involved with them you just simply ovserve them.
+                    Often when doing mindful meditation you have a singular focus which can be the breathe,
+                    the feeling of your body touching the surface underneath you, or any other bodily sensation.
+                    This practice combines awareness and concentration. As you steadily observe your object of focus
+                    your mind may wander or you may have a bodily sensation or feeling, simply note it and return
+                    back to your object of focus.
+                </p>
+                <h4>Movement meditation</h4>
+                <p>
+                    Most people think movement meditation is exclusively yoga, however this is not the case.
+                    There are many forms of movement meditation such as:
+                </p>
+                <ul class="life-changing-lists">
+                    <li>walking</li>
+                    <li>tai chi</li>
+                    <li>yoga</li>
+                    <li>gardening</li>
+                    <li>qi gong</li>
+                    <li>any other gentle forms of movement</li>
+                </ul>
+                <p>
+                    The focus of movement meditation is to be focused on whatever movement or task you are doing
+                    with as much attention as possible. If your mind wanders you gently bring it back to the task
+                    at hand.
+                </p>
+                <h4>Loving kindness meditation</h4>
+                <p>
+                    This form of meditation is used to strengthen feelings of compassion, acceptance and kindness
+                    toward oneself and others.
+                    Usually this meditation involves thinking about loved ones, friends, acquaintances and all living
+                    beings and
+                    sending them well wishes.
+                    This meditation is ideal if you hold feelings of anger or resentment that you want to overcome.
+                </p>
+                <h4>Visualization meditation</h4>
+                <p>
+                    This form of meditation can help enhance feelings of relaxation,
+                    peace and calmness by visualizaing positive scenes, images or figures.
 
-                        When you do this visualization you idealy want to engage all five senses and
-                        create as vivid of an image as possible.
+                    When you do this visualization you idealy want to engage all five senses and
+                    create as vivid of an image as possible.
 
-                        Another form of this meditation would be to visualize yourself achieving a goal
-                        that you are trying to achieve, which is intended to increase motivation and focus
-                    </p>
+                    Another form of this meditation would be to visualize yourself achieving a goal
+                    that you are trying to achieve, which is intended to increase motivation and focus
+                </p>
             </div>
 
         </div>
     </div>
 </body>
+<footer>
+    <div id="footer-container">
+        <h5>USEFUL LINKS</h5>
+        <ul id="footer-items">
+            <li>Home</li>
+            <li>Quotes</li>
+            <li>Stoicism</li>
+            <li>Books</li>
+            <li>Meditations</li>
+        </ul>
+        <div id="email-container">
+            <label>Sign up for our newsletter
+                <input id="email" type="email" size="30" maxlength="40" placeholder="Email">
+            </label>
+        </div>
+    </div>
+</footer>
 
 </html>

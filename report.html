@@ -10,19 +10,28 @@
     </head>
     <body>
         <nav>
-            <a href="index.html"><h1 id="header">Knowledge News</h1></a>
-            <ul>
-                <li><a href="index.html">News</a></li>
-                <li><a href="quotes.html">Quotes</a></li>
-                <li><a href="books.html">Books</a></li>
-                <li><a href="stoicism.html">Stoicism</a></li>
-                <li><a href="meditations.html">Meditations</a></li>
-                <li><a href="report.html">Report.html</a></li>
-            </ul>
+            <a class="left"href="index.html"><h1 id="header">Knowledge News</h1></a>
+
+            <div class="center" id="navigation-links">
+                <ul>
+                    <li><a href="index.html">News</a></li>
+                    <li><a href="quotes.html">Quotes</a></li>
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="stoicism.html">Stoicism</a></li>
+                    <li><a href="meditations.html">Meditations</a></li>
+                    <li><a href="report.html">Report.html</a></li>
+                </ul>
+            </div>
+            <div class="right">
+
+            </div>
+
         </nav>
         <div id="nav-mobile">
             <div class="dropdown">
-                <img id="dropdown-pic" onclick="myFunction()" class="dropbtn" src="assets/drop.png" alt="">
+                <span id="dropdown-container">
+                    <img id="dropdown-pic" onclick="dropdown()" class="dropbtn" src="assets/drop.png" alt="">
+                </span>
                 <div id="myDropdown" class="dropdown-content">
                     <a href="index.html">News</a>
                     <a href="quotes.html">Quotes</a>

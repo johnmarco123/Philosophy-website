@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+         <!--using handlebars so i don't have to make 12 seperate pages for every person who has quotes-->
+
+        <title>𝓚𝓷𝓸𝔀𝓵𝓮𝓭𝓰𝓮 𝓝𝓮𝔀𝓼</title>
+    </head>
+    <body>
+        <nav>
+            <a class="left"href="index.html"><h1 id="header">Knowledge News</h1></a>
+
+            <div class="center" id="navigation-links">
+                <ul>
+                    <li><a href="index.html">News</a></li>
+                    <li><a href="quotes.html">Quotes</a></li>
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="stoicism.html">Stoicism</a></li>
+                    <li><a href="meditations.html">Meditations</a></li>
+                    <li><a href="report.html">Report.html</a></li>
+                </ul>
+            </div>
+            <div class="right">
+
+            </div>
+
+        </nav>
+        <div id="nav-mobile">
+            <div class="dropdown">
+                <span id="dropdown-container">
+                    <img id="dropdown-pic" onclick="dropdown()" class="dropbtn" src="assets/drop.png" alt="">
+                </span>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="index.html">News</a>
+                    <a href="quotes.html">Quotes</a>
+                    <a href="books.html">Books</a>
+                    <a href="stoicism.html">Stoicism</a>
+                    <a href="meditations.html">Meditations</a>
+                    <a href="report.html">Report</a>
+                </div>
+            </div>
+        </div>
+        <script>
+        
+                    function dropdown() {
+            document.getElementById("myDropdown").classList.toggle("show");
+            }
+
+                    // Close the dropdown menu if the user clicks outside of it
+/***************************************************************************************
+    *    Title: How TO - Clickable Dropdown
+    *    Author: w3SCHOOLS
+    *    Date: Unknown
+    *    Code version: 1.0
+    *    Availability: https://www.w3schools.com/howto/howto_js_dropdown.asp#:~:text=Example%20Explained,dropdown%20menu%20correctly%20with%20CSS.
+    *
+    ***************************************************************************************/
+            window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+                }
+            }
+            }
+        </script>
+        <div id="progress-bar"></div>
+        <div id="main-container">
+            <!--IF YOU GO ON THIS PAGE WITHOUT CLICKING ON A BOOK-->
+            <div id="uh-oh-page">
+                <a href="books.html">
+                    <img id='uh-oh-img'src="assets/uh-oh.png" alt="">
+                </a>
+            </div>
+
+            <div id="book-page">
+                <h2 id="book-page-title"></h2>
+                <div id="book-page-landing-container">
+                    <span>
+                        <img class="shadow"id="book-page-img" src="" alt="">
+                    </span>
+                    <span id="book-page-description-container">
+                        <h3 id="book-page-landing-introduction">Introduction</h3>
+                        <p id="book-page-description"></p>
+                    </span>
+                </div>
+                <div id="book-details">
+                    <h3>Book in a sentence</h3>
+                    <p id="book-page-sentence"></p>
+                    <h3>Main points</h3>
+                    <ul id="book-page-points"></ul>
+                    <h3>Top three passages</h3>
+                    <ol id="book-page-passages">
+                        <li class="book-page-passages"></li>
+                        <li class="book-page-passages"></li>
+                        <li class="book-page-passages"></li>
+                    </ol>
+                    <h3>Summary</h3>
+                    <div id="book-page-summary"></div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <!--this MUST BE CALLED HERE, as this page requires external javascript to edit its contents-->
+        <script src="script.js"></script>
+    </body>
+    <footer>
+        <div id="footer-container">
+            <h5>USEFUL LINKS</h5>
+            <ul id="footer-items">
+                <li>Home</li>
+                <li>Quotes</li>
+                <li>Stoicism</li>
+                <li>Books</li>
+                <li>Meditations</li>
+            </ul>
+            <div id="email-container">
+                <label>Sign up for our newsletter
+                    <input id="email" type="email" size="30" maxlength="40" placeholder="Email">
+                </label>
+            </div>
+        </div>
+    </footer>
+</html>
