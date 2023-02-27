@@ -7,7 +7,7 @@ window.onload=function(){
     html = document.documentElement;
 
     /***************************************************************************************
-    *    Title: How to get height of entire document with JavaScript?
+    *    Title: How to get height of entire document with JavaScript#
     *    Author: Borgar
     *    Date: Jul 18, 2009
     *    Code version: 1.0
@@ -32,33 +32,16 @@ window.onload=function(){
 
     //START PAGE EDITOR
    //grab the url
-   const url = window.location.href
+   let url = window.location.href
 
-   let array_name = []
-
-   //here we iterate over the url from the end first, and stop once we reach our question mark/hashtag.
-   //in other words we capture the name, book, pagenumber of whatever is calling this function.
-   //understandably i could of used mustache or brackets but it was giving me trouble so i decided
-   //to implament it manually myself
-   for(let i = url.length - 1; i > 0; i--)
-   {
-    //if there isn't a hashtag or a question mark we don't need to capture data
-       if(!url.includes('#') && !url.includes('?'))
-       {
-           break
-       }
-       if(url[i] == '#' || url[i] == '?')
-       {
-           break;
-       }
-       array_name.push(url[i]);
-   }
-   //the array_name is a backwards array of the person whom the client clicked.
-   //Therefore we must...
-   //1.)reverse it back with .reverse()
-   //2.)turn it into a string with .join('')
-   //3.)replace the '-' with '_' to grab the appropriate data in script.js (javascript variables cant have '-')
-   const databaseName = array_name.reverse().join('').replaceAll('-', '_');
+    //get the info we need in the search bar after the equals sign.
+    //if you remove this, almost the entire website wont function properly. 
+    //this is VITAL for the code DO NOT REMOVE THIS!
+    const search = window.location.search
+    let databaseName;
+    if(search){
+        databaseName = search.substring(search.indexOf('=') + 1).replaceAll('-', '_')
+    }
 
 
         const activateQuotePage = x =>{
@@ -103,7 +86,7 @@ window.onload=function(){
                     quotes:
                     [
                         `"Every day, think as you wake up: Today I am fortunate to be alive, I have a precious human life, I am not going to waste it." -Dalai Lama`,
-                        `"Carefully consider, what prevents you from living the way you want to live your life?" -Dalai Lama`,
+                        `"Carefully consider, what prevents you from living the way you want to live your life#" -Dalai Lama`,
                         `"The goal is not to be better than the other man, but your previous self." -Dalai Lama`,
                         `"Let us try to recognize the precious nature of each day." -Dalai Lama`,
                         `"As you breathe in, cherish yourself. As you breathe out, cherish all beings." -Dalai Lama`,
@@ -329,7 +312,7 @@ window.onload=function(){
                         `"Blot out your imagination. Turn your desire to stone. Quence your appetites. Keep your mind centered on itself." -Marcus Aurelius`,
                         `"Today I escaped anxiety. Or no, I discarded it, because it was within me, in my own perceptions-not outside." -Marcus Aurelius`,
                     ],
-                    img:'assets/stoicism/stoic25.png'
+                    img:'assets/marcus-aurelius.png'
                 },
                 muhammad_ali:
                 {
@@ -359,7 +342,7 @@ window.onload=function(){
                 
             }
             const arrayOfPeople = Object.keys(virtualDatabase);
-            const random = x => Math.floor(Math.random() * x);
+            const random = n => Math.floor(Math.random() * n);
             const randomQuotes = () => {
                 
                     //each person has ten quotes, therefore totalAllowedQuotes = 10;
@@ -505,8 +488,395 @@ window.onload=function(){
             const virtualLibrary = {
 
                 //any array in the virtual library gets split into appropriate tags and shoved into the document accordingly.
+        
+                make_it_stick:{
+                    title:'Make It Stick',
+                    img:'monk.jpg',
+                    description:`
+                    A how-to guide on how to study more efficiently and effectively. It disproves the most most widely used
+                    study method, that method being to read something over and over until you memorize it. It shows how this 
+                    creates a false preception that you know the material when you often do not. They then show you various
+                    methods to study effectively such as interleaving, retrieval practice, mnemonics and more.
+                    `,
+                    sentence:`The book makes strong, research based arguments, as to why retrieval practice and variation/spacing are better then the common repetition studying.`,
+                    points:[
+                        `Retrieval practice is far more effective than repeated repetition`,
+                        `Space out your subjects to prevent mindless studying`,
+                        `Three steps to learning: Initial encoding, consolidation, and retrieval`,
+                        `You often learn far more when the studying is difficult, then when it is easy.`
+                    ],
+                    passages:[
+                        `"Students who have been quizzed have a double advantage over those who have not: a more accurate sense of what they know and don't know, and the strengthening 
+                        of learning that accrues from retrieval practice"`
+
+                        , `"Interleaving and variation build new connections, expanding and more firmly entrenching knowledge in memory and increasing the number of cues for retrieval."`
+                        
+                        , `"Don't assume that you're doing something wrong if the learning feels hard. Remember that difficulties you can overcome with greater cognitive effort will more
+                        than repay you in the depth and durability of your knowledge"`
+                    ],
+                    summary:[
+                        `One big issue about repeated repetition is it soon becomes mindless. Spacing out different areas of study abolish mindless repetition and greatly 
+                        enhance your retention of what your studying. Be mindful of how big this interval is between subjects, or sections. It should be just big enough so some forgetting has happened,
+                        yet not too big to the point where you forgot everything you previously studied.`,
+
+                        `Repetition learning creates a superficial reality in the one studying. It embeds the material into short term memory, which makes the individual believe they have
+                        learned the material. This is more often than not, false.  
+                        `,
+                        `Periodically testing yourself by asking yourself questions, using flashcards, doing practice questions can show you more accurately what you do and do not know.
+                        This practice of recalling what you've learned helps you retrieve that information later, and also helps to cement the knowledge into your long-term memory.
+                        `
+
+                    ],
+                    img:`assets/make-it-stick.jpeg`,
+                    href:`make-it-stick`
+                },
+                
+                ego_is_the_enemy:{
+                    title:'Ego Is The Enemy',
+                    img:'monk.jpg',
+                    description:`Our number one enemy in every stage of our life is our ego. Whether that be pursuing something, achieving it, or failing at it ego is always there to snatch our best opportunities
+                    away from us`,
+                    sentence:`Your ego is always there with you, if you don't control it, then it will destroy your life.`,
+                    points:[
+                        `Ego isn't just present when you are working hard towards something. It can actually be the most potent when someone praises something you've done`,
+                        `Your ego prevents you from constantly learning. Once you climb the mountain it will try and convince you that now you may rest.`,
+                        `Your ego will try and remind you how hard your working and to relax a bit, if you pursue these impulses it will destroy you.`,
+                        `When you fail in life your ego will tell you that it is the end of the world. But as long as you keep getting up, dusting yourself off and going forward, nothing will stop you.`
+                    ],
+                    passages:[
+                        `"Reflecting on what went well or how amazing we are doesn't get us anywhere, except maybe to where we are right now. But we want to go further, we want more, we want to continue
+                         to improve. Ego blocks that, so we subsume it and smash it with continually higher standards. Not that we are endlessly pursuing more, as if we're racked with greed, but instead,
+                          we're inching our way toward real improvement, with discipline rather then disposition"`,
+
+                         `"It's during your moment at the top that you can afford ego the least -because the stakes are so much higher, the margins for error are so much smaller. If anything, your ability
+                         to listen, to hear feedback, to improve and grow matter more now than ever before."`
+                        
+                        ,`"Do you know how you can tell when someone is truly humble? I believe there's one simple test: because they consistently observe and liste, the humble improve. They don't assume, 'I know the way.'" -Wynton Marsalis`
+                    ],
+                    summary:[
+                        `No matter where you are in your life, ego is always there alongside you. Whether you're striving to buy an expensive house, or you already have everything you could ever want, ego is there.
+                        Ego is present during all phases of your life. Ryan breaks these phases into the these three segments: aspire (in pursuit of a goal), success (have achieved a goal), failure 
+                        (have lost something important, or failed at achieving a goal)`,
+                        `Ryan shows many cases of how ego has destroyed many lives and how it can just as easily destroy yours as well. To combat this he explains many remedies for each stage ego resides in.
+                        Whilst in pursuit of a goal, ensure that you remain a student and do not get cocky. After achieving a goal, don't get complacent, keep working just as hard. If you fail in life, see it how it really is,
+                        don't let your ego tell you its the end of the world when it really isn't.`
+                   ],
+                    img:`assets/ego-is-the-enemy.jpeg`,
+                    href:`ego-is-the-enemy`
+                },
+                as_a_man_thinketh:{
+                    title:'As A Man Thinketh',
+                    img:'monk.jpg',
+                    description:`This small philosophical book provides the reader with lots of information for them to ponder and use in their lives. It explains that thoughts are just as -if not more important then- your 
+                    actions. Your thoughts can spark good or bad action, can guide you to a better future, or ruin your life. 
+                    `,
+                    sentence:`Your thoughts have a great influence on all aspects of your life, control your thoughts.`,
+                    points:[
+                        `Your thoughts aren't just simple thoughts. They influence your actions, which influence the world. Your thoughts are powerful`,
+                    ],
+                    passages:[
+                        `"When a man makes his thoughts pure, he no longer desires impure food"`,
+
+                         `"Tempest-tossed souls, wherever ye may be, under whatsoever conditions ye may live, know this -in the oceon of life the isles of Blessedness are smiling, and the sunny shore of your ideal awaits your
+                        coming. Keep your hand firmly upon the helm of thought. In the barque of your soul reclines the commanding Master; He does but sleep; wake Him. Self-control is strength; Right Thought is mastery; Calmness
+                        is power. Say unto your heart, 'Peace be still!'"`
+                        
+                        , `"They do not know the darkness and the heartaches; they only see the light and joy, and call it 'luck'; do not see the long and arduous journey, but only behold the pleasant goal, and call it 'good fortune';
+                        do not understand the process, butonly percieve the result, and call it 'chance'"`
+                    ],
+                    summary:[
+                        `This small philosophical book sparks insight as to how ones thoughts change the world around themselves. With pages full of wisdom this is not a one-and-done kind of book. This book is a book that you
+                        should read throughout your life. The main focus of this book is how to cultivate your thoughts to master your life.`,
+                    ],
+                    img:`assets/as-a-man-thinketh.jpeg`    ,
+                    href:`as-a-man-thinketh`
+                },
+                awaken_the_giant_within:{
+                    title:'Awaken The Giant Within',
+                    img:'monk.jpg',
+                    description:`This gigantic book is filled with methods to break bad behaviours financially, emotionally, physically, and mentally. It has various workpages scattered throughout the chapters to guide you on your journey to a better life.
+                    These workpages consist of setting goals, breaking bad habits, and changing your beliefs you have in your life about yourself.`,
+                    sentence:`A massive book with easy to understand and easy to follow information about how to achieve your goals and live a healthy and happy life.`,
+                    points:[
+                        `Changing your vocabulary can change how you feel. For example instead of saying i'm furious! You can say i'm a bit erked. This subtle change in language can drastically change how you feel`,
+                        `Your identity shapes who you are. If you have never smoked and your offered a cigarette, you will say 'no thanks I don't smoke' or 'I am not a smoker'. This is very different then 'I'm trying to quit.
+                        Therefore, to change a bad habit, change your identity`,
+                        `The quality of your questions determines the quality of your answers.`,
+                        `Questions change what we remember or delete, as well as also changing the resources available to us.`
+                    ],
+                    passages:[
+                        `"You and I have that same power at our disposal every moment of the day. At any moment, the questions that we ask ourselves can shape our perception of who we are, what we're capable of, and what we're willing to do to achieve our dreams."`
+
+
+                        , `"All goal setting must be immediately followed by both the development of a plan, and massive and consistent action toward its fulfillment."`
+                        
+                        , `"While most people have to establish competence before they feel confident, I decide to feel confident, and that provides the sense of certainty to persist until I am competent."`
+                    ],
+                    summary:[
+                        `This gigantic 450+ page book is filled with wisdom and knowledge and is one to refer back to again and again. Tony explains the importance of how you communicate to others and more importantly, how you communicate with yourself.
+                        `,
+                        `He also goes over how we can break free from negative, bad habits and how to cultivate positive, good ones. He explains many methods on how to do this, most notably about using NAC (Neuro-associative conditioning).`,
+                        `Tony also implamented many challenges in this book which were very helpful in fully digesting all the information he provided. He has challenges to help you shape your ideal identity, to set goals, to break limiting beliefs, and much, much more.`,
+                    ],
+                    img:`assets/awaken-the-giant-within.jpeg`,
+                    href:`awaken-the-giant-within`
+                },
+                mans_search_for_meaning:{
+                    title:'Mans Search For Meaning',
+                    img:'monk.jpg',
+                    description:`Viktor Frankl was a Holocaust survivor. In his book he brings the reader into what it
+                    was like every day at the camps. He explains the adversity he had to face, but more importantly,
+                    he shows how vitally important it is to have a good frame of mind even when subjected to the worst
+                    tragedies this world has to offer.
+                    `,
+                    sentence:`The horrors of Nazi concentration camps, and the power of the human mind to overcome the worst of situations.`,
+                    points:[
+                        `You can discover your meaning of life in three ways:`,
+                        `1.) By creating a work, doing good work and being a good person`,
+                        `2.) Through love for someone or something`,
+                        `3.) By accepting the unavoidable suffering of reality`
+                    ],
+                    passages:[
+                        `"Life is like being at the dentist. You always think the worst is still to come, and yet it is over already."`
+
+                        , `"Ultimately, man should not ask what the meaning of his life is, but rather he must recognize that it is he
+                         who is asked. In a word, each man is questioned by life; and he can only answer to life by answering for his
+                          own life; to life he can only respond by being responsible."`
+                        
+                        , `"Live as if you were living already for the second time and as if you had acted the first time as wrongly
+                         as you are abou to act now!"`
+                    ],
+                    summary:[
+                        `The intense story of how Viktor Frankl survived Nazi concentration camps was a dark, yet inspiring read. He explains
+                        how the people who often passed away the soonest are the ones who gave up the will to live, the ones who lost purpose in
+                        their lives.`,
+                        `The three main points to finding meaning in your life are, to find it in work, to find it in love, or to find it in accepting 
+                        unavoidable suffering. He explains that by having this meaning resolved in your life, you can cultivate the strength to keep on going
+                        no matter how hard life may be.
+                        `,
+                        `Seeing how difficult Viktor Frankls life was in the concentration camps really puts into perspective how lucky most of us have it. The
+                        biggest takeaway from Viktor's book is how important it is to have a strong meaning for your life, and to use this meaning to give you the
+                        courage and perseverance to get through anything.`,
+                    ],
+                    img:`assets/mans-search-for-meaning.jpeg`,
+                    href:`mans-search-for-meaning`
+                },
+                meditations:{
+                    title:'Meditations',
+                    img:'monk.jpg',
+                    description:`
+                    Marcus Aurelius was a Roman emperer and stoic philosopher. This book was gathered from notes he would write
+                    to himself about the philosophy he would like to live by. Translated and passed down through the generations,
+                    meditations teaches one how to handle lifes challenges and adversity, as well as how to live by exceptional
+                    values.
+                    `,
+                    sentence:`A self-written journal from the Roman emperer Marcus aurelius, packed full of small passages containing philosophy, guidance, and life advice.`,
+                    points:[
+                        `No matter whom you are or what you do, it is how you act that matters more than anything.`,
+                        `Do what is right, be the best person that you can possibly be`,
+                    ],
+                    passages:[
+                        `"If anyone can refute me -show me I'm making a mistake or looking at things from the wrong perspective- I'll gladly change.
+                        It's the truth I'm after, and the truth never harmed anyone. What harms us is to persist in self-deceit and ignorance."`
+
+                        , `The only rewards of our existence here are an unstained character and unselfish acts.`
+                        
+                        , `It's quite possible to be a good man without anyone realizing it. Remember that.`
+                    ],
+                    summary:[
+                        `This book is entirely filled by small knowledge-full passages that Marcus wrote to himself to keep his mind, actions and soul in line.
+                        In reading his journal he taught us that what matters the most in life is to be the best character we can be and to treat
+                        others the best we can`,
+                        `There are never issues or obstacles in life, only opportunities to practice your virtues. One cannot control the outer world 
+                        fully, but they may always choose how they will precieve and respond to any situation.`,
+                    ],
+                    img:`assets/meditations.jpeg`,
+                    href:`meditations`
+                },
+                atomic_habits:{
+                    title:'Atomic Habits',
+                    img:'monk.jpg',
+                    description:`
+                    A how-to book on breaking bad habits and building positive ones. He provides a step by step
+                    formula to help you improve your habits. He also explains that by using small (atomic) habits every
+                    day you can change the course of your entire life.
+                    `,
+                    sentence:`A simple, proven, and practical step by step guide on how to break bad habits or build new ones.`,
+                    points:[
+                        `There's four steps in creating a good habit. Those four steps are to make it obvious, attractive, easy, and satisfying.`,
+                        `There's four steps in breaking a bad habit aswell. Those four steps are to make it invisible, unattractive, difficult, and unsatisfying.`,
+                        ` Small, consistent habits have exponential growth. Improving by 1% each day, over a year timespan, would make you 37 times better than 
+                        the day you started.`
+                    ],
+                    passages:[
+                        `"The only way to become excellent is to be endlessly fascinated by doing the same thing over and ove You have to fall in love with boredom."`
+
+                        , `"Named after the economist Charles Goodhart, the principle states, 'When a measure becomes a target, it ceases to be a good measure.'
+                         Measurement is only useful when it guides you and adds context to a larger picture, not when it consumes you. Each number is simply one
+                          piece of feedback in the overall system"`
+                        
+                        , `"If you want to master a habit, thekey is to start with repetition, not perfection. You don't need to map out every feature of a new habit.
+                         You just need to practice it."`
+                    ],
+                    summary:[
+                        `The simple formula James made to describe how to make or break habits is simple, efficient and applicable. Every behaviour that becomes a habit
+                        follows these four steps: cue, craving, response, reward. Keeping these steps in mind we can see the connection between his formula and how habits
+                        are formed. These steps are: make the behaviour obvious (cue), make it attractive (craving), make it easy (response), and make it satisfying reward)
+                        The same thing is identical for the inverse as well.`,
+                        `Habits have many benefits, however if you are trying to form habits in an attempt to master an important skill, they can also make you complacent. If you don't fight
+                         the complacency and practice deliberately, your results will eventually plateau. For this reason we must not settle for just mere habits when trying to perform at the
+                         elite level. James provided us with a simple and easy formula to represent this: "Habits + Deliberate Practice = Mastery".`,
+
+                    ],
+                    img:`assets/atomic-habits.jpeg`,
+                    href:`atomic-habits`
+                },
+                discipline_equals_freedom:{
+                    title:'Discipline Equals Freedom: Field Manual MK1-MOD1 (By Jocko Willink)',
+                    img:'monk.jpg',
+                    description:`Most people think that discipline is forcing yourself to do something you don't want to do, and hating every second of it. In this motivational book, Jocko Willink flips that idea on its head.
+                    He provides short 2-3 page full descriptions of how to deal with problems such as feeling overwhealmed, self-sabotage, strategic planning, and dozens more.`,
+                    sentence:`Pages full of motivation and advice to help you stay disciplined under any and all circumstances, and the importance of discipline in achieving freedom and success in life.`,
+                    points:[
+                        `Any option not to stay disciplined are all excuses`,
+                        `Don't give into weakness`,
+                        `Don't do what makes you happy, do what makes you better`,
+                        `Nothing matters but the task at hand`,
+                        `Detach from situations that your overly invested in to get a better perspective`,
+                        `When dealing with negative people who want the worst for you. Ignore and outperform them.`,
+                    ],
+                    passages:[
+                        `"Thinking alone won't get you anywhere. Simple existence is not being alive. You have to take action. You have to move forward. You have to exert and strive and toil. Thoughts are not enough. TAKE ACTION."`
+
+                        , `"Don't worry about motivation. Motivation is fickle. It comes and goes. It is unreliable and when you are counting on motivation to get your goals acomplished you will likely fall short.
+                            So. Don't expect to be motivated every day to get out there and make things happen. You won't be. Don't count on motivation. Count on Discipline. You know what you have to do. So: MAKE YOURSELF DO IT.
+                            You do that with Discipline."`
+                        
+                        , `"This is where it begins. In the darkness. Before the sun and the birds and the world. Every day. When the alarm sounds. IT IS TIME. Rise. Despite fatigue and soreness. Curse the warmth of the bed.
+                         Curse the comfort of the pillow. Fight the temptation of weakness. Get up and go. Do it quickly, without thought. Do not reason with weakness. You cannot. You must only take action. Get up and GO"`
+                    ],
+                    summary:[
+                        `Discipline is the only way to live a great life. Without discipline everything faulters, but with discipline you continue to get better then you were the day before. Happiness is an emotion that comes and goes
+                        it never stays as long as you wish, but bettering yourself every day can be a reality. It all starts with one step, and thats to take action.`,
+                        `This isn't a book you want to read in one sitting and forget about. It's a book flooded with motivation and advice for dealing with the weakness that pulls you away from being better then you were the day before.`,
+                        `For any challenge in your life, for any weakness in your character, this book will bring your feet on the ground and have you sprinting towards your problems head first.`,
+                    ],
+                    img:`assets/discipline-equals-freedom.jpeg`,
+                    href:`discipline-equals-freedom`
+                },
+                eight_rules_of_love:{
+                    title:'8 Rules Of Love (By Jay Shetty)',
+                    img:'monk.jpg',
+                    description:`How to find love, how to keep it, and how to let it go. Jay provides us with practical tools for first loving ourselves, then to loving another, and finally to loving everyone around us.
+                    There is many practical exercises to follow, including but not limited to: how to live in solitude, various meditations on love towards yourself and others, and how to find what love means to you.`,
+                    sentence:`A practical how-to book on cultivating love towards yourself, loved ones, and finally, everyone.`,
+                    points:[
+                        `You must love yourself, in solitude, before you search for a relationship.`,
+                        `Once you love yourself in solitude you can look to spread that love to another individual.`,
+                        `After you've found a relationship and have cultivated love there, you can then sprpead it to the rest of the world!`
+                    ],
+                    passages:[
+                        `" 'What is the difference between like and love?' asks a student. The teacher responds, 'When you like a flower, you pluck it. When you love a flower, you water it daily' "`
+
+                        , `"We're just focusing too much on what our parents should have done or wishing they'd behaved differently rather than figuring out what we ourselves can do."`
+                        
+                        , `"As soon as we say 'I love you,' we're going to have to live up to those words, not by our definition, but by the definition of the person we love. On the flip side,
+                         when we accept someone else's love, we have to realize that they aren't using our definition of love."`
+                    ],
+                    summary:[
+                        `The eight rules for love are... Rule 1: Let yourself be alone. Rule 2: Don't ignore your karma. Rule 3: Define love before you think it, feel it, or say it. Rule 4: Your partner is your guru.
+                        Rule 5: Purpose comes first. Rule 6: Win or lose together. Rule 7: You don't break in a breakup. Rule 8: Love again and again.`,
+                        `With various meditations, reflections, and other exercises, 8 rules of love helps you cultivate love for yourself and others. It also teaches you that it is okay to be without another person,
+                        and to instead enjoy your own company`,
+                        `Jay explains the importance of loving yourself before you cultivate it with another, and that if you do not love yourself then you cannot extend that love to another person. He uses his wisdom from
+                        being a monk and studying the Bhagavad Gita and applies it to how you, in todays society, can love.`,
+                    ],
+                    img:`assets/eight-rules-of-love.jpeg`,
+                    href:`eight-rules-of-love`
+                },
+                beyond_order:{
+                    title:'Beyond Order (By Jordan Petersen)',
+                    img:'monk.jpg',
+                    description:`The second book of the two part series, with the first one being '12 rules for life - an antidote to chaos'. This book is the opposing counterpart of the first book, as it
+                    shows that you do not just need order, and rules but also creativity and things you should ensure you do not do.`,
+                    sentence:`Philosophy on how to improve yourself and the world around you, but starting with yourself first.`,
+                    points:[
+                        `Rule I: Do not carelessly denigrate social institutions or creative achievement`,
+                        `Rule II: Imagine who you could be, and then aim single-mindedly at that`,
+                        `Rule III: Do not hide unwanted things in the fog `,
+                        `Rule IV: Notice that opportunity lurks where responsibility has been abdicated`,
+                        `Rule V: Do not do what you hate`,
+                        `Rule VI: Abandon ideology`,
+                        `Rule VII: Work as hard as you possibly can on at least one thing and see what happens`,
+                        `Rule VIII: Try to make one room in your home as beautiful as possible`,
+                        `Rule IX If old memories still upset you, write them down carefully and completely`,
+                        `Rule X: Plan and work diligently to maintain the romance in your relationship`,
+                        `Rule XI: Do not allow yourself to become resentful, deceitful, or arrogant`,
+                        `Rule XII Be grateful in spite of your suffering`,
+                    ],
+                    passages:[
+                        `"Every rule was once a creative act, breaking other rules. Every creative act, genuine in its creativity, is likely to transform itself, with time, into a useful rule. 
+                        It is the living interaction between social institutions and creative achievement that keeps the world balanced on the narrow line between too much order and too much chaos"`
+
+                        , `"Failing to look under the bed when you strongly suspect a monster is lurking there is not an advisable strategy."`
+                        
+                        , `"If you are suffering from memories that will not stoop tormenting you, there is possibility -possibility that could be your very salvation- waiting there to be discovered. 
+                        If old memories still upset you, write them down carefully and completely."`
+                    ],
+                    summary:[
+                        `Jordan provides insight into why doing ethically sound actions is not just in benefit of others around you and the world itself, but also for your own wellbeing. He dives into
+                        every rule expansively and in great depths explaining stories for why you should act in the manner he suggests.`,
+                        `He gives us these rules to help us create more order in the chaos of life. When excess order exists, it is important that there is some chaos as well. Chaos is not a bad thing, just as 
+                        order is not a bad thing either. They must both be balanced like two ends of a see-saw, Like yin and yang.`,
+                    ],
+                    img:`assets/beyond-order.jpeg`,
+                    href:`beyond-order`
+                },
+                how_to_read_a_book:{
+                    title:'How To Read A Book (By Mortimer J. Adler and Charled Van Doren)',
+                    img:'monk.jpg',
+                    description:`A somewhat paradoxical book on how to read books (mostly non-fiction). There are various layers of reading, which one progresses through. Most people stay on the first or second layer for the rest of their
+                    life. This book tries to push readers to improve, to seek out difficult books, to read actively, to interact with the author through the pages, to ask questions, and ultimately to learn as much as you
+                    can from every book you read. `,
+                    sentence:`sentence summary goes here`,
+                    points:[
+                        `Reading is not a passive effort, it is a conversation between the reader and the author.`,
+                        `Highlight, fold pages, write in the margin, ask questions, be an active learner!`,
+                        `Inspect all aspects of the book, the title, the table of contents, the dust shield, break down the chapters into paragraphs, and into main sentences etc`,
+                        `Analyze the elements, what was the authors question he was trying to answer? Did he answer it? If so, and with backed up arguements you must say you agree with him.
+                         If not you must figure out why he has not, and back it up with reasons`,
+                         `You can pin authors with different views from different books against one another if you remain objective. Ask both of them a question that their book answers, which side has the strongest arguements?
+                          and why? This is also known as syntopical reading.`,
+                         
+                    ],
+                    passages:[
+                        `"To make knowledge practical we must convert it into rules of operation. We must pass from knowing what is the case to knowing what to do about it if we wish to get somewhere. This can be summarized in the
+                         distinction between knowing THAT and knowing HOW. Theoretical books teach you THAT something is the case. Practical books teach you HOW to do something you want to do or think you should do."`
+
+                        , `"the most important words are those that give you trouble. It is likely that these words are important for the author as well. However they may not be. It is also possible that words that are important
+                         for the author do not bother you, and precisely because you understand them."`
+                        
+                        , `"If you never ask yourself any questions about the meaning of a passage, you cannot expect the book to give you any insight you do not already possess."`
+                    ],
+                    summary:[
+                        `To read any expository book well you must ask questions, highlight, write in the margin, be as active as you can in your reading. There are four levels to reading, elementary, inspectional, analytical and syntopical.
+                        Each level of reading builds upon the previous level, using all that you have learned from it previously. `,
+                        `Elementary reading is the reading you learn how to do in, well elementary school. How to understand letters, form them into words, form those words into sentences, and those into paragraphs. It's main concern is being able to 
+                        read at all.`,
+                        `Inspectional reading requires you to be more active in your approach. Examine the title, the table of contents, the dust cover, skin the general book quickly, only reading bits here and there, whatever seems important. Get a 
+                        general feeling of how the book is and if its a book you would like to continue reading. Some books are best read in this quick manner, whilst others -like philosophy- require very active deliberate, slow reading. `,
+                        `Analytical reading is using your inspectional reading to try and break down the chapters into main paragraphs, and then into main sentences. Analyze what the authors questions were before he wrote the book, was it how to read a book better?
+                        Was it, how to deal with lifes adversities through meditation? Whatever it is try to find it through breaking down and analyzing the books contents in this manner`,
+                        `The last level is syntopical reading. Most of the time you will not preform this level as it is a completely different form of reading all together. In this step of reading you start with a question. For example, is money good or bad for society?
+                        You then make a big reading list of all the books that may answer this question and narrow it down to the important ones. Then you try to find the parts of the books that are relevant to the question your asking, 
+                        and hopefully the authors views conflict. It is important to stay objective and let the resolution come out naturally. This can bring new understanding to old concepts, but it is a very difficult level of reading.`
+                    ],
+                    img:`assets/how-to-read-a-book.jpeg`,
+                    href:`how-to-read-a-book`
+                },
                 the_obstacle_is_the_way:{
                     title:'The Obstacle is The Way',
+                    img:'monk.jpg',
                     description:`
                     A guide to life that reveals with stories, quotes, stoic philosophy and logic that every obstacle is an
                     opportunity to improve yourself as a person.
@@ -553,6 +923,7 @@ window.onload=function(){
                 },
                 stillness_is_the_key:{
                     title:'Stillness Is The Key',
+                    img:'monk.jpg',
                     description:`
                     Life is more enjoyable when you slow down in and enjoy it, rather then rush
                     mindlessly through it. He provides fearful examples of what can happen if you don't take
@@ -586,382 +957,10 @@ window.onload=function(){
                     img:`assets/stillness-is-the-key.jpeg`,
                     href:`stillness-is-the-key`
                 },
-                mans_search_for_meaning:{
-                    title:'Mans Search For Meaning',
-                    description:`Viktor Frankl was a Holocaust survivor. In his book he brings the reader into what it
-                    was like every day at the camps. He explains the adversity he had to face, but more importantly,
-                    he shows how vitally important it is to have a good frame of mind even when subjected to the worst
-                    tragedies this world has to offer.
-                    `,
-                    sentence:`The horrors of Nazi concentration camps, and the power of the human mind to overcome the worst of situations.`,
-                    points:[
-                        `You can discover your meaning of life in three ways:`,
-                        `1.) By creating a work, doing good work and being a good person`,
-                        `2.) Through love for someone or something`,
-                        `3.) By accepting the unavoidable suffering of reality`
-                    ],
-                    passages:[
-                        `"Life is like being at the dentist. You always think the worst is still to come, and yet it is over already."`
-
-                        , `"Ultimately, man should not ask what the meaning of his life is, but rather he must recognize that it is he
-                         who is asked. In a word, each man is questioned by life; and he can only answer to life by answering for his
-                          own life; to life he can only respond by being responsible."`
-                        
-                        , `"Live as if you were living already for the second time and as if you had acted the first time as wrongly
-                         as you are abou to act now!"`
-                    ],
-                    summary:[
-                        `The intense story of how Viktor Frankl survived Nazi concentration camps was a dark, yet inspiring read. He explains
-                        how the people who often passed away the soonest are the ones who gave up the will to live, the ones who lost purpose in
-                        their lives.`,
-                        `The three main points to finding meaning in your life are, to find it in work, to find it in love, or to find it in accepting 
-                        unavoidable suffering. He explains that by having this meaning resolved in your life, you can cultivate the strength to keep on going
-                        no matter how hard life may be.
-                        `,
-                        `Seeing how difficult Viktor Frankls life was in the concentration camps really puts into perspective how lucky most of us have it. The
-                        biggest takeaway from Viktor's book is how important it is to have a strong meaning for your life, and to use this meaning to give you the
-                        courage and perseverance to get through anything.`,
-                    ],
-                    img:`assets/mans-search-for-meaning.jpeg`,
-                    href:`mans-search-for-meaning`
-                },
-                meditations:{
-                    title:'Meditations',
-                    description:`
-                    Marcus Aurelius was a Roman emperer and stoic philosopher. This book was gathered from notes he would write
-                    to himself about the philosophy he would like to live by. Translated and passed down through the generations,
-                    meditations teaches one how to handle lifes challenges and adversity, as well as how to live by exceptional
-                    values.
-                    `,
-                    sentence:`A self-written journal from the Roman emperer Marcus aurelius, packed full of small passages containing philosophy, guidance, and life advice.`,
-                    points:[
-                        `No matter whom you are or what you do, it is how you act that matters more than anything.`,
-                        `Do what is right, be the best person that you can possibly be`,
-                    ],
-                    passages:[
-                        `"If anyone can refute me -show me I'm making a mistake or looking at things from the wrong perspective- I'll gladly change.
-                        It's the truth I'm after, and the truth never harmed anyone. What harms us is to persist in self-deceit and ignorance."`
-
-                        , `The only rewards of our existence here are an unstained character and unselfish acts.`
-                        
-                        , `It's quite possible to be a good man without anyone realizing it. Remember that.`
-                    ],
-                    summary:[
-                        `This book is entirely filled by small knowledge-full passages that Marcus wrote to himself to keep his mind, actions and soul in line.
-                        In reading his journal he taught us that what matters the most in life is to be the best character we can be and to treat
-                        others the best we can`,
-                        `There are never issues or obstacles in life, only opportunities to practice your virtues. One cannot control the outer world 
-                        fully, but they may always choose how they will precieve and respond to any situation.`,
-                    ],
-                    img:`assets/meditations.jpeg`,
-                    href:`meditations`
-                },
-                atomic_habits:{
-                    title:'Atomic Habits',
-                    description:`
-                    A how-to book on breaking bad habits and building positive ones. He provides a step by step
-                    formula to help you improve your habits. He also explains that by using small (atomic) habits every
-                    day you can change the course of your entire life.
-                    `,
-                    sentence:`A simple, proven, and practical step by step guide on how to break bad habits or build new ones.`,
-                    points:[
-                        `There's four steps in creating a good habit. Those four steps are to make it obvious, attractive, easy, and satisfying.`,
-                        `There's four steps in breaking a bad habit aswell. Those four steps are to make it invisible, unattractive, difficult, and unsatisfying.`,
-                        ` Small, consistent habits have exponential growth. Improving by 1% each day, over a year timespan, would make you 37 times better than 
-                        the day you started.`
-                    ],
-                    passages:[
-                        `"The only way to become excellent is to be endlessly fascinated by doing the same thing over and ove You have to fall in love with boredom."`
-
-                        , `"Named after the economist Charles Goodhart, the principle states, 'When a measure becomes a target, it ceases to be a good measure.'
-                         Measurement is only useful when it guides you and adds context to a larger picture, not when it consumes you. Each number is simply one
-                          piece of feedback in the overall system"`
-                        
-                        , `"If you want to master a habit, thekey is to start with repetition, not perfection. You don't need to map out every feature of a new habit.
-                         You just need to practice it."`
-                    ],
-                    summary:[
-                        `The simple formula James made to describe how to make or break habits is simple, efficient and applicable. Every behaviour that becomes a habit
-                        follows these four steps: cue, craving, response, reward. Keeping these steps in mind we can see the connection between his formula and how habits
-                        are formed. These steps are: make the behaviour obvious (cue), make it attractive (craving), make it easy (response), and make it satisfying reward)
-                        The same thing is identical for the inverse as well.`,
-                        `Habits have many benefits, however if you are trying to form habits in an attempt to master an important skill, they can also make you complacent. If you don't fight
-                         the complacency and practice deliberately, your results will eventually plateau. For this reason we must not settle for just mere habits when trying to perform at the
-                         elite level. James provided us with a simple and easy formula to represent this: "Habits + Deliberate Practice = Mastery".`,
-
-                    ],
-                    img:`assets/atomic-habits.jpeg`,
-                    href:`atomic-habits`
-                },
-                make_it_stick:{
-                    title:'Make It Stick',
-                    description:`
-                    A how-to guide on how to study more efficiently and effectively. It disproves the most most widely used
-                    study method, that method being to read something over and over until you memorize it. It shows how this 
-                    creates a false preception that you know the material when you often do not. They then show you various
-                    methods to study effectively such as interleaving, retrieval practice, mnemonics and more.
-                    `,
-                    sentence:`The book makes strong, research based arguments, as to why retrieval practice and variation/spacing are better then the common repetition studying.`,
-                    points:[
-                        `Retrieval practice is far more effective than repeated repetition`,
-                        `Space out your subjects to prevent mindless studying`,
-                        `Three steps to learning: Initial encoding, consolidation, and retrieval`,
-                        `You often learn far more when the studying is difficult, then when it is easy.`
-                    ],
-                    passages:[
-                        `"Students who have been quizzed have a double advantage over those who have not: a more accurate sense of what they know and don't know, and the strengthening 
-                        of learning that accrues from retrieval practice"`
-
-                        , `"Interleaving and variation build new connections, expanding and more firmly entrenching knowledge in memory and increasing the number of cues for retrieval."`
-                        
-                        , `"Don't assume that you're doing something wrong if the learning feels hard. Remember that difficulties you can overcome with greater cognitive effort will more
-                        than repay you in the depth and durability of your knowledge"`
-                    ],
-                    summary:[
-                        `One big issue about repeated repetition is it soon becomes mindless. Spacing out different areas of study abolish mindless repetition and greatly 
-                        enhance your retention of what your studying. Be mindful of how big this interval is between subjects, or sections. It should be just big enough so some forgetting has happened,
-                        yet not too big to the point where you forgot everything you previously studied.`,
-
-                        `Repetition learning creates a superficial reality in the one studying. It embeds the material into short term memory, which makes the individual believe they have
-                        learned the material. This is more often than not, false.  
-                        `,
-                        `Periodically testing yourself by asking yourself questions, using flashcards, doing practice questions can show you more accurately what you do and do not know.
-                        This practice of recalling what you've learned helps you retrieve that information later, and also helps to cement the knowledge into your long-term memory.
-                        `
-
-                    ],
-                    img:`assets/make-it-stick.jpeg`,
-                    href:`make-it-stick`
-                },
-                ego_is_the_enemy:{
-                    title:'Ego Is The Enemy',
-                    description:`Our number one enemy in every stage of our life is our ego. Whether that be pursuing something, achieving it, or failing at it ego is always there to snatch our best opportunities
-                    away from us`,
-                    sentence:`Your ego is always there with you, if you don't control it, then it will destroy your life.`,
-                    points:[
-                        `Ego isn't just present when you are working hard towards something. It can actually be the most potent when someone praises something you've done`,
-                        `Your ego prevents you from constantly learning. Once you climb the mountain it will try and convince you that now you may rest.`,
-                        `Your ego will try and remind you how hard your working and to relax a bit, if you pursue these impulses it will destroy you.`,
-                        `When you fail in life your ego will tell you that it is the end of the world. But as long as you keep getting up, dusting yourself off and going forward, nothing will stop you.`
-                    ],
-                    passages:[
-                        `"Reflecting on what went well or how amazing we are doesn't get us anywhere, except maybe to where we are right now. But we want to go further, we want more, we want to continue
-                         to improve. Ego blocks that, so we subsume it and smash it with continually higher standards. Not that we are endlessly pursuing more, as if we're racked with greed, but instead,
-                          we're inching our way toward real improvement, with discipline rather then disposition"`,
-
-                         `"It's during your moment at the top that you can afford ego the least -because the stakes are so much higher, the margins for error are so much smaller. If anything, your ability
-                         to listen, to hear feedback, to improve and grow matter more now than ever before."`
-                        
-                        ,`"Do you know how you can tell when someone is truly humble? I believe there's one simple test: because they consistently observe and liste, the humble improve. They don't assume, 'I know the way.'" -Wynton Marsalis`
-                    ],
-                    summary:[
-                        `No matter where you are in your life, ego is always there alongside you. Whether you're striving to buy an expensive house, or you already have everything you could ever want, ego is there.
-                        Ego is present during all phases of your life. Ryan breaks these phases into the these three segments: aspire (in pursuit of a goal), success (have achieved a goal), failure 
-                        (have lost something important, or failed at achieving a goal)`,
-                        `Ryan shows many cases of how ego has destroyed many lives and how it can just as easily destroy yours as well. To combat this he explains many remedies for each stage ego resides in.
-                        Whilst in pursuit of a goal, ensure that you remain a student and do not get cocky. After achieving a goal, don't get complacent, keep working just as hard. If you fail in life, see it how it really is,
-                        don't let your ego tell you its the end of the world when it really isn't.`
-                   ],
-                    img:`assets/ego-is-the-enemy.jpeg`,
-                    href:`ego-is-the-enemy`
-                },
-                as_a_man_thinketh:{
-                    title:'As A Man Thinketh',
-                    description:`This small philosophical book provides the reader with lots of information for them to ponder and use in their lives. It explains that thoughts are just as -if not more important then- your 
-                    actions. Your thoughts can spark good or bad action, can guide you to a better future, or ruin your life. 
-                    `,
-                    sentence:`Your thoughts have a great influence on all aspects of your life, control your thoughts.`,
-                    points:[
-                        `Your thoughts aren't just simple thoughts. They influence your actions, which influence the world. Your thoughts are powerful`,
-                    ],
-                    passages:[
-                        `"When a man makes his thoughts pure, he no longer desires impure food"`,
-
-                         `"Tempest-tossed souls, wherever ye may be, under whatsoever conditions ye may live, know this -in the oceon of life the isles of Blessedness are smiling, and the sunny shore of your ideal awaits your
-                        coming. Keep your hand firmly upon the helm of thought. In the barque of your soul reclines the commanding Master; He does but sleep; wake Him. Self-control is strength; Right Thought is mastery; Calmness
-                        is power. Say unto your heart, 'Peace be still!'"`
-                        
-                        , `"They do not know the darkness and the heartaches; they only see the light and joy, and call it 'luck'; do not see the long and arduous journey, but only behold the pleasant goal, and call it 'good fortune';
-                        do not understand the process, butonly percieve the result, and call it 'chance'"`
-                    ],
-                    summary:[
-                        `This small philosophical book sparks insight as to how ones thoughts change the world around themselves. With pages full of wisdom this is not a one-and-done kind of book. This book is a book that you
-                        should read throughout your life. The main focus of this book is how to cultivate your thoughts to master your life.`,
-                    ],
-                    img:`assets/as-a-man-thinketh.jpeg`    ,
-                    href:`as-a-man-thinketh`
-                },
-                awaken_the_giant_within:{
-                    title:'Awaken The Giant Within',
-                    description:`This gigantic book is filled with methods to break bad behaviours financially, emotionally, physically, and mentally. It has various workpages scattered throughout the chapters to guide you on your journey to a better life.
-                    These workpages consist of setting goals, breaking bad habits, and changing your beliefs you have in your life about yourself.`,
-                    sentence:`A massive book with easy to understand and easy to follow information about how to achieve your goals and live a healthy and happy life.`,
-                    points:[
-                        `Changing your vocabulary can change how you feel. For example instead of saying i'm furious! You can say i'm a bit erked. This subtle change in language can drastically change how you feel`,
-                        `Your identity shapes who you are. If you have never smoked and your offered a cigarette, you will say 'no thanks I don't smoke' or 'I am not a smoker'. This is very different then 'I'm trying to quit.
-                        Therefore, to change a bad habit, change your identity`,
-                        `The quality of your questions determines the quality of your answers.`,
-                        `Questions change what we remember or delete, as well as also changing the resources available to us.`
-                    ],
-                    passages:[
-                        `"You and I have that same power at our disposal every moment of the day. At any moment, the questions that we ask ourselves can shape our perception of who we are, what we're capable of, and what we're willing to do to achieve our dreams."`
-
-
-                        , `"All goal setting must be immediately followed by both the development of a plan, and massive and consistent action toward its fulfillment."`
-                        
-                        , `"While most people have to establish competence before they feel confident, I decide to feel confident, and that provides the sense of certainty to persist until I am competent."`
-                    ],
-                    summary:[
-                        `This gigantic 450+ page book is filled with wisdom and knowledge and is one to refer back to again and again. Tony explains the importance of how you communicate to others and more importantly, how you communicate with yourself.
-                        `,
-                        `He also goes over how we can break free from negative, bad habits and how to cultivate positive, good ones. He explains many methods on how to do this, most notably about using NAC (Neuro-associative conditioning).`,
-                        `Tony also implamented many challenges in this book which were very helpful in fully digesting all the information he provided. He has challenges to help you shape your ideal identity, to set goals, to break limiting beliefs, and much, much more.`,
-                    ],
-                    img:`assets/awaken-the-giant-within.jpeg`,
-                    href:`awaken-the-giant-within`
-                },
-                discipline_equals_freedom:{
-                    title:'Discipline Equals Freedom: Field Manual MK1-MOD1 (By Jocko Willink)',
-                    description:`Most people think that discipline is forcing yourself to do something you don't want to do, and hating every second of it. In this motivational book, Jocko Willink flips that idea on its head.
-                    He provides short 2-3 page full descriptions of how to deal with problems such as feeling overwhealmed, self-sabotage, strategic planning, and dozens more.`,
-                    sentence:`Pages full of motivation and advice to help you stay disciplined under any and all circumstances, and the importance of discipline in achieving freedom and success in life.`,
-                    points:[
-                        `Any option not to stay disciplined are all excuses`,
-                        `Don't give into weakness`,
-                        `Don't do what makes you happy, do what makes you better`,
-                        `Nothing matters but the task at hand`,
-                        `Detach from situations that your overly invested in to get a better perspective`,
-                        `When dealing with negative people who want the worst for you. Ignore and outperform them.`,
-                    ],
-                    passages:[
-                        `"Thinking alone won't get you anywhere. Simple existence is not being alive. You have to take action. You have to move forward. You have to exert and strive and toil. Thoughts are not enough. TAKE ACTION."`
-
-                        , `"Don't worry about motivation. Motivation is fickle. It comes and goes. It is unreliable and when you are counting on motivation to get your goals acomplished you will likely fall short.
-                            So. Don't expect to be motivated every day to get out there and make things happen. You won't be. Don't count on motivation. Count on Discipline. You know what you have to do. So: MAKE YOURSELF DO IT.
-                            You do that with Discipline."`
-                        
-                        , `"This is where it begins. In the darkness. Before the sun and the birds and the world. Every day. When the alarm sounds. IT IS TIME. Rise. Despite fatigue and soreness. Curse the warmth of the bed.
-                         Curse the comfort of the pillow. Fight the temptation of weakness. Get up and go. Do it quickly, without thought. Do not reason with weakness. You cannot. You must only take action. Get up and GO"`
-                    ],
-                    summary:[
-                        `Discipline is the only way to live a great life. Without discipline everything faulters, but with discipline you continue to get better then you were the day before. Happiness is an emotion that comes and goes
-                        it never stays as long as you wish, but bettering yourself every day can be a reality. It all starts with one step, and thats to take action.`,
-                        `This isn't a book you want to read in one sitting and forget about. It's a book flooded with motivation and advice for dealing with the weakness that pulls you away from being better then you were the day before.`,
-                        `For any challenge in your life, for any weakness in your character, this book will bring your feet on the ground and have you sprinting towards your problems head first.`,
-                    ],
-                    img:`assets/discipline-equals-freedom.jpeg`,
-                    href:`discipline-equals-freedom`
-                },
-                eight_rules_of_love:{
-                    title:'8 Rules Of Love (By Jay Shetty)',
-                    description:`How to find love, how to keep it, and how to let it go. Jay provides us with practical tools for first loving ourselves, then to loving another, and finally to loving everyone around us.
-                    There is many practical exercises to follow, including but not limited to: how to live in solitude, various meditations on love towards yourself and others, and how to find what love means to you.`,
-                    sentence:`A practical how-to book on cultivating love towards yourself, loved ones, and finally, everyone.`,
-                    points:[
-                        `You must love yourself, in solitude, before you search for a relationship.`,
-                        `Once you love yourself in solitude you can look to spread that love to another individual.`,
-                        `After you've found a relationship and have cultivated love there, you can then sprpead it to the rest of the world!`
-                    ],
-                    passages:[
-                        `" 'What is the difference between like and love?' asks a student. The teacher responds, 'When you like a flower, you pluck it. When you love a flower, you water it daily' "`
-
-                        , `"We're just focusing too much on what our parents should have done or wishing they'd behaved differently rather than figuring out what we ourselves can do."`
-                        
-                        , `"As soon as we say 'I love you,' we're going to have to live up to those words, not by our definition, but by the definition of the person we love. On the flip side,
-                         when we accept someone else's love, we have to realize that they aren't using our definition of love."`
-                    ],
-                    summary:[
-                        `The eight rules for love are... Rule 1: Let yourself be alone. Rule 2: Don't ignore your karma. Rule 3: Define love before you think it, feel it, or say it. Rule 4: Your partner is your guru.
-                        Rule 5: Purpose comes first. Rule 6: Win or lose together. Rule 7: You don't break in a breakup. Rule 8: Love again and again.`,
-                        `With various meditations, reflections, and other exercises, 8 rules of love helps you cultivate love for yourself and others. It also teaches you that it is okay to be without another person,
-                        and to instead enjoy your own company`,
-                        `Jay explains the importance of loving yourself before you cultivate it with another, and that if you do not love yourself then you cannot extend that love to another person. He uses his wisdom from
-                        being a monk and studying the Bhagavad Gita and applies it to how you, in todays society, can love.`,
-                    ],
-                    img:`assets/eight-rules-of-love.jpeg`,
-                    href:`eight-rules-of-love`
-                },
-                beyond_order:{
-                    title:'Beyond Order (By Jordan Petersen)',
-                    description:`The second book of the two part series, with the first one being '12 rules for life - an antidote to chaos'. This book is the opposing counterpart of the first book, as it
-                    shows that you do not just need order, and rules but also creativity and things you should ensure you do not do.`,
-                    sentence:`Philosophy on how to improve yourself and the world around you, but starting with yourself first.`,
-                    points:[
-                        `Rule I: Do not carelessly denigrate social institutions or creative achievement`,
-                        `Rule II: Imagine who you could be, and then aim single-mindedly at that`,
-                        `Rule III: Do not hide unwanted things in the fog `,
-                        `Rule IV: Notice that opportunity lurks where responsibility has been abdicated`,
-                        `Rule V: Do not do what you hate`,
-                        `Rule VI: Abandon ideology`,
-                        `Rule VII: Work as hard as you possibly can on at least one thing and see what happens`,
-                        `Rule VIII: Try to make one room in your home as beautiful as possible`,
-                        `Rule IX If old memories still upset you, write them down carefully and completely`,
-                        `Rule X: Plan and work diligently to maintain the romance in your relationship`,
-                        `Rule XI: Do not allow yourself to become resentful, deceitful, or arrogant`,
-                        `Rule XII Be grateful in spite of your suffering`,
-                    ],
-                    passages:[
-                        `"Every rule was once a creative act, breaking other rules. Every creative act, genuine in its creativity, is likely to transform itself, with time, into a useful rule. 
-                        It is the living interaction between social institutions and creative achievement that keeps the world balanced on the narrow line between too much order and too much chaos"`
-
-                        , `"Failing to look under the bed when you strongly suspect a monster is lurking there is not an advisable strategy."`
-                        
-                        , `"If you are suffering from memories that will not stoop tormenting you, there is possibility -possibility that could be your very salvation- waiting there to be discovered. 
-                        If old memories still upset you, write them down carefully and completely."`
-                    ],
-                    summary:[
-                        `Jordan provides insight into why doing ethically sound actions is not just in benefit of others around you and the world itself, but also for your own wellbeing. He dives into
-                        every rule expansively and in great depths explaining stories for why you should act in the manner he suggests.`,
-                        `He gives us these rules to help us create more order in the chaos of life. When excess order exists, it is important that there is some chaos as well. Chaos is not a bad thing, just as 
-                        order is not a bad thing either. They must both be balanced like two ends of a see-saw, Like yin and yang.`,
-                    ],
-                    img:`assets/beyond-order.jpeg`,
-                    href:`beyond-order`
-                },
-                how_to_read_a_book:{
-                    title:'How To Read A Book (By Mortimer J. Adler and Charled Van Doren)',
-                    description:`A somewhat paradoxical book on how to read books (mostly non-fiction). There are various layers of reading, which one progresses through. Most people stay on the first or second layer for the rest of their
-                    life. This book tries to push readers to improve, to seek out difficult books, to read actively, to interact with the author through the pages, to ask questions, and ultimately to learn as much as you
-                    can from every book you read. `,
-                    sentence:`sentence summary goes here`,
-                    points:[
-                        `Reading is not a passive effort, it is a conversation between the reader and the author.`,
-                        `Highlight, fold pages, write in the margin, ask questions, be an active learner!`,
-                        `Inspect all aspects of the book, the title, the table of contents, the dust shield, break down the chapters into paragraphs, and into main sentences etc`,
-                        `Analyze the elements, what was the authors question he was trying to answer? Did he answer it? If so, and with backed up arguements you must say you agree with him.
-                         If not you must figure out why he has not, and back it up with reasons`,
-                         `You can pin authors with different views from different books against one another if you remain objective. Ask both of them a question that their book answers, which side has the strongest arguements?
-                          and why? This is also known as syntopical reading.`,
-                         
-                    ],
-                    passages:[
-                        `"To make knowledge practical we must convert it into rules of operation. We must pass from knowing what is the case to knowing what to do about it if we wish to get somewhere. This can be summarized in the
-                         distinction between knowing THAT and knowing HOW. Theoretical books teach you THAT something is the case. Practical books teach you HOW to do something you want to do or think you should do."`
-
-                        , `"the most important words are those that give you trouble. It is likely that these words are important for the author as well. However they may not be. It is also possible that words that are important
-                         for the author do not bother you, and precisely because you understand them."`
-                        
-                        , `"If you never ask yourself any questions about the meaning of a passage, you cannot expect the book to give you any insight you do not already possess."`
-                    ],
-                    summary:[
-                        `To read any expository book well you must ask questions, highlight, write in the margin, be as active as you can in your reading. There are four levels to reading, elementary, inspectional, analytical and syntopical.
-                        Each level of reading builds upon the previous level, using all that you have learned from it previously. `,
-                        `Elementary reading is the reading you learn how to do in, well elementary school. How to understand letters, form them into words, form those words into sentences, and those into paragraphs. It's main concern is being able to 
-                        read at all.`,
-                        `Inspectional reading requires you to be more active in your approach. Examine the title, the table of contents, the dust cover, skin the general book quickly, only reading bits here and there, whatever seems important. Get a 
-                        general feeling of how the book is and if its a book you would like to continue reading. Some books are best read in this quick manner, whilst others -like philosophy- require very active deliberate, slow reading. `,
-                        `Analytical reading is using your inspectional reading to try and break down the chapters into main paragraphs, and then into main sentences. Analyze what the authors questions were before he wrote the book, was it how to read a book better?
-                        Was it, how to deal with lifes adversities through meditation? Whatever it is try to find it through breaking down and analyzing the books contents in this manner`,
-                        `The last level is syntopical reading. Most of the time you will not preform this level as it is a completely different form of reading all together. In this step of reading you start with a question. For example, is money good or bad for society?
-                        You then make a big reading list of all the books that may answer this question and narrow it down to the important ones. Then you try to find the parts of the books that are relevant to the question your asking, 
-                        and hopefully the authors views conflict. It is important to stay objective and let the resolution come out naturally. This can bring new understanding to old concepts, but it is a very difficult level of reading.`
-                    ],
-                    img:`assets/how-to-read-a-book.jpeg`,
-                    href:`how-to-read-a-book`
-                },
             
                 you_owe_you:{
                     title:'You Owe You (By Eric Thomas)',
+                    img:'monk.jpg',
                     description:`A book about how to find your purpose, your drive, your passion, and how to stay driven and motivated through life's adversities. Through Eric's life he reveals to readers that no matter how bad your past may be, 
                     you can always achieve great success in your future. Filled with motivational quotes, and inpsiring information, this book is excellent for those interested in pursuing a better life`,
                     sentence:`How to find your drive, your purpose, your WHY, and to never give up in pursuit of it.`,
@@ -987,6 +986,7 @@ window.onload=function(){
                 },
                 study_less_study_smart:{
                     title:'Study Less, Study Smart (By Marty Lobdell)',
+                    img:'monk.jpg',
                     description:`This 34 page book, although small provides readers with some useful tips for how to study more effectively. The author also has some excellent videos online to complement this small reading.`,
                     sentence:`A small book on tools to study better.`,
                     points:[
@@ -1015,6 +1015,7 @@ window.onload=function(){
                 },
                 self_parenting:{
                     title:'Self Parenting (By John K. Pollard, III)',
+                    img:'monk.jpg',
                     description:`Everyone was once a child and many of us have experienced unfortunate experiences growing up. Maybe our mom didn't show us love, maybe our dad was never home, whatever the case
                     the problems in our childhood don't disapear when we are adults. They come with us. This book is a practical guide/workbook on how to nurture the child that was not nurtured during your childhood.`,
                     sentence:`A quick guide on how to speak with the "Inner Child" inside of you and heal from your past truamas.`,
@@ -1121,8 +1122,8 @@ window.onload=function(){
             document.getElementById(`book-${i}-title`).innerHTML = currentBook.title
             document.getElementById(`book-${i}-description`).innerHTML = currentBook.description
             document.getElementById(`book-${i}-img`).setAttribute('src', currentBook.img)
-            document.getElementsByClassName(`book-${i}-link`)[0].setAttribute('href', `books.html#${currentBook.href}`)
-            document.getElementsByClassName(`book-${i}-link`)[1].setAttribute('href', `books.html#${currentBook.href}`)
+            document.getElementsByClassName(`book-${i}-link`)[0].setAttribute('href', `books.html?book=${currentBook.href}`)
+            document.getElementsByClassName(`book-${i}-link`)[1].setAttribute('href', `books.html?book=${currentBook.href}`)
             //LEFT HERE
         }
 
@@ -1137,22 +1138,169 @@ window.onload=function(){
         }
         }
 
-        //this is the most important function here, it calls the appropriate function for the required page.
-        if(url.includes('books.html#'))
-        {
-            document.getElementById('on-book-click').style.display = 'block'
-            document.getElementById('showing-books-container').style.display = 'none'
-            activateBookPage('load-book');
-        }
-        else if(url.includes('quote-page.html'))
-        {
-            activateQuotePage('page');
-        }else if(url.includes('books.html'))
-        {
-            activateBookPage('next-page')
-        }
+        const activateMeditationPage = () =>{
+            const meditationsArticles = {
+                how_to_meditate:{
+                    title:`How do you meditate?`,
+                    img:'assets/monk.jpg',
+                    titleinfo:`
+                    What is meditation? Meditation is not about clearing your mind, it is about observing your thoughts and returning your focus back to your object of focus.
+                    There is three things to focus on when you are learning to meditate. Firstly location, second your posture, and third the practice itself.
+                    `,
+                    header0:`Location`,
+                    info0:[
+                        `When learning to meditate, choosing a location is very important. You can learn to meditate anywhere, however it is much easier to learn how to meditate in a quiet place.
+                         Some good places to learn how to meditate would be out in nature when it is quiet, in your bedroom on a chair, or even in the washroom if you have no other options.`
+                    ],
+                    header1:`Posture`,
+                    info1:[
+                        `
+                        Posture is very important when learning how to meditate. There are many different postures for meditation such as sitting, lying down, walking or standing. All of these postures
+                        are good ways to meditate, however when you are just learning how to meditate, the best posture would be sitting. This is because standing and walking can make it hard to focus for beginners
+                        and lying down can cause you to doze off if your not careful.
+                        `,
+                        `
+                        So find your place that you decided to meditate in, you can do this sitting with your legs crossed or you can sit on a chair. Try and keep your back straight as it may start bothering you throughout
+                        the meditation if you do not. Rest your hands on your knees and you are now ready to move onto the next step.
+                        `
 
-        // 2.)change all instances of books.html to books.html
-        // 3.)when accessing any book, content from books.html should be hidden and it should now show the hold books.html
+                    ],
+                    header2:`The Practice`,
+                    info2:[
+                        `Now that you are sitting in your meditation space you can finally learn the practice of meditation. First things first, put a timer on for 3-5 minutes if your just learning for the first time.
+                        You can meditate with your eyes open or closed, but when first starting off it's best to learn with closed eyes. Before you close your eyes take a big, slow inhale through your nose, and then exhale slowly through your mouth. Repeat this around four to five times and on the last exhale
+                        close your eyes.`,
+                        `
+                        The next step is to have an object of focus, in this case we will use our breathe. With your eyes closed, you want to return your breathe to its natural rythem. You then want to rest all of your attention on the
+                        sensation of your breathe. Whether that be the cold air moving through your nostrils, or your belly moving in and out, it doesn't matter. Now quickly after you start you will realize that you may start thinking about
+                        things in your life such as paying bills, or what your going to eat, or anything at all. Your task when meditating is to recognize that you were thinking, and gently bring your attention back to your object of focus,
+                        which in this case is your breathe. 
+                        `,
+                        `
+                        Don't get discouraged if you were caught in thought! The practice of meditation can be likened to swinging a bat at a baseball, with your thoughts being the ball and the bat being your focus. When your mind wanders
+                        and you bring your attention back to your breathe that is you doing one meditation "rep" for lack of a better word. Every time you do this it will build your focus, and strengthen your practice. And that's it, thats basic
+                        meditation it is simple but can be very difficult if you get upset and don't realize that getting caught in thoughts is part of the process.
+                        `
+                    ]
+                },
+                what_is_mindfulness:{
+                    title:`Mindfulness, Meditation, Whats The Difference?`,
+                    img:'assets/be-here-now.jpg',
+                    titleinfo:`Are mindfulness and meditation the same thing? Most people think so, but they are two very seperate things that, when you understand the difference can enhance your meditation journey.`,
+                    header0:`What is meditation?`,
+                    info0:[
+                        `Meditation is a skill one develops, and it is also an experience. We use meditation to cultivate awareness and compassion for ourselves and the people around us. Meditation isn't about clearing your mind,
+                        or stopping thoughts, or becoming a better person. It is about a formal practice of observing your thoughts with a kind, gentle, and indifferent attitude. You do meditation by sitting with your eyes closed and
+                        observing your thoughts with this attitude, and whenver you get distratcted you simply return your focus back onto your breathe (or whatever other object of focus you are using)`
+                    ],
+                    header1:`What is mindfulness?`,
+                    info1:[
+                        `If meditation is the formal practice of observing your thoughts, and returning your attention to your breathe, then what is mindfulness? Mindfulness is the quality of being present that we carry throughout the day.
+                        It is available to us as life unfolds, fully engaged with whatever we are doing at the momment, free from distraction or judgement. `
+                    ],
+                    header2:`The differences between the two`,
+                    info2:[
+                        `As described before meditation is the practice of sitting with your eyes closed, observing your thoughts. Mindfulness is being present, and aware of everything in your life. For example, rather then getting angry at the
+                        driver who just cut you off, you notice that feeling of anger, recognize it is just a thought, return your focus back to the road, and do not yell at the other driver. This, in essence is an example of mindfulness. Meditation
+                        on the other hand is the practice of cultivating mindfulness by doing yoga, sitting and meditating, doing taichi, etc.`
+                    ]
+                },
+                how_to_apply_mindfulness:{
+                    title:`How To Apply Mindfulness`,
+                    img:'assets/boys.jpg',
+                    titleinfo:`
+                    Learning how to meditate is a great skill to learn how to calm down, but there is much more to meditation then a state of calm.
+                    Meditation can provide a gap in your reactions to the world and allow you to act the way you want to, rather then out of urges.`,
+                    header0:`Meditation practice`,
+                    info0:[
+                        `
+                        The first step to being able to apply mindfulness is to make sure you are meditating frequently. A good amount is once per day for 5 - 10 minutes.
+                        You can be mindfull without meditating, however a regular meditation practice helps cultivate mindfulness into other aspects of your life.
+                        `
+                    ],
+                    header1:`Intentional mindfulness`,
+                    info1:[
+                        `Once you've built a strong meditation practice, mindfulness becomes a bit more understandable and you can implement some intentional mindful tasks. An example with this would be washing dishes with
+                        your full attention. Feel the warm water on your skin. Feel the preassure your putting on the dish your washing with your sponge or hand. Focus on your breathe. Do this until the dishes are completed. 
+                        You can do this with anything in life, and every time you do it, it helps you to be more mindful in other areas of your life.`
+                    ],
+                    header2:`Interval alarms`,
+                    info2:[
+                        `It's easy to forget to be mindful throughout the day. Another way to help cultivate mindfulness in your life is to have alarms go off on a set interval. On your phone you can easily set an alarm or reminder
+                        to notify you every hour. This reminder is to remind you to focus on whatever you are working on mindfully. This practice helps a lot if you find that you forget to be mindful throughout the day.`
+                    ]
+                },
+                resources:{
+                    title:`Resources For Meditation And Mindfulness`,
+                    img:'assets/stones.jpg',
+                    titleinfo:`There are many resources for getting into meditation and practicing mindfulness. Below are three resources for getting you started into meditation.`,
+                    header0:`Headspace app`,
+                    info0:[
+                        `Headspace is one of the biggest meditation apps that is currently available. It's simple practices, and vast amount of different meditations to choose from is an excellent first step for any beginner and advanced
+                        meditators Headspace helps guide meditators through cultivating awareness and compassion.`
+                    ],
+                    header1:`Waking up app`,
+                    info1:[
+                        `The waking up app is not as well known as Headspace, but it provides a good source for the holes that Headspace lacks. Waking up provides a big amount of knowledge into how to precieve reality and the world around you.
+                        Sam harris (the creator) dives deep into complicated topics of non dualism. He also recommended the next resource we have below. `
+                    ],
+                    header2:`On having no head`,
+                    info2:[
+                        `This resource is a book you can get for free on kindle. It is a small book but has mind blowing exercises and experimentations that you can preform to help guide you through deeper levels of your meditation journey.
+                        This is recommended for more advanced meditators, but even beginners may benefit from reading this book.`
+                    ]                
 
+                },
+            }
+
+            const loadMeditationArticle = () =>{
+                let article = meditationsArticles[databaseName]
+                //each article has 3 sections, therefore, we only go i till 3
+                document.getElementById('meditation-individual-title').innerHTML = article.title;
+                document.getElementById('meditation-individual-img').setAttribute('src', article.img);
+                document.getElementById('meditation-individual-title-info').innerHTML = article.titleinfo;
+                for(let i = 0; i < 3; i++){
+                    document.getElementById(`meditation-individual-header-${i}`).innerHTML = article[`header${i}`];
+                    //here we iterate through each info container, dumping its contents into <p> elements. we do this incase some articles require more paragraphs
+                    for(item of article [`info${i}`])
+                    {
+                        const p = document.createElement("p");
+                        const info = document.createTextNode(item);
+                        p.appendChild(info);
+                        document.getElementById(`meditation-individual-info-${i}`).appendChild(p);
+                    }
+                    
+                }
+                console.log(document.getElementById('meditation-individual-img'))
+
+            }
+                loadMeditationArticle();
+        }
+    
   
+        
+
+
+//this is the most important function here, it calls the appropriate function for the required page.
+if(url.includes('books.html?book='))
+{
+    document.getElementById('individual-book-container').style.display = 'block';
+    document.getElementById('books-main-page-container').style.display = 'none';
+    activateBookPage('load-book');
+}
+else if(url.includes('books.html'))
+{
+    activateBookPage('next-page');
+}    
+else if(url.includes('quotes.html?person='))
+{           
+    activateQuotePage('page');
+    document.getElementById('individual-quotes-container').style.display = 'block';
+    document.getElementById('quotes-main-page-container').style.display = 'none';
+}
+else if(url.includes('meditations.html?article='))
+{
+    document.getElementById('meditation-individual-article').style.display = 'block';
+    document.getElementById('meditations-container').style.display = 'none';
+    activateMeditationPage();
+}

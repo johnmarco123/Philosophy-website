@@ -260,17 +260,7 @@ li > a:hover{
     text-decoration:underline blue;
 }
 
-.vertical-container > h3{
-    margin-top:50px;
-}
 
-.top10book{
-    border-radius:3%;
-    box-shadow: 4px 4px 10px 0px #000000;
-    margin-bottom:25px;
-    max-width:400px;
-    width:100%;
-}
 .main-points{
     text-align:left;
 }
@@ -291,72 +281,6 @@ li > a:hover{
     padding-top: 50px;
 }
 
-.frontpage-pic{
-    width:100%;
-    max-width: 800px;
-    margin-top:60px;
-    margin-bottom:150px;
-}
-
-.vertical-container{
-    max-width:600px;
-    width:100%;
-    text-align:center;
-}
-
-.frontpage-pic, .top10book, .vertical-container{
-    display:block;
-    margin-left:auto;
-    margin-right:auto;
-}
-
-#image-gallery {
-    display: flex;
-    flex-wrap:wrap;
-    justify-content: center;
-    padding:0px;
-    list-style:none;
-    gap:50px;
-
-  }
-  
-  #image-gallery > li, .overlay{
-    flex-basis: 200px; /* width: 'n'px; */
-  }
-  
-  #image-gallery li img, .overlay{
-    object-fit: cover;
-    max-width: 100%;
-    height: 300px;
-    vertical-align: middle;
-  }
-  .overlay{
-    width:200px;/*this must match flex-basis*/
-    position:absolute;
-    background-color:black;
-    opacity:0;
-    transition:.5s ease;
-    padding:15px;
-    text-align:center;
-  }
-  #image-gallery > li:hover .overlay{
-    opacity: 0.85;
-  }
-
-  .stoic-container{
-    padding-top:100px;
-    padding-bottom:100px;
-    background-color: black;
-    height:100%;
-  }
-  .stoic-container > h2, .stoic-container{
-    color:white;
-  }
-
-  .picz{
-    width:300px;
-  }
-
   
 /*start life-changing-meditation page*/
 
@@ -376,7 +300,11 @@ li > a:hover{
     text-align:left;
   }
 
-
+.vertical-container{
+    max-width:800px;
+    margin-left:auto;
+    margin-right:auto;
+}
 
 /*life-changing-meditation page end*/
 /*MEDITATION.HTML START*/
@@ -473,8 +401,33 @@ li > a:hover{
     }
 
 }
+
+/* individual article IN meditations.html */
+#meditation-individual-article{
+    max-width:800px;
+    margin-left:auto;
+    margin-right:auto;
+    padding:0px 20px;
+}
+#meditation-individual-article-container{
+    text-align:center;
+    padding:0px 20px;
+}
+#meditation-individual-img{
+    max-width:350px;
+}
+
 /*MEDITATIONS.HTML END*/
 /*books.html start*/
+#books-front-page-img{
+    max-width:600px;
+    width:100%;
+
+}
+#books-front-page{
+    text-align:center;
+    padding:20px;
+}
 #book-page-landing-container{
     display:flex;
     justify-content:center;
@@ -582,12 +535,14 @@ li > a:hover{
 
 
 }
-
-#on-book-click
+/*includes some of quote page as well, this is what we use to hide the individual page until user clicks on a book on book.html or a person on*/
+#individual-book-container,
+#individual-quotes-container
 {
     display:none;
 }
-#showing-books-container
+#books-main-page-container,
+#quotes-main-page-container
 {
     display:block;
 }
@@ -731,7 +686,7 @@ li > a:hover{
     margin-bottom:50px;
 }
 /*quotes.html end*/
-/*quote-page.html start*/
+/*quotes.html start*/
 #uh-oh-page{
     text-align:center;
     display:none;
@@ -809,7 +764,7 @@ li > a:hover{
     margin-right:auto;
 }
 
-/*quote-page.html end*/
+/*quotes.html end*/
 
 /*universal footer code*/
 footer{
