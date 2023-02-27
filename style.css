@@ -230,6 +230,7 @@ li > a:hover{
 }
 .top-book-title{
     margin-bottom:0px;
+    color:black !important
 }
 .top-book-description{
     padding:0px 20px;
@@ -455,6 +456,15 @@ li > a:hover{
     padding:30px;
 }
 
+.book-links{
+    color:black;
+}
+
+.book-links:hover{
+    text-decoration:underline;
+    color:blue;
+}
+
 /* book-page-points > li AND #book-page-summary are NOT IN books.html! they get added via javascript when the page loads a book*/
 .book-page-passages,
 #book-page-points > li,
@@ -594,6 +604,50 @@ li > a:hover{
     width:100%;
 }
 
+/*stoicism.html?article sub-link start*/
+#stoicism-individual-article-img{
+    max-width:250px;
+}
+#stoicism-individual-article-landing-container{
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    display:flex;
+    justify-content:center;
+}
+#stoicism-individual-article-title-container{
+    display:none;
+    max-width:300px;
+    padding:30px;
+}
+#stoicism-individual-article-container{
+    max-width:800px;
+    margin-left:auto;
+    margin-right:auto;
+}
+#stoicism-individual-article-info-container{
+    padding:0px 30px;
+}
+@media (max-width:800px)
+{
+    #stoicism-individual-article-landing-container{
+        display:block;
+        text-align:center;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    #stoicism-individual-article-title-container{
+        max-width:800px;
+    }
+    #stoicism-individual-article-info-container > h3{
+        font-size:20px;
+    }
+    #stoicism-individual-article-img{
+        max-width:150px;
+    }
+}
+
+/*stoicism.html?article sub-link end*/
 /*stoicism.html end*/
 
 

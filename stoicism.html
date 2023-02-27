@@ -5,7 +5,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
-        <script src="script.js"></script>
         <title>𝓚𝓷𝓸𝔀𝓵𝓮𝓭𝓰𝓮 𝓝𝓮𝔀𝓼</title>
     </head>
     <body>
@@ -30,7 +29,7 @@
         <div id="nav-mobile">
             <div class="dropdown">
                 <span id="dropdown-container">
-                    <img id="dropdown-pic" onclick="dropdown()" class="dropbtn" src="assets/drop.png" alt="">
+                    <img id="dropdown-pic" onclick="dropdown()" class="dropbtn" src="assets/drop.png" alt="A drop-down menu button">
                 </span>
                 <div id="myDropdown" class="dropdown-content">
                     <a href="index.html">News</a>
@@ -74,12 +73,13 @@
         <div id="progress-bar"></div>
 
         <div id="main-container">
+            <div id="stoicism-news-container">
             <ol id="three-container">
                 <li>
                     <article class="stoic-article">
                         <figure>
-                            <a href="what_is_stoicism.html">
-                                <img class="stoic zoom" src="assets/zeno.png" alt="">
+                            <a href="stoicism.html?article=what-is-stoicism">
+                                <img class="stoic zoom" src="assets/zeno.png" alt="A black and white photo of the creator of stoic philosophy, Zeno">
                             </a>
                         </figure>
                         <h3>What is stoicism</h3>
@@ -93,12 +93,12 @@
                     <article class="stoic-article">
                         <figure>
                             <a href="quotes.html?person=marcus-aurelius">
-                                <img class="stoic zoom" src="assets/marcus-aurelius.png" alt="">
+                                <img class="stoic zoom" src="assets/marcus-aurelius.png" alt="A picture of the emperer Marcus Aurelius">
                             </a>
                         </figure>
                         <h3>Roman Emperer Marcus Aurelius</h3>
                         <p>
-                            What lessons can we learn about life from the great Roman Emperor Marcus Aurelius#
+                            What lessons can we learn about life from the great Roman Emperor Marcus Aurelius?
                         </p>
                     </article>
                 </li>
@@ -107,7 +107,7 @@
                 <li class="stoic-book-group">
                     <article class="stoic-books">
                         <a href="books.html?book=the-obstacle-is-the-way">
-                            <img class="zoom" src="assets/the-obstacle-is-the-way.jpeg" alt="">
+                            <img class="zoom" src="assets/the-obstacle-is-the-way.jpeg" alt="The book 'The Obstacle Is The Way' By Ryan Holiday">
                         </a>
                         <a href="books.html?book=the-obstacle-is-the-way">
                             <h3>The Obstacle Is The Way</h3>
@@ -118,7 +118,7 @@
                     </article>
                     <article class="stoic-books">
                         <a href="books.html?book=ego-is-the-enemy">
-                            <img class="zoom" src="assets/ego-is-the-enemy.jpeg" alt="">
+                            <img class="zoom" src="assets/ego-is-the-enemy.jpeg" alt="The book 'Ego Is The Enemy' By Ryan Holiday">
                         </a>
                         <a href="books.html?book=ego-is-the-enemy">
                             <h3>Ego Is The Enemy</h3>
@@ -132,7 +132,7 @@
                 <li class="stoic-book-group">
                     <article class="stoic-books">
                         <a href="books.html?book=stillness-is-the-key">
-                            <img class="zoom" src="assets/stillness-is-the-key.jpeg" alt="">
+                            <img class="zoom" src="assets/stillness-is-the-key.jpeg" alt="The book 'Stillnes Is The Key' By Ryan Holiday">
                         </a>
                         <a href="books.html?book=stillness-is-the-key">
                             <h3>Stillness Is The Key</h3>
@@ -143,7 +143,7 @@
                     </article>
                     <article class="stoic-books">
                         <a href="books.html?book=meditations">
-                            <img class="zoom" src="assets/meditations.jpeg" alt="">
+                            <img class="zoom" src="assets/meditations.jpeg" alt="The book 'Meditations' By Marcus Aurelius">
                         </a>
                         <a href="books.html?book=meditations">
                             <h3>Meditaitons</h3>
@@ -155,7 +155,25 @@
                     </article>
                 </li>
             </ol>
+            </div>
+            <div id="stoicism-individual-article-container">
+                <div id="stoicism-individual-article-landing-container">
+                    <span>
+                        <img id="stoicism-individual-article-img" src="">
+                    </span>
+                    <div id="stoicism-individual-article-title-container">
+                        <h2 id="stoicism-individual-article-title"></h2>
+                        <p id="stoicism-individual-article-titleinfo">
+                        </p>
+                    </div>
+                </div>
+                <div id="stoicism-individual-article-info-container">
+
+                </div>
+            </div>
         </div>
+        <!--this MUST BE CALLED HERE, as this page requires external javascript to edit its contents-->
+        <script src="script.js"></script>
     </body>
     <footer>
         <div id="footer-container">

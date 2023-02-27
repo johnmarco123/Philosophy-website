@@ -49,6 +49,7 @@ window.onload=function(){
                 eric_thomas:
                 {
                     name:'Eric Thomas',
+                    alt:'Eric Thomas',
                     intro:`
                             Eric Thomas is an American motivational speaker, author, consultant and minister.
                             After various arguments with his parents he dropped out of highschool and lived
@@ -73,6 +74,7 @@ window.onload=function(){
                 dalai_lama:
                 {
                     name:'Dalai Lama',
+                    alt:'Dalai Lama',
                     intro:`
                         His Holiness the 14th Dalai Lama, Tenzin Gyatso, describes himself as a simple
                         Buddhist monk. He was born on 6 July 1935 and is the spiritual leader of Tibet.
@@ -101,6 +103,7 @@ window.onload=function(){
                 tony_robbins:
                 {
                     name:'Tony Robbins',
+                    alt:'Tony Robbins',
                     intro:`
                     Tony Robbins is an multi millionare American motivational speaker, author, and father. He has written many great books such as 
                     Awaken The Giant Within, Lifeforce, and Unshakeable. His career started off by selling motivational tapes on television
@@ -124,6 +127,7 @@ window.onload=function(){
                 aristotle:
                 {
                     name:'Aristotle',
+                    alt:'Aristotle',
                     intro:`
                     Aristotle was an Ancient Greek philosopher. He  who was born in the city of Stagira in Northern Greece.
                     His intellectual range was vast, covering most of the sciences and many of the arts, including biology,
@@ -149,6 +153,7 @@ window.onload=function(){
                 thomas_edison:
                 {
                     name:'Thomas Edison',
+                    alt:'Thomas Edison',
                     intro:`
                     Thomas Edison was an American investor and buisnessman. He was born in 1847 and died in 1931.  
                     He developed many devices in fields such as electric power generation, soound recording, motion pictures,
@@ -173,6 +178,7 @@ window.onload=function(){
                 dr_seuss:
                 {
                     name:'Dr.Seuss',
+                    alt:'Dr.Seuss',
                     intro:`
                     Theodor Seuss Geisel, Born in 1904 and passed away in 1991. He was known as an American children's author and cartoonist.
                     His most well known childrens books include The Cat In The Hat, Green Eggs And Ham, One Fish Two Fish Red Fish Blue Fish and
@@ -196,6 +202,7 @@ window.onload=function(){
                 winston_churchill:
                 {
                     name:'Winston Churchill',
+                    alt:'Winston Churchill',
                     intro:`
                     Winston Churchill, in full Sir Winston Leonard Spencer Churchill, was born in 1874 and passed away in 1965.
                     He was a British statesman, orator, and author who as prime minister rallied the British people during Would War II.
@@ -219,6 +226,7 @@ window.onload=function(){
                 plato:
                 {
                     name:'Plato',
+                    alt:'Plato',
                     intro:`
                     Plato, an ancient Greek philosopher who studied under Socrates, was born in 428 BCE and passed away in 348 BCE in Athens Greece.
                     Plato introduced the idea that ones mistakes were due to their not engaging properly with a class of entities he calls forms, chief
@@ -243,6 +251,7 @@ window.onload=function(){
                 jocko_willink:
                 {
                     name:'Jocko Willink',
+                    alt:'Jocko Willink',
                     intro:`
                     John Gretton "Jocko" Willink, is an American author, podcaster, and retired navy seal. He's very well known for his book
                     Extreme Ownership. He has written many other great books as well. such as Discipline Equals Freedom, Leadership Strategy And Tactics,
@@ -267,6 +276,7 @@ window.onload=function(){
                 socrates:
                 {
                     name:'Socrates',
+                    alt:'Socrates',
                     intro:`Socrates, a Greek philosopher was born in 470 BCE and died in 399 BCE in Athens Greece. He was widely recognized as a controversial figure, often
                     being mocked in plays of comic dramatists. Although there are no books or papers he has written that we have today, much of the information we have about 
                     socrates has come from his many students who wrote about things he said. He's often remembered by the 'Socratic Method', a method in which, rather then giving direct answers
@@ -291,6 +301,7 @@ window.onload=function(){
                 marcus_aurelius:
                 {
                     name:'Marcus aurelius',
+                    alt:'Marcus aurelius',
                     intro:`Born in 121 CE and educated extensively in rhetoric and philosophy,
                         Marcus Aurelius succeeded his adoptive father Antoninus Pius as Emperor of
                         Rome in 161 CE and reigned until his own death in 180 Marcus would often
@@ -316,6 +327,7 @@ window.onload=function(){
                 },
                 muhammad_ali:
                 {
+                    alt:'Muhammad Ali',
                     name:'Muhammad Ali',
                     intro:`
                     Muhammad ali, was born in 1942 and passed away in 2016. He was an American professional boxer and activist.
@@ -452,6 +464,7 @@ window.onload=function(){
                                 // the loop. Because the discarding will shorten the list to eventually zero, which is when we will remake a new one
                                 let person = virtualDatabase[arrayOfPeople[listOfRandomPeople[0]]]
                                 document.getElementById('quote-page-img').setAttribute('src', person.img);
+                                document.getElementById('quote-page-img').setAttribute('alt', person.alt);
                                 listOfRandomPeople.shift();
                                 await new Promise(resolve => setTimeout(resolve, 3000))
                             }
@@ -468,6 +481,7 @@ window.onload=function(){
                     const doc = document
                     doc.getElementById('quote-page-name').innerHTML = person.name;
                     doc.getElementById('quote-page-img').setAttribute('src', person.img)
+                    doc.getElementById('quote-page-img').setAttribute('alt', person.alt)
                     doc.getElementById('quote-page-intro').innerHTML = person.intro
                     //here we get the quotes and display them
                     for(let i = 0; i < person.quotes.length; i++){
@@ -491,7 +505,6 @@ window.onload=function(){
         
                 make_it_stick:{
                     title:'Make It Stick',
-                    img:'monk.jpg',
                     description:`
                     A how-to guide on how to study more efficiently and effectively. It disproves the most most widely used
                     study method, that method being to read something over and over until you memorize it. It shows how this 
@@ -528,12 +541,12 @@ window.onload=function(){
 
                     ],
                     img:`assets/make-it-stick.jpeg`,
-                    href:`make-it-stick`
+                    href:`make-it-stick`,
+                    alt:`The book 'Make It Stick'`
                 },
                 
                 ego_is_the_enemy:{
                     title:'Ego Is The Enemy',
-                    img:'monk.jpg',
                     description:`Our number one enemy in every stage of our life is our ego. Whether that be pursuing something, achieving it, or failing at it ego is always there to snatch our best opportunities
                     away from us`,
                     sentence:`Your ego is always there with you, if you don't control it, then it will destroy your life.`,
@@ -562,11 +575,12 @@ window.onload=function(){
                         don't let your ego tell you its the end of the world when it really isn't.`
                    ],
                     img:`assets/ego-is-the-enemy.jpeg`,
-                    href:`ego-is-the-enemy`
+                    href:`ego-is-the-enemy`,
+                    alt:`The book 'Ego Is The Enemy'`
+
                 },
                 as_a_man_thinketh:{
                     title:'As A Man Thinketh',
-                    img:'monk.jpg',
                     description:`This small philosophical book provides the reader with lots of information for them to ponder and use in their lives. It explains that thoughts are just as -if not more important then- your 
                     actions. Your thoughts can spark good or bad action, can guide you to a better future, or ruin your life. 
                     `,
@@ -588,12 +602,12 @@ window.onload=function(){
                         `This small philosophical book sparks insight as to how ones thoughts change the world around themselves. With pages full of wisdom this is not a one-and-done kind of book. This book is a book that you
                         should read throughout your life. The main focus of this book is how to cultivate your thoughts to master your life.`,
                     ],
-                    img:`assets/as-a-man-thinketh.jpeg`    ,
-                    href:`as-a-man-thinketh`
+                    img:`assets/as-a-man-thinketh.jpeg`,
+                    href:`as-a-man-thinketh`,
+                    alt:`The book 'As A Man Thinketh'`
                 },
                 awaken_the_giant_within:{
                     title:'Awaken The Giant Within',
-                    img:'monk.jpg',
                     description:`This gigantic book is filled with methods to break bad behaviours financially, emotionally, physically, and mentally. It has various workpages scattered throughout the chapters to guide you on your journey to a better life.
                     These workpages consist of setting goals, breaking bad habits, and changing your beliefs you have in your life about yourself.`,
                     sentence:`A massive book with easy to understand and easy to follow information about how to achieve your goals and live a healthy and happy life.`,
@@ -619,11 +633,12 @@ window.onload=function(){
                         `Tony also implamented many challenges in this book which were very helpful in fully digesting all the information he provided. He has challenges to help you shape your ideal identity, to set goals, to break limiting beliefs, and much, much more.`,
                     ],
                     img:`assets/awaken-the-giant-within.jpeg`,
-                    href:`awaken-the-giant-within`
+                    href:`awaken-the-giant-within`,
+                    alt:`The book 'Awaken The Giant Within'`
+
                 },
                 mans_search_for_meaning:{
                     title:'Mans Search For Meaning',
-                    img:'monk.jpg',
                     description:`Viktor Frankl was a Holocaust survivor. In his book he brings the reader into what it
                     was like every day at the camps. He explains the adversity he had to face, but more importantly,
                     he shows how vitally important it is to have a good frame of mind even when subjected to the worst
@@ -659,11 +674,12 @@ window.onload=function(){
                         courage and perseverance to get through anything.`,
                     ],
                     img:`assets/mans-search-for-meaning.jpeg`,
-                    href:`mans-search-for-meaning`
+                    href:`mans-search-for-meaning`,
+                    alt:`The book 'Man's Search For Meaning'`
+
                 },
                 meditations:{
                     title:'Meditations',
-                    img:'monk.jpg',
                     description:`
                     Marcus Aurelius was a Roman emperer and stoic philosopher. This book was gathered from notes he would write
                     to himself about the philosophy he would like to live by. Translated and passed down through the generations,
@@ -691,11 +707,11 @@ window.onload=function(){
                         fully, but they may always choose how they will precieve and respond to any situation.`,
                     ],
                     img:`assets/meditations.jpeg`,
-                    href:`meditations`
+                    href:`meditations`,
+                    alt:`The book 'Meditations'`
                 },
                 atomic_habits:{
                     title:'Atomic Habits',
-                    img:'monk.jpg',
                     description:`
                     A how-to book on breaking bad habits and building positive ones. He provides a step by step
                     formula to help you improve your habits. He also explains that by using small (atomic) habits every
@@ -729,11 +745,11 @@ window.onload=function(){
 
                     ],
                     img:`assets/atomic-habits.jpeg`,
-                    href:`atomic-habits`
+                    href:`atomic-habits`,
+                    alt:`The book 'Atomic Habits'`
                 },
                 discipline_equals_freedom:{
                     title:'Discipline Equals Freedom: Field Manual MK1-MOD1 (By Jocko Willink)',
-                    img:'monk.jpg',
                     description:`Most people think that discipline is forcing yourself to do something you don't want to do, and hating every second of it. In this motivational book, Jocko Willink flips that idea on its head.
                     He provides short 2-3 page full descriptions of how to deal with problems such as feeling overwhealmed, self-sabotage, strategic planning, and dozens more.`,
                     sentence:`Pages full of motivation and advice to help you stay disciplined under any and all circumstances, and the importance of discipline in achieving freedom and success in life.`,
@@ -762,11 +778,11 @@ window.onload=function(){
                         `For any challenge in your life, for any weakness in your character, this book will bring your feet on the ground and have you sprinting towards your problems head first.`,
                     ],
                     img:`assets/discipline-equals-freedom.jpeg`,
-                    href:`discipline-equals-freedom`
+                    href:`discipline-equals-freedom`,
+                    alt:`The book 'Discipline Equals Freedom'`
                 },
                 eight_rules_of_love:{
                     title:'8 Rules Of Love (By Jay Shetty)',
-                    img:'monk.jpg',
                     description:`How to find love, how to keep it, and how to let it go. Jay provides us with practical tools for first loving ourselves, then to loving another, and finally to loving everyone around us.
                     There is many practical exercises to follow, including but not limited to: how to live in solitude, various meditations on love towards yourself and others, and how to find what love means to you.`,
                     sentence:`A practical how-to book on cultivating love towards yourself, loved ones, and finally, everyone.`,
@@ -792,11 +808,11 @@ window.onload=function(){
                         being a monk and studying the Bhagavad Gita and applies it to how you, in todays society, can love.`,
                     ],
                     img:`assets/eight-rules-of-love.jpeg`,
-                    href:`eight-rules-of-love`
+                    href:`eight-rules-of-love`,
+                    alt:`The book '8 Rules Of Love'`
                 },
                 beyond_order:{
                     title:'Beyond Order (By Jordan Petersen)',
-                    img:'monk.jpg',
                     description:`The second book of the two part series, with the first one being '12 rules for life - an antidote to chaos'. This book is the opposing counterpart of the first book, as it
                     shows that you do not just need order, and rules but also creativity and things you should ensure you do not do.`,
                     sentence:`Philosophy on how to improve yourself and the world around you, but starting with yourself first.`,
@@ -830,11 +846,11 @@ window.onload=function(){
                         order is not a bad thing either. They must both be balanced like two ends of a see-saw, Like yin and yang.`,
                     ],
                     img:`assets/beyond-order.jpeg`,
-                    href:`beyond-order`
+                    href:`beyond-order`,
+                    alt:`The book 'Beyond Order'`
                 },
                 how_to_read_a_book:{
                     title:'How To Read A Book (By Mortimer J. Adler and Charled Van Doren)',
-                    img:'monk.jpg',
                     description:`A somewhat paradoxical book on how to read books (mostly non-fiction). There are various layers of reading, which one progresses through. Most people stay on the first or second layer for the rest of their
                     life. This book tries to push readers to improve, to seek out difficult books, to read actively, to interact with the author through the pages, to ask questions, and ultimately to learn as much as you
                     can from every book you read. `,
@@ -872,11 +888,11 @@ window.onload=function(){
                         and hopefully the authors views conflict. It is important to stay objective and let the resolution come out naturally. This can bring new understanding to old concepts, but it is a very difficult level of reading.`
                     ],
                     img:`assets/how-to-read-a-book.jpeg`,
-                    href:`how-to-read-a-book`
+                    href:`how-to-read-a-book`,
+                    alt:`The book 'How To Read A Book'`
                 },
                 the_obstacle_is_the_way:{
                     title:'The Obstacle is The Way',
-                    img:'monk.jpg',
                     description:`
                     A guide to life that reveals with stories, quotes, stoic philosophy and logic that every obstacle is an
                     opportunity to improve yourself as a person.
@@ -919,11 +935,11 @@ window.onload=function(){
                     
                             ],
                     img:`assets/the-obstacle-is-the-way.jpeg`,
-                    href:`the-obstacle-is-the-way`
+                    href:`the-obstacle-is-the-way`,
+                    alt:`The book 'The Obstacle Is The Way'`
                 },
                 stillness_is_the_key:{
                     title:'Stillness Is The Key',
-                    img:'monk.jpg',
                     description:`
                     Life is more enjoyable when you slow down in and enjoy it, rather then rush
                     mindlessly through it. He provides fearful examples of what can happen if you don't take
@@ -955,12 +971,12 @@ window.onload=function(){
                         find yourself again.`,
                     ],
                     img:`assets/stillness-is-the-key.jpeg`,
-                    href:`stillness-is-the-key`
+                    href:`stillness-is-the-key`,
+                    alt:`The book 'Stillness Is The Key'`
                 },
             
                 you_owe_you:{
                     title:'You Owe You (By Eric Thomas)',
-                    img:'monk.jpg',
                     description:`A book about how to find your purpose, your drive, your passion, and how to stay driven and motivated through life's adversities. Through Eric's life he reveals to readers that no matter how bad your past may be, 
                     you can always achieve great success in your future. Filled with motivational quotes, and inpsiring information, this book is excellent for those interested in pursuing a better life`,
                     sentence:`How to find your drive, your purpose, your WHY, and to never give up in pursuit of it.`,
@@ -982,11 +998,11 @@ window.onload=function(){
                         he shows by example that anything is possible if you take responsibility of your life.`,
                     ],
                     img:`assets/you-owe-you.jpeg`,
-                    href:`you-owe-you`
+                    href:`you-owe-you`,
+                    alt:`The book 'You Owe You'`
                 },
                 study_less_study_smart:{
                     title:'Study Less, Study Smart (By Marty Lobdell)',
-                    img:'monk.jpg',
                     description:`This 34 page book, although small provides readers with some useful tips for how to study more effectively. The author also has some excellent videos online to complement this small reading.`,
                     sentence:`A small book on tools to study better.`,
                     points:[
@@ -1011,11 +1027,11 @@ window.onload=function(){
 
                     ],
                     img:`assets/study-less-study-smart.jpeg`,
-                    href:`study-less-study-smart`
+                    href:`study-less-study-smart`,
+                    alt:`The book 'Study Less, Study Smart'`
                 },
                 self_parenting:{
                     title:'Self Parenting (By John K. Pollard, III)',
-                    img:'monk.jpg',
                     description:`Everyone was once a child and many of us have experienced unfortunate experiences growing up. Maybe our mom didn't show us love, maybe our dad was never home, whatever the case
                     the problems in our childhood don't disapear when we are adults. They come with us. This book is a practical guide/workbook on how to nurture the child that was not nurtured during your childhood.`,
                     sentence:`A quick guide on how to speak with the "Inner Child" inside of you and heal from your past truamas.`,
@@ -1039,7 +1055,8 @@ window.onload=function(){
                         child, and how to be a better Inner Parent`,
                     ],
                     img:`assets/self-parenting.jpeg`,
-                    href:`self-parenting`
+                    href:`self-parenting`,
+                    alt:`The book 'Self Parenting'`
                 },
                 
             }
@@ -1082,50 +1099,71 @@ window.onload=function(){
                 }
             }
             document.getElementById("book-page-img").setAttribute('src', book.img);
+            document.getElementById("book-page-img").setAttribute('alt', book.alt);
         }
         const nextPage = () => {
         //extract the page
-        let pageNum = 1;
         const booksTitlesArray = Object.keys(virtualLibrary);
-        const totalPages = Math.ceil(booksTitlesArray.length  / 5)
-        //gather the page number
-        if(url.includes('?page='))
+        //if it is top_5_books, we want to load those top 5 books, and remove the numbers at the bottom of the screen
+        if(databaseName == 'top_5_books')
         {
+            //hide the numbers at the bottom of the screen
+            document.getElementById('next-page-menu').style.display = 'none';
 
-            for(let i = 1; i < totalPages + 1; i++)
+
+            let currentBook;
+            //these are our top 5 book names, make sure they correspond with the propper key from the virtual library if you decide to change them
+            let top_5_book_names = ['the_obstacle_is_the_way', 'stillness_is_the_key', 'mans_search_for_meaning', 'meditations', 'atomic_habits']
+            //note, we must use < 5 here since we can only show 5 books. We use this instead of a "for of" loop, as it is easier to code and read in this case
+            for(let i = 0; i < 5; i++)
             {
-
-                if(url.includes(`?page=${i}`))
-                {
-
-                    let circle = document.getElementById(`books-page-${i}`)
-                    let number = circle.children[0]
-                    circle.style.background = '#1f1f19'
-                    number.style.color = `white`;
-                    pageNum = i;
-                }
+                currentBook = virtualLibrary[top_5_book_names[i]]
+                document.getElementById(`book-${i}-title`).innerHTML = `${i + 1}. ${currentBook.title}`
+                document.getElementById(`book-${i}-description`).innerHTML = currentBook.description
+                document.getElementById(`book-${i}-img`).setAttribute('src', currentBook.img)
+                document.getElementById(`book-${i}-img`).setAttribute('alt', currentBook.alt)
+                document.getElementsByClassName(`book-${i}-link`)[0].setAttribute('href', `books.html?book=${currentBook.href}`)
+                document.getElementsByClassName(`book-${i}-link`)[1].setAttribute('href', `books.html?book=${currentBook.href}`)  
+                console.log(document.getElementsByClassName(`book-${i}-link`))     
             }
+            
+        }
+
+        //if its not top_5_books, then we want to highlight the propper page number at the bottom, and load the books assosiated with that page number
+        else
+        {
+            //we use or 1, if the user has not clicked a link yet, to default to highlighting the number one
+
+            let pageNum = parseInt(databaseName || 1)
+            let circle = document.getElementById(`books-page-${pageNum}`)
+            let number = circle.children[0];
+            circle.style.background = '#1f1f19';
+            number.style.color = `white`;
+            
+            const startAt = (pageNum -1) * 5 //page 1 should start at element 1, page 2 element 5, etc.
+            let currentBook;
+            for(let i = 0; i < 5; i++){
+                //here we add 'startAt' to make sure if its another page, we don't retrive the same books
+                //in other words, we add 5 for every page, so page 2 starts at book 5, page 3, book 10, and so on
+                currentBook = virtualLibrary[booksTitlesArray[i + startAt]];
+                //if there isnt five books we want to stop trying to set elements
+                console.log(currentBook)
+                if(!currentBook)
+                {
+                    break
+                };
+                document.getElementById(`book-${i}-title`).innerHTML = currentBook.title
+                document.getElementById(`book-${i}-description`).innerHTML = currentBook.description
+                document.getElementById(`book-${i}-img`).setAttribute('src', currentBook.img)
+                document.getElementById(`book-${i}-img`).setAttribute('alt', currentBook.alt)
+                document.getElementsByClassName(`book-${i}-link`)[0].setAttribute('href', `books.html?book=${currentBook.href}`)
+                document.getElementsByClassName(`book-${i}-link`)[1].setAttribute('href', `books.html?book=${currentBook.href}`)
+                //LEFT HERE
+        }
+
         }
 
 
-        const startAt = (pageNum -1) * 5 //page 1 should start at element 1, page 2 element 5, etc.
-        let currentBook;
-        for(let i = 0; i < 5; i++){
-            //here we add 'startAt' to make sure if its another page, we don't retrive the same books
-            //in other words, we add 5 for every page, so page 2 starts at book 5, page 3, book 10, and so on
-            currentBook = virtualLibrary[booksTitlesArray[i + startAt]];
-            //if there isnt five books we want to stop trying to set elements
-            if(!currentBook)
-            {
-                break
-            };
-            document.getElementById(`book-${i}-title`).innerHTML = currentBook.title
-            document.getElementById(`book-${i}-description`).innerHTML = currentBook.description
-            document.getElementById(`book-${i}-img`).setAttribute('src', currentBook.img)
-            document.getElementsByClassName(`book-${i}-link`)[0].setAttribute('href', `books.html?book=${currentBook.href}`)
-            document.getElementsByClassName(`book-${i}-link`)[1].setAttribute('href', `books.html?book=${currentBook.href}`)
-            //LEFT HERE
-        }
 
         }
         if(x == 'load-book')
@@ -1140,9 +1178,69 @@ window.onload=function(){
 
         const activateMeditationPage = () =>{
             const meditationsArticles = {
+                what_is_meditation:{
+                    title:`What Is Meditation?`,
+                    img:'assets/meditation.jpg',
+                    alt:'A man meditating with stars behind him',
+                    titleinfo:`
+                    Learn about what meditation is, the benefits of meditation, and some of the many different forms of meditation.
+                    `,
+                    header0:`Definition`,
+                    info0:[
+                        `
+                        Meditation put simply, is using ones attention on a given object of focus (for example your breathe) to train attention and awareness.
+                        `
+                    ],
+                    header1:`Why should I meditate?`,
+                    info1:[
+                        `
+                        Meditation has many benefits which include, but aren't limited to: reduced stress, controls anxiety, promotes emotional health, greatly enhances
+                        self awareness, increases attention span, can help fight addiction, improves sleep, helps control pain, and you can do it anywhere
+                        `
+                    ],
+                    header2:`Different types of meditation`,
+                    info2:[
+                        `
+                        There are many different types of meditation. The five types we will discuss will be mantra meditation, mindfulness meditation, movement meditation,
+                         loving kindness meditation, and visualization meditation.
+                        `,
+                        `
+                        1.) Mantra meditation. In performing Mantra meditation, the object of focus for producing a relaxation response is a repeated word or phrase
+                        called a mantra. You may choose any word for your mantra, and your only task is to repeat the mantra either verbally or nonverbally in your
+                        mind. The purpose of this is to set your attention on repeating this word or phrase and when your mind wanders you gently return it back to
+                        your mantra.
+                        `,
+                        `
+                        2.) Mindfulness Meditation.
+                        In mindful meditation you pay attention to your thoughts as they pass through your mind. You don't judge your thoughts or become involved with
+                        them you just simply ovserve them. Often when doing mindful meditation you have a singular focus which can be the breathe, the feeling of your
+                        body touching the surface underneath you, or any other bodily sensation.
+                        This practice combines awareness and concentration. As you steadily observe your object of focus your mind may wander or you may have a bodily
+                        sensation or feeling, simply note it and return back to your object of focus.
+                        `,
+                        `
+                        3.) Movement meditation.
+                        Most people think movement meditation is exclusively yoga, however this is not the case. There are many forms of movement meditation such as: walking tai chi, yoga, gardening, qi gong, any other gentle forms of movement.
+                        The focus of movement meditation is to be focused on whatever movement or task you are doing with as much attention as possible. If your mind wanders you gently bring it back to the task at hand.
+                        `,
+                        `
+                        4.) Loving kindness meditation.
+                        This form of meditation is used to strengthen feelings of compassion, acceptance and kindness toward oneself and others. Usually this meditation involves thinking about loved ones, friends, acquaintances and all living beings
+                         and sending them well wishes. This meditation is ideal if you hold feelings of anger or resentment that you want to overcome.
+                        `,
+                        `
+                        5.) Visualization meditation.
+                        This form of meditation can help enhance feelings of relaxation, peace and calmness by visualizaing positive scenes, images or figures. When you do this visualization 
+                        you idealy want to engage all five senses and create as vivid of an image as possible. Another form of this meditation would be to visualize yourself achieving a 
+                        goal that you are trying to achieve, which is intended to increase motivation and focus
+                        `
+                    ]
+
+                },
                 how_to_meditate:{
                     title:`How do you meditate?`,
                     img:'assets/monk.jpg',
+                    alt:'A monk meditating',
                     titleinfo:`
                     What is meditation? Meditation is not about clearing your mind, it is about observing your thoughts and returning your focus back to your object of focus.
                     There is three things to focus on when you are learning to meditate. Firstly location, second your posture, and third the practice itself.
@@ -1186,6 +1284,7 @@ window.onload=function(){
                 what_is_mindfulness:{
                     title:`Mindfulness, Meditation, Whats The Difference?`,
                     img:'assets/be-here-now.jpg',
+                    alt:`The words 'be here now' in scrabble letters`,
                     titleinfo:`Are mindfulness and meditation the same thing? Most people think so, but they are two very seperate things that, when you understand the difference can enhance your meditation journey.`,
                     header0:`What is meditation?`,
                     info0:[
@@ -1208,6 +1307,7 @@ window.onload=function(){
                 how_to_apply_mindfulness:{
                     title:`How To Apply Mindfulness`,
                     img:'assets/boys.jpg',
+                    alt:'two young child monks washing pots',
                     titleinfo:`
                     Learning how to meditate is a great skill to learn how to calm down, but there is much more to meditation then a state of calm.
                     Meditation can provide a gap in your reactions to the world and allow you to act the way you want to, rather then out of urges.`,
@@ -1233,6 +1333,7 @@ window.onload=function(){
                 resources:{
                     title:`Resources For Meditation And Mindfulness`,
                     img:'assets/stones.jpg',
+                    alt:'stones balancing ontop of each other',
                     titleinfo:`There are many resources for getting into meditation and practicing mindfulness. Below are three resources for getting you started into meditation.`,
                     header0:`Headspace app`,
                     info0:[
@@ -1258,6 +1359,7 @@ window.onload=function(){
                 //each article has 3 sections, therefore, we only go i till 3
                 document.getElementById('meditation-individual-title').innerHTML = article.title;
                 document.getElementById('meditation-individual-img').setAttribute('src', article.img);
+                document.getElementById('meditation-individual-img').setAttribute('alt', article.alt);
                 document.getElementById('meditation-individual-title-info').innerHTML = article.titleinfo;
                 for(let i = 0; i < 3; i++){
                     document.getElementById(`meditation-individual-header-${i}`).innerHTML = article[`header${i}`];
@@ -1276,31 +1378,192 @@ window.onload=function(){
             }
                 loadMeditationArticle();
         }
+        const activateStoicismPage = () => {
+            //stoic articles is a bit more complex then all the others. It will markup anything that is a header, with header tags. and it will dump the info underneath it.
+            //You must only have a single header per section, however, you can have multiple paragraphs inside each section by splitting the text in info into different
+            //array elements.
+            //we made an array, even though it is one article, to allow easier addition to articles in the future.
+            const stoicArticles = {
+                what_is_stoicism:{
+                    img:'assets/zeno.png',
+                    alt:'picture of zeno the stoic',
+                    title:'What Is Stoicism',
+                    titleinfo: `
+                    Stoicism is an ancient philosophy that was once one of the most popular civic disciplines in the West, practiced by the rich and the impoverished,
+                     the powerful and the struggling alike in the pursuit of the good Life.
+                    `,
+                    allinfo:{
+                        section0:{
+                            header:`Why learn about stoicism?`,
+                            info:
+                            [`
+                            Have you ever had a obstacle that made you feel overwhealmed, stressed or worried? All of us experience obstacles and setback in life,
+                             but what matters the most is not what happens to us, but how we decide to respond to it.
+                            `]
+                        },
+                        section1:{
+                            header:`How do you apply stoicism to your daily life?`,
+                            info:
+                            [`
+                            Stoicism provides us a a practical guide to how to handle the stresses and hardships of life. Stoicism has 4 virtues in which everyone should 
+                            live their lives by to allow one to live a better life. To apply stoicism to your daily life you must first understand the virtues in which
+                             you will practice. These virtues are: Courage, Temperance, Justice, and Wisdom.
+                            `]
+                        },
+                        section2:{
+                            header:`Courage`,
+                            info:
+                            [`
+                            How do you deal with obstacles in your life? Do you pity yourself and distract yourself with meaningless activities? Or do you bravely attack the
+                             challenges of life in a calm and direct manner? Courage doesn't mean you can't feel scared. Courage means that regardless of how you feel, you do
+                              whatever it is that you need to do.
+                            `,
+                            `Scared of asking for your boss for a raise even though you have been going above and beyond for them? Is there a big amount of work to do that you
+                             don't want to start? Did you lose all your money in stocks? All these problems revolve around how you will respond right now. Will you view the situation
+                              with your boss as an opportunity to practice courage? Will you courageously start and finish your work? Will you accept your lost money, shake it off and plan your next steps?
+                            `,`
+                            Every situation in life can be responded to with courage. This doesn't mean you respond without thinking. This leads us to our next virtue of...
+                            `
+                        ]
+                        },
+                        section3:{
+                            header:`Temperance`,
+                            info:
+                            [
+                                `
+                                Although courage is very important, if the only virtue you practice is courage it can easily turn into recklessness. Too little courage leads to behaving cowardly, whilst too much leads to acting without thought.
+                                 Therefore what we need is a way to balance between the two extremes.
+                                `,
+                                `
+                                That is what temperance is really about. It's about doing nothing in excess. Doing the right thing in the right amount in the right way Anything in excess will ulitmately lead to pain. Eating desserts
+                                 isn't bad, what is bad is when you eat them without self control. Spending money on yourself is important, but if you don't balance your finances, you will soon be broke. Crying is an important human emotion,
+                                  on one hand if you cry every day your life will be very sad, on the other if you don't ever cry then you will not be able to express your sadness in a healthy manner.
+                                `,
+                                `
+                                Everything must be balanced with careful consideration. Being courageous and possessing temperance are very important, however we must also ensure that we conduct ourselves in a manner that is
+                                 right. The virtue to keep in mind to achieve this is...
+                                `
+                            ]
+                        },
+                        section4:{
+                            header:`Justice`,
+                            info:[
+                                `
+                                What is the meaning of life? Is it about money? Fame? posessions? Happiness? None of these things are really anything that truly matters in the end. The only thing that matters is not
+                                 what we have, but rather, how we act. Will we act justly in situations where acting unjustly presents a profit? Sure, you can cheat your way through life, but how will that affect your
+                                  life in the long run? How will it impact your soul? How will it influence the world long after your gone.
+                                `,
+                                `
+                                There is no Stoic virtue that is more important than justice, because it influences all the others. In simple terms, without striving to act justly, none of the other virtues are relevant or
+                                 matter. Without aiming at a target does it really matter how well the archer shoots his arrow? In the same sense, if one does not strive to act justly, none of the other virtues truly matter.
+                                `,
+                                `
+                                Doing the right thing is the compass we follow to do the right thing. How though, do we decide how we must act in any moment? What actually is the "right thing". This leads us to our next virtue of...
+                                `
+                            ]
+                        },
+                        section5:{
+                            header:`Wisdom`,
+                            info:[
+                                `
+                                All of the virtues thusfar have taught us to be courageous, to use temperance, and to act justly, but how do you decide how to do any of these? This is where the virtue Wisdom comes in. The learning and knowing
+                                 of the world. The experience that we require to navigate the world.
+                                `,
+                                `
+                                The great stoic who invented stoicism, Zeno said "We have two ears and one mouth, so we should listen more than we say." We also have two eyes, therefore we should also read and observe much more then we speak as well.
+                                `,
+                                `
+                                It's important to aquire information, yes, however it is vital that the information that you gain is good information. As the saying goes "garbage in garbage out". If you read a book full of rubbish, all you
+                                 will learn is rubbish. Whilst if you read a book with well formed thoughts, a good structure, and a core focus, this book may change your entire life.                                `
+                            ]
+                        },
+                        section6:{
+                            header:`Application`,
+                            info:
+                            [
+                            `
+                            So now what? You've learned the virtues but how do you apply them? The first step is humility. You must realize that no matter how much you know (or think you know) there will always be someone who knows more. 
+                            Therefore, you should be focused on being the best student you can be. That does not mean the best student in a classroom setting, rather a student of life.
+                            `,
+                            `
+                            Anyone, and infact everyone is your teacher, and you can always learn from them. For example, your boss is frustrated and takes out his frustration onto you. Is this fair? No of course it isn't, but that doesn't
+                             mean you should retaliate. You have the decision in that very moment to practice patience, kindness, compassion, humility, etc. You can respond to your boss kindly, you can do his tasks better then he asked for
+                              them to be done. This is not for a raise or a promotion, but rather it is for the betterment of your character.
+                            `,
+                            `
+                            You always have the opportunity to learn from others, to act in a courageous, temperant, just, and wise manner.
+                            `,    
+                            ]
+                        },
+                    }
+
+                }
+            }
+            //document.getElementById("stoicism-individual-article-info-container")
+            //this grabs all the section objects
+            const article = stoicArticles[databaseName]
+            const sections = article.allinfo
+            //this is how manys that there are for this article
+            const sectionsLength = Object.keys(sections).length
+            //we iterate through each section and inside of each section we put the header, and the info, when we get to info we start another loop, and each element in that
+            //info array gets seperated into paragraphs
+            document.getElementById('stoicism-individual-article-title').innerHTML = article.title;
+            document.getElementById('stoicism-individual-article-titleinfo').innerHTML =article.titleinfo;
+            document.getElementById('stoicism-individual-article-img').setAttribute('src', article.img)
+            document.getElementById('stoicism-individual-article-img').setAttribute('alt', article.alt)
+            for(let i = 0; i < sectionsLength; i++)
+            {
+                let section = sections[`section${i}`];
+                let h3 = document.createElement("h3");
+                h3.appendChild(document.createTextNode(section.header));
+                document.getElementById(`stoicism-individual-article-info-container`).appendChild(h3);
+                //here we seperate each info element (in the info array) to a seperate paragraph
+                for(let i = 0; i < section.info.length; i++)
+                {
+                    let p = document.createElement("p");
+                    p.append(document.createTextNode(section.info[i]));
+                    document.getElementById(`stoicism-individual-article-info-container`).appendChild(p);
+                }
+
+            }
+
+        }
     
   
         
 
 
 //this is the most important function here, it calls the appropriate function for the required page.
+//when loading a clicked book this if statement goes off
 if(url.includes('books.html?book='))
 {
-    document.getElementById('individual-book-container').style.display = 'block';
     document.getElementById('books-main-page-container').style.display = 'none';
+    document.getElementById('individual-book-container').style.display = 'block';
     activateBookPage('load-book');
 }
+//when client goes to the next page this one goes off, the link will look something like books.html?page=... 
+//this if statement also goes off when user clicks top 5 books on news page which links to books.html?page=top-5-books
 else if(url.includes('books.html'))
 {
     activateBookPage('next-page');
 }    
+//when a person is clicked on the quote page this is activated, it hides the original content and shows the person clicked and there quotes
 else if(url.includes('quotes.html?person='))
 {           
     activateQuotePage('page');
-    document.getElementById('individual-quotes-container').style.display = 'block';
     document.getElementById('quotes-main-page-container').style.display = 'none';
+    document.getElementById('individual-quotes-container').style.display = 'block';
 }
+//just alike the quotes page, except we show an article with info rather then a person with quotes.
 else if(url.includes('meditations.html?article='))
 {
-    document.getElementById('meditation-individual-article').style.display = 'block';
     document.getElementById('meditations-container').style.display = 'none';
+    document.getElementById('meditation-individual-article').style.display = 'block';
     activateMeditationPage();
+//same as the other pages, but this deals with stoicism articles.
+} else if(url.includes('stoicism.html?article='))
+{
+    document.getElementById('stoicism-news-container').style.display = 'none';
+    document.getElementById('stoicism-individual-article-container').style.display = 'block';
+    activateStoicismPage();
 }
