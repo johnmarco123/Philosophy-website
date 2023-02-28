@@ -28,7 +28,69 @@ window.onload=function(){
     bar.style.width = totalWidth * totalScroll + 'px';
     })
         //PROGRESS BAR CODE END
-    }
+
+
+
+            // Close the dropdown menu if the user clicks outside of it
+/***************************************************************************************
+    *    Title: How TO - Clickable Dropdown
+    *    Author: W3SCHOOLS
+    *    Date: Unknown
+    *    Code version: 1.0
+https://www.w3schools.com/howto/howto_js_dropdown.asp#:~:text=Example%20Explained,dropdown%20menu%20correctly%20with%20CSS.*
+
+
+
+
+
+                        ORIGINAL CODE FROM SOURCE LOOKED LIKE THIS
+                        /* When the user clicks on the button,
+                    toggle between hiding and showing the dropdown content 
+                    function myFunction() {
+                        document.getElementById("myDropdown").classList.toggle("show");
+                    }
+                    
+                    // Close the dropdown menu if the user clicks outside of it
+                    window.onclick = function(event) {
+                        if (!event.target.matches('.dropbtn')) {
+                        var dropdowns = document.getElementsByClassName("dropdown-content");
+                        var i;
+                        for (i = 0; i < dropdowns.length; i++) {
+                            var openDropdown = dropdowns[i];
+                            if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
+                            }
+                        }
+                        }
+                    }
+    ***************************************************************************************/
+            //MY EDITED CODEIS BELOW...
+
+            //DROPDOWN START
+
+
+            //this is basically exactly the same as the source above, this shows the dropdown
+            const dropdown = () => document.getElementById("myDropdown").classList.toggle("show");
+            //this i refactored into a function, it hides the dropdown
+            const hideDropdown = () => {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+                }
+            }
+        //and these two functions i made myself to simplify. the firstone is for mouse users, the second one for non mouse users
+        //the first one displays the dropdown on click, the second one when the focused element is the dropdown and the user clicks enter.
+        window.onclick = (e => !e.target.matches('.dropbtn') ? hideDropdown() : dropdown())
+        //clickless version of above code
+        document.getElementById('dropdown-pic').setAttribute('tabindex', 0)
+        window.onkeyup = (e => e.key == 'Enter' ? document.activeElement.id == 'dropdown-pic' ? dropdown() : hideDropdown() : false)
+        //DROPDOWN END
+
+}
 
     //START PAGE EDITOR
    //grab the url
@@ -1124,7 +1186,6 @@ window.onload=function(){
                 document.getElementById(`book-${i}-img`).setAttribute('alt', currentBook.alt)
                 document.getElementsByClassName(`book-${i}-link`)[0].setAttribute('href', `books.html?book=${currentBook.href}`)
                 document.getElementsByClassName(`book-${i}-link`)[1].setAttribute('href', `books.html?book=${currentBook.href}`)  
-                console.log(document.getElementsByClassName(`book-${i}-link`))     
             }
             
         }
@@ -1147,7 +1208,6 @@ window.onload=function(){
                 //in other words, we add 5 for every page, so page 2 starts at book 5, page 3, book 10, and so on
                 currentBook = virtualLibrary[booksTitlesArray[i + startAt]];
                 //if there isnt five books we want to stop trying to set elements
-                console.log(currentBook)
                 if(!currentBook)
                 {
                     break
@@ -1373,7 +1433,6 @@ window.onload=function(){
                     }
                     
                 }
-                console.log(document.getElementById('meditation-individual-img'))
 
             }
                 loadMeditationArticle();

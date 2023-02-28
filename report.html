@@ -23,14 +23,12 @@
                 </ul>
             </div>
             <div class="right">
-
             </div>
-
         </nav>
         <div id="nav-mobile">
             <div class="dropdown">
                 <span id="dropdown-container">
-                    <img id="dropdown-pic" onclick="dropdown()" class="dropbtn" src="assets/drop.png" alt="">
+                    <img id="dropdown-pic" class="dropbtn" src="assets/drop.png" alt="A drop-down menu button">
                 </span>
                 <div id="myDropdown" class="dropdown-content">
                     <a href="index.html">News</a>
@@ -42,45 +40,55 @@
                 </div>
             </div>
         </div>
-        <script>
-        
-                    function myFunction() {
-            document.getElementById("myDropdown").classList.toggle("show");
-            }
-
-            // Close the dropdown menu if the user clicks outside of it
-            window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-                }
-            }
-            }
-        </script>
-
         <div id="progress-bar"></div>
-
     <div id="main-container">
+        <div id="report-container">
         <h1>Report</h1>
-        <h2>Your name</h2>
+        <h2>John-Marco Tasillo</h2>
         <h2>Introduction:</h2>
         <h3>What is the essential story being told by your site and what type of structure did you choose
-            to implement</h3>
+            to implement?</h3>
+        <p>
+            The story behind my website is to display a vast amount of information for the reader of my news article to dive into.
+            This includes great quotes, exceptional books, information on meditation, and some information on the philosophy of stoicism.
+            The main purpose of the website is to provide high quality, useful knowledge to whomever decides to read the article.
+        </p>
         <h2>Inspiration:</h2>
         <h3>State 3 things that have inspired you when creating your website (e.g. guest speakers,
             websites, artists, blogs).</h3>
-            <p>Ryan Holiday's books on stoicism inspired me to create this newsletter website for helping yourself become
-                a better individual
-            </p>
-    
+            <ol class="report-list">
+                <li class="report-list-item">
+                    Ryan Holiday's books on stoicism inspired me to create this newsletter website for helping anyone become
+                    a better individual. You can find more information
+                    <a href="https://dailystoic.com/">here.</a>
+                </li>
+                <li class="report-list-item">
+                    Usnews.com inspired my style for my books portion of the website. You can find more information
+                    <a href="https://www.usnews.com/topics/subjects/meditation">here.</a>
+                </li>
+                <li class="report-list-item">
+                    Walmart.ca inspired the number highlighting feature at the bottom of the book page. You can find more information
+                    <a href="https://www.walmart.ca/en">here.</a>
+                </li>
+            </ol>
+
+
     
         <h2>Accessibility:</h2>
         <h3>State 3 ways in which your site is accessible.</h3>
+
+        <ol class ="report-list">
+            <li class="report-list-item">
+                All the images in my website have alt's. This is in place to help users who are blind perhaps, and are using a screen reader.
+            </li>
+            <li class="report-list-item">
+                The entire website is entirely functional with a mobile device, it will adjust as neccecary for whatever size screen the client is using.
+            </li>
+            <li class="report-list-item">
+
+            </li>
+        </ol>
+
         <h2>Usability:</h2>
         <h3>State 3 ways in which you considered the usability of your site.</h3>
         <h2>Learning:</h2>
@@ -97,6 +105,7 @@
         <h2>Appendices:</h2>
         <h3>Site map (if useful), wireframes and mock-ups</h3>
     </div>
+</div>
    
 
 <!-- information, libraries, plug-ins or other code that you used to create your site. You should

@@ -29,7 +29,7 @@
         <div id="nav-mobile">
             <div class="dropdown">
                 <span id="dropdown-container">
-                    <img id="dropdown-pic" onclick="dropdown()" class="dropbtn" src="assets/drop.png" alt="A drop-down menu button">
+                    <img id="dropdown-pic" class="dropbtn" src="assets/drop.png" alt="A drop-down menu button">
                 </span>
                 <div id="myDropdown" class="dropdown-content">
                     <a href="index.html">News</a>
@@ -41,37 +41,7 @@
                 </div>
             </div>
         </div>
-        <script>
-        
-                    function dropdown() {
-            document.getElementById("myDropdown").classList.toggle("show");
-            }
-
-            // Close the dropdown menu if the user clicks outside of it
-/***************************************************************************************
-    *    Title: How TO - Clickable Dropdown
-    *    Author: w3SCHOOLS
-    *    Date: Unknown
-    *    Code version: 1.0
-    *    Availability: https://www.w3schools.com/howto/howto_js_dropdown.aspstoicism?article=what-is-stoicism:~:text=Example%20Explained,dropdown%20menu%20correctly%20with%20CSS.
-    *
-    ***************************************************************************************/
-            window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-                }
-            }
-            }
-        </script>
-
         <div id="progress-bar"></div>
-
         <div id="main-container">
             <div id="books-main-page-container">
                 <div id="books-front-page">

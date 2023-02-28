@@ -6,6 +6,11 @@ html, body{
     color:grey;
     background-color:white;
 }
+/* *:focus{
+    background:black;
+    border: red solid 5px;
+    color:white;
+} */
 b, blockquote{
     color:black;
     word-spacing:2px;
@@ -308,6 +313,31 @@ li > a:hover{
 }
 
 /*life-changing-meditation page end*/
+/*report container start*/
+
+#report-container{
+    max-width:800px;
+    margin-left:auto;
+    margin-right:auto;
+    
+}
+.report-link{
+    color:blue;
+
+}
+.report-link:hover{
+    text-decoration:underline;
+    color:#1f1f19;
+}
+
+.report-list-item{
+    margin-bottom:20px;
+}
+
+
+
+
+/*report container end*/
 /*MEDITATION.HTML START*/
 
 #meditations-container{
