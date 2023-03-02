@@ -1,123 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <script src="script.js"></script>
-        <title>𝓚𝓷𝓸𝔀𝓵𝓮𝓭𝓰𝓮 𝓝𝓮𝔀𝓼</title>
-    </head>
-    <body>
-        <nav>
-            <a class="left"href="index.html"><h1 id="header">Knowledge News</h1></a>
 
-            <div class="center" id="navigation-links">
-                <ul>
-                    <li><a href="index.html">News</a></li>
-                    <li><a href="quotes.html">Quotes</a></li>
-                    <li><a href="books.html">Books</a></li>
-                    <li><a href="stoicism.html">Stoicism</a></li>
-                    <li><a href="meditations.html">Meditations</a></li>
-                    <li><a href="report.html">Report.html</a></li>
-                </ul>
-            </div>
-            <div class="right">
-            <!--intentionally left empty for spacing reasons...-->
-            </div>
+<head>
+    <!--In the off chance someone is using a old internet explorer version, this will help.-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        </nav>
-        <div id="nav-mobile">
-            <div class="dropdown">
-                <span id="dropdown-container">
-                    <img id="dropdown-pic" class="dropbtn" src="assets/drop.png" alt="A drop-down menu button">
-                </span>
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="index.html">News</a>
-                    <a href="quotes.html">Quotes</a>
-                    <a href="books.html">Books</a>
-                    <a href="stoicism.html">Stoicism</a>
-                    <a href="meditations.html">Meditations</a>
-                    <a href="report.html">Report</a>
-                </div>
-            </div>
+    <!--this specifies the character encoding for the HTML document-->
+    <meta charset="UTF-8">
+
+    <!--Description of the website -->
+    <meta name="description" content="Knowledge News - A news website
+    to help the world be a better, and smarter place.">
+
+    <!--This is the author of the webpage, aka myself-->
+    <meta name="author" content="John-Marco Tasillo">
+
+    
+    <!--Here we put some keywords to help search engine optimization-->
+    <meta name=”keywords” content="home, information, help, news, stoicism, books, knowledge, smart">
+
+    <!--This helps us scale our website width dependant upon the width of the device being used.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--The icon beside our title-->
+    <link rel="icon" href="images/favicon.ico">
+
+    <!--We link to our stylesheet here-->
+    <link rel="stylesheet" href="styles/style.css">
+    <!--here we connect our javascript to our webpage-->
+    <script src="scripts/script.js"></script>
+
+    <!-- The title of the webpage--->
+    <title>Knowledge News</title>
+</head>
+
+<body>
+    <!--Our main navigation menu -->
+    <nav id="laptop-nav" aria-label="navigation">
+        <a href="index.html">
+        <!--This is our main header on the left of the screen on every webpage-->
+            <h1 id="header">Knowledge News</h1>
+        </a>
+    <!--Our webpage links that are at the top of the screen-->
+        <ul id="nav-list">
+            <li><a href="index.html">News</a></li>
+            <li><a href="quotes.html">Quotes</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="stoicism.html">Stoicism</a></li>
+            <li><a href="meditations.html">Meditations</a></li>
+            <li><a href="report.html">Report.html</a></li>
+        </ul>
+
+    </nav>
+
+<!--
+            /*[1] W3SCHOOLS, 'How TO - Clickable Dropdown' (N/a), Date UNKNOWN. [Code].
+            https://www.w3schools.com/howto/howto_js_dropdown.asp#:~:text=Example%20Explained,dropdown%20menu%20correctly%20with%20CSS.*
+
+            ============================ORIGINAL CODE LOOKED LIKE THIS=========================
+
+
+                                <div class="dropdown">
+                            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                            <div id="myDropdown" class="dropdown-content">
+                                <a href="#">Link 1</a>
+                                <a href="#">Link 2</a>
+                                <a href="#">Link 3</a>
+                            </div>
+                            </div>
+
+            =====================================COMMENTS=======================================
+
+            It should be apparent, that i altered the code by removing the onclick function.
+            Instead of using this method i decided to use event handlers (which are in scripts/script.js).
+            This was to allow for mobile interaction as html onclick seemed to have issues handling that.
+        -->
+
+<nav id="nav-mobile" aria-label="Navigation mobile">
+    <a href="index.html">
+    <!--This is our main header on the left of the screen on every webpage-->
+    <h1 id="header">Knowledge News</h1>
+        </a>
+    <div class="dropdown">
+        <span id="dropdown-container">
+            <img id="dropdown-pic" class="dropbtn mobile-nav" src="images/drop.png" alt="drop-down menu button">
+        </span>
+        <div id="myDropdown" class="dropdown-content">
+            <a class="nav-link mobile-nav" href="index.html">News</a>
+            <a class="nav-link mobile-nav" href="quotes.html">Quotes</a>
+            <a class="nav-link mobile-nav" href="books.html">Books</a>
+            <a class="nav-link mobile-nav" href="stoicism.html">Stoicism</a>
+            <a class="nav-link mobile-nav" href="meditations.html">Meditations</a>
+            <a class="nav-link mobile-nav" href="report.html">Report</a>
         </div>
+    </div>
+</nav>
+<div id="progress-bar"></div>
 
-
-        <div id="progress-bar"></div>
-
-        <div id="main-container">
-            
-            <article id="landing-container">
-                <section class="side news" >
-                    <h1>Top 5 Books To Make You A Better Person</h1>
-                    <a href="books.html?page=top-5-books"><img class="small zoom"src="assets/the-obstacle-is-the-way.jpeg" alt="The book 'The Obstacle Is The Way' by Ryan Holiday"></a>
-                    <p>
-                        The most Life changing books to help you become smarter, wiser and a better person
-                    </p>
-                        
-                </section>
-                <section class="center news">
-                    <h1>How Meditation Can Change Your Life!</h1>
-                    <a href="meditations.html?article=what-is-meditation">
-                        <img class="big zoom"src="assets/meditation.jpg" alt="the book 'Meditation' by Marcus Aurelius">
-                    </a>
-                    <p>
-                        Meditation can help you distance your mind from bad thoughts and help bring peace and 
-                        calmness into your life
-                    </p>
-
-                </section>
-                <section class="side news">
-                    <h1>What is stoicism</h1>
-                    <a href="stoicism.html?article=what-is-stoicism">
-                        <img class="small zoom"src="assets/zeno.png" alt="A black and white photo of the creator of stoic philosophy, Zeno">
-                    </a>
-                    <p>
-                        The lost art of practicing stoicism, a philosophy for how to live a great life
-                        despite adversity                    
-                    </p>
-                </section>
+    <!-- the main container that holds everyhting on the page -->
+    <div id="main-container">
+        <!-- this container holds the three stories that you see when you first enter index.html -->
+        <div class="news-container">
+            <!-- this is the first article, aka the one on the left, it has a image, description and title.
+            The image and the title both link to the correct location on the webpage -->
+            <article class="side news">
+                <a href="books.html?page=top-5-books">
+                    <h2>Top 5 Great Books</h2>
+                    <img class="small zoom" src="images/the-obstacle-is-the-way.jpeg"
+                        alt="The book 'The Obstacle Is The Way' by Ryan Holiday">
+                </a>
+                <p>
+                    The most Life changing books to help you become smarter, wiser and a better person
+                </p>
 
             </article>
-            <div id="news-content">
-                <div id="container">
-                        <section>
-                            <h1>Roman Emperer Marcus Aurelius</h1>
-                            <a href="quotes.html?person=marcus-aurelius"><img class="medium zoom"src="assets/marcus-aurelius-statue.jpg" alt="A statue of the emperer Marcus Aurelius "></a>
-                            <p>
-                                What lessons can we learn about life from the great Roman Emperor Marcus Aurelius?
-                            </p>          
-                        </section>
+             <!-- this is the second article, aka the one on the middle, it has a image, description and title.
+            The image and the title both link to the correct location on the webpage -->
+            <article class="center news">
+                <a href="meditations.html?article=what-is-meditation">
+                    <h2>How Meditation Can Change Your Life!</h2>
+                    <img class="big zoom" src="images/meditation.jpg" alt="A man meditating with stars behind him">
+                </a>
+                <p>
+                    Meditation can help you distance your mind from bad thoughts and help bring peace and
+                    calmness into your life
+                </p>
 
-                        <section>
-                            <h1>10 Quotes From The Greatest Minds</h1>
-                            <a href="quotes.html?person=random">
-                                <img class="medium zoom"src="assets/quote-picture2.jpg" alt="A quote by the emperer Marcus Aurelius">
-                            </a>
-                            <p>
-                                The most inpirising and life changing quotes to change your perspective on life
-                            </p>          
-                        </section>
-                </div>
-            </div>
+            </article>
+            <!-- this is the third article, aka the one on the right, it has a image, description and title.
+            The image and the title both link to the correct location on the webpage -->
+            <article class="side news">
+                <a href="stoicism.html?article=what-is-stoicism">
+                    <h2>What Is Stoicism</h2>
+                    <img class="small zoom" src="images/zeno.png"
+                        alt="A black and white photo of the creator of stoic philosophy, Zeno">
+                </a>
+                <p>
+                    The lost art of practicing stoicism, a philosophy for how to live a great life
+                    despite adversity
+                </p>
+            </article>
+
         </div>
-    </body>
-    <footer>
-        <div id="footer-container">
-            <h5>USEFUL LINKS</h5>
-            <ul id="footer-items">
-                <li>Home</li>
-                <li>Quotes</li>
-                <li>Stoicism</li>
-                <li>Books</li>
-                <li>Meditations</li>
-            </ul>
-            <div id="email-container">
-                <label>Sign up for our newsletter
-                    <input id="email" type="email" size="30" maxlength="40" placeholder="Email">
-                </label>
-            </div>
+        <!-- this contaienr holds everything other then the first three stories (except the footer of course) -->
+        <div class="news-container">
+            <!-- we have this container for styling purposes -->
+                <!-- and once again, each story has a title an image and a description. the title and image
+                link to the propper articles and pages. -->
+                <article class="news-article news">
+                    <a href="quotes.html?person=marcus-aurelius">
+                        <h2>Roman Emperer Marcus Aurelius</h2>
+                        <img class="medium zoom" src="images/marcus-aurelius-statue.jpg"
+                            alt="A statue of the emperer Marcus Aurelius ">
+                    </a>
+                    <p>
+                        What lessons can we learn about life from the great Roman Emperor Marcus Aurelius?
+                    </p>
+                </article>
+
+                <article class="news-article news">
+                    <a href="quotes.html?person=random">
+                        <h2>10 Quotes From The Greatest Minds</h2>
+                        <img class="medium zoom" src="images/quote-picture2.jpg"
+                            alt="A quote by the emperer Marcus Aurelius">
+                    </a>
+                    <p>
+                        The most inpirising and life changing quotes to change your perspective on life
+                    </p>
+                </article>
         </div>
-    </footer>
+    </div>
+</body>
+<footer>
+    <div id="footer-container">
+        <p>Author: John-Marco Tasillo</p>
+        <h5>USEFUL LINKS</h5>
+        <ul id="footer-items">
+            <li>Home</li>
+            <li>Quotes</li>
+            <li>Stoicism</li>
+            <li>Books</li>
+            <li>Meditations</li>
+        </ul>
+        <div id="email-container">
+            <label>Sign up for our newsletter
+                <input id="email" type="email" size="30" maxlength="40" placeholder="Email">
+            </label>
+        </div>
+    </div>
+</footer>
+
 </html>

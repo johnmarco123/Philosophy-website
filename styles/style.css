@@ -1,0 +1,989 @@
+/* here we set our universal font */
+*{
+    font-family: Helvetica, Arial, sans-serif;
+
+}
+/* A nice grey highlight that fits our website theme for when the client highlights on any page*/
+*::selection{
+    background:grey;
+    color:white;
+}
+/* Basic spacing and font sizes for the html and body */
+html,
+body {
+    margin: 0px;
+    font-size: 18px;
+    word-spacing: 4px;
+    color: grey;
+}
+
+
+/* We want anything that is a quote to stand out, therefore we color every quote black directly from blockquote  */
+blockquote {
+    color: black;
+}
+
+/* ALL paragraphs we want to align left. No p tag should ever align in the center.
+   The line-height makes it much easier to read, by spacing out the words a bit more.
+*/
+p {
+    text-align: left;
+    line-height: 24px;
+
+}
+/* For each and every link we don't want a underline present */
+a
+{
+    text-decoration: none;
+}
+/*
+ this '>' represents the things inside of the <a> tags. Therefore, any text inside of <a> tags we want black
+ This is mainly for headers, and such. the nav bar we exclude from this as we want it to be white.
+*/
+
+ a > * {
+    color: black
+}
+
+/*
+     on hovering a header link, we want it to highlight blue and underline.
+    this helps visibility for the client to see exactly what they are hovering and
+    provides a flawless and rewarding experience for the client
+*/
+a>*:hover {       
+    color: blue;
+    text-decoration: underline;
+} 
+/*
+    We only use nav for our main navigation at the top of the screen, and the mobile version.
+    the most important part of the code here is the fixed positioning and the z index. this allows
+    the navigation to stay ontop and folloow the user. the flex display is also important to let the
+    elements flow correctly
+*/
+
+nav {
+    display: flex;
+    width: 100%;
+    background-color: #1f1f19;
+    position: fixed;
+    z-index: 1;
+    height: 50px;
+    top:0px;
+}
+
+
+
+/* styling of the top nav bar */
+nav li a {
+    padding: 10px;
+    color: white;
+}
+/* just some hovering color. we add focus here too so that non mouse users can see the effect*/
+nav li a:hover,
+nav li a:focus {
+    color: grey;
+    transition: color .1s ease;
+}
+
+/* the <ol> container for the main navigation at the top of the screen. */
+#nav-list{
+    max-width:600px;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    height:20px;
+}
+
+/* we remove the <ol> dot with this */
+#nav-list > li{
+    list-style-type: none;
+}
+
+
+/* all headers get centered and should be black */
+h1,
+h2,
+h3 {
+    color: black;
+    text-align: center
+}
+
+
+/* this is the main header at the top of every page on the left 'Knowledge News' */
+#header{
+    color: white;
+    border-radius: 3%;
+    width:230px;
+    position: relative;
+    bottom: 10px;
+    text-decoration:none;
+    margin-right:150px;
+    margin-left:50px;
+}
+
+/* the hover for the title at the top left */
+#header:hover{
+    color:grey;
+}
+
+
+/* this is the mobile nav menu, we keep it hidden till the screen is smaller then 1024px */
+#nav-mobile {
+    display: none;
+}
+
+/* the dropdown menu image */
+#dropdown-pic {
+    width: 50px;
+    height: 50px;
+    margin: auto;
+}
+
+/* the container for the image */
+#dropdown-container {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+}
+
+
+/*DROPDOWN MENU START*/
+/***************************************************************************************
+/*[1] W3SCHOOLS, 'How TO - Clickable Dropdown' (N/a), Date UNKNOWN. [Code].
+https://www.w3schools.com/howto/howto_js_dropdown.asp#:~:text=Example%20Explained,dropdown%20menu%20correctly%20with%20CSS.*
+***************************************************************************************/
+/*
+    It should be noted that I played around with some of the contents here, I changed the colors,
+    I changed the names, but most of the functionality did come from the source I got it from.
+
+    I also changed so the menu appeared on the right, therefore i had to move the .dropdown-content using
+    right:0px;
+*/
+
+
+/* Dropdown Button */
+.dropbtn {
+    cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover,
+.dropbtn:focus {
+    background-color: #b0d6f0;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right:0px;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: #1f1f19;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover,
+.dropdown-content a:focus {
+    background-color: #ddd;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+    display: block;
+}
+
+/*DROPDOWN MENU END*/
+/***********************************/
+
+
+/* here we hide the old navigation menu and show the mobile one */
+@media (max-width: 1025px) {
+    #laptop-nav{
+        display:none;
+    }
+
+    #nav-mobile {
+        display: flex;
+        justify-content:space-between;
+
+    }
+}
+
+/* our profress bar that moves when we scroll,
+   we give it a z-index, because if we don't when the user
+   hovers on an item that resizes it will go over the progress bar
+*/
+#progress-bar {
+    border-bottom: 6px solid green;
+    position: fixed;
+    z-index: 1;
+    top: 50px;
+    left: 0px;
+}
+
+/* most pages have this container, we pad it so content doesn't get hidden by the nav bar
+if you don't use main-container, please note your content may be hidden by the nav bar
+*/
+#main-container {
+    padding-top: 75px;
+
+}
+
+/*======================================NEWS PAGE START (INDEX.HTML)===================================== */
+
+
+/* two of these are used in the index.html(news) page. one for the three pictures at the top and one for
+the two at the bottom */
+.news-container {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 75px;
+    margin-right:auto;
+    margin-left:auto;
+    gap:50px;
+}
+
+/* the side articles in the top 3 articles on the news page */
+.side {
+    width: 100%;
+    max-width: 250px;
+    text-align:center;
+}
+/* we use this for images we want small */
+.small{
+    width:200px;
+}
+/* this is for the middle image on the news page, and for images we want big */
+.center,
+.big {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* medium size, and news articles (which are the articles at the bottom of the news page) */
+.medium,
+.news-article {
+    width: 100%;
+    max-width: 450px;
+}
+
+/*
+ when the width is less then 1025px we compact the news containers.
+ all the articles have the news class, we resize them so they all match the same size
+ 
+*/
+@media(max-width:1025px)
+{
+    .news-container{
+        flex-wrap:wrap;
+        max-width:500px;
+    }
+    .news{
+        max-width:450px;
+            
+    }
+}
+
+
+/*======================================NEWS PAGE END (INDEX.HTML)===================================== */
+
+
+
+
+/*======================================BOOKS PAGE START (BOOKS.HTML)===================================== */
+
+/* the main container for books.html (the margin-left and right auto center it, this is common amongst all my code */
+#books-container {
+    max-width: 1000px;
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* this contains the picture and the description for every book */
+.book-content {
+    display: flex;
+    height: auto;
+}
+/* inside the content, this is the image  */
+.book-img {
+    float: left;
+    margin: 20px;
+}
+/* the book title */
+.book-title {
+    margin-bottom: 0px;
+    color: black
+}
+/* and the book description */
+.book-description {
+    padding: 0px 20px;
+}
+/* this line neatly seperates the book content */
+.book-line {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    max-width: 1000px;
+    width: 100%;
+    height: 0.5px;
+    background: grey;
+}
+
+/*STOPPED HERE!*/
+@media (max-width: 808px) {
+    .book-content {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+}
+
+
+.zoom:hover {
+    transform: scale(1.02)
+}
+
+.zoom {
+    transition: transform .2s ease;
+}
+
+/*report container start*/
+
+#report-container {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    background:yellow;
+    padding: 0px 10px;
+
+}
+
+#report-container>p {
+    padding-bottom: 0px;
+}
+
+.report-link {
+    color: black;
+    font-weight: bold;
+}
+
+.report-link:hover,
+.report-link:focus {
+    text-decoration: underline;
+    color: blue;
+}
+
+.report-list-item {
+    margin-bottom: 20px;
+    background:red;
+}
+
+#site-map {
+    width: 100%;
+
+}
+
+#site-map-container {
+    width: 100%;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*report container end*/
+/*MEDITATION.HTML START*/
+
+#meditations-container {
+    padding: 0px 30px;
+}
+
+#meditation-main-story-img {
+    max-width: 400px;
+}
+
+#meditation-main-story {
+    padding: 10px;
+    max-width: 800px;
+    height: auto;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
+
+#meditation-main-story-info {
+    max-width: 300px;
+    height: 290px;
+    ;
+    background: white;
+    padding: 0px 20px;
+}
+
+
+
+.meditations-main-story-title {
+    width: 100%;
+    margin-top: 25px;
+    color: black;
+}
+
+.meditation-article {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.meditation-article-img {
+    max-width: 300px;
+    margin-top: 20px;
+}
+
+.meditation-article-title {
+    margin-bottom: 50px;
+    width: 100%;
+    color: black;
+}
+
+.meditation-article-title:hover,
+.meditation-article-title:focus {
+    color: blue;
+    text-decoration: underline
+}
+
+.meditation-article-info {
+    padding: 0px 20px;
+}
+
+.meditation-article-overlay,
+#meditation-main-story-overlay {
+    display: none;
+    position: relative;
+    top: -55px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.45);
+}
+
+.meditation-article-line {
+    width: 100%;
+    max-width: 1000px;
+    height: 2px;
+    background: grey;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+@media (max-width: 808px) {
+
+    #meditation-main-story-info,
+    .meditation-article-info {
+        display: none;
+    }
+
+    #meditation-main-story-overlay,
+    .meditation-article-overlay {
+        display: block;
+    }
+
+    .meditation-article-img {
+        max-width: 400px;
+    }
+
+    .meditation-article-line {
+        display: none;
+    }
+
+}
+
+/* individual article IN meditations.html */
+#meditation-individual-article {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px 20px;
+}
+
+#meditation-individual-article-container {
+    text-align: center;
+    padding: 0px 20px;
+}
+
+#meditation-individual-img {
+    max-width: 350px;
+}
+
+/*MEDITATIONS.HTML END*/
+/*books.html start*/
+
+#books-front-page-img {
+    max-width: 600px;
+    width: 100%;
+
+}
+
+#books-front-page {
+    text-align: center;
+    padding: 20px;
+}
+
+#book-page-landing-container {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1000px;
+}
+
+#book-page-description-container,
+#book-page-img {
+    margin: 20px;
+    max-width: 400px;
+}
+
+#book-page-img {
+    max-width: 250px;
+}
+
+.shadow {
+    box-shadow: 4px 4px 10px 0px #000000;
+    border-radius: 3%;
+
+}
+
+
+#book-details {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+}
+
+.book-links {
+    color: black;
+}
+
+.book-links:hover,
+.book-links:focus {
+    text-decoration: underline;
+    color: blue;
+}
+
+/* book-page-points > li AND #book-page-summary are NOT IN books.html! they get added via javascript when the page loads a book*/
+.book-page-passages,
+#book-page-points>li,
+#book-page-summary>p {
+    margin-bottom: 15px;
+    padding: 0px;
+}
+
+.book-page-summary-paragraph {
+    padding: 0px;
+}
+
+#book-page-landing-introduction {
+    display: none;
+}
+
+@media (max-width: 808px) {
+    #book-page-img {
+        max-width: 120px;
+        margin-top: 55px;
+    }
+
+    #book-page-landing-container,
+    #book-page-description-container {
+        flex-wrap: wrap;
+        max-width: 800px;
+        width: 100%;
+    }
+
+    #book-page-landing-introduction {
+        display: block;
+    }
+}
+
+/*books.html end*/
+
+/* MAKE  THIS UNIVERSAL OR CHANGE IT - being used in books.html and top5*/
+.small-book {
+    max-width: 100px;
+    float: right;
+}
+
+
+/*books.html start*/
+
+/*[3] W3docs.com, 'How to Make a Div a Clickable Link' (N/a), Date UNKNOWN. [Code].
+https://www.w3docs.com/snippets/css/how-to-make-a-div-a-clickable-link.html 
+
+                        ==ORIGINAL CODE IS BELOW==
+.container {
+  font-size: 5em;
+  background-color: #a8a8a8;
+  color: white;
+  width: 8em;
+  height: 2em;
+  line-height: 2;
+  text-align: center;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+}
+
+.link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+                        ==MY CODE IS BELOW==
+        I edited the code above to meet my sites requirements, but the main
+        functionality completely came from this source.
+*/
+#next-page-menu {
+    list-style-type: none;
+    padding: 20px 0px;
+    max-width: 300px;
+    height: 40px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between
+}
+
+.next-page-link {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.next-page-option {
+    width: 45px;
+    height: 45px;
+    color: white;
+    position: relative;
+    border-radius: 100%;
+}
+
+
+.menu-num {
+    margin-top: 10px;
+    position: relative;
+    top: 12px;
+    color: blue;
+}
+
+
+/*this is the individual person page being hidden until the client clicks on a person*/
+#individual-book-container,
+#individual-quotes-container {
+    display: none;
+}
+
+/*this is the individual person page being shown until the client clicks on a person*/
+
+#books-main-page-container,
+#quotes-main-page-container {
+    display: block;
+}
+
+
+
+/* BOOK.HTML END*/
+/*STOICISM.HTML START*/
+#stoicism-news-container{
+    margin-top:50px;
+}
+.stoic-container {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin-top:80px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-evenly;
+}
+
+.stoic {
+    max-height: 300px;
+}
+
+.stoic-article {
+    max-width: 300px;
+    text-align: center;
+}
+
+
+.stoic-book {
+    max-height: 200px;
+}
+
+.stoic-books {
+    max-width: 300px;
+    text-align: center;
+}
+
+.stoic-book-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 600px;
+    width: 100%;
+}
+@media (max-width:1400px)
+{
+    .stoic-book-group{
+        max-width:1200px;
+    }
+}
+@media(max-width:1025px)
+{
+    .stoic-books{
+        max-width:400px;
+    }
+    .stoic-container{
+        max-width:500px
+    }
+}
+/*STOICISM.HTMl END*/
+
+/*STOICISM.HTML?ARTICLE SUBLINK START*/
+#stoicism-individual-article-img {
+    max-width: 250px;
+}
+
+#stoicism-individual-article-landing-container {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+}
+
+#stoicism-individual-article-title-container {
+    display: none;
+    max-width: 300px;
+    padding: 30px;
+}
+
+#stoicism-individual-article-container {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#stoicism-individual-article-info-container {
+    padding: 0px 30px;
+}
+
+@media (max-width:800px) {
+    #stoicism-individual-article-landing-container {
+        display: block;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #stoicism-individual-article-title-container {
+        max-width: 800px;
+    }
+
+    #stoicism-individual-article-info-container>h3 {
+        font-size: 20px;
+    }
+
+    #stoicism-individual-article-img {
+        max-width: 150px;
+    }
+}
+
+/*STOICISM.HTML?ARTICLE START*/
+
+
+/*QUOTES.HTML START*/
+#quotes-people-list {
+    padding-left: 0px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    list-style-type: none;
+    text-align: center;
+}
+
+#quotes-container-header {
+    margin-top: 100px;
+}
+
+.quote-author {
+    height: 300px;
+}
+
+#quotes-random {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+#quotes-landing-description {
+    width: 400px;
+    padding: 10px 20px 0px 10px;
+}
+
+.quotes-article {
+    justify-content: space-evenly;
+    max-width: 400px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+/*QUOTES.HTML END*/
+/*QUOTES.HTML?PERSON= START*/
+#uh-oh-page {
+    text-align: center;
+    display: none;
+}
+
+#quote-page-landing-container {
+    display: flex;
+    flex-wrap:wrap;
+    max-width: 1030px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto
+}
+
+#quote-page-intro {
+    max-width: 450px;
+}
+
+#quote-page-img {
+    height: 450px;
+}
+
+#quote-page-description-container,
+#quote-page-img {
+    padding: 30px;
+}
+
+#quotes-list {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-left: 0px;
+    list-style-type: none;
+}
+
+.quote-page-quotes {
+    padding-bottom: 50px;
+    border-bottom: grey solid 1px;
+}
+
+#quote-9 {
+    border-bottom: none;
+}
+
+#randomizer {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    cursor: pointer;
+    font-weight: 500;
+    border-radius: 50px;
+    padding: 12px 24px;
+    border: 0;
+    background: #1f1f19;
+    color: white;
+    font-size: 16px;
+    display: none;
+}
+
+#randomizer:hover,
+#randomizer:focus {
+    transition: all .1s ease;
+    box-shadow: 0 0 0 3px #1f1f19;
+}
+
+#quotes {
+    text-align: center;
+}
+
+
+    /*QUOTES.HTML?PERSON= END*/
+
+/*universal footer code*/
+footer {
+    height: auto;
+    width: auto;
+    padding-bottom: 20px;
+    background-color: #1f1f19;
+}
+
+#footer-container {
+    padding-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
+    text-align: center;
+}
+
+#footer-author {
+    text-align: center;
+}
+
+#footer-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+
+#footer-items>li {
+    float: left;
+}
+
+#email-container {
+    margin-top: 40px;
+}
+
+input,
+label {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,95 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <title>𝓚𝓷𝓸𝔀𝓵𝓮𝓭𝓰𝓮 𝓝𝓮𝔀𝓼</title>
-    </head>
-    <body>
-        <nav>
-            <a class="left"href="index.html"><h1 id="header">Knowledge News</h1></a>
 
-            <div class="center" id="navigation-links">
-                <ul>
-                    <li><a href="index.html">News</a></li>
-                    <li><a href="quotes.html">Quotes</a></li>
-                    <li><a href="books.html">Books</a></li>
-                    <li><a href="stoicism.html">Stoicism</a></li>
-                    <li><a href="meditations.html">Meditations</a></li>
-                    <li><a href="report.html">Report.html</a></li>
-                </ul>
-            </div>
-            <div class="right">
+<head>
+    <!--In the off chance someone is using a old internet explorer version, this will help.-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-            </div>
+    <!--this specifies the character encoding for the HTML document-->
+    <meta charset="UTF-8">
 
-        </nav>
-        <div id="nav-mobile">
-            <div class="dropdown">
-                <span id="dropdown-container">
-                    <img id="dropdown-pic" class="dropbtn" src="assets/drop.png" alt="A drop-down menu button">
-                </span>
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="index.html">News</a>
-                    <a href="quotes.html">Quotes</a>
-                    <a href="books.html">Books</a>
-                    <a href="stoicism.html">Stoicism</a>
-                    <a href="meditations.html">Meditations</a>
-                    <a href="report.html">Report</a>
-                </div>
-            </div>
+    <!--Description of the website -->
+    <meta name="description" content="Knowledge News - A news website
+    to help the world be a better, and smarter place.">
+
+    <!--This is the author of the webpage, aka myself-->
+    <meta name="author" content="John-Marco Tasillo">
+
+    
+    <!--Here we put some keywords to help search engine optimization-->
+    <meta name=”keywords” content="home, information, help, news, stoicism, books, knowledge, smart">
+
+    <!--This helps us scale our website width dependant upon the width of the device being used.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--The icon beside our title-->
+    <link rel="icon" href="images/favicon.ico">
+
+    <!--We link to our stylesheet here-->
+    <link rel="stylesheet" href="styles/style.css">
+
+    <!-- The title of the webpage--->
+    <title>Knowledge News</title>
+</head>
+
+<body>
+    <!--Our main navigation menu -->
+    <nav aria-label="navigation">
+        <a href="index.html">
+        <!--This is our main header on the left of the screen on every webpage-->
+            <h1 id="header">Knowledge News</h1>
+        </a>
+    <!--Our webpage links that are at the top of the screen-->
+        <ul id="nav-list">
+            <li><a href="index.html">News</a></li>
+            <li><a href="quotes.html">Quotes</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="stoicism.html">Stoicism</a></li>
+            <li><a href="meditations.html">Meditations</a></li>
+            <li><a href="report.html">Report.html</a></li>
+        </ul>
+
+    </nav>
+
+<!--
+            /*[1] W3SCHOOLS, 'How TO - Clickable Dropdown' (N/a), Date UNKNOWN. [Code].
+            https://www.w3schools.com/howto/howto_js_dropdown.asp#:~:text=Example%20Explained,dropdown%20menu%20correctly%20with%20CSS.*
+
+            ============================ORIGINAL CODE LOOKED LIKE THIS=========================
+
+
+                                <div class="dropdown">
+                            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                            <div id="myDropdown" class="dropdown-content">
+                                <a href="#">Link 1</a>
+                                <a href="#">Link 2</a>
+                                <a href="#">Link 3</a>
+                            </div>
+                            </div>
+
+            =====================================COMMENTS=======================================
+
+            It should be apparent, that i altered the code by removing the onclick function.
+            Instead of using this method i decided to use event handlers (which are in scripts/script.js).
+            This was to allow for mobile interaction as html onclick seemed to have issues handling that.
+        -->
+
+<nav id="nav-mobile" aria-label="Navigation mobile">
+    <a href="index.html">
+    <!--This is our main header on the left of the screen on every webpage-->
+    <h1 id="header">Knowledge News</h1>
+        </a>
+    <div class="dropdown">
+        <span id="dropdown-container">
+            <img id="dropdown-pic" class="dropbtn mobile-nav" src="images/drop.png" alt="drop-down menu button">
+        </span>
+        <div id="myDropdown" class="dropdown-content">
+            <a class="nav-link mobile-nav" href="index.html">News</a>
+            <a class="nav-link mobile-nav" href="quotes.html">Quotes</a>
+            <a class="nav-link mobile-nav" href="books.html">Books</a>
+            <a class="nav-link mobile-nav" href="stoicism.html">Stoicism</a>
+            <a class="nav-link mobile-nav" href="meditations.html">Meditations</a>
+            <a class="nav-link mobile-nav" href="report.html">Report</a>
         </div>
-        <div id="progress-bar"></div>
-        <div id="main-container">
-            <div id="quotes-main-page-container">
-            <h2 id="quotes-container-header">The Best Quotes From Great Minds</h2>
-            <ol id="quotes-container">
+    </div>
+</nav>
+<div id="progress-bar"></div>
+    <!--the main container that holds all the content on the visible page-->
+    <div id="main-container">
+        <!-- container 1/2. This is before a person is clicked, after one is clicked this container
+        gets hidden and container 2/2 gets shown -->
+        <div id="quotes-main-page-container">
+            <!-- our main title for the page -->
+            <h1 id="quotes-container-header">The Best Quotes From Great Minds</h1>
+            <!-- here we defile an ordered list and throw in all the people. When a person is clicked,
+            the main container 1/2 gets hidden and 2/2 gets shown with the corresponding persons content -->
+            <ol id="quotes-people-list">
+                <!-- this is a container for one person -->
                 <li class="quotes-article">
+                    <!-- the image of the person -->
                     <a href="quotes.html?person=eric-thomas">
-                        <img class="quote-author zoom" src="assets/eric-thomas.png" alt="Eric thomas smiling">
+                        <img class="quote-author zoom" src="images/eric-thomas.png" alt="Eric thomas smiling">
                     </a>
+                    <!-- the name of the person -->
                     <a href="quotes.html?person=eric-thomas">
                         <h3>Eric Thomas</h3>
                     </a>
                 </li>
-
+                    <!--the above gets repeated 11 more times below, therefore i won't bother commenting it.  -->
                 <li class="quotes-article">
                     <a href="quotes.html?person=dalai-lama">
-                        <img class="quote-author zoom" src="assets/dalai-lama.png" alt="The Dalai lama">
+                        <img class="quote-author zoom" src="images/dalai-lama.png" alt="The Dalai lama">
                     </a>
                     <a href="quotes.html?person=dalai-lama">
                         <h3>Dalai Lama</h3>
                     </a>
-                </li>     
+                </li>
                 <li class="quotes-article">
                     <a href="quotes.html?person=tony-robbins">
-                        <img class="quote-author zoom" src="assets/tony-robbins.png" alt="Tony Robbins Smiling">
+                        <img class="quote-author zoom" src="images/tony-robbins.png" alt="Tony Robbins Smiling">
                     </a>
                     <a href="quotes.html?person=tony-robbins">
                         <h3>Tony Robbins</h3>
                     </a>
-                </li>  
+                </li>
                 <li class="quotes-article">
                     <a href="quotes.html?person=aristotle">
-                        <img class="quote-author zoom" src="assets/aristotle.png" alt="A statue of Aristotle">
+                        <img class="quote-author zoom" src="images/aristotle.png" alt="A statue of Aristotle">
                     </a>
                     <a href="quotes.html?person=aristotle">
                         <h3>Aristotle</h3>
                     </a>
-                </li>  
+                </li>
                 <li class="quotes-article">
                     <a href="quotes.html?person=thomas-edison">
-                        <img class="quote-author zoom" src="assets/thomas-edison.png" alt="Thomas edison with his hands together">
+                        <img class="quote-author zoom" src="images/thomas-edison.png"
+                            alt="Thomas edison with his hands together">
                     </a>
                     <a href="quotes.html?person=thomas-edison">
                         <h3>Thomas Edison</h3>
                     </a>
-                </li>       
+                </li>
                 <li class="quotes-article">
                     <a href="quotes.html?person=dr-seuss">
-                        <img class="quote-author zoom" src="assets/dr-seuss.png" alt="Dr seuss with his arms crossed">
+                        <img class="quote-author zoom" src="images/dr-seuss.png" alt="Dr seuss with his arms crossed">
                     </a>
                     <a href="quotes.html?person=dr-seuss">
                         <h3>Dr.Seuss</h3>
@@ -97,15 +159,15 @@
                 </li>
                 <li class="quotes-article">
                     <a href="quotes.html?person=winston-churchill">
-                        <img class="quote-author zoom" src="assets/winston-churchill.png" alt="Winston Churchill">
+                        <img class="quote-author zoom" src="images/winston-churchill.png" alt="Winston Churchill">
                     </a>
                     <a href="quotes.html?person=winston-churchill">
                         <h3>Winston Churchill</h3>
                     </a>
-                </li>      
+                </li>
                 <li class="quotes-article">
                     <a href="quotes.html?person=plato">
-                        <img class="quote-author zoom" src="assets/plato.png" alt="A statue of Plato">
+                        <img class="quote-author zoom" src="images/plato.png" alt="A statue of Plato">
                     </a>
                     <a href="quotes.html?person=plato">
                         <h3>Plato</h3>
@@ -113,7 +175,7 @@
                 </li>
                 <li class="quotes-article">
                     <a href="quotes.html?person=jocko-willink">
-                        <img class="quote-author zoom" src="assets/jocko-willink.png" alt="Jocko willink">
+                        <img class="quote-author zoom" src="images/jocko-willink.png" alt="Jocko willink">
                     </a>
                     <a href="quotes.html?person=jocko-willink">
                         <h3>Jocko Willink</h3>
@@ -121,7 +183,7 @@
                 </li>
                 <li class="quotes-article">
                     <a href="quotes.html?person=socrates">
-                        <img class="quote-author zoom" src="assets/socrates.png" alt="A statue of Socrates">
+                        <img class="quote-author zoom" src="images/socrates.png" alt="A statue of Socrates">
                     </a>
                     <a href="quotes.html?person=socrates">
                         <h3>Socrates</h3>
@@ -129,85 +191,144 @@
                 </li>
                 <li class="quotes-article">
                     <a href="quotes.html?person=marcus-aurelius">
-                        <img class="quote-author zoom" src="assets/marcus-aurelius.png" alt="A black and white image of Marcus Aurelius">
+                        <img class="quote-author zoom" src="images/marcus-aurelius.png"
+                            alt="A black and white image of Marcus Aurelius">
                     </a>
                     <a href="quotes.html?person=marcus-aurelius">
                         <h3>Marcus Aurelius</h3>
                     </a>
-                </li>      
+                </li>
                 <li class="quotes-article">
                     <a href="quotes.html?person=muhammad-ali">
-                        <img class="quote-author zoom" src="assets/muhammad-ali.png" alt="Muhamad ali">
+                        <img class="quote-author zoom" src="images/muhammad-ali.png" alt="Muhamad ali">
                     </a>
                     <a href="quotes.html?person=muhammad-ali">
                         <h3>Muhammad Ali</h3>
                     </a>
-                </li>  
+                </li>
             </ol>
-            <div id="quotes-landing">
+            <!-- here we have a nice little randomizer page. it flips through all the images, ensuring none get repeated
+            back to back. It also has a randomizer button which shuffles the quotes, which  will not get two of the same quote
+            at the same time -->
+            <div id="quotes-random">
                 <a href="quotes.html?person=random">
-                    <h3>10 Quotes From The Greatest Minds</h3>
+                    <h3 id="quotes-random-header">10 Quotes From The Greatest Minds</h3>
                 </a>
                 <a href="quotes.html?person=random">
-                    <img class="quote-author zoom" src="assets/quotes-picture.jpg" alt="A quote from Marcus Aurelius" >
+                    <img class="quote-author zoom" src="images/quotes-picture.jpg" alt="A quote from Marcus Aurelius">
                 </a>
 
             </div>
-            </div>
-            <div id="individual-quotes-container">
-                 <!--IF YOU GO ON THIS PAGE WITHOUT CLICKING ON SOMEONE AT QUOTES.HTML-->
-                 <div id="uh-oh-page">
-                    <a href="quotes.html">
-                        <img id='uh-oh-img'src="assets/uh-oh.png" alt="An image that says Uh Oh">
-                    </a>
-                </div>
-    
-                <div id="quote-page">
-                    <h2 id="quote-page-name"></h2>
-                    <div id="quote-page-landing-container">
-                        <img id="quote-page-img" src="">
-                        <span id="quote-page-description-container">
-                            <p id="quote-page-intro"></p>
-                        </span>
-                    </div>
-                    <div id="quotes">
-                        <!--randomly selects 10 quotes from all the authors in our virtual database.-->
-                        <!--In the javascript code we ensured we never get the same quote displayed twice on the screen at the same time-->
-                        <button id="randomizer" onclick="activateQuotePage('randomizer')">Randomizer</button>
-                        <ol id=quotes-list>
-                            <li><blockquote class="quote-page-quotes" id="quote-0"><p></p></blockquote></li>
-                            <li><blockquote class="quote-page-quotes" id="quote-1"><p></p></blockquote></li>
-                            <li><blockquote class="quote-page-quotes" id='quote-2'><p></p></blockquote></li>
-                            <li><blockquote class="quote-page-quotes" id="quote-3"><p></p></blockquote></li>
-                            <li><blockquote class="quote-page-quotes" id="quote-4"><p></p></blockquote></li>
-                            <li><blockquote class="quote-page-quotes" id="quote-5"><p></p></blockquote></li>
-                            <li><blockquote class="quote-page-quotes" id="quote-6"><p></p></blockquote></li>
-                            <li><blockquote class="quote-page-quotes" id="quote-7"><p></p></blockquote></li>
-                            <li><blockquote class="quote-page-quotes" id="quote-8"><p></p></blockquote></li>
-                            <li><blockquote class="quote-page-quotes" id="quote-9"><p></p></blockquote></li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
         </div>
-        <!--this MUST BE CALLED HERE, as this page requires external javascript to edit its contents-->
-        <script src="script.js"></script>      
-    </body>
-    <footer>
-        <div id="footer-container">
-            <h5>USEFUL LINKS</h5>
-            <ul id="footer-items">
-                <li>Home</li>
-                <li>Quotes</li>
-                <li>Stoicism</li>
-                <li>Books</li>
-                <li>Meditations</li>
-            </ul>
-            <div id="email-container">
-                <label>Sign up for our newsletter
-                    <input id="email" type="email" size="30" maxlength="40" placeholder="Email">
-                </label>
+        <div id="individual-quotes-container">
+            <!--IF YOU GO ON THIS PAGE WITHOUT CLICKING ON SOMEONE AT QUOTES.HTML-->
+            <div id="uh-oh-page">
+                <a href="quotes.html">
+                    <img id='uh-oh-img' src="images/uh-oh.png" alt="An image that says Uh Oh">
+                </a>
             </div>
+            <!-- the page 2/2, this gets shown when a person is clicked on the quotes page 
+            each person has a 
+                            name
+                            img
+                            intro
+                            and ten quotes
+                        -->
+            <main id="quote-page">
+                <h2 id="quote-page-name"></h2>
+                <div id="quote-page-landing-container">
+                    <img id="quote-page-img" src="">
+                    <span id="quote-page-description-container">
+                        <p id="quote-page-intro"></p>
+                    </span>
+                </div>
+                <div id="quotes">
+                    <!--randomly selects 10 quotes from all the authors in our virtual database.-->
+                    <!--In the javascript code we ensured we never get the same quote displayed twice on the screen at the same time
+                    this is only visible when the link has ?person=random, otherwise you wont see this button
+                    -->
+
+                    <button id="randomizer" onclick="activateQuotePage('randomizer')">Randomizer</button>
+                    <!-- these quotes get filled by javascript -->
+                    <ol id=quotes-list>
+                        <li>
+                            <blockquote class="quote-page-quotes" id="quote-0">
+                                <p></p>
+                            </blockquote>
+                        </li>
+                        <li>
+                            <blockquote class="quote-page-quotes" id="quote-1">
+                                <p></p>
+                            </blockquote>
+                        </li>
+                        <li>
+                            <blockquote class="quote-page-quotes" id='quote-2'>
+                                <p></p>
+                            </blockquote>
+                        </li>
+                        <li>
+                            <blockquote class="quote-page-quotes" id="quote-3">
+                                <p></p>
+                            </blockquote>
+                        </li>
+                        <li>
+                            <blockquote class="quote-page-quotes" id="quote-4">
+                                <p></p>
+                            </blockquote>
+                        </li>
+                        <li>
+                            <blockquote class="quote-page-quotes" id="quote-5">
+                                <p></p>
+                            </blockquote>
+                        </li>
+                        <li>
+                            <blockquote class="quote-page-quotes" id="quote-6">
+                                <p></p>
+                            </blockquote>
+                        </li>
+                        <li>
+                            <blockquote class="quote-page-quotes" id="quote-7">
+                                <p></p>
+                            </blockquote>
+                        </li>
+                        <li>
+                            <blockquote class="quote-page-quotes" id="quote-8">
+                                <p></p>
+                            </blockquote>
+                        </li>
+                        <li>
+                            <blockquote class="quote-page-quotes" id="quote-9">
+                                <p></p>
+                            </blockquote>
+                        </li>
+                    </ol>
+                </div>
+            </main>
         </div>
-    </footer>
+    </div>
+    <!--DO NOT MOVE OR REMOVE THIS SCRIPT TAG AS IT WILL BREAK THE ENTIRE WEBSITE!
+            The placement of this script tag allows the previous HTML elements to be
+            edited by our scripts/script.js file. If this were to be removed or moved the
+            entire website would be cease to be functional. -->
+    <script src="scripts/script.js"></script>
+</body>
+<footer>
+    <div id="footer-container">
+        <p>Author: John-Marco Tasillo</p>
+        <h5>USEFUL LINKS</h5>
+        <ul id="footer-items">
+            <li>Home</li>
+            <li>Quotes</li>
+            <li>Stoicism</li>
+            <li>Books</li>
+            <li>Meditations</li>
+        </ul>
+        <div id="email-container">
+            <label>Sign up for our newsletter
+                <input id="email" type="email" size="30" maxlength="40" placeholder="Email">
+            </label>
+        </div>
+    </div>
+</footer>
+
 </html>

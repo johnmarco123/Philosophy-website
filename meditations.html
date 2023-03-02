@@ -2,208 +2,315 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <!--In the off chance someone is using a old internet explorer version, this will help.-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--this specifies the character encoding for the HTML document-->
+    <meta charset="UTF-8">
+
+    <!--Description of the website -->
+    <meta name="description" content="Knowledge News - A news website
+    to help the world be a better, and smarter place.">
+
+    <!--This is the author of the webpage, aka myself-->
+    <meta name="author" content="John-Marco Tasillo">
+
+    
+    <!--Here we put some keywords to help search engine optimization-->
+    <meta name=”keywords” content="home, information, help, news, stoicism, books, knowledge, smart">
+
+    <!--This helps us scale our website width dependant upon the width of the device being used.-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>𝓚𝓷𝓸𝔀𝓵𝓮𝓭𝓰𝓮 𝓝𝓮𝔀𝓼</title>
+
+    <!--The icon beside our title-->
+    <link rel="icon" href="images/favicon.ico">
+
+    <!--We link to our stylesheet here-->
+    <link rel="stylesheet" href="styles/style.css">
+
+    <!-- The title of the webpage--->
+    <title>Knowledge News</title>
 </head>
 
 <body>
-    <nav>
-        <a class="left"href="index.html"><h1 id="header">Knowledge News</h1></a>
+    <!--Our main navigation menu -->
+    <nav aria-label="navigation">
+        <a href="index.html">
+        <!--This is our main header on the left of the screen on every webpage-->
+            <h1 id="header">Knowledge News</h1>
+        </a>
+    <!--Our webpage links that are at the top of the screen-->
+        <ul id="nav-list">
+            <li><a href="index.html">News</a></li>
+            <li><a href="quotes.html">Quotes</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="stoicism.html">Stoicism</a></li>
+            <li><a href="meditations.html">Meditations</a></li>
+            <li><a href="report.html">Report.html</a></li>
+        </ul>
 
-        <div class="center" id="navigation-links">
-            <ul>
-                <li><a href="index.html">News</a></li>
-                <li><a href="quotes.html">Quotes</a></li>
-                <li><a href="books.html">Books</a></li>
-                <li><a href="stoicism.html">Stoicism</a></li>
-                <li><a href="meditations.html">Meditations</a></li>
-                <li><a href="report.html">Report.html</a></li>
-            </ul>
-        </div>
-        <div class="right">
-        </div>
     </nav>
-    <div id="nav-mobile">
-        <div class="dropdown">
-            <span id="dropdown-container">
-                <img id="dropdown-pic" class="dropbtn" src="assets/drop.png" alt="A drop-down menu button">
-            </span>
-            <div id="myDropdown" class="dropdown-content">
-                <a href="index.html">News</a>
-                <a href="quotes.html">Quotes</a>
-                <a href="books.html">Books</a>
-                <a href="stoicism.html">Stoicism</a>
-                <a href="meditations.html">Meditations</a>
-                <a href="report.html">Report</a>
-            </div>
+
+<!--
+            /*[1] W3SCHOOLS, 'How TO - Clickable Dropdown' (N/a), Date UNKNOWN. [Code].
+            https://www.w3schools.com/howto/howto_js_dropdown.asp#:~:text=Example%20Explained,dropdown%20menu%20correctly%20with%20CSS.*
+
+            ============================ORIGINAL CODE LOOKED LIKE THIS=========================
+
+
+                                <div class="dropdown">
+                            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                            <div id="myDropdown" class="dropdown-content">
+                                <a href="#">Link 1</a>
+                                <a href="#">Link 2</a>
+                                <a href="#">Link 3</a>
+                            </div>
+                            </div>
+
+            =====================================COMMENTS=======================================
+
+            It should be apparent, that i altered the code by removing the onclick function.
+            Instead of using this method i decided to use event handlers (which are in scripts/script.js).
+            This was to allow for mobile interaction as html onclick seemed to have issues handling that.
+        -->
+
+<nav id="nav-mobile" aria-label="Navigation mobile">
+    <a href="index.html">
+    <!--This is our main header on the left of the screen on every webpage-->
+    <h1 id="header">Knowledge News</h1>
+        </a>
+    <div class="dropdown">
+        <span id="dropdown-container">
+            <img id="dropdown-pic" class="dropbtn mobile-nav" src="images/drop.png" alt="drop-down menu button">
+        </span>
+        <div id="myDropdown" class="dropdown-content">
+            <a class="nav-link mobile-nav" href="index.html">News</a>
+            <a class="nav-link mobile-nav" href="quotes.html">Quotes</a>
+            <a class="nav-link mobile-nav" href="books.html">Books</a>
+            <a class="nav-link mobile-nav" href="stoicism.html">Stoicism</a>
+            <a class="nav-link mobile-nav" href="meditations.html">Meditations</a>
+            <a class="nav-link mobile-nav" href="report.html">Report</a>
         </div>
     </div>
-    <div id="progress-bar"></div>
+</nav>
+<div id="progress-bar"></div>
+    <!-- the main container, that includes everything -->
     <div id="main-container">
-        <div id="meditations-container">
-            <article id="meditations-landing">
-                <div id="meditation-main-story">
+        <!--The actual container that we style for the meditations page-->
+        <main id="meditations-container">
+            <!--the landing container holds only the first story, its at the top of th epage-->
+            <div id="meditations-landing">
+                <article id="meditation-main-story">
                     <div class="zoom" id="meditation-main-story-img-container">
                         <a href="meditations.html?article=what-is-meditation">
-                            <img id="meditation-main-story-img" src="assets/meditation.jpg" alt="A man meditating with stars behind him">
+                            <img id="meditation-main-story-img" src="images/meditation.jpg"
+                                alt="A man meditating with stars behind him">
                         </a>
 
-                        <!--NOTE, THESE TITLES AUGHT TO MATCH AS THEY ARE THE SAME STORY!-->
-                        <!--MOBILE version-->
 
-                        <!--When the width is smaller then 808px we show this-->
+                        
+                        <!--NOTE, THESE TITLES AUGHT TO MATCH AS THEY ARE THE SAME STORY!-->
+                        <!--MOBILE version when the width is smaller then 808px we show this-->
                         <div id="meditation-main-story-overlay">
-                            <h4>
+                            <h3>
                                 <a class="meditation-article-title" href="meditations.html?article=what-is-meditation">
                                     What Is Medtation?
                                 </a>
-                            </h4>
+                            </h3>
                         </div>
                     </div>
-
-
-                    <!--desktop version-->
+                                      <!--computer version-->
                     <!-- When the width is smaller then 808px we hide this-->
                     <div id="meditation-main-story-info">
-                        <h3>
+                        <h2>
                             <a class="meditation-article-title" href="meditations.html?article=what-is-meditation">
                                 What Is Meditation?
                             </a>
-                        </h3>
+                        </h2>
                         <p id="meditation-main-story-description">
-                            Learn about what meditation is, the benefits of meditation, and some of the many different forms of meditation.
+                            Learn about what meditation is, the benefits of meditation, and some of the many different
+                            forms of meditation.
                         </p>
 
-            
+
 
                     </div>
-                </div>
-            </article>
-                <div id="meditation-news">
-                    <div class="meditation-article-line"></div>
-                    <article class="meditation-article">
-                        <div class="meditation-article-info">
-                            <h4>
-                                <a class="meditation-article-title" href="meditations.html?article=how-to-meditate">
-                                    How to meditate for beginners
-                                </a>
-                            </h4>
-                            <p class="meditation-article-description">
-                                What is meditation? Meditation is not about clearing your mind, it is about observing your thoughts and returning your focus back to your object of focus.
-                                There is three things to focus on when you are learning to meditate. Firstly location, second your posture, and third the practice itself.
-                            </p>
-                        </div>
-                        <div class="meditation-article-img-container zoom">
-                            <a href="meditations.html?article=how-to-meditate">
-                                <img class="meditation-article-img" src="assets/monk.jpg" alt="A monk meditating">
-                            </a>
-                            <div class="meditation-article-overlay">
-                                <h4>
-                                <a class="meditation-article-title" href="meditations.html?article=how-to-meditate">How to meditate for beginners</a>
-                                </h4>
-                            </div>
-                        </div>
-                    </article>
-                    <div class="meditation-article-line"></div>
-                    <article class="meditation-article">
-                        <div class="meditation-article-info">
-                            <h4>
-                                <a class="meditation-article-title" href="meditations.html?article=what-is-mindfulness">
-                                    Mindfulness, Meditation, What's The Difference?
 
-                                </a>
-                            </h4>
-                            <p class="meditation-article-description">
-                                Are mindfulness and meditation the same thing? Most people think so, but they are two very seperate things that,
-                                when you understand the difference can enhance your meditation journey.
-                            </p>
-                        </div>
-                        <div class="meditation-article-img-container zoom">
-                            <a href="meditations.html?article=what-is-mindfulness">
-                                <img class="meditation-article-img" src="assets/be-here-now.jpg" alt="The words 'be here now' in scrabble letters">
-                            </a>
-                            <div class="meditation-article-overlay">
-                                <h4>
-                                    <a class="meditation-article-title" href="meditations.html?article=what-is-mindfulness">Mindfulness, Meditation, What's The Difference?
-</a>
-                                </h4>
-                            </div>
-                        </div>
-                    </article>
-                    <div class="meditation-article-line"></div>
-                    <article class="meditation-article">
-                        <div class="meditation-article-info">
-                            <h4>
-                                <a class="meditation-article-title" href="meditations.html?article=how-to-apply-mindfulness">
-                                    How to apply mindfulness to your daily life
-                                </a>
-                            </h4>
-                            <p class="meditation-article-description">
-                                Learning how to meditate is a great skill to learn how to calm down, but there is much more to meditation then a state of calm.
-                                 Meditation can provide a gap in your reactions to the world and allow you to act the way you want to, rather then out of urges.
-                            </p>
-                        </div>
-                        <div class="meditation-article-img-container zoom">
-                            <a href="meditations.html?article=how-to-apply-mindfulness">
-                                <img class="meditation-article-img" src="assets/boys.jpg" alt="two young child monks washing pots">
-                            </a>
-                            <div class="meditation-article-overlay">
-                                <h4>
-                                <a class="meditation-article-title" href="meditations.html?article=how-to-apply-mindfulness">How to apply mindfulness to your life</a>
-                                </h4>
-                            </div>
-                        </div>
-                    </article>
-                    <div class="meditation-article-line"></div>
-                    <article class="meditation-article">
-                        <div class="meditation-article-info">
-                            <h4>
-                                <a class="meditation-article-title" href="meditations.html?article=resources">
-                                    Resources For Meditation And Mindfulness 
-                                </a>
-                            </h4>
-                            <p class="meditation-article-description">
-                                Some useful information if you are looking to expand your meditation practice, or if you simply want more resources.
-                            </p>
-                        </div>
-                        <div class="meditation-article-img-container zoom">
-                            <a href="meditations.html?article=resources">
-                                <img class="meditation-article-img" src="assets/stones.jpg" alt="stones balancing ontop of each other">
-                            </a>
-                            <div class="meditation-article-overlay">
-                                <h4>
-                                <a class="meditation-article-title" href="meditations.html?article=resources">Resources For Meditation And Mindfulness</a>
-                                </h4>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+  
+                </article>
             </div>
-            <div id="meditation-individual-article">
-                <div id="meditation-individual-article-container">
+            <!-- This container includes all the rest of the articles. -->
+            <div id="meditation-news">
+                <!-- We have a line to seperate the content so it looks more tidy, it is left blank intentionally. -->
+                <div class="meditation-article-line"></div>
+                <!--we then seperate each article with the article tag, they each get two titles, a description and a picture
+                    the two titles are because one appears only in mobile and one appears only in computer version
+                -->
+                <article class="meditation-article">
+                    <div class="meditation-article-info">
+                        <!-- this is the desktop title that is visible when the width is greater then 808px -->
+                        <h2>
+                            <a class="meditation-article-title" href="meditations.html?article=how-to-meditate">
+                                How To Meditate For Beginners
+                            </a>
+                        </h2>
+                        <p class="meditation-article-description">
+                            What is meditation? Meditation is not about clearing your mind, it is about observing your
+                            thoughts and returning your focus back to your object of focus.
+                            There is three things to focus on when you are learning to meditate. Firstly location,
+                            second your posture, and third the practice itself.
+                        </p>
+                    </div>
+                    <div class="meditation-article-img-container zoom">
+                        <a href="meditations.html?article=how-to-meditate">
+                            <img class="meditation-article-img" src="images/monk.jpg" alt="A monk meditating">
+                        </a>
+                        <div class="meditation-article-overlay">
+                            <!-- this is the mobile title, which is visible when the width is less then 808 px
+                                we also change the tag from h2, to h3, to allow the text to not be too big
+                             -->
+                            <h3>
+                                <a class="meditation-article-title" href="meditations.html?article=how-to-meditate">How
+                                    To Meditate For Beginners</a>
+                            </h3>
+                        </div>
+                    </div>
+                </article>
+                <!-- then everything above simply gets repeated 3 more times, so no need to re explain any more code -->
+                <div class="meditation-article-line"></div>
+                <article class="meditation-article">
+                    <div class="meditation-article-info">
+                        <h2>
+                            <a class="meditation-article-title" href="meditations.html?article=what-is-mindfulness">
+                                What Is Mindfulness?
+
+                            </a>
+                        </h2>
+                        <p class="meditation-article-description">
+                            Are mindfulness and meditation the same thing? Most people think so, but they are two very
+                            seperate things that,
+                            when you understand the difference can enhance your meditation journey.
+                        </p>
+                    </div>
+                    <div class="meditation-article-img-container zoom">
+                        <a href="meditations.html?article=what-is-mindfulness">
+                            <img class="meditation-article-img" src="images/be-here-now.jpg"
+                                alt="The words 'be here now' in scrabble letters">
+                        </a>
+                        <div class="meditation-article-overlay">
+                            <h3>
+                                <a class="meditation-article-title"
+                                    href="meditations.html?article=what-is-mindfulness">
+                                    What Is Mindfulness?                                
+                                </a>
+                            </h3>
+                        </div>
+                    </div>
+                </article>
+                <div class="meditation-article-line"></div>
+                <article class="meditation-article">
+                    <div class="meditation-article-info">
+                        <h2>
+                            <a class="meditation-article-title"
+                                href="meditations.html?article=how-to-apply-mindfulness">
+                                How To Apply Mindfulness
+                            </a>
+                        </h2>
+                        <p class="meditation-article-description">
+                            Learning how to meditate is a great skill to learn how to calm down, but there is much more
+                            to meditation then a state of calm.
+                            Meditation can provide a gap in your reactions to the world and allow you to act the way you
+                            want to, rather then out of urges.
+                        </p>
+                    </div>
+                    <div class="meditation-article-img-container zoom">
+                        <a href="meditations.html?article=how-to-apply-mindfulness">
+                            <img class="meditation-article-img" src="images/boys.jpg"
+                                alt="two young child monks washing pots">
+                        </a>
+                        <div class="meditation-article-overlay">
+                            <h3>
+                                <a class="meditation-article-title"
+                                    href="meditations.html?article=how-to-apply-mindfulness">
+                                    How To Apply Mindfulness
+                                </a>
+                            </h3>
+                        </div>
+                    </div>
+                </article>
+                <div class="meditation-article-line"></div>
+                <article class="meditation-article">
+                    <div class="meditation-article-info">
+                        <h2>
+                            <a class="meditation-article-title" href="meditations.html?article=resources">
+                                Resources For meditation
+                            </a>
+                        </h2>
+                        <p class="meditation-article-description">
+                            Some useful information if you are looking to expand your meditation practice, or if you
+                            simply want more resources.
+                        </p>
+                    </div>
+                    <div class="meditation-article-img-container zoom">
+                        <a href="meditations.html?article=resources">
+                            <img class="meditation-article-img" src="images/stones.jpg"
+                                alt="stones balancing ontop of each other">
+                        </a>
+                        <div class="meditation-article-overlay">
+                            <h3>
+                                <a class="meditation-article-title" href="meditations.html?article=resources">
+                                    Resources For meditation
+                                </a>
+                            </h3>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <!--
+             when an article is clicked we show this
+             each article has 1 title, 3 headers, 3 containers for info (with n amount of paragraphs in each)
+             Again, all this gets filled with our javacsript.
+         -->
+        <div id="meditation-individual-article-container">
+
+            <article id="meditation-individual-article">
+
                     <img id="meditation-individual-img" alt="">
 
                     <h3 id="meditation-individual-title"></h3>
                     <p id="meditation-individual-title-info"></p>
-                </div>
                 <h3 id="meditation-individual-header-0"></h3>
                 <div id="meditation-individual-info-0"></div>
                 <h3 id="meditation-individual-header-1"></h3>
                 <div id="meditation-individual-info-1"></div>
                 <h3 id="meditation-individual-header-2"></h3>
                 <div id="meditation-individual-info-2"></div>
-                
-            </div>
+
+            </article>
+        </div>
 
     </div>
-        <!--this MUST BE CALLED HERE, as this page requires external javascript to edit its contents-->
-    <script src="script.js"></script>
+            <!--
+        This uh-oh-page gets displayed if the client somehow searched for a book that doesn't exist.
+        If you want to see this functionality
+        
+    -->
+    <div id="uh-oh-page">
+    <a href="meditations.html">
+        <img id='uh-oh-img' src="images/uh-oh.png" alt="A picture displaying the message Uh oh">
+    </a>
+</div>
+    <!--DO NOT MOVE OR REMOVE THIS SCRIPT TAG AS IT WILL BREAK THE ENTIRE WEBSITE!
+            The placement of this script tag allows the previous HTML elements to be
+            edited by our scripts/script.js file. If this were to be removed or moved the
+            entire website would be cease to be functional. -->
+    <script src="scripts/script.js"></script>
 </body>
 <footer>
     <div id="footer-container">
+        <p>Author: John-Marco Tasillo</p>
         <h5>USEFUL LINKS</h5>
         <ul id="footer-items">
             <li>Home</li>

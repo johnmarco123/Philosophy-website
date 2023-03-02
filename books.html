@@ -1,198 +1,324 @@
 <!DOCTYPE html>
+<!--We declare the language as english, as that is our language for the website.-->
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <title>𝓚𝓷𝓸𝔀𝓵𝓮𝓭𝓰𝓮 𝓝𝓮𝔀𝓼</title>
-    </head>
-    <body>
-        <nav>
-            <a class="left"href="index.html"><h1 id="header">Knowledge News</h1></a>
+<head>
+    <!--In the off chance someone is using a old internet explorer version, this will help.-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-            <div class="center" id="navigation-links">
-                <ul>
-                    <li><a href="index.html">News</a></li>
-                    <li><a href="quotes.html">Quotes</a></li>
-                    <li><a href="books.html">Books</a></li>
-                    <li><a href="stoicism.html">Stoicism</a></li>
-                    <li><a href="meditations.html">Meditations</a></li>
-                    <li><a href="report.html">Report.html</a></li>
-                </ul>
-            </div>
-            <div class="right">
+    <!--this specifies the character encoding for the HTML document-->
+    <meta charset="UTF-8">
 
-            </div>
+    <!--Description of the website -->
+    <meta name="description" content="Knowledge News - A news website
+    to help the world be a better, and smarter place.">
+
+    <!--This is the author of the webpage, aka myself-->
+    <meta name="author" content="John-Marco Tasillo">
+
+    
+    <!--Here we put some keywords to help search engine optimization-->
+    <meta name=”keywords” content="home, information, help, news, stoicism, books, knowledge, smart">
+
+    <!--This helps us scale our website width dependant upon the width of the device being used.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--The icon beside our title-->
+    <link rel="icon" href="images/favicon.ico">
+
+    <!--We link to our stylesheet here-->
+    <link rel="stylesheet" href="styles/style.css">
+
+    <!-- The title of the webpage--->
+    <title>Knowledge News</title>
+</head>
+
+<body>
+    <!--Our main navigation menu -->
+        <nav aria-label="navigation">
+            <a href="index.html">
+            <!--This is our main header on the left of the screen on every webpage-->
+                <h1 id="header">Knowledge News</h1>
+            </a>
+        <!--Our webpage links that are at the top of the screen-->
+            <ul id="nav-list">
+                <li><a href="index.html">News</a></li>
+                <li><a href="quotes.html">Quotes</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="stoicism.html">Stoicism</a></li>
+                <li><a href="meditations.html">Meditations</a></li>
+                <li><a href="report.html">Report.html</a></li>
+            </ul>
 
         </nav>
-        <div id="nav-mobile">
-            <div class="dropdown">
-                <span id="dropdown-container">
-                    <img id="dropdown-pic" class="dropbtn" src="assets/drop.png" alt="A drop-down menu button">
-                </span>
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="index.html">News</a>
-                    <a href="quotes.html">Quotes</a>
-                    <a href="books.html">Books</a>
-                    <a href="stoicism.html">Stoicism</a>
-                    <a href="meditations.html">Meditations</a>
-                    <a href="report.html">Report</a>
-                </div>
+
+    <!--
+                /*[1] W3SCHOOLS, 'How TO - Clickable Dropdown' (N/a), Date UNKNOWN. [Code].
+                https://www.w3schools.com/howto/howto_js_dropdown.asp#:~:text=Example%20Explained,dropdown%20menu%20correctly%20with%20CSS.*
+
+                ============================ORIGINAL CODE LOOKED LIKE THIS=========================
+
+
+                                    <div class="dropdown">
+                                <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                                <div id="myDropdown" class="dropdown-content">
+                                    <a href="#">Link 1</a>
+                                    <a href="#">Link 2</a>
+                                    <a href="#">Link 3</a>
+                                </div>
+                                </div>
+
+                =====================================COMMENTS=======================================
+
+                It should be apparent, that i altered the code by removing the onclick function.
+                Instead of using this method i decided to use event handlers (which are in scripts/script.js).
+                This was to allow for mobile interaction as html onclick seemed to have issues handling that.
+            -->
+
+    <nav id="nav-mobile" aria-label="Navigation mobile">
+        <a href="index.html">
+        <!--This is our main header on the left of the screen on every webpage-->
+        <h1 id="header">Knowledge News</h1>
+            </a>
+        <div class="dropdown">
+            <span id="dropdown-container">
+                <img id="dropdown-pic" class="dropbtn mobile-nav" src="images/drop.png" alt="drop-down menu button">
+            </span>
+            <div id="myDropdown" class="dropdown-content">
+                <a class="nav-link mobile-nav" href="index.html">News</a>
+                <a class="nav-link mobile-nav" href="quotes.html">Quotes</a>
+                <a class="nav-link mobile-nav" href="books.html">Books</a>
+                <a class="nav-link mobile-nav" href="stoicism.html">Stoicism</a>
+                <a class="nav-link mobile-nav" href="meditations.html">Meditations</a>
+                <a class="nav-link mobile-nav" href="report.html">Report</a>
             </div>
         </div>
-        <div id="progress-bar"></div>
-        <div id="main-container">
-            <div id="books-main-page-container">
-                <div id="books-front-page">
-                    <h1 id="books-front-page-header">The Knowledge Library</h1>
-                    <img id="books-front-page-img" class="frontpage-pic"src="assets/books.jpeg" alt="A shelf full of books">
-                </div>
-                <div id="top-books-container">
-                    <section class="top-book-container">
-                        <h4 class="top-book-title">
-                            <a id="book-0-title" class="book-0-link book-links">
-                            </a>
-                        </h4>
-                        <div class="top-book-content">
-                            <span>
-                                <a class="book-0-link">
-                                    <img id="book-0-img" class="small-book top-book-img zoom">
-                                </a>
-                            </span>
-                            <p id="book-0-description" class="top-book-description">
-    
-                            </p>
-    
-                        </div>
-                        <div class="top-book-line"></div>
-                    </section>
-                    <section class="top-book-container">
-                        <h4 class="top-book-title">
-                            <a id="book-1-title" class="book-1-link book-links">
-                            </a>
-                        </h4>
-                        <div class="top-book-content">
-                            <span>
-                                <a class="book-1-link" href="books.html?book=stillness-is-the-key">
-                                    <img id="book-1-img" class="small-book top-book-img zoom">
-                                </a>
-                            </span>
-                            <p id="book-1-description" class="top-book-description">
-                            </p>
-    
-                        </div>
-                        <div class="top-book-line"></div>
-                    </section>
-                    <section class="top-book-container">
-                        <h4 class="top-book-title">
-                            <a id="book-2-title" class="book-2-link book-links">
-                            </a>
-                        </h4>
-                        <div class="top-book-content">
-                            <span>
-                                <a class="book-2-link">
-                                    <img id="book-2-img" class="small-book top-book-img zoom">
-                                </a>
-                            </span>
-                            <p id="book-2-description" class="top-book-description">
-                            </p>
-    
-                        </div>
-                        <div class="top-book-line"></div>
-                    </section>
-                    <section class="top-book-container">
-                        <h4 class="top-book-title">
-                            <a id="book-3-title" class="book-3-link book-links">
-                            </a>
-                        </h4>
-                        <div class="top-book-content">
-                            <span>
-                                <a class="book-3-link">
-                                    <img id="book-3-img" class="small-book top-book-img zoom">
-                                </a>
-                            </span>
-                            <p id="book-3-description" class="top-book-description">
-                            </p>
-    
-                        </div>
-                        <div class="top-book-line"></div>
-                    </section>
-                    <section class="top-book-container">
-                        <h4 class="top-book-title">
-                            <a id="book-4-title" class="book-4-link book-links">
-                            </a>
-                        </h4>
-                        <div class="top-book-content">
-                            <span>
-                                <a class="book-4-link">
-                                    <img id="book-4-img" class="small-book top-book-img zoom">
-                                </a>
-                            </span>
-                            <p id="book-4-description" class="top-book-description">
-                            </p>
-    
-                        </div>
-                    </section>
-                    <div class="top-book-line"></div>
-                        <ol id="next-page-menu">
-                            <li class="next-page-link" id="books-page-1"><a href="books.html?page=1">
-                                1
-                            </a></li>
-                            <li class="next-page-link" id="books-page-2"><a href="books.html?page=2">
-                                2
-                            </a></li>
-                            <li class="next-page-link" id="books-page-3"><a href="books.html?page=3">
-                                3
-                            </a></li>
-                            <li class="next-page-link" id="books-page-4"><a href="books.html?page=4">
-                                4
-                            </a></li>
-                        </ol>
-                    </div>
+    </nav>
+    <div id="progress-bar"></div>
+    <!-- The main container which holds the main content for books.html -->
+    <main id="main-container">
+        <!--
+            This is container 1 of 2. This container is what books.html looks like prior to the client clicking on a book.
+            When the client does click on a book, we hide this container, and reveal the next one named id="individual-book-container"
+        -->
+        <div id="books-main-page-container">
+            <!-- the landing page, it has a landing picture and a title -->
+            <div id="books-front-page">
+                <h1 id="books-front-page-header">The Knowledge Library</h1>
+                <img id="books-front-page-img" class="frontpage-pic" src="images/books.jpeg"
+                    alt="A shelf full of books">
             </div>
+            <!--***********************************************************************************************************************
+                                                IMPORTANT! IMPORTANT! IMPORTANT!
+                Please note the following for everything inside the 'book-container':
+                1.) There is no src and alt attribute for each image intentionally.
+                2.) There is no titles in the <a> tags intentionally.
+                3.) There is no information in the <p> tags intentionally.
+                Why is it all blank? Thats because our javascript is injecting all the information that it needs based
+                upon what page the client is on. This enables the user to navigate to 'n' different pages without having to write
+                'n' html pages. 
+                When the page loads, it asks javascript for the information it needs for the page (you can see this at the bottom of the
+                script.js file.) It then, simply, injects it into these elements.
 
-            <div id="individual-book-container">
-                <div id="uh-oh-page">
-                    <a href="books.html">
-                        <img id='uh-oh-img'src="assets/uh-oh.png" alt="A picture displaying the message Uh oh">
-                    </a>
-                </div>
-                <div id="book-page">
-                    <h2 id="book-page-title"></h2>
-                    <div id="book-page-landing-container">
+             *****************************************************************************************************************-->
+
+            <div id="books-container">
+                <!--we seperate each book into its own container article-->
+                <article class="book-container">
+                    <!--they each get a title that gets filled in ith the javascript later-->
+                    <h2 class="book-title">
+                        <a id="book-0-title" class="book-0-link book-links">
+                        </a>
+                    </h2>
+                    <div class="book-content">
                         <span>
-                            <img class="shadow"id="book-page-img">
+                            <a class="book-0-link">
+                                <!--This image gets a src and an alt from javascript-->
+                                <img id="book-0-img" class="small-book book-img zoom shadow">
+                            </a>
                         </span>
-                        <span id="book-page-description-container">
-                            <h3 id="book-page-landing-introduction">Introduction</h3>
-                            <p id="book-page-description"></p>
-                        </span>
-                    </div>
-                    <div id="book-details">
-                        <h3>Book in a sentence</h3>
-                        <p id="book-page-sentence"></p>
-                        <h3>Main points</h3>
-                        <ul id="book-page-points"></ul>
-                        <h3>Top three passages</h3>
-                        <ol id="book-page-passages">
-                            <li class="book-page-passages"></li>
-                            <li class="book-page-passages"></li>
-                            <li class="book-page-passages"></li>
-                        </ol>
-                        <h3>Summary</h3>
-                        <div id="book-page-summary"></div>
-                    </div>
-                </div>
-            </div>
+                        <!--this gets filled in with the book description-->
+                        <p id="book-0-description" class="book-description">
 
+                        </p>
+
+                    </div>
+                    <!--this is just a styling line to seperate each book-->
+                    <div class="book-line"></div>
+                </article>
+                <!--
+                    this gets repeated 4 more times... Another option was to inject all this code in, however
+                i didn't want to leave my project with barely any visible HTML as it is still part of the marking scheme...
+            -->
+                <article class="book-container">
+                    <h2 class="book-title">
+                        <a id="book-1-title" class="book-1-link book-links">
+                        </a>
+                    </h2>
+                    <div class="book-content">
+                        <span>
+                            <a class="book-1-link" href="books.html?book=stillness-is-the-key">
+                                <img id="book-1-img" class="small-book book-img zoom shadow">
+                            </a>
+                        </span>
+                        <p id="book-1-description" class="book-description">
+                        </p>
+
+                    </div>
+                    <div class="book-line"></div>
+                </article>
+                <article class="book-container">
+                    <h2 class="book-title">
+                        <a id="book-2-title" class="book-2-link book-links">
+                        </a>
+                    </h2>
+                    <div class="book-content">
+                        <span>
+                            <a class="book-2-link">
+                                <img id="book-2-img" class="small-book book-img zoom shadow">
+                            </a>
+                        </span>
+                        <p id="book-2-description" class="book-description">
+                        </p>
+
+                    </div>
+                    <div class="book-line"></div>
+                </article>
+                <article class="book-container">
+                    <h2 class="book-title">
+                        <a id="book-3-title" class="book-3-link book-links">
+                        </a>
+                    </h2>
+                    <div class="book-content">
+                        <span>
+                            <a class="book-3-link">
+                                <img id="book-3-img" class="small-book book-img zoom shadow">
+                            </a>
+                        </span>
+                        <p id="book-3-description" class="book-description">
+                        </p>
+
+                    </div>
+                    <div class="book-line"></div>
+                </article>
+                <article class="book-container">
+                    <h2 class="book-title">
+                        <a id="book-4-title" class="book-4-link book-links">
+                        </a>
+                    </h2>
+                    <div class="book-content">
+                        <span>
+                            <a class="book-4-link">
+                                <img id="book-4-img" class="small-book book-img zoom shadow">
+                            </a>
+                        </span>
+                        <p id="book-4-description" class="book-description">
+                        </p>
+                    </div>
+                </article>
+                <!--
+                        /*[3] W3docs.com, 'How to Make a Div a Clickable Link' (N/a), Date UNKNOWN. [Code].
+                        https://www.w3docs.com/snippets/css/how-to-make-a-div-a-clickable-link.html
+                            
+                            =========ORIGINAL CODE ==========
+                                <div class="container">
+                              W3Docs
+                              <a href="https://www.w3docs.com/">
+                                <span class="link"></span>
+                              </a>
+                            </div>
+                            ===========MY CODE IS BELOW=======
+                            I changed the div to a <li>  and changed the tags up for my need.
+                            But most of it is directly from the source as you can see. 
+                    -->
+                <div class="book-line"></div>
+                <ol id="next-page-menu">
+                    <li id="books-page-1" class=next-page-option>
+                        <a class="page-link" href="books.html?page=1" aria-label="page 1">
+                            <span class="next-page-link"></span>
+                        </a>
+                        <span class="menu-num">1</span>
+                    </li>
+                    <li id="books-page-2" class=next-page-option>
+                        <a class="page-link" href="books.html?page=2" aria-label="page 2">
+                            <span class="next-page-link"></span>
+                        </a>
+                        <span class="menu-num">2</span>
+                    </li>
+                    <li id="books-page-3" class=next-page-option>
+                        <a class="page-link" href="books.html?page=3" aria-label="page 3">
+                            <span class="next-page-link"></span>
+                        </a>
+                        <span class="menu-num">3</span>
+                    </li>
+                    <li id="books-page-4" class=next-page-option>
+                        <a class="page-link" href="books.html?page=4" aria-label="page 4">
+                            <span class="next-page-link"></span>
+                        </a>
+                        <span class="menu-num">4</span>
+                    </li>
+                </ol>
             </div>
         </div>
-        <!--this MUST BE CALLED HERE, as this page requires external javascript to edit its contents-->
-        <script src="script.js"></script>
-    </body>
-    <footer>
+        <!--
+             This is container 2 of 2. When a book gets clicked on by a user,
+             we reveal this div and hide the one above (id='books-main-page-container')
+             Again, this code is very blank as it msotly gets filled by javascript
+            -->
+        <div id="individual-book-container">
+            <div id="book-page">
+                <!--the clicked book title gets filled in here-->
+                <h1 id="book-page-title"></h1>
+                <div id="book-page-landing-container">
+                    <span>
+                <!--the clicked book image gets set as this images src, and an alt gets set as well-->
+                        <img class="shadow" id="book-page-img">
+                    </span>
+                    <span id="book-page-description-container">
+                        <!--this element is only visible when the screen width is less then 710px-->
+                        <h2 id="book-page-landing-introduction">Introduction</h2>
+                    <!-- again, here a description gets injected-->
+                        <p id="book-page-description"></p>
+                    </span>
+                </div>
+                <div id="book-details">
+                <!--and all this below gets injected accordingly aswell.-->
+                    <h2>Book in a sentence</h2>
+                    <p id="book-page-sentence"></p>
+                    <h2>Main points</h2>
+                    <ul id="book-page-points"></ul>
+                    <h2>Top three passages</h2>
+                    <ol id="book-page-passages">
+                        <li class="book-page-passages"></li>
+                        <li class="book-page-passages"></li>
+                        <li class="book-page-passages"></li>
+                    </ol>
+                    <h2>Summary</h2>
+                    <div id="book-page-summary"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+        <!--
+        This uh-oh-page gets displayed if the client somehow searched for a book that doesn't exist.
+        If you want to see this functionality
+        
+    -->
+    <div id="uh-oh-page">
+        <a href="books.html">
+            <img id='uh-oh-img' src="images/uh-oh.png" alt="A picture displaying the message Uh oh">
+        </a>
+    </div>
+
+    <!--DO NOT MOVE OR REMOVE THIS SCRIPT TAG AS IT WILL BREAK THE ENTIRE WEBSITE!
+            The placement of this script tag allows the previous HTML elements to be
+            edited by our scripts/script.js file. If this were to be removed or moved the
+            entire website would be cease to be functional. -->
+    <script src="scripts/script.js"></script>
+</body>
+<footer>
     <div id="footer-container">
+        <p id="footer-author">Author: John-Marco Tasillo</p>
+
         <h5>USEFUL LINKS</h5>
         <ul id="footer-items">
             <li>Home</li>
@@ -208,4 +334,5 @@
         </div>
     </div>
 </footer>
+
 </html>

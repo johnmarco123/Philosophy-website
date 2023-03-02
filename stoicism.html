@@ -1,58 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <title>𝓚𝓷𝓸𝔀𝓵𝓮𝓭𝓰𝓮 𝓝𝓮𝔀𝓼</title>
-    </head>
-    <body>
-        <nav>
-            <a class="left"href="index.html"><h1 id="header">Knowledge News</h1></a>
+<head>
+    <!--In the off chance someone is using a old internet explorer version, this will help.-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-            <div class="center" id="navigation-links">
-                <ul>
-                    <li><a href="index.html">News</a></li>
-                    <li><a href="quotes.html">Quotes</a></li>
-                    <li><a href="books.html">Books</a></li>
-                    <li><a href="stoicism.html">Stoicism</a></li>
-                    <li><a href="meditations.html">Meditations</a></li>
-                    <li><a href="report.html">Report.html</a></li>
-                </ul>
-            </div>
-            <div class="right">
+    <!--this specifies the character encoding for the HTML document-->
+    <meta charset="UTF-8">
 
-            </div>
+    <!--Description of the website -->
+    <meta name="description" content="Knowledge News - A news website
+    to help the world be a better, and smarter place.">
 
-        </nav>
-        <div id="nav-mobile">
-            <div class="dropdown">
-                <span id="dropdown-container">
-                    <img id="dropdown-pic" class="dropbtn" src="assets/drop.png" alt="A drop-down menu button">
-                </span>
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="index.html">News</a>
-                    <a href="quotes.html">Quotes</a>
-                    <a href="books.html">Books</a>
-                    <a href="stoicism.html">Stoicism</a>
-                    <a href="meditations.html">Meditations</a>
-                    <a href="report.html">Report</a>
-                </div>
-            </div>
+    <!--This is the author of the webpage, aka myself-->
+    <meta name="author" content="John-Marco Tasillo">
+
+    
+    <!--Here we put some keywords to help search engine optimization-->
+    <meta name=”keywords” content="home, information, help, news, stoicism, books, knowledge, smart">
+
+    <!--This helps us scale our website width dependant upon the width of the device being used.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--The icon beside our title-->
+    <link rel="icon" href="images/favicon.ico">
+
+    <!--We link to our stylesheet here-->
+    <link rel="stylesheet" href="styles/style.css">
+
+    <!-- The title of the webpage--->
+    <title>Knowledge News</title>
+</head>
+
+<body>
+    <!--Our main navigation menu -->
+    <nav aria-label="navigation">
+        <a href="index.html">
+        <!--This is our main header on the left of the screen on every webpage-->
+            <h1 id="header">Knowledge News</h1>
+        </a>
+    <!--Our webpage links that are at the top of the screen-->
+        <ul id="nav-list">
+            <li><a href="index.html">News</a></li>
+            <li><a href="quotes.html">Quotes</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="stoicism.html">Stoicism</a></li>
+            <li><a href="meditations.html">Meditations</a></li>
+            <li><a href="report.html">Report.html</a></li>
+        </ul>
+
+    </nav>
+
+<!--
+            /*[1] W3SCHOOLS, 'How TO - Clickable Dropdown' (N/a), Date UNKNOWN. [Code].
+            https://www.w3schools.com/howto/howto_js_dropdown.asp#:~:text=Example%20Explained,dropdown%20menu%20correctly%20with%20CSS.*
+
+            ============================ORIGINAL CODE LOOKED LIKE THIS=========================
+
+
+                                <div class="dropdown">
+                            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                            <div id="myDropdown" class="dropdown-content">
+                                <a href="#">Link 1</a>
+                                <a href="#">Link 2</a>
+                                <a href="#">Link 3</a>
+                            </div>
+                            </div>
+
+            =====================================COMMENTS=======================================
+
+            It should be apparent, that i altered the code by removing the onclick function.
+            Instead of using this method i decided to use event handlers (which are in scripts/script.js).
+            This was to allow for mobile interaction as html onclick seemed to have issues handling that.
+        -->
+
+<nav id="nav-mobile" aria-label="Navigation mobile">
+    <a href="index.html">
+    <!--This is our main header on the left of the screen on every webpage-->
+    <h1 id="header">Knowledge News</h1>
+        </a>
+    <div class="dropdown">
+        <span id="dropdown-container">
+            <img id="dropdown-pic" class="dropbtn mobile-nav" src="images/drop.png" alt="drop-down menu button">
+        </span>
+        <div id="myDropdown" class="dropdown-content">
+            <a class="nav-link mobile-nav" href="index.html">News</a>
+            <a class="nav-link mobile-nav" href="quotes.html">Quotes</a>
+            <a class="nav-link mobile-nav" href="books.html">Books</a>
+            <a class="nav-link mobile-nav" href="stoicism.html">Stoicism</a>
+            <a class="nav-link mobile-nav" href="meditations.html">Meditations</a>
+            <a class="nav-link mobile-nav" href="report.html">Report</a>
         </div>
-        <div id="progress-bar"></div>
-        <div id="main-container">
-            <div id="stoicism-news-container">
-            <ol id="three-container">
+    </div>
+</nav>
+<div id="progress-bar"></div>
+    <!-- the main container for all the content, (except the uh oh page which gets activated when a user
+        tries to access a non existant article) -->
+    <div id="main-container">
+        <!-- this is container 1/2, it holds the main page content, when an article is clicked, this container
+        disapears and we show container 2/2 which will have the content corresponding to what the client clicked -->
+        <div id="stoicism-news-container">
+            <!-- This is the main title for our landing container -->
+            <h1>Learn From The Great Stoics!</h1>
+            <!-- here we have the top stories, we seperate this for styling purposes -->
+            <ol class="stoic-container">
+                <!-- we use a list as it made it easier to style, however we could of done the same thing
+                with div tags. -->
                 <li>
+                    <!-- each article has a title, a description and an image, the image and the title link
+                    to the propper location. In this particular article it requests a sub-link from stoicism.html
+                    this will trigger the container 'stoicism-news-container' to be hidden, and to show the individual
+                    article that was clicked. That container starts off blank and gets filled in using javascript code -->
                     <article class="stoic-article">
-                        <figure>
-                            <a href="stoicism.html?article=what-is-stoicism">
-                                <img class="stoic zoom" src="assets/zeno.png" alt="A black and white photo of the creator of stoic philosophy, Zeno">
-                            </a>
-                        </figure>
-                        <h3>What is stoicism</h3>
+                        <a href="stoicism.html?article=what-is-stoicism">
+                            <img class="stoic zoom" src="images/zeno.png"
+                                alt="A black and white photo of the creator of stoic philosophy, Zeno">
+                        </a>
+                        <h2>What Is Stoicism</h2>
                         <p>
                             The lost art of practicing stoicism, a philosophy for how to live a great life
                             despite adversity
@@ -61,26 +124,33 @@
                 </li>
                 <li>
                     <article class="stoic-article">
-                        <figure>
-                            <a href="quotes.html?person=marcus-aurelius">
-                                <img class="stoic zoom" src="assets/marcus-aurelius.png" alt="A picture of the emperer Marcus Aurelius">
-                            </a>
-                        </figure>
-                        <h3>Roman Emperer Marcus Aurelius</h3>
+                        <a href="quotes.html?person=marcus-aurelius">
+                            <img class="stoic zoom" src="images/marcus-aurelius.png"
+                                alt="A picture of the emperer Marcus Aurelius">
+                        </a>
+                        <h2>Roman Emperer Marcus Aurelius</h2>
                         <p>
                             What lessons can we learn about life from the great Roman Emperor Marcus Aurelius?
                         </p>
                     </article>
                 </li>
             </ol>
-            <ol id="four-container">
+
+            <h1>The Best Books On Stoicism</h1>
+            <!-- here we have the rest of the news, in this case its four books, again each of these have a title, animage
+            and a description. Each of these books link to the propper location in books.html. It works just the same as the
+            first stoicism article, it hides the first books.html container, reveals the second, and the javascript injects the data
+            corresponding to whatever book the client clicked -->
+    
+            <ol class="stoic-container">
                 <li class="stoic-book-group">
                     <article class="stoic-books">
                         <a href="books.html?book=the-obstacle-is-the-way">
-                            <img class="zoom" src="assets/the-obstacle-is-the-way.jpeg" alt="The book 'The Obstacle Is The Way' By Ryan Holiday">
+                            <img class="stoic-book zoom shadow" src="images/the-obstacle-is-the-way.jpeg"
+                                alt="The book 'The Obstacle Is The Way' By Ryan Holiday">
                         </a>
                         <a href="books.html?book=the-obstacle-is-the-way">
-                            <h3>The Obstacle Is The Way</h3>
+                            <h2>The Obstacle Is The Way</h2>
                         </a>
                         <p>
                             This exceptional book teaches you how to turn challenges into your greatest opportunities
@@ -88,13 +158,15 @@
                     </article>
                     <article class="stoic-books">
                         <a href="books.html?book=ego-is-the-enemy">
-                            <img class="zoom" src="assets/ego-is-the-enemy.jpeg" alt="The book 'Ego Is The Enemy' By Ryan Holiday">
+                            <img class="stoic-book zoom shadow" src="images/ego-is-the-enemy.jpeg"
+                                alt="The book 'Ego Is The Enemy' By Ryan Holiday">
                         </a>
                         <a href="books.html?book=ego-is-the-enemy">
-                            <h3>Ego Is The Enemy</h3>
+                            <h2>Ego Is The Enemy</h2>
                         </a>
                         <p>
-                            A practical guide on how to deal with your ego before success, during success, and after failure
+                            A practical guide on how to deal with your ego before success, during success, and after
+                            failure
 
                         </p>
                     </article>
@@ -102,64 +174,91 @@
                 <li class="stoic-book-group">
                     <article class="stoic-books">
                         <a href="books.html?book=stillness-is-the-key">
-                            <img class="zoom" src="assets/stillness-is-the-key.jpeg" alt="The book 'Stillnes Is The Key' By Ryan Holiday">
+                            <img class="stoic-book zoom shadow" src="images/stillness-is-the-key.jpeg"
+                                alt="The book 'Stillnes Is The Key' By Ryan Holiday">
                         </a>
                         <a href="books.html?book=stillness-is-the-key">
-                            <h3>Stillness Is The Key</h3>
+                            <h2>Stillness Is The Key</h2>
                         </a>
                         <p>
-                            An outstanding book that guides you through how to slow down and enjoy the simple things in life
+                            An outstanding book that guides you through how to slow down and enjoy the simple things in
+                            life
                         </p>
                     </article>
                     <article class="stoic-books">
                         <a href="books.html?book=meditations">
-                            <img class="zoom" src="assets/meditations.jpeg" alt="The book 'Meditations' By Marcus Aurelius">
+                            <img class="stoic-book zoom shadow" src="images/meditations.jpeg"
+                                alt="The book 'Meditations' By Marcus Aurelius">
                         </a>
                         <a href="books.html?book=meditations">
-                            <h3>Meditaitons</h3>
+                            <h2>Meditaitons</h2>
                         </a>
                         <p>
-                            Originally written by the emperer Marcus aurelius, this book contains insightful knowledge on how to deal
+                            Originally written by the emperer Marcus aurelius, this book contains insightful knowledge
+                            on how to deal
                             with the many difficulties life presents
                         </p>
                     </article>
                 </li>
             </ol>
-            </div>
-            <div id="stoicism-individual-article-container">
+        </div>
+        <!-- this is container 2/2, this is what gets shown when the first article is clicked. It gets injected with
+        javascript code to show the content that was requested. -->
+        <main id="stoicism-individual-article-container">
+            <!-- it has an article for containing it all, an image, a title, titleinfo. It also has
+            'n' amount of sections afterwards. The amount of sections the article has, is the amount it will create 
+            and inject. This is pretty different from the meditations page and the books page, as those pages have
+            html templates where the info gets injected.
+        
+            In this case however, we actually create the headers and the <p> tags, and then we dump them in the container
+            'id=stoicism-individual-article-info-container'-->
+            <article id="stoicism-individual-article">
                 <div id="stoicism-individual-article-landing-container">
                     <span>
                         <img id="stoicism-individual-article-img" src="">
                     </span>
                     <div id="stoicism-individual-article-title-container">
-                        <h2 id="stoicism-individual-article-title"></h2>
+                        <h1 id="stoicism-individual-article-title"></h1>
                         <p id="stoicism-individual-article-titleinfo">
                         </p>
                     </div>
                 </div>
                 <div id="stoicism-individual-article-info-container">
-
+    
                 </div>
-            </div>
+            </article>
+        </main>
+    </div>
+    <!-- if the client requests a article that does not exist, we hide the main container that contains everything and show
+    the uh oh page to show the user the page does not exist. -->
+    <div id="uh-oh-page">
+        <a href="stoicism.html">
+            <img id='uh-oh-img' src="images/uh-oh.png" alt="A picture displaying the message Uh oh">
+        </a>
+    </div>
+    <!--DO NOT MOVE OR REMOVE THIS SCRIPT TAG AS IT WILL BREAK THE ENTIRE WEBSITE!
+            The placement of this script tag allows the previous HTML elements to be
+            edited by our scripts/script.js file. If this were to be removed or moved the
+            entire website would be cease to be functional. -->
+    <script src="scripts/script.js"></script>
+</body>
+<footer>
+    <div id="footer-container">
+        <p>Author: John-Marco Tasillo</p>
+        <h5>USEFUL LINKS</h5>
+        <ul id="footer-items">
+            <li>Home</li>
+            <li>Quotes</li>
+            <li>Stoicism</li>
+            <li>Books</li>
+            <li>Meditations</li>
+        </ul>
+        <div id="email-container">
+            <label>Sign up for our newsletter
+                <input id="email" type="email" size="30" maxlength="40" placeholder="Email">
+            </label>
         </div>
-        <!--this MUST BE CALLED HERE, as this page requires external javascript to edit its contents-->
-        <script src="script.js"></script>
-    </body>
-    <footer>
-        <div id="footer-container">
-            <h5>USEFUL LINKS</h5>
-            <ul id="footer-items">
-                <li>Home</li>
-                <li>Quotes</li>
-                <li>Stoicism</li>
-                <li>Books</li>
-                <li>Meditations</li>
-            </ul>
-            <div id="email-container">
-                <label>Sign up for our newsletter
-                    <input id="email" type="email" size="30" maxlength="40" placeholder="Email">
-                </label>
-            </div>
-        </div>
-    </footer>
+    </div>
+</footer>
+
 </html>

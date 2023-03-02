@@ -1,142 +1,373 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <script src="script.js"></script>
-        <title>𝓚𝓷𝓸𝔀𝓵𝓮𝓭𝓰𝓮 𝓝𝓮𝔀𝓼</title>
-    </head>
-    <body>
-        <nav>
-            <a class="left"href="index.html"><h1 id="header">Knowledge News</h1></a>
 
-            <div class="center" id="navigation-links">
-                <ul>
-                    <li><a href="index.html">News</a></li>
-                    <li><a href="quotes.html">Quotes</a></li>
-                    <li><a href="books.html">Books</a></li>
-                    <li><a href="stoicism.html">Stoicism</a></li>
-                    <li><a href="meditations.html">Meditations</a></li>
-                    <li><a href="report.html">Report.html</a></li>
-                </ul>
-            </div>
-            <div class="right">
-            </div>
-        </nav>
-        <div id="nav-mobile">
-            <div class="dropdown">
-                <span id="dropdown-container">
-                    <img id="dropdown-pic" class="dropbtn" src="assets/drop.png" alt="A drop-down menu button">
-                </span>
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="index.html">News</a>
-                    <a href="quotes.html">Quotes</a>
-                    <a href="books.html">Books</a>
-                    <a href="stoicism.html">Stoicism</a>
-                    <a href="meditations.html">Meditations</a>
-                    <a href="report.html">Report</a>
-                </div>
-            </div>
+<head>
+    <!--In the off chance someone is using a old internet explorer version, this will help.-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--this specifies the character encoding for the HTML document-->
+    <meta charset="UTF-8">
+
+    <!--Description of the website -->
+    <meta name="description" content="Knowledge News - A news website
+    to help the world be a better, and smarter place.">
+
+    <!--This is the author of the webpage, aka myself-->
+    <meta name="author" content="John-Marco Tasillo">
+
+    
+    <!--Here we put some keywords to help search engine optimization-->
+    <meta name=”keywords” content="home, information, help, news, stoicism, books, knowledge, smart">
+
+    <!--This helps us scale our website width dependant upon the width of the device being used.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--The icon beside our title-->
+    <link rel="icon" href="images/favicon.ico">
+
+    <!--We link to our stylesheet here-->
+    <link rel="stylesheet" href="styles/style.css">
+    <!--here we connect our javascript to our webpage-->
+    <script src="scripts/script.js"></script>
+
+    <!-- The title of the webpage--->
+    <title>Knowledge News</title>
+</head>
+
+<body>
+    <!--Our main navigation menu -->
+    <nav aria-label="navigation">
+        <a href="index.html">
+        <!--This is our main header on the left of the screen on every webpage-->
+            <h1 id="header">Knowledge News</h1>
+        </a>
+    <!--Our webpage links that are at the top of the screen-->
+        <ul id="nav-list">
+            <li><a href="index.html">News</a></li>
+            <li><a href="quotes.html">Quotes</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="stoicism.html">Stoicism</a></li>
+            <li><a href="meditations.html">Meditations</a></li>
+            <li><a href="report.html">Report.html</a></li>
+        </ul>
+
+    </nav>
+
+<!--
+            /*[1] W3SCHOOLS, 'How TO - Clickable Dropdown' (N/a), Date UNKNOWN. [Code].
+            https://www.w3schools.com/howto/howto_js_dropdown.asp#:~:text=Example%20Explained,dropdown%20menu%20correctly%20with%20CSS.*
+
+            ============================ORIGINAL CODE LOOKED LIKE THIS=========================
+
+
+                                <div class="dropdown">
+                            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                            <div id="myDropdown" class="dropdown-content">
+                                <a href="#">Link 1</a>
+                                <a href="#">Link 2</a>
+                                <a href="#">Link 3</a>
+                            </div>
+                            </div>
+
+            =====================================COMMENTS=======================================
+
+            It should be apparent, that i altered the code by removing the onclick function.
+            Instead of using this method i decided to use event handlers (which are in scripts/script.js).
+            This was to allow for mobile interaction as html onclick seemed to have issues handling that.
+        -->
+
+<nav id="nav-mobile" aria-label="Navigation mobile">
+    <a href="index.html">
+    <!--This is our main header on the left of the screen on every webpage-->
+    <h1 id="header">Knowledge News</h1>
+        </a>
+    <div class="dropdown">
+        <span id="dropdown-container">
+            <img id="dropdown-pic" class="dropbtn mobile-nav" src="images/drop.png" alt="drop-down menu button">
+        </span>
+        <div id="myDropdown" class="dropdown-content">
+            <a class="nav-link mobile-nav" href="index.html">News</a>
+            <a class="nav-link mobile-nav" href="quotes.html">Quotes</a>
+            <a class="nav-link mobile-nav" href="books.html">Books</a>
+            <a class="nav-link mobile-nav" href="stoicism.html">Stoicism</a>
+            <a class="nav-link mobile-nav" href="meditations.html">Meditations</a>
+            <a class="nav-link mobile-nav" href="report.html">Report</a>
         </div>
-        <div id="progress-bar"></div>
+    </div>
+</nav>
+<div id="progress-bar"></div>
+    <!-- the main container that holds all the information on the website. -->
     <div id="main-container">
+        <!-- a report container for styling purposes -->
         <div id="report-container">
-        <h1>Report</h1>
-        <h2>John-Marco Tasillo</h2>
-        <h2>Introduction:</h2>
-        <h3>What is the essential story being told by your site and what type of structure did you choose
-            to implement?</h3>
-        <p>
-            The story behind my website is to display a vast amount of information for the reader of my news article to dive into.
-            This includes great quotes, exceptional books, information on meditation, and some information on the philosophy of stoicism.
-            The main purpose of the website is to provide high quality, useful knowledge to whomever decides to read the article.
-        </p>
-        <h2>Inspiration:</h2>
-        <h3>State 3 things that have inspired you when creating your website (e.g. guest speakers,
-            websites, artists, blogs).</h3>
+            <!-- Below is me answering all the required questions for report.html... -->
+            <h1>Report</h1>
+            <h2>John-Marco Tasillo</h2>
+            <h2>Introduction:</h2>
+            <h3>What is the essential story being told by your site and what type of structure did you choose
+                to implement?</h3>
+            <p>
+                The story behind my website is to display a vast amount of information for the reader of my news article
+                to dive into.
+                This includes great quotes, exceptional books, information on meditation, and some information on the
+                philosophy of stoicism.
+                The main purpose of the website is to provide high quality, useful knowledge to whomever decides to read
+                the article.
+            </p>
+            <h2>Inspiration:</h2>
+            <h3>State 3 things that have inspired you when creating your website (e.g. guest speakers,
+                websites, artists, blogs).</h3>
+                <!-- I often, in this document sort my answers in lists as it is easier to read.
+                Theres not much more to explain in this document, all i do is answer the questions stated. -->
             <ol class="report-list">
                 <li class="report-list-item">
-                    Ryan Holiday's books on stoicism inspired me to create this newsletter website for helping anyone become
+                    Ryan Holiday's books on stoicism inspired me to create this newsletter website for helping anyone
+                    become
                     a better individual. You can find more information
-                    <a href="https://dailystoic.com/">here.</a>
+                    <a class="report-link" href="https://dailystoic.com/">here.</a>
                 </li>
                 <li class="report-list-item">
                     Usnews.com inspired my style for my books portion of the website. You can find more information
-                    <a href="https://www.usnews.com/topics/subjects/meditation">here.</a>
+                    <a class="report-link" href="https://www.usnews.com/topics/subjects/meditation">here.</a>
                 </li>
                 <li class="report-list-item">
-                    Walmart.ca inspired the number highlighting feature at the bottom of the book page. You can find more information
-                    <a href="https://www.walmart.ca/en">here.</a>
+                    Walmart.ca inspired the number highlighting feature at the bottom of the book page. You can find
+                    more information
+                    <a class="report-link" href="https://www.walmart.ca/en">here.</a>
                 </li>
             </ol>
 
 
-    
-        <h2>Accessibility:</h2>
-        <h3>State 3 ways in which your site is accessible.</h3>
 
-        <ol class ="report-list">
-            <li class="report-list-item">
-                All the images in my website have alt's. This is in place to help users who are blind perhaps, and are using a screen reader.
-            </li>
-            <li class="report-list-item">
-                The entire website is entirely functional with a mobile device, it will adjust as neccecary for whatever size screen the client is using.
-            </li>
-            <li class="report-list-item">
+            <h2>Accessibility:</h2>
+            <h3>State 3 ways in which your site is accessible.</h3>
 
-            </li>
-        </ol>
+            <ol class="report-list">
+                <li class="report-list-item">
+                    All the images in my website have alt's. This is in place to help users who are blind perhaps, and
+                    are using a screen reader.
+                </li>
+                <li class="report-list-item">
+                    The entire website is entirely functional with a mobile device, it will adjust as neccecary for
+                    whatever size screen the client is using.
+                </li>
+                <li class="report-list-item">
+                    The entire website can be navigated with tab (to choose what to click), enter (to click whats in
+                    focus), and arrow keys/spacebar to scroll down the content.
+                    Most of this was done by default html behaviour however, when you are in the mobile version of the
+                    website, the dropdown menu required special code to be activated by
+                    the enter key.
+                </li>
+            </ol>
+            <p>
+                In summmary, my website should be fully accessible for clients using a screen reader,
+                clients on a mobile device, clients with or without a mouse, and even clients who
+                are using a mobile device and a screenreader at the same time.
+            </p>
 
-        <h2>Usability:</h2>
-        <h3>State 3 ways in which you considered the usability of your site.</h3>
-        <h2>Learning:</h2>
-        <h3>State 3 things you had to learn or find out to create your site. How did you achieve that</h3>
-        <h2>Evaluation I:</h2>
-        <h3>What aspects of your work do you think were particularly successful Why</h3>
-        <h2>Evaluation II:</h2>
-        <h3>What aspects of your work could be improved? How might you do things differently another
-            time</h3>
-        <h2>Resources:</h2>
-        <h3>What resources did you use in your work? List any sources of information, libraries, plugins,
-            code or tools (you should also indicate inclusions from other sources within your code using
-            comments)</h3>
-        <h2>Appendices:</h2>
-        <h3>Site map (if useful), wireframes and mock-ups</h3>
+            <h2>Usability:</h2>
+            <h3>State 3 ways in which you considered the usability of your site.</h3>
+            <ol class="report-list">
+                <li class="report-list-item">
+                    <p>
+                        The website consists of many images, making it very visually appealing to the user, every
+                        picture on one of the main pages can be clicked to the corresponding article.
+                        Every title for every picture is also clickable, offering the client many ways to access each
+                        article.
+                    </p>
+                </li>
+                <li class="report-list-item">
+                    <p>
+                        Every link provides exceptional feedback to the user so they know that it is clickable content.
+                        For example, the titles of each article when hovered changes to blue and underlines.
+                        Another example is the images enlarge a bit when the user hovers them. This allows computer
+                        users in too much or to little lighting to see exactly what they are accessing with even more
+                        feedback.
+                    </p>
+                </li>
+                <li class="report-list-item">
+                    <p>
+                        The webpages can be accessed via any device and will adapt accordingly. The client can also
+                        resize the window to any size and the content will adjust accordingly
+                    </p>
+                </li>
+            </ol>
+            <h2>Learning:</h2>
+            <h3>State 3 things you had to learn or find out to create your site. How did you achieve that</h3>
+            <ol class="report-list">
+                <li class="report-list-item">
+                    CSS:
+                    The first thing that i learned very quickly was how to use flexbox and flex-wrap. This allows
+                    content to work very well for the user on window resizes and when using different devices.
+                    I also learned how to explicitly declare CSS changes with @media. I refined my previous CSS
+                    knowledge which included basic styling with fonts, colors, and spacing using margin, padding,
+                    and border.
+                </li>
+                <li class="report-list-item">
+                    JAVSCRIPT:
+                    I had to learn advanced DOM manipulation.
+                    I struggled to use mustache or handlebars, so i decided to create my own 'mustache' in
+                    scripts/script.js. I learned how to extract information from the url, use that information to filter
+                    javascript data, and output that data into html elements.
+                    This allowed me to re-use the same base webpage for different articles. As a result, the website has
+                    over 30 sub-articles which are all fully functional and more articles can be added very easily.
+                </li>
+                <li class="report-list-item">
+                    HTML:
+                    I learned that the placing of your script tag is very important when you are using javascript code
+                    that modifies lots of html elements. This was probably one of the biggest lessons i learned
+                    in HTML, as it caused me to struggle for a while.
+                </li>
+            </ol>
+            <h2>Evaluation I:</h2>
+            <h3>What aspects of your work do you think were particularly successful Why</h3>
+            <ol class="report-list">
+                <li class="report-list-item">
+                    <p>
+                        I believe the most successful thing in my website is the usage of my javascript to allow reusage
+                        of webpages. This allowed me to add more articles very efficiently and saved a lot of time
+                        coding
+                        This also allows anyone looking in on my code to very easily add articles to the main pages once
+                        they understand the javascript code. I also think the minor detail of the completion bar at the
+                        top that
+                        shows the client how far they've scrolled is very visually satisfying.
+                    </p>
+                </li>
+                <li class="report-list-item">
+                    <p>
+                        Another thing i believe was successful was the highlighting on hovered titles and the image
+                        enlarging on hovered images. I think this greatly enhances the usability of the website and
+                        helps provide clients
+                        with exceptional feedback for their actions.
+                    </p>
+                </li>
+                <li class="report-list-item">
+                    Lastly, i believe the purpose of my website was met very successfully. The website is full of
+                    amazing content for anyone looking on improving theirselves. From books to philosophy to quotes and
+                    meditations the website
+                    provides the client with various ways to better themselves.
+                </li>
+            </ol>
+            <h2>Evaluation II:</h2>
+            <h3>What aspects of your work could be improved? How might you do things differently another
+                time</h3>
+            <ol class="report-list">
+                <li class="report-list-item">
+                    <p>
+                        One thing that certainly could of been improved is my workflow. Although this isn't something
+                        that you would of seen, i had to make many edits and spent far more time then i should of
+                        working on this project.
+                        I learned a lot in the process, however if I could do it over again I would set stricter
+                        restrictions on myself as to what I am going to work on. I found without these restrictions I
+                        would just do whatever i felt to
+                        and this wasted a lot of time when i should of been writing more important code.
+                    </p>
+                </li>
+            </ol>
+            <h2>Resources:</h2>
+            <h3>What resources did you use in your work? List any sources of information, libraries, plugins,
+                code or tools (you should also indicate inclusions from other sources within your code using
+                comments)</h3>
+            <p>Some information regarding stoicism was gathered in the following links:</p>
+            <ul class="report-list">
+                <li class="report-list-item">
+                    <a
+                        href="https://dailystoic.com/what-is-stoicism-a-definition-3-stoic-exercises-to-get-you-started/#what-is-stoicism">https://dailystoic.com/what-is-stoicism-a-definition-3-stoic-exercises-to-get-you-started/#what-is-stoicism</a>
+                </li>
+                <li class="report-list-item">
+                    <a
+                        href="https://dailystoic.com/meditations-marcus-aurelius/">https://dailystoic.com/meditations-marcus-aurelius/</a>
+                </li>
+                <li class="report-list-item">
+                    <a href="https://dailystoic.com/stoic-quotes/">https://dailystoic.com/stoic-quotes/</a>
+                </li>
+                <li class="report-list-item">
+                    <a
+                        href="https://dailystoic.com/marcus-aurelius-quotes/">hhttps://dailystoic.com/marcus-aurelius-quotes/</a>
+                </li>
+            </ul>
+            <p>
+                Inspiration for the book page came from the first source below, whilst the second source inspired the
+                highlighting numbers at the bottom of books.html.
+                No code was copied, however i adapted the visual design in these websites to complement my own.
+            </p>
+            <ul class="report-list">
+                <li class="report-list-item">
+                    <a href="https://www.nytimes.com/ca/section/books">https://www.nytimes.com/ca/section/books</a>
+                </li>
+                <li class="report-list-item">
+                    <a
+                        href="https://www.walmart.ca/browse/electronics/laptops-computers/10003-20038?icid=WM_2022_L1Electronics_CT_LaptopsComputers_WK32&fromFC=true">https://www.walmart.ca/browse/electronics/laptops-computers/10003-20038?icid=WM_2022_L1Electronics_CT_LaptopsComputers_WK32&fromFC=true</a>
+                </li>
+            </ul>
+            <p>Information for the quote page was gathered here:</p>
+            <ul class="report-list">
+                <li class="report-list-item">
+                    <a
+                        href="https://blog.hubspot.com/sales/famous-quotes">https://blog.hubspot.com/sales/famous-quotes</a>
+                </li>
+                <li class="report-list-item">
+                    <a
+                        href="https://www.inspireyoursuccess.com/eric-thomas-quotes/">https://www.inspireyoursuccess.com/eric-thomas-quotes/</a>
+                </li>
+                <li class="report-list-item">
+                    <a
+                        href="https://www.tonyrobbins.com/tony-robbins-quotes/inspirational-quotes/">https://www.tonyrobbins.com/tony-robbins-quotes/inspirational-quotes/</a>
+                </li>
+                <li class="report-list-item">
+                    <a
+                        href="https://www.goodreads.com/author/quotes/2192.Aristotle">https://www.goodreads.com/author/quotes/2192.Aristotle</a>
+                </li>
+                <li class="report-list-item">
+                    <a
+                        href="https://www.britannica.com/biography/Aristotle">https://www.britannica.com/biography/Aristotle</a>
+                </li>
+            </ul>
+            <p>Some information for the meditation website was gathered here:</p>
+            <ul class="report-list">
+                <li class="report-list-item">
+                    <a
+                        href="https://www.usnews.com/topics/subjects/meditation">https://www.usnews.com/topics/subjects/meditation</a>
+                </li>
+                <li class="report-list-item">
+                    <a
+                        href="https://www.headspace.com/meditation/meditation-101">https://www.headspace.com/meditation/meditation-101</a>
+                </li>
+            </ul>
+            <p>
+                And finally, all the pictures were free upon googling for them, except for the book pictures which i
+                took myself of the books i own.
+                The information for the book summaries were completely my own work. Each and every one of the books i
+                listed were books i've read myself
+                and therefore all the information from my summaries came directly from each book.
+            </p>
+            <h2>Appendices:</h2>
+            <h3>Site map (if useful), wireframes and mock-ups</h3>
+        </div>
+        <div id="site-map-container">
+            <img id="site-map" src="images/knowledge-news-sitemap.png" alt="">
+        </div>
     </div>
-</div>
-   
 
-<!-- information, libraries, plug-ins or other code that you used to create your site. You should
-also reference any code you've used by inserting comments at the start of the scripts.</h2>
-Appendices: Site Map, Wireframes and Mockups
-Format for citing code:
-[1] Author Initial, Author Surname, 'Title of program/source code' (), Year Published. [Type].
-Web address or publisher.
-Example:
-[1] P. Korponaić, 'Meteor Kitchen examples' (commit 0abcf1c), 2016. [Source code].
-https://github.com/perak/kitchen-examples/tree/master/example-minimal
-Format for citing online resource:
-[1] Author Initial. Author Surname, 'Title', Year Published. [Online]. Available:
-http://Website URL. [Accessed: 10- Oct- 2013].
-Example:
-[1] Handlebarsjs.com, 'Handlebars Reference', 2016. [Online]. Available:
-http://handlebarsjs.com/reference.html. [Accessed: 20- Sep- 2016].
-Taking things from the web
-You can use almost anything you like that you can find on the Web, but you should avoid
-anything that is not open (e.g. that costs money or requires login or registration), or
-anything from sites belonging to commercial companies. Being able to re-use other people's
-ideas is an important web skill. However, it is essential that, on your report page, you
-describe what you have taken, where you took it from, and what you have done to it. If you
-copy-and-paste something almost without change, you must say that you have done it, it
-must conform to the standards, and you shouldn't expect many marks for it, except for how
-you have made it fit in with and enhance your own design. To get more marks you can use
-code from elsewhere, document the source of the code in your report.html and then edit it
-in some way. Showing you can adapt existing code will earn you more marks. In order to be
-clear which material you have written and which you have used from elsewhere you will be
-expected to provide comprehensive comments within your HTML, CSS and Javascript files
-indicating code you have used, code you have adopted and edited and code that you have
-written. -->
-    </body>
+    </div>
+</body>
+<footer>
+    <div id="footer-container">
+        <p>Author: John-Marco Tasillo</p>
+        <h5>USEFUL LINKS</h5>
+        <ul id="footer-items">
+            <li>Home</li>
+            <li>Quotes</li>
+            <li>Stoicism</li>
+            <li>Books</li>
+            <li>Meditations</li>
+        </ul>
+        <div id="email-container">
+            <label>Sign up for our newsletter
+                <input id="email" type="email" size="30" maxlength="40" placeholder="Email">
+            </label>
+        </div>
+    </div>
+</footer>
+
 </html>
