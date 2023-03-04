@@ -102,10 +102,7 @@
             <!-- This is the main title for our landing container -->
             <h1>Learn From The Great Stoics!</h1>
             <!-- here we have the top stories, we seperate this for styling purposes -->
-            <ol class="stoic-container">
-                <!-- we use a list as it made it easier to style, however we could of done the same thing
-                with div tags. -->
-                <li>
+            <div class="stoic-container">
                     <!-- each article has a title, a description and an image, the image and the title link
                     to the propper location. In this particular article it requests a sub-link from stoicism.html
                     this will trigger the container 'stoicism-news-container' to be hidden, and to show the individual
@@ -121,8 +118,6 @@
                             despite adversity
                         </p>
                     </article>
-                </li>
-                <li>
                     <article class="stoic-article">
                         <a href="quotes.html?person=marcus-aurelius">
                             <img class="stoic zoom" src="images/marcus-aurelius.png"
@@ -133,8 +128,7 @@
                             What lessons can we learn about life from the great Roman Emperor Marcus Aurelius?
                         </p>
                     </article>
-                </li>
-            </ol>
+            </div>
 
             <h1>The Best Books On Stoicism</h1>
             <!-- here we have the rest of the news, in this case its four books, again each of these have a title, animage
@@ -144,7 +138,7 @@
     
             <ol class="stoic-container">
                 <li class="stoic-book-group">
-                    <article class="stoic-books">
+                    <article class="stoic-book-container">
                         <a href="books.html?book=the-obstacle-is-the-way">
                             <img class="stoic-book zoom shadow" src="images/the-obstacle-is-the-way.jpeg"
                                 alt="The book 'The Obstacle Is The Way' By Ryan Holiday">
@@ -156,7 +150,7 @@
                             This exceptional book teaches you how to turn challenges into your greatest opportunities
                         </p>
                     </article>
-                    <article class="stoic-books">
+                    <article class="stoic-book-container">
                         <a href="books.html?book=ego-is-the-enemy">
                             <img class="stoic-book zoom shadow" src="images/ego-is-the-enemy.jpeg"
                                 alt="The book 'Ego Is The Enemy' By Ryan Holiday">
@@ -172,7 +166,7 @@
                     </article>
                 </li>
                 <li class="stoic-book-group">
-                    <article class="stoic-books">
+                    <article class="stoic-book-container">
                         <a href="books.html?book=stillness-is-the-key">
                             <img class="stoic-book zoom shadow" src="images/stillness-is-the-key.jpeg"
                                 alt="The book 'Stillnes Is The Key' By Ryan Holiday">
@@ -185,7 +179,7 @@
                             life
                         </p>
                     </article>
-                    <article class="stoic-books">
+                    <article class="stoic-book-container">
                         <a href="books.html?book=meditations">
                             <img class="stoic-book zoom shadow" src="images/meditations.jpeg"
                                 alt="The book 'Meditations' By Marcus Aurelius">
@@ -243,22 +237,23 @@
     <script src="scripts/script.js"></script>
 </body>
 <footer>
-    <div id="footer-container">
-        <p>Author: John-Marco Tasillo</p>
-        <h5>USEFUL LINKS</h5>
-        <ul id="footer-items">
-            <li>Home</li>
-            <li>Quotes</li>
-            <li>Stoicism</li>
-            <li>Books</li>
-            <li>Meditations</li>
-        </ul>
-        <div id="email-container">
-            <label>Sign up for our newsletter
-                <input id="email" type="email" size="30" maxlength="40" placeholder="Email">
-            </label>
-        </div>
+    <div id="footer-top">
+            <h5>USEFUL LINKS</h5>
+                <div id="footer-items">
+                    <a class="footer-link" href="index.html">News</a>
+                    <a class="footer-link" href="quotes.html">Quotes</a>
+                    <a class="footer-link" href="books.html">Books</a>
+                    <a class="footer-link" href="stoicism.html">Stoicism</a>
+                    <a class="footer-link" href="meditations.html">Meditations</a>
+                    <a class="footer-link" href="report.html">Report</a>
+                </div>
     </div>
+    <div id="footer-line"></div>
+    <div id="footer-bottom">
+        <p id="copyright">@2023 Knowledge News. All Rights Reserved</p>
+        <p>Author: John-Marco Tasillo</p>
+    </div>
+    
 </footer>
 
 </html>

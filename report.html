@@ -27,8 +27,6 @@
 
     <!--We link to our stylesheet here-->
     <link rel="stylesheet" href="styles/style.css">
-    <!--here we connect our javascript to our webpage-->
-    <script src="scripts/script.js"></script>
 
     <!-- The title of the webpage--->
     <title>Knowledge News</title>
@@ -61,7 +59,7 @@
 
 
                                 <div class="dropdown">
-                            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                            <button class=wireframe-buttons onclick="myFunction()" class="dropbtn">Dropdown</button>
                             <div id="myDropdown" class="dropdown-content">
                                 <a href="#">Link 1</a>
                                 <a href="#">Link 2</a>
@@ -297,7 +295,7 @@
                 </li>
                 <li class="report-list-item">
                     <a
-                        href="https://www.walmart.ca/browse/electronics/laptops-computers/10003-20038?icid=WM_2022_L1Electronics_CT_LaptopsComputers_WK32&fromFC=true">https://www.walmart.ca/browse/electronics/laptops-computers/10003-20038?icid=WM_2022_L1Electronics_CT_LaptopsComputers_WK32&fromFC=true</a>
+                        href="https://www.walmart.ca/browse/electronics/laptops-computers/">https://www.walmart.ca/browse/electronics/laptops-computers/</a>
                 </li>
             </ul>
             <p>Information for the quote page was gathered here:</p>
@@ -316,7 +314,7 @@
                 </li>
                 <li class="report-list-item">
                     <a
-                        href="https://www.goodreads.com/author/quotes/2192.Aristotle">https://www.goodreads.com/author/quotes/2192.Aristotle</a>
+                        href="https://www.goodreads.com/author/quotes/2192.Aristotle">https://www.goodreads.com/author/Aristotle</a>
                 </li>
                 <li class="report-list-item">
                     <a
@@ -343,31 +341,65 @@
             </p>
             <h2>Appendices:</h2>
             <h3>Site map (if useful), wireframes and mock-ups</h3>
+            <h3>Site map:</h3>
         </div>
         <div id="site-map-container">
             <img id="site-map" src="images/knowledge-news-sitemap.png" alt="">
         </div>
-    </div>
+        <h3>Wireframes:</h3>
+        <div id="wireframe-container">
+            <div id="wireframe-choice">
+                <input type="radio" id="news" name="wireframes" value="news.html"  onclick="reportWireframeSwitcher('news')">
+                <label for="news">News</label>
+
+                <input type="radio" id="quotes" name="wireframes" value="quotes.html" onclick="reportWireframeSwitcher('quotes')">
+                <label for="quotes">Quotes</label>
+
+                <input type="radio" id="books" name="wireframes" value="books.html" onclick="reportWireframeSwitcher('books')">
+                <label for="books">Books</label>
+
+                <input type="radio" id="stoicism" name="wireframes" value="stoicism.html" onclick="reportWireframeSwitcher('stoicism')">
+                <label for="stoicism">Stoicism</label>
+
+                <input type="radio" id="meditations" name="wireframes" value="meditations.html" onclick="reportWireframeSwitcher('meditations')">
+                <label for="meditations">Meditations</label>
+
+                <input type="radio" id="report" name="wireframes" value="report.html" onclick="reportWireframeSwitcher('report')">
+                <label for="report">Report</label>
+            </div>
+            <div id="wireframe-output">
+                <div id="wireframe-choices">
+                    <button class=wireframe-buttons id="wireframe-previous" onclick="reportNextWireframe('prev')">Previous</button>
+                    <h3 id="wireframe-header">Picture</h3>
+                    <button class=wireframe-buttons id="wireframe-next" onclick="reportNextWireframe('next')">Next</button>
+                </div>
+                    <img id="wireframe-img" alt="a picture of a wireframe">
+            </div>
+        </div>
 
     </div>
+
+<!--here we connect our javascript to our webpage, it must be called here for the website to work-->
+<script src="scripts/script.js"></script>
 </body>
 <footer>
-    <div id="footer-container">
-        <p>Author: John-Marco Tasillo</p>
-        <h5>USEFUL LINKS</h5>
-        <ul id="footer-items">
-            <li>Home</li>
-            <li>Quotes</li>
-            <li>Stoicism</li>
-            <li>Books</li>
-            <li>Meditations</li>
-        </ul>
-        <div id="email-container">
-            <label>Sign up for our newsletter
-                <input id="email" type="email" size="30" maxlength="40" placeholder="Email">
-            </label>
-        </div>
+    <div id="footer-top">
+            <h5>USEFUL LINKS</h5>
+                <div id="footer-items">
+                    <a class="footer-link" href="index.html">News</a>
+                    <a class="footer-link" href="quotes.html">Quotes</a>
+                    <a class="footer-link" href="books.html">Books</a>
+                    <a class="footer-link" href="stoicism.html">Stoicism</a>
+                    <a class="footer-link" href="meditations.html">Meditations</a>
+                    <a class="footer-link" href="report.html">Report</a>
+                </div>
     </div>
+    <div id="footer-line"></div>
+    <div id="footer-bottom">
+        <p id="copyright">@2023 Knowledge News. All Rights Reserved</p>
+        <p>Author: John-Marco Tasillo</p>
+    </div>
+    
 </footer>
 
 </html>

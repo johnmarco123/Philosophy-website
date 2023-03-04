@@ -136,17 +136,31 @@ const uhOh = () =>{
 //grab the url
 const url = window.location.href
 
+
+//DO NOT REMOVE
 //get the info we need in the search bar after the equals sign.
 //if you remove this, almost the entire website wont function properly. 
 //this is VITAL for the code DO NOT REMOVE THIS!
 const search = window.location.search
+
+//databaseName is the data we obtain after the questions mark in the url
 let databaseName;
+
+//if there is indeed parameters in the url, we set databaseName to them
 if (search) {
+    //note that we use replaceall to switch the parameters that have '-' to '_'
+    //we do this because javascript cannot have variables with a dash, therefore we want to replace them and
+    //use underscores in our variables
     databaseName = search.substring(search.indexOf('=') + 1).replaceAll('-', '_')
 }
 
-
-const activateQuotePage = x => {
+// we have this function to seperate between the user clicking on a person or the user clicking
+// on the random link at the bottom of the page
+const activateQuotePage = option => {
+    // This is where we keep all the information regarding each person in the quote page.
+    // each person is their own object inside of virtualDatabase.
+    // they each have a name a intro, ten quotes, an image, and an alt for their image.
+    // this gets injected into the html once the user clicks on a person.
     const virtualDatabase = {
         eric_thomas:
         {
@@ -455,75 +469,135 @@ const activateQuotePage = x => {
         }
 
     }
+    // Here we set arrayOfPeople to the names of all the authors that we use as variables in virtualdatabase
     const arrayOfPeople = Object.keys(virtualDatabase);
-    const random = n => Math.floor(Math.random() * n);
+
+    // a simple little function to give us a random number between 0 and 'num'
+    const random = num => Math.floor(Math.random() * num);
+
+    /*
+    this function is called when the user clicks the random button on the random page.
+    In short, it gives us 10 random quotes randomly selected from all the people in the virtual database
+    We also ensured that no same quotes appears twice on the page at the same time.
+     */
     const randomQuotes = () => {
 
         //each person has ten quotes, therefore totalAllowedQuotes = 10;
         //a higher number wont break the program, but a lower one will reject some quotes
         const totalAllowedQuotes = 10;
+
         //gather how many people we have in our virtual database
         const totalPeople = arrayOfPeople.length;
+
+        // the quotes we will inject into html later on, its empty at the start here till we 
+        // successfully randomize the quotes we need
         let outputQuotes = {};
 
-        //The main point of this long complicated function, is to make sure we NEVER get two of
+
+        //The main point of this long complicated for loop below, is to make sure we NEVER get two of
         //the same quote when the client wants random quotes
-        //while we don't have 10 quotes we continue is what this basically means
+
+        //while we don't have 10 quotes we continue trying to get more quotes
         for (let i = 0; i < 10; i++) {
+
+            // here we get a random name out of the people in the virtual database
             let randomName = arrayOfPeople[random(totalPeople)]
+
+            // we get a random number between 0 and the total allowed quotes.
+            // aka we get a num between 0 and 9 
             let randomNumber = random(totalAllowedQuotes)
+
             //if the person exists in the object 'outputQuotes'
             if (outputQuotes[randomName]) {
+
                 //then we check if the number exists under that person
                 if (outputQuotes[randomName].includes(randomNumber)) {
                     //if it reaches this stage, that means we would of had a duplicate quote,
                     //therefore we decrease the counter by one as if we 'skipped' this quote
+                    //and redo the loop to try to find a non duplicate quote
                     i--
                 }
-                //if it doesn't, we put it there, and we assign it the number one
+                //if the number does not exist under that person, this means it will not be a duplicate quote,
+                // therefore we push it into outputquotes
                 else {
                     outputQuotes[randomName].push(randomNumber)
                 }
             } else {
-                //if the person does not exist, we assign the value of a object
+                //if the person does not exist we don't have to worry that we have a quote for them, so we
+                //simply create an array for that person, and push the random number into outputQuotes
                 outputQuotes[randomName] = []
                 outputQuotes[randomName].push(randomNumber)
             }
         }
 
-        //basically here we just display 
+
+        /*Below, we simply display all the quotes to the page */
+
+        // first we keep a count so we can use it to set the quotes
         let counter = 0;
+
+        // We iterate through every person in output quotes
         for (person in outputQuotes) {
+
+            //Then, for every number in that persons array, we want to display it on the screen.
             for (quoteNum of outputQuotes[person]) {
+
+                //we gather the first open quote paragraph
                 let quoteElement = 'quote-' + counter;
+
+                // and we set its innerhtml to be the quote at the random index we got for that individual
                 document.getElementById(quoteElement).innerHTML = virtualDatabase[person].quotes[quoteNum];
+
+                //we then increase the counter, therefore the next quote we fill wont be the same one
                 counter++;
             }
         }
     }
+
+
+    /*
+     This function we display all the information we need for the person that was clicked in our html
+     this includes their image, a small description, their name, and their ten quotes.
+    
+    */
     const quote_page = personInDatabase => {
-        //we seperate randomizer button from the url itself running the code
-        //In other words, we do this because if we didn't, any time the randomizer button is clicked it would 
-        //trigger another 'photoChanger' while loop, and since these are infinite it could be very bad if i didn't
-        //seperate them here
+
+        //here we detect if the page is random, or if its a person. if its random we want to display
+        //the randomizer button and periodically flip through all the people in our virtual database
         if (personInDatabase == 'random') {
+            //reveal the randomizer button
             document.getElementById("randomizer").style.display = 'block';
+
+            //hide the description container 
             document.getElementById('quote-page-description-container').style.display = 'none';
+
+            //also hide the names 
             document.getElementById('quote-page-name').style.display = 'none';
-
-
-            //gather all the names of every person in our virtual database
-
-            //returns a random number between 0 and x
 
             //photo changer
             //its asyncrounous to avoid it interupting other javascript stuff
             //only on the random page load do we do this. very important we dont have this function active
-            //more then once, its an infinite loop.
+            //more then once, its an infinite loop. HANDLE WITH CARE WHEN EDITING
             if (personInDatabase == 'random') {
+                //this we use later on to keep track of the last person in the list, therefore not
+                //getting the same person twice (this will make more sense a bit later into the code)
+                //whats important is it stays outside of photoChanger.
                 let oldLastPick;
+
+
+                /*
+                1.) photochanger will make a list in random order of all the people in the virtualdatabase.
+                2.) It then displays each persons image in that random order.
+                It also will save the last person on the list in oldlastpick (to not have
+                the same person twice back to back).
+                3.) It then iteratively goes through everyone and every 3 seconds rotates to a new person.
+                */
                 const photoChanger = async () => {
+                    // this is the list we keep the random people in
                     let listOfRandomPeople = []
+
+
+
                     /***************************************************************************************
                     *    Title: How to create an array containing 1 - n
                     *    Author: Niko Ruostsalainen (from StackOverFlow)
@@ -533,64 +607,114 @@ const activateQuotePage = x => {
                     *    Comments: I found this excellent short es6 code to simply create an array from 1 - n, 
                     *    short and simple and uses es6 very effectively. The use of the spread operator here is very shorthand and simple
                     ***************************************************************************************/
-                    //basically makes an array from 1-12
-                    let oneToN = [...Array(12).keys(arrayOfPeople.length)]
+                    /*[3] N. Ruostsalainen, 'How to create an array containing 1 - n' (), Date UNKNOWN. [Code].*/
+                    //basically makes an array from 1-12 in a fancy small manner
+                    let oneToN = [...Array(12).keys(arrayOfPeople.length)];
+
                     //returns an array with numbers from 0 -> num of people in virtual database
                     //these numbers are random. We do this to show the client all our pictures without risking the client seeing
                     //the same pictures too frequently.
                     const randomOrder = () => {
+                        //we slowly boot out numbers from oneToN, therefore our stop condition is when oneToN.length is 0
                         while (oneToN.length > 0) {
-                            let randomPos = random(oneToN.length)
+                            //we get a random number from 0 to 11 (11 because zero counts as an index, and theres 12 people in our database))
+                            let randomPos = random(oneToN.length);
+
                             //when we finish our first cycle, make sure the next cycle doesn't start with the same picture as
                             //the last picture of the first cycle.
                             if (oneToN[randomPos] == oldLastPick && oneToN.length == arrayOfPeople.length) {
-                                continue;
+                                continue
                             }
+                            //we then push the random number from oneToN into our list of random people.
+                            //and remove it from onetoN,
+                            //simply put, we randomize the numbers 0 - 11
                             listOfRandomPeople.push(oneToN[randomPos])
                             oneToN.splice(randomPos, 1)
+
                         }
                     }
+                    //we call the function right away since this is the random page
                     randomOrder()
-                    oldLastPick = listOfRandomPeople[1];
+
+
+                    //here we set oldlastpick to equal the last item of the current list, 
+                    //we do this so the next list will not start with the last item of the previous list
+                    oldLastPick  = listOfRandomPeople[listOfRandomPeople.length - 1]
+
+                    //****IMPORTANT****
+                    //here we continue the loop until listofrandompeople is empty, we do this because we periodically
+                    //remove elements with .shift(), if yoou remove .shift() the loop will be infinite, so be careful
                     while (listOfRandomPeople.length > 0) {
+
                         // The first number, is our first image. We use it, and discard it. Therefore there need be no counter to break
                         // the loop. Because the discarding will shorten the list to eventually zero, which is when we will remake a new one
                         let person = virtualDatabase[arrayOfPeople[listOfRandomPeople[0]]]
+
+                        //set the image
                         document.getElementById('quote-page-img').setAttribute('src', person.img);
+
+                        //set the alt for the image
                         document.getElementById('quote-page-img').setAttribute('alt', person.alt);
+
+                        //discard the element we just used
                         listOfRandomPeople.shift();
+
+                        //wait three seconds, and continue the loop
                         await new Promise(resolve => setTimeout(resolve, 3000))
                     }
+                    //once here, we need a new list, so we call photochanger again, and this repeats INDEFINETELY.
+                    //SO BE EXTREMELY CAREFUL CALLING PHOTOCHANGER MORE THEN ONCE CAUSE IT WILL RESULT IN MULTIPLE
+                    //INFINITE LOOPS!
                     photoChanger()
                 }
+                //the initial photochanger call
                 photoChanger()
             }
+            //the initial randomquotes call, to get our first batch of random quotes
             randomQuotes()
         }
         //if it isnt the random page, simply display the picture, and their quotes...
         else {
+            //get the person the virtual database (personindatabase is our cleaned variable we got from the url)
             const person = virtualDatabase[personInDatabase]
+
+            //we shorten the word document to doc
             const doc = document
+
+            //set the persons name
             doc.getElementById('quote-page-name').innerHTML = person.name;
+
+            //set the persons image
             doc.getElementById('quote-page-img').setAttribute('src', person.img)
+
+            //set the persons image alt
             doc.getElementById('quote-page-img').setAttribute('alt', person.alt)
+
+            //set their introductory text
             doc.getElementById('quote-page-intro').innerHTML = person.intro
-            //here we get the quotes and display them
+
+            //here we get the quotes and display them, we simply iterate through 0 -> the amount of quotes they have
+            //and display them on the screen in the appropiate container.
             for (let i = 0; i < person.quotes.length; i++) {
                 let quoteElement = 'quote-' + i
                 doc.getElementById(quoteElement).innerHTML = person.quotes[i]
             }
         }
     }
-    if (x == 'page') {
+    //the initial call in activateQuotePage. if its a person, we simply activate quote_page and display
+    //their contents.
+    if (option == 'person') {
         quote_page(databaseName)
-    } else if (x == 'randomizer') {
+    } else if (option == 'randomizer') {
         randomQuotes()
     }
 }
 
-const activateBookPage = x => {
-
+// we use this to seperate flipping to the next page (in books.html)
+// and clicking a book (which leads to books.html?book=...)
+const activateBookPage = option => {
+    
+    // the virtual lbirary that holds all our books as objects and all their data
     const virtualLibrary = {
 
         //any array in the virtual library gets split into appropriate tags and shoved into the document accordingly.
@@ -1152,129 +1276,233 @@ const activateBookPage = x => {
         },
 
     }
-    const loadBookPage = () => {
+    //if the clicked a book this should get activated
+    if (option == 'load-book') {
+        // here we get the appropiate book object
+        const book = virtualLibrary[databaseName];
 
-        const book = virtualLibrary[databaseName]
-        //here we check if the book actually exists, if it doesnt we give an error
+        //here we check if the book actually exists, if it doesnt we give an error 
+        //the uh oh function displays the uhoh page and hides the main content for this one
         if(!book){
-            uhOh()
+            uhOh();
         }
 
+        // here we make an array of all the book data we have to change (other then the alt, img and href)
         const elements_to_change = ['title', 'description', 'sentence', 'points', 'passages', 'summary']
+    
+        //we then iterate through all of them, changing them one at a time
         for (item of elements_to_change) {
+            //if we are on points, this should activate
             if (item == 'points') {
+
+                //here we keep track of the amount of points we have already shoved into the html
                 let i = 0;
-                while (i < book[item].length) {
+
+                //whilst there are points left in the books points array we keep shoving them into the
+                //book-page-points container, and increase out counter.
+                //in other words a book can have 'n' amount of points, and this loop will still manage.
+                while (i < book['points'].length) {
+
+                    // we create a list item element
                     const li = document.createElement("li");
-                    const info = document.createTextNode(book[item][i])
+
+                    //we then create a textnode for the point located at the i index
+                    const info = document.createTextNode(book['points'][i])
+
+                    //we then append the info between the list item tag
                     li.appendChild(info);
+
+                    //and then append that list item tag under the book-page-points container
                     document.getElementById('book-page-points').appendChild(li);
+
+                    //and increase our counter. this continues till we've appended all points
                     i++
                 }
+                //if we are on passages this should activate
             } else if (item == 'passages') {
-                //each item only has three passages...
+                //each item only has three passages, therefore we can hardcode 3 into our for loop.
                 for (let i = 0; i < 3; i++) {
+                    //we simply set the class at the current index to the passage at the corresponding index of the book
                     document.getElementsByClassName('book-page-passages')[i].innerHTML = book[item][i]
                 }
+
+                //if we are on the summary.
             } else if (item == 'summary') {
+                
+                //we set our counter to zero(this keeps track of when to finish)
                 let i = 0;
-                while (i < book[item].length) {
+
+                //we keep going till i is no longer less then the amount of elements in the books summary array
+                //note, the summary array is full of elements which are basically paragraphs. each book can have 'n'
+                //paragraphs in their summary array, therefore this while look will continue indefinetely until it has
+                //chomped through all the summary elements and shoved them onto the screen
+                while (i < book['summary'].length) {
+
+                    //create a p element
                     const p = document.createElement('p');
+
+                    //get the corresponding summary information from index 'i' in books
                     const info = document.createTextNode(book[item][i])
+
+                    //append it into the p tag
                     p.append(info);
+
+                    //and append that p tag under the book-page-summary container
                     document.getElementById('book-page-summary').appendChild(p)
+
+                    //and increase the counter! We do this till all of them are pushed onto the screen
                     i++
                 }
             } else {
+                //if its not points, or summary, or passages that means its either title, description or sentence.
+                //therefore we simply just set the innerhtml of that item to the corresponding id.
+
+                //an example would be document.getElementById('book-page-title).innerHTML = book[title],
+                //and it does this for the title, description, and sentence.
+
                 document.getElementById(`book-page-${item}`).innerHTML = book[item];
             }
         }
+
+        //we then set the book image
         document.getElementById("book-page-img").setAttribute('src', book.img);
+
+        //and the book image alt
         document.getElementById("book-page-img").setAttribute('alt', book.alt);
-    }
-    const nextPage = () => {
-        //if it is top_5_books, we want to load those top 5 books, and remove the numbers at the bottom of the screen
-        if (databaseName == 'top_5_books') {
-            //hide the numbers at the bottom of the screen
-            document.getElementById('next-page-menu').style.display = 'none';
 
 
-            let currentBook;
-            //these are our top 5 book names, make sure they correspond with the propper key from the virtual library if you decide to change them
-            let top_5_book_names = ['the_obstacle_is_the_way', 'stillness_is_the_key', 'mans_search_for_meaning', 'meditations', 'atomic_habits']
-            //note, we must use < 5 here since we can only show 5 books. We use this instead of a "for of" loop, as it is easier to code and read in this case
-            for (let i = 0; i < 5; i++) {
-                currentBook = virtualLibrary[top_5_book_names[i]]
-                document.getElementById(`book-${i}-title`).innerHTML = `${i + 1}. ${currentBook.title}`
-                document.getElementById(`book-${i}-description`).innerHTML = currentBook.description
-                document.getElementById(`book-${i}-img`).setAttribute('src', currentBook.img)
-                document.getElementById(`book-${i}-img`).setAttribute('alt', currentBook.alt)
-                document.getElementsByClassName(`book-${i}-link`)[0].setAttribute('href', `books.html?book=${currentBook.href}`)
-                document.getElementsByClassName(`book-${i}-link`)[1].setAttribute('href', `books.html?book=${currentBook.href}`)
-            }
 
-        }
 
-        //if its not top_5_books, then we want to highlight the propper page number at the bottom, and load the books assosiated with that page number
-        else {
+        //if the client clicked next page, then we activate this option.
+    } else if (option == 'next-page') {
+             //if it is top_5_books, we want to load those top 5 books, and remove the numbers at the bottom of the screen
+             //this gets activated by clicking the top5 books on the news page
+             if (databaseName == 'top_5_books') {
 
-            const booksTitlesArray = Object.keys(virtualLibrary);
-            let maxPages = Math.ceil(booksTitlesArray.length / 5)
+                //hide the numbers at the bottom of the screen
+                document.getElementById('next-page-menu').style.display = 'none';
+    
+                //the book we are currentlyon
+                let currentBook;
+                //these are our top 5 book names, make sure they correspond with the propper key from the virtual library if you decide to change them
+                //simply changing these names to match the name you want in virtual library will actually work to change the best5book page simply.
+                let top_5_book_names = ['the_obstacle_is_the_way', 'stillness_is_the_key', 'mans_search_for_meaning', 'meditations', 'atomic_habits']
+                //note, we must use < 5 here since we can only show 5 books. We use this instead of a "for of" loop, as it is easier to code and read in this case
+                for (let i = 0; i < 5; i++) {
+                    //current book we are dumping into the html
+                    currentBook = virtualLibrary[top_5_book_names[i]];
 
-            /*
-            if there is a databaseName, this means the user clicked another page, or
-            they typed in the url a non existent page. so we filter this here.
-            We check if the page number is between 0 and the max pages, if so then we continue on
-            if not we give the uhOh error!
-             */
-            if(databaseName){
-                if(!(databaseName > 0 && databaseName <= maxPages))
-                {
-                    uhOh()
+                    //set its title, the ${i+1}. simply just adds the number of the book in ranking from 1 - 5
+                    document.getElementById(`book-${i}-title`).innerHTML = `${i + 1}. ${currentBook.title}`
+
+                    //set its description
+                    document.getElementById(`book-${i}-description`).innerHTML = currentBook.description;
+
+                    //set its image
+                    document.getElementById(`book-${i}-img`).setAttribute('src', currentBook.img)
+
+                    //set the images alt
+                    document.getElementById(`book-${i}-img`).setAttribute('alt', currentBook.alt)
+
+                    //link the image and the header to the appropiate location (therefore when the book is clicked it links to the
+                    //propper location
+                    document.getElementsByClassName(`book-${i}-link`)[0].setAttribute('href', `books.html?book=${currentBook.href}`)
+                    document.getElementsByClassName(`book-${i}-link`)[1].setAttribute('href', `books.html?book=${currentBook.href}`)
                 }
+    
             }
-            /**if there is no databasename, the url is simply books.html, and can swiftly skip the if statement.*/
+    
+            //if its not top_5_books, then we want to highlight the propper page number at the bottom, and load the books assosiated with that page number
+            else {
+                //a list of all the book titles in an array
+                const booksTitlesArray = Object.keys(virtualLibrary);
 
+                //the max amount of pages that should be functional. since each page holds up to five books,
+                //then if there are 16 books, we would need 4 pages to display all the books...
+                let maxPages = Math.ceil(booksTitlesArray.length / 5)
+    
+                /*
+                if there is a databaseName, this means the user clicked next page, or
+                they typed in the url a non existent page. so we filter this here.
+                We check if the page number is between 0 and the max pages, if so then we continue on
+                if not we give the uhOh error!
+                 */
 
-            //we use or 1, if the user has not clicked a link yet, to default to highlighting the number one
-            let pageNum = parseInt(databaseName || 1)
-            let circle = document.getElementById(`books-page-${pageNum}`)
-            let number = circle.children[1];
-            circle.style.background = '#1f1f19';
-            number.style.color = `white`;
+                /**if there is no databasename, the must be books.html, and can swiftly skip the if statement.*/
 
-            const startAt = (pageNum - 1) * 5 //page 1 should start at element 1, page 2 element 5, etc.
-            let currentBook;
-            for (let i = 0; i < 5; i++) {
-                //here we add 'startAt' to make sure if its another page, we don't retrive the same books
-                //in other words, we add 5 for every page, so page 2 starts at book 5, page 3, book 10, and so on
-                currentBook = virtualLibrary[booksTitlesArray[i + startAt]];
-                //if there isnt five books we want to stop trying to set elements
-                if (!currentBook) {
-                    break
-                };
-                document.getElementById(`book-${i}-title`).innerHTML = currentBook.title
-                document.getElementById(`book-${i}-description`).innerHTML = currentBook.description
-                document.getElementById(`book-${i}-img`).setAttribute('src', currentBook.img)
-                document.getElementById(`book-${i}-img`).setAttribute('alt', currentBook.alt)
-                document.getElementsByClassName(`book-${i}-link`)[0].setAttribute('href', `books.html?book=${currentBook.href}`)
-                document.getElementsByClassName(`book-${i}-link`)[1].setAttribute('href', `books.html?book=${currentBook.href}`)
-                //LEFT HERE
+                if(databaseName){
+                    if(!(databaseName > 0 && databaseName <= maxPages))
+                    {
+                        uhOh()
+                    }
+                }
+    
+    
+                //we use or 1, if the user has not clicked a link yet, to default to highlighting the number one
+                let pageNum = parseInt(databaseName || 1)
+
+                //we highlight the correct circle corresponding to the pagenum
+                let circle = document.getElementById(`books-page-${pageNum}`)
+
+                //we set our number variable (which is the first child of the circle element)
+                let number = circle.children[1];
+
+                //we set the circles background color 
+                circle.style.background = '#1f1f19';
+
+                //and the numbers color as well
+                number.style.color = `white`;
+    
+                //since each page shows 5 books, we want page 1 to start at element 0, if its page 2 we want it to start
+                //at element 5. we do this because the for loop below will simply grab five books ascending from the number
+                //that this is. (example, if startAt = 7, the for loop would iterate and show books 7, 8, 9, 10, and 11)
+                const startAt = (pageNum - 1) * 5 
+                
+                //the current book we're on
+                let currentBook;
+
+                //we can hardcode 5 books as we only show 5 books a page, and that is hard coded in the html.
+                for (let i = 0; i < 5; i++) {
+
+                    //here we add 'startAt' to make sure if its another page, we don't retrive the same books
+                    //in other words, we add 5 for every page, so page 2 starts at book 5, page 3, book 10, and so on
+                    currentBook = virtualLibrary[booksTitlesArray[i + startAt]];
+
+                    //if there isnt a book, this means we reached the end of our virtual library and we should stop trying
+                    //to set books
+                    if (!currentBook) {
+                        break
+                    };
+
+                    //set the books title
+                    document.getElementById(`book-${i}-title`).innerHTML = currentBook.title
+
+                    //set the books description
+                    document.getElementById(`book-${i}-description`).innerHTML = currentBook.description
+
+                    //set the books img
+                    document.getElementById(`book-${i}-img`).setAttribute('src', currentBook.img)
+
+                    //set the book imgs alt
+                    document.getElementById(`book-${i}-img`).setAttribute('alt', currentBook.alt)
+
+                    //set the link for the header and the image itself so that once you click on it it leads you to the correct
+                    //destination
+                    document.getElementsByClassName(`book-${i}-link`)[0].setAttribute('href', `books.html?book=${currentBook.href}`)
+                    document.getElementsByClassName(`book-${i}-link`)[1].setAttribute('href', `books.html?book=${currentBook.href}`)
+                }
+    
             }
-
-        }
-
-
-    }
-
-    if (x == 'load-book') {
-        loadBookPage();
-    } else if (x == 'next-page') {
-        nextPage();
+    
+    
     }
 }
 
+//our meditation activation function. Technically we don't need this outer function, but we have it here for
+//if we add more pages to the meditation page in the future for example (like the book.html page)
 const activateMeditationPage = () => {
+
+    //our meditations articles virtual database, just alike the rest.
     const meditationsArticles = {
         what_is_meditation: {
             title: `What Is Meditation?`,
@@ -1452,32 +1680,65 @@ const activateMeditationPage = () => {
         },
     }
 
+
+    // the main function that does all the work to load individual meditation articles.
+    //it basically dumps the articles information into the html attributes on the html page.
     const loadMeditationArticle = () => {
+
+        //grab the article from the meditation article database
         let article = meditationsArticles[databaseName]
+
+        //if the article doesn't exist we throw the uh oh error.
         if(!article){
             uhOh()
         }
-        //each article has 3 sections, therefore, we only go i till 3
+
+        //we set the articles title
         document.getElementById('meditation-individual-title').innerHTML = article.title;
+
+        //we set the articles image
         document.getElementById('meditation-individual-img').setAttribute('src', article.img);
+
+        //we set the articles image alt
         document.getElementById('meditation-individual-img').setAttribute('alt', article.alt);
+
+        //we set the articles title info
         document.getElementById('meditation-individual-title-info').innerHTML = article.titleinfo;
+
+        //each article has 3 sections, therefore, we can hardcode 3 into our for loop
         for (let i = 0; i < 3; i++) {
+
+            //here we set each header, and then all the information that is to be under it.
             document.getElementById(`meditation-individual-header-${i}`).innerHTML = article[`header${i}`];
+
             //here we iterate through each info container, dumping its contents into <p> elements. we do this incase some articles require more paragraphs
+            //notice 'info${i}'. this must align with the hard-coded format that is in the meditationsarticle database.
             for (item of article[`info${i}`]) {
+
+                //here we create our p element
                 const p = document.createElement("p");
+
+                //we then grab our information from the article info we are on
                 const info = document.createTextNode(item);
+
+                //append the info into the p tag
                 p.appendChild(info);
+
+                //and append the p tag onto the propper container
                 document.getElementById(`meditation-individual-info-${i}`).appendChild(p);
             }
 
         }
 
     }
+    //the initial call to the function. I know this isn't the most efficient way to do it, but it gives us options
+    //if we want to add more later.
     loadMeditationArticle();
 }
+
+//the function that we call upon clicking a stoicism article
 const activateStoicismPage = () => {
+
     //stoic articles is a bit more complex then all the others. It will markup anything that is a header, with header tags. and it will dump the info underneath it.
     //You must only have a single header per section, however, you can have multiple paragraphs inside each section by splitting the text in info into different
     //array elements.
@@ -1598,42 +1859,126 @@ const activateStoicismPage = () => {
 
         }
     }
-    //document.getElementById("stoicism-individual-article-info-container")
-    //this grabs all the section objects
-    const article = stoicArticles[databaseName]
+
+    //we get the article in the url
+    const article = stoicArticles[databaseName];
+
+    //if there is no article we display the uh oh error
     if(!article){
         uhOh()
     }
+
+    //then we get all the sections the article has
     const sections = article.allinfo
-    //this is how manys that there are fior this article
+    
+    //we then get the amount of sections we have as a number
     const sectionsLength = Object.keys(sections).length
-    //we iterate through each section and inside of each section we put the header, and the info, when we get to info we start another loop, and each element in that
-    //info array gets seperated into paragraphs
+
+
+
+    //we set the articles title
     document.getElementById('stoicism-individual-article-title').innerHTML = article.title;
+
+    //we set the articles title info
     document.getElementById('stoicism-individual-article-titleinfo').innerHTML = article.titleinfo;
+
+    //we set the articles img
     document.getElementById('stoicism-individual-article-img').setAttribute('src', article.img)
+
+    //we set the articles img's alt
     document.getElementById('stoicism-individual-article-img').setAttribute('alt', article.alt)
+
+    //we iterate through each section and inside of each section we put the header, 
+    // and the info. When we get to info we start another loop, and each element in that
+    //info array gets seperated into paragraphs
     for (let i = 0; i < sectionsLength; i++) {
+
+        //the current section we are on
         let section = sections[`section${i}`];
+
+        //we create a h3 tag (for the header)
         let h3 = document.createElement("h3");
+
+        //we append the header for the current section into the h3 tag
         h3.appendChild(document.createTextNode(section.header));
+
+        //we then append that header to the info container
         document.getElementById(`stoicism-individual-article-info-container`).appendChild(h3);
+
         //here we seperate each info element (in the info array) to a seperate paragraph
         for (let i = 0; i < section.info.length; i++) {
+
+            //we create a <p> element
             let p = document.createElement("p");
+
+            //we create a text node with text within info at the i'th index, and append it into the p tag
             p.append(document.createTextNode(section.info[i]));
+
+            //and then we append that p tag into the info container.
             document.getElementById(`stoicism-individual-article-info-container`).appendChild(p);
         }
-
+        //as a whole this function simply dumps the header in a h3 tag, then it iterates through the info array and dumps
+        //each paragraph in a seperate <p> tag. it pushes both of these into the info container.
     }
 
 }
 
 
+/* 
+    this function does the following:
+    1.) Detects which radio button is clicked and shows that set of pictures
+    2.) shows where you are in the batch of wires frames, example: 1/5, or 5/5
+    3.) cycles through the pictures when the next and previous buttons are clicked on report.html
+*/
+let currentWireframeArray;
+let currentWireframe = 0;
+let site;
+let wireFramePath = 'images/wireframes/'
+let img;
+//activated on menu click
+const updateWireframe = () => {
+    document.getElementById('wireframe-header').innerHTML = `${site}-page ${currentWireframe} / ${currentWireframeArray.length}`
+    img = wireFramePath + currentWireframeArray[currentWireframe - 1]
+    document.getElementById('wireframe-img').setAttribute('src', img)
+}
+const reportWireframeSwitcher = (category = 'news') => {
+    currentWireframe = 1;
+    // i hardcoded all the images, even though they have repeating names just for clarity sake
+    const wireframes = {
+        news:['news1.jpg','news2.jpg','news3.jpg', 'news4.jpg'],
+        quotes:['quotes1.jpg','quotes2.jpg','quotes3.jpg', 'quotes4.jpg'],
+        books:['books1.jpg','books2.jpg','books3.jpg','books4.jpg','books5.jpg', 'books6.jpg'],
+        stoicism:['stoicism1.jpg','stoicism2.jpg','stoicism3.jpg'],
+        meditations:['meditations1.jpg','meditations2.jpg','meditations3.jpg', 'meditations4.jpg'],
+        report:['report1.jpg']
+    }
+    for(let wireframe of Object.keys(wireframes))
+    {
+
+        if(category == wireframe)
+        {
+            currentWireframeArray = wireframes[wireframe];
+            site = category;
+        }
+    }
+    updateWireframe();
+}
+
+const reportNextWireframe = option => {
+    if(currentWireframe < currentWireframeArray.length && option == 'next')
+    {
+        currentWireframe++;
+    }
+    else if(currentWireframe > 1 && option == 'prev')
+    {
+        currentWireframe--;
+    }
+    updateWireframe()
+}
 
 
-
-//this is the most important component of this script file. These if statementscall the appropriate function for the required page.
+// this is the most important component of this script file.
+// These if statements call the appropriate function for the required page to function.
 
 //when loading a clicked book this if statement goes off
 if (url.includes('books.html?book=')) {
@@ -1648,7 +1993,7 @@ else if (url.includes('books.html')) {
 }
 //when a person is clicked on the quote page this is activated, it hides the original content and shows the person clicked and there quotes
 else if (url.includes('quotes.html?person=')) {
-    activateQuotePage('page');
+    activateQuotePage('person');
     document.getElementById('quotes-main-page-container').style.display = 'none';
     document.getElementById('individual-quotes-container').style.display = 'block';
 }
@@ -1662,4 +2007,6 @@ else if (url.includes('meditations.html?article=')) {
     document.getElementById('stoicism-news-container').style.display = 'none';
     document.getElementById('stoicism-individual-article-container').style.display = 'block';
     activateStoicismPage();
+} else if (url.includes('report.html')){
+    reportWireframeSwitcher()
 }

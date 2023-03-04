@@ -22,6 +22,10 @@ body {
 blockquote {
     color: black;
 }
+/* every paragraph in a blockquote we want centered (this is basically for quotes.html exclusively) */
+blockquote > p{
+    text-align:center;
+}
 
 /* ALL paragraphs we want to align left. No p tag should ever align in the center.
    The line-height makes it much easier to read, by spacing out the words a bit more.
@@ -54,6 +58,31 @@ a>*:hover {
     color: blue;
     text-decoration: underline;
 } 
+
+/* all headers get centered and should be black */
+h1,
+h2,
+h3 {
+    color: black;
+    text-align: center
+}
+/* we make images bigger when hovered with this. 
+This gives the user instant and pleasent feedback for whatever image they are hovering
+This class is used on every page and is universal to the website */
+.zoom:hover {
+    transform: scale(1.02)
+}
+/* the transition we use for the zoom */
+.zoom {
+    transition: transform .2s ease;
+}
+/* antoher universal class, we use this to have that nice shadow behind all the books */
+.shadow {
+    box-shadow: 4px 4px 10px 0px #000000;
+    border-radius: 3%;
+
+}
+
 /*
     We only use nav for our main navigation at the top of the screen, and the mobile version.
     the most important part of the code here is the fixed positioning and the z index. this allows
@@ -98,17 +127,6 @@ nav li a:focus {
 #nav-list > li{
     list-style-type: none;
 }
-
-
-/* all headers get centered and should be black */
-h1,
-h2,
-h3 {
-    color: black;
-    text-align: center
-}
-
-
 /* this is the main header at the top of every page on the left 'Knowledge News' */
 #header{
     color: white;
@@ -120,6 +138,7 @@ h3 {
     margin-right:150px;
     margin-left:50px;
 }
+
 
 /* the hover for the title at the top left */
 #header:hover{
@@ -248,7 +267,19 @@ if you don't use main-container, please note your content may be hidden by the n
 
 }
 
-/*======================================NEWS PAGE START (INDEX.HTML)===================================== */
+/*
+ this page is hidden by default, its on quotes.html, stoicism.html, and books.html
+ its a little image to tell the client they are on a non existent page.
+
+*/
+#uh-oh-page {
+    text-align: center;
+    display: none;
+}
+
+
+
+/*====================================== INDEX.HTML START ===================================== */
 
 
 /* two of these are used in the index.html(news) page. one for the three pictures at the top and one for
@@ -304,12 +335,12 @@ the two at the bottom */
 }
 
 
-/*======================================NEWS PAGE END (INDEX.HTML)===================================== */
+/*====================================== INDEX.HTML END ===================================== */
 
 
 
 
-/*======================================BOOKS PAGE START (BOOKS.HTML)===================================== */
+/*====================================== BOOKS.HTML START ===================================== */
 
 /* the main container for books.html (the margin-left and right auto center it, this is common amongst all my code */
 #books-container {
@@ -320,6 +351,31 @@ the two at the bottom */
     margin-right: auto;
 }
 
+/* the image at the froont page of books.html */
+#books-front-page-img {
+    max-width: 600px;
+    width: 100%;
+}
+
+/* we center the image, and give it some padding (this is the container the image is in) */
+#books-front-page {
+    text-align: center;
+    padding: 20px;
+}
+
+
+/*
+ we have to excplitily call this even though we have a universal hover effect.
+ Without this the book links will not show the hover effect.
+*/
+.book-links:hover,
+.book-links:focus {
+    text-decoration: underline;
+    color: blue;
+}
+.book-links {
+    color: black;
+}
 /* this contains the picture and the description for every book */
 .book-content {
     display: flex;
@@ -327,8 +383,8 @@ the two at the bottom */
 }
 /* inside the content, this is the image  */
 .book-img {
-    float: left;
     margin: 20px;
+    max-width: 100px;
 }
 /* the book title */
 .book-title {
@@ -350,7 +406,10 @@ the two at the bottom */
     background: grey;
 }
 
-/*STOPPED HERE!*/
+/*
+    books.html resizing when the screen is too small,
+    we do this so the text isn't as crammed together
+*/
 @media (max-width: 808px) {
     .book-content {
         flex-wrap: wrap;
@@ -358,283 +417,6 @@ the two at the bottom */
     }
 
 }
-
-
-.zoom:hover {
-    transform: scale(1.02)
-}
-
-.zoom {
-    transition: transform .2s ease;
-}
-
-/*report container start*/
-
-#report-container {
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    background:yellow;
-    padding: 0px 10px;
-
-}
-
-#report-container>p {
-    padding-bottom: 0px;
-}
-
-.report-link {
-    color: black;
-    font-weight: bold;
-}
-
-.report-link:hover,
-.report-link:focus {
-    text-decoration: underline;
-    color: blue;
-}
-
-.report-list-item {
-    margin-bottom: 20px;
-    background:red;
-}
-
-#site-map {
-    width: 100%;
-
-}
-
-#site-map-container {
-    width: 100%;
-    max-width: 1100px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/*report container end*/
-/*MEDITATION.HTML START*/
-
-#meditations-container {
-    padding: 0px 30px;
-}
-
-#meditation-main-story-img {
-    max-width: 400px;
-}
-
-#meditation-main-story {
-    padding: 10px;
-    max-width: 800px;
-    height: auto;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-}
-
-#meditation-main-story-info {
-    max-width: 300px;
-    height: 290px;
-    ;
-    background: white;
-    padding: 0px 20px;
-}
-
-
-
-.meditations-main-story-title {
-    width: 100%;
-    margin-top: 25px;
-    color: black;
-}
-
-.meditation-article {
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    justify-content: center;
-}
-
-.meditation-article-img {
-    max-width: 300px;
-    margin-top: 20px;
-}
-
-.meditation-article-title {
-    margin-bottom: 50px;
-    width: 100%;
-    color: black;
-}
-
-.meditation-article-title:hover,
-.meditation-article-title:focus {
-    color: blue;
-    text-decoration: underline
-}
-
-.meditation-article-info {
-    padding: 0px 20px;
-}
-
-.meditation-article-overlay,
-#meditation-main-story-overlay {
-    display: none;
-    position: relative;
-    top: -55px;
-    height: 30px;
-    background: rgba(255, 255, 255, 0.45);
-}
-
-.meditation-article-line {
-    width: 100%;
-    max-width: 1000px;
-    height: 2px;
-    background: grey;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-@media (max-width: 808px) {
-
-    #meditation-main-story-info,
-    .meditation-article-info {
-        display: none;
-    }
-
-    #meditation-main-story-overlay,
-    .meditation-article-overlay {
-        display: block;
-    }
-
-    .meditation-article-img {
-        max-width: 400px;
-    }
-
-    .meditation-article-line {
-        display: none;
-    }
-
-}
-
-/* individual article IN meditations.html */
-#meditation-individual-article {
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0px 20px;
-}
-
-#meditation-individual-article-container {
-    text-align: center;
-    padding: 0px 20px;
-}
-
-#meditation-individual-img {
-    max-width: 350px;
-}
-
-/*MEDITATIONS.HTML END*/
-/*books.html start*/
-
-#books-front-page-img {
-    max-width: 600px;
-    width: 100%;
-
-}
-
-#books-front-page {
-    text-align: center;
-    padding: 20px;
-}
-
-#book-page-landing-container {
-    display: flex;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1000px;
-}
-
-#book-page-description-container,
-#book-page-img {
-    margin: 20px;
-    max-width: 400px;
-}
-
-#book-page-img {
-    max-width: 250px;
-}
-
-.shadow {
-    box-shadow: 4px 4px 10px 0px #000000;
-    border-radius: 3%;
-
-}
-
-
-#book-details {
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 30px;
-}
-
-.book-links {
-    color: black;
-}
-
-.book-links:hover,
-.book-links:focus {
-    text-decoration: underline;
-    color: blue;
-}
-
-/* book-page-points > li AND #book-page-summary are NOT IN books.html! they get added via javascript when the page loads a book*/
-.book-page-passages,
-#book-page-points>li,
-#book-page-summary>p {
-    margin-bottom: 15px;
-    padding: 0px;
-}
-
-.book-page-summary-paragraph {
-    padding: 0px;
-}
-
-#book-page-landing-introduction {
-    display: none;
-}
-
-@media (max-width: 808px) {
-    #book-page-img {
-        max-width: 120px;
-        margin-top: 55px;
-    }
-
-    #book-page-landing-container,
-    #book-page-description-container {
-        flex-wrap: wrap;
-        max-width: 800px;
-        width: 100%;
-    }
-
-    #book-page-landing-introduction {
-        display: block;
-    }
-}
-
-/*books.html end*/
-
-/* MAKE  THIS UNIVERSAL OR CHANGE IT - being used in books.html and top5*/
-.small-book {
-    max-width: 100px;
-    float: right;
-}
-
-
-/*books.html start*/
 
 /*[3] W3docs.com, 'How to Make a Div a Clickable Link' (N/a), Date UNKNOWN. [Code].
 https://www.w3docs.com/snippets/css/how-to-make-a-div-a-clickable-link.html 
@@ -664,8 +446,12 @@ https://www.w3docs.com/snippets/css/how-to-make-a-div-a-clickable-link.html
 }
                         ==MY CODE IS BELOW==
         I edited the code above to meet my sites requirements, but the main
-        functionality completely came from this source.
+        functionality completely came from this source. These are the little
+        link bubbles at the bottom of books.html
 */
+
+/* the ordered list container that holds all the little navigation circles at the bottom
+of books.html */
 #next-page-menu {
     list-style-type: none;
     padding: 20px 0px;
@@ -678,6 +464,9 @@ https://www.w3docs.com/snippets/css/how-to-make-a-div-a-clickable-link.html
     justify-content: space-between
 }
 
+/* this is the span element that we click which links us to the appropiate page.
+Note, that this isn't visible but is super important!.
+if you edit this, you will no longer have anything to click to link you to the next page. */
 .next-page-link {
     z-index: 1;
     width: 100%;
@@ -687,15 +476,18 @@ https://www.w3docs.com/snippets/css/how-to-make-a-div-a-clickable-link.html
     left: 0;
 }
 
+/* this is the clickable circle area. Its the <li> that holds everything for each clickable link */
 .next-page-option {
     width: 45px;
     height: 45px;
-    color: white;
     position: relative;
     border-radius: 100%;
 }
 
-
+/* each number needs to be styled blue, please note when a link is clicked javascript handles the
+styling of that number, therefore there is no code IN HERE that will show the styling of the
+current page the user is on. (the number with a grey circle around it with a white number)
+You can find this code in the scripts.js file, inside the loadBookPage function. */
 .menu-num {
     margin-top: 10px;
     position: relative;
@@ -704,26 +496,319 @@ https://www.w3docs.com/snippets/css/how-to-make-a-div-a-clickable-link.html
 }
 
 
-/*this is the individual person page being hidden until the client clicks on a person*/
-#individual-book-container,
-#individual-quotes-container {
+
+
+/*====================================== BOOKS.HTML END ===================================== */
+                        /* to access this next page click on a book in books.html */
+/*====================================== BOOKS.HTML?BOOK START ===================================== */
+
+/*this is the individual book page being hidden until the user clicks a book this contains ALL of
+books.html?book's content*/
+#individual-book-container
+{
     display: none;
 }
 
-/*this is the individual person page being shown until the client clicks on a person*/
+/* this contains the book, its description and its header */
+#book-page-landing-container {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1000px;
+}
 
-#books-main-page-container,
-#quotes-main-page-container {
-    display: block;
+/* the description container at the start of books.html?book */
+#book-page-description-container {
+    margin: 20px;
+    max-width: 400px;
+}
+
+/* the book image itself */
+#book-page-img {
+    max-width: 250px;
+    margin:20px;
+}
+
+/* everything under the landing container, this is the container that holds it all */
+#book-details {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+}
+
+/* book-page-points > li AND #book-page-summary are NOT IN books.html! they get added via javascript when the page loads a book*/
+.book-page-passages,
+#book-page-points>li,
+#book-page-summary>p {
+    margin-bottom: 15px;
+    padding: 0px;
+}
+
+/* when the screen width is less then 808px, we neatly move the book description underneath an introduction heading.
+this heading is the one below, and is not shown by default */
+#book-page-landing-introduction {
+    display: none;
+}
+
+/* when the width is less then 808px we resize the image, show the introduction header, and put the description
+underneath that header */
+@media (max-width: 808px) {
+    #book-page-img {
+        max-width: 120px;
+        margin-top: 55px;
+    }
+
+    #book-page-landing-container,
+    #book-page-description-container {
+        flex-wrap: wrap;
+        max-width: 800px;
+        width: 100%;
+    }
+
+    #book-page-landing-introduction {
+        display: block;
+    }
+}
+
+/*====================================== BOOKS.HTML?BOOK END ===================================== */
+
+
+
+
+/*====================================== REPORT.HTML START ===================================== */
+
+/* the main container for the report page */
+#report-container {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px 10px;
+
+}
+/* in this page we want our links to stand out */
+.report-link {
+    color: black;
+    font-weight: bold;
+}
+/* when hovering a link on reports, we want it to also highlight alike our headers in index.html*/
+.report-link:hover,
+.report-link:focus {
+    text-decoration: underline;
+    color: blue;
+}
+/* we seperate our list items so they are more easily readable */
+.report-list-item {
+    margin-bottom: 20px;
+}
+/* our site map  */
+#site-map {
+    width: 100%;
+
+}
+/* the container for our site map */
+#site-map-container {
+    width: 100%;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#wireframe-img{
+    width:400px;
+}
+#wireframe-container{
+    text-align:center;
+
+
+}
+#wireframe-output{
+    background:grey;
+    max-width:700px;
+    height:700px;
+    margin-left:auto;
+    margin-right:auto;
+    padding-top:50px;
+}
+#wireframe-choices{
+    width:400px;
+    display:flex;
+    margin-left:auto;
+    margin-right:auto;
+    justify-content:space-evenly;
+    margin-bottom:15px;
+}
+.wireframe-buttons{
+    border-radius:100%;
+    width:65px;
+    height:65px;
+}
+.wireframe-buttons:hover{
+    background:black;
+    color:white;
+    transition: all ease .3s;
+}
+
+/*====================================== REPORT.HTML END ===================================== */
+
+
+
+
+/*====================================== MEDITATIONS.HTML END ===================================== */
+
+/* The main container for our meditations page */
+#meditations-container {
+    padding: 0px 30px;
+}
+
+/* the main first image container */
+#meditation-main-story {
+    padding: 10px;
+    max-width: 800px;
+    height: auto;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
+
+/* the first story in meditaions.html */
+#meditation-main-story-img {
+    max-width: 400px;
+}
+
+/* the title for the main story */
+.meditations-main-story-title {
+    width: 100%;
+    margin-top: 25px;
+    color: black;
+}
+
+/* the info for the main story */
+#meditation-main-story-info {
+    max-width: 300px;
+    height: 290px;
+    padding: 0px 20px;
 }
 
 
+/* every article other then the main first one uses this as their container */
+.meditation-article {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+}
+/* the image of each article */
+.meditation-article-img {
+    max-width: 300px;
+    margin-top: 20px;
+}
 
-/* BOOK.HTML END*/
-/*STOICISM.HTML START*/
+/* the title for each article */
+.meditation-article-title {
+    margin-bottom: 50px;
+    width: 100%;
+    color: black;
+}
+
+/* the hover effect for each title (including the main first one) */
+.meditation-article-title:hover,
+.meditation-article-title:focus {
+    color: blue;
+    text-decoration: underline
+}
+
+/* the info for each article, we space it out a bit so its less crowded*/
+.meditation-article-info {
+    padding: 0px 20px;
+}
+
+/* this is the overlay that is present when the user resizes the window, or accesses the website on a mobile
+phone.  */
+.meditation-article-overlay,
+#meditation-main-story-overlay {
+    display: none;
+    position: relative;
+    top: -55px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.45);
+}
+/* the line that seperates each article container./ */
+.meditation-article-line {
+    width: 100%;
+    max-width: 1000px;
+    height: 2px;
+    background: grey;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* when the screen size is under 1025 pixels, we hide the following:
+    1.) the header
+    2.) the description
+   
+   we then show the overlay (which is the title, however it is resized, you can view this in the html file)
+   we then resize the article images and we remove the meditation article line
+ */
+@media (max-width: 1025px) {
+
+    #meditation-main-story-info,
+    .meditation-article-info {
+        display: none;
+    }
+
+    #meditation-main-story-overlay,
+    .meditation-article-overlay {
+        display: block;
+    }
+
+    .meditation-article-img {
+        max-width: 400px;
+    }
+
+    .meditation-article-line {
+        display: none;
+    }
+
+}
+
+/*====================================== MEDITATIONS.HTML END ===================================== */
+
+
+
+
+
+/*====================================== MEDITATIONS.HTML?article= START ===================================== */
+
+/* the primary container for the individual articles */
+#meditation-individual-article-container {
+    text-align: center;
+    padding: 0px 20px;
+}
+
+/* this container is inside of the one above, we use this for our primary styling and sizing of the page */
+#meditation-individual-article {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px 20px;
+}
+/* the image we show in the individual article */
+#meditation-individual-img {
+    max-width: 350px;
+}
+
+/*====================================== MEDITATIONS.HTML?article= END ===================================== */
+
+/*====================================== STOICISM.HTML START ===================================== */
+/* the main container for the stoicism news page */
 #stoicism-news-container{
     margin-top:50px;
 }
+/* there are two of these containers, one contains the first row of stories, and one contains the second row */
 .stoic-container {
     list-style-type: none;
     display: flex;
@@ -735,25 +820,29 @@ https://www.w3docs.com/snippets/css/how-to-make-a-div-a-clickable-link.html
     justify-content: space-evenly;
 }
 
-.stoic {
-    max-height: 300px;
-}
-
+/* the article that contains each stoic at the top of the page */
 .stoic-article {
     max-width: 300px;
     text-align: center;
 }
 
-
-.stoic-book {
-    max-height: 200px;
+/* the two stoic philosophers at the top of stoicism.html */
+.stoic {
+    max-height: 300px;
 }
 
-.stoic-books {
+/* the container for each stoic book */
+.stoic-book-container {
     max-width: 300px;
     text-align: center;
 }
 
+/* the stoic books at the bottom of stoicism.html */
+.stoic-book {
+    max-height: 200px;
+}
+
+/* we group the stoic books into groups of two for styling purposes */
 .stoic-book-group {
     display: flex;
     flex-wrap: wrap;
@@ -761,6 +850,9 @@ https://www.w3docs.com/snippets/css/how-to-make-a-div-a-clickable-link.html
     max-width: 600px;
     width: 100%;
 }
+/* the first resize  shifts two books to the next row, this happens when the width is less then 1400px
+   the second resize happens when the width is less then 1025, this is when we make all the elements fit
+   in a vertical column*/
 @media (max-width:1400px)
 {
     .stoic-book-group{
@@ -769,71 +861,77 @@ https://www.w3docs.com/snippets/css/how-to-make-a-div-a-clickable-link.html
 }
 @media(max-width:1025px)
 {
-    .stoic-books{
+    .stoic-book-container{
         max-width:400px;
     }
     .stoic-container{
         max-width:500px
     }
 }
-/*STOICISM.HTMl END*/
+/*====================================== STOICISM.HTML END ===================================== */
 
-/*STOICISM.HTML?ARTICLE SUBLINK START*/
-#stoicism-individual-article-img {
-    max-width: 250px;
-}
 
-#stoicism-individual-article-landing-container {
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    justify-content: center;
-}
+/* this can be accessed by clicking the article what is stoicism. The other article beside it links to a quote page */
+/*====================================== STOICISM.HTML?ARTICLE= START ===================================== */
 
-#stoicism-individual-article-title-container {
-    display: none;
-    max-width: 300px;
-    padding: 30px;
-}
 
+
+/* this holds all the content for the individual stoicism article article */
 #stoicism-individual-article-container {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
 
+/* this holds the img, and the title container  */
+#stoicism-individual-article-landing-container {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    text-align:center;
+}
+/* the main and only image in the page */
+#stoicism-individual-article-img {
+    max-width: 250px;
+} 
+
+/* this container (which is inside the landing container) contains a title and title info */
+#stoicism-individual-article-title-container {
+    display: none;
+    max-width: 300px;
+    padding: 30px;
+}
+
+
+/* this container gets injected with all the info neccecary form javascript. Its everything after
+the title and title description. */
 #stoicism-individual-article-info-container {
     padding: 0px 30px;
 }
 
+/* on window resize, or on mobile device we want to make the image a bit smaller*/
 @media (max-width:800px) {
-    #stoicism-individual-article-landing-container {
-        display: block;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    #stoicism-individual-article-title-container {
-        max-width: 800px;
-    }
-
-    #stoicism-individual-article-info-container>h3 {
-        font-size: 20px;
-    }
-
     #stoicism-individual-article-img {
         max-width: 150px;
     }
 }
 
-/*STOICISM.HTML?ARTICLE START*/
+/*====================================== STOICISM.HTML?ARTICLE= END ===================================== */
 
 
-/*QUOTES.HTML START*/
+/*====================================== QUOTES.HTML START ===================================== */
+
+/*
+ this is the ordered list that holds all the people in quootes.html
+ We don't explicitly style this page, and the only reason for that is because
+ flex-wrap in this case just works way more efficiently and better then any explicit
+ styling.
+ */
 #quotes-people-list {
     padding-left: 0px;
+    padding-top: 60px;
     max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
@@ -844,39 +942,46 @@ https://www.w3docs.com/snippets/css/how-to-make-a-div-a-clickable-link.html
     text-align: center;
 }
 
+/* the header at the top of the page*/
 #quotes-container-header {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
-.quote-author {
-    height: 300px;
-}
-
+/* at the bottom of the quotes page the container that holds the image and header to the random quotes page */
 #quotes-random {
     margin-top: 50px;
     margin-bottom: 50px;
     text-align: center;
 }
 
-#quotes-landing-description {
-    width: 400px;
-    padding: 10px 20px 0px 10px;
-}
-
+/* within the #quootes-people-list ordered list, we have list elements <li>. Each of these list
+elements has this class. These list elements contain a image of the person and their name*/
 .quotes-article {
-    justify-content: space-evenly;
     max-width: 400px;
     width: 100%;
     margin-bottom: 50px;
 }
 
-/*QUOTES.HTML END*/
-/*QUOTES.HTML?PERSON= START*/
-#uh-oh-page {
-    text-align: center;
-    display: none;
+/* each persons image */
+.quote-author {
+    height: 300px;
 }
 
+/*====================================== QUOTES.HTML END ===================================== */
+
+
+
+/*                      to access this click on a person in quotes.html */
+/*====================================== QUOTES.HTML?PERSON START ===================================== */
+
+/* this container contains everything for the individual person, its hidden by default
+and shown when the client clicks on a person in quotes.html. */
+#individual-quotes-container{
+    display:none
+}
+
+/* this contains an image of the person clicked, as well as a small description of them.
+its right at the top of the screen when you click on a person */
 #quote-page-landing-container {
     display: flex;
     flex-wrap:wrap;
@@ -886,19 +991,27 @@ https://www.w3docs.com/snippets/css/how-to-make-a-div-a-clickable-link.html
     margin-right: auto
 }
 
+/* the description for the person */
 #quote-page-intro {
     max-width: 450px;
 }
-
+/* the image of the person */
 #quote-page-img {
     height: 450px;
 }
-
+/* here we space the container for the description, as well as the image so they fit nicely.*/
 #quote-page-description-container,
 #quote-page-img {
     padding: 30px;
 }
 
+/* the container for everything under the landing container (aka all the quotes) */
+#quotes {
+    text-align: center;
+}
+
+/* the ordered list of quotes underneath the landign container. We must remove the list-style-type otherwise
+ we will get the annoying ordered list circle */
 #quotes-list {
     max-width: 1000px;
     margin-left: auto;
@@ -908,15 +1021,32 @@ https://www.w3docs.com/snippets/css/how-to-make-a-div-a-clickable-link.html
     list-style-type: none;
 }
 
+/* the individual blockquote in each <li>. we give it a nice border to seperate the content*/
 .quote-page-quotes {
     padding-bottom: 50px;
     border-bottom: grey solid 1px;
 }
-
+/* on the last quote we want to remove the border */
 #quote-9 {
     border-bottom: none;
 }
+/*====================================== QUOTES.HTML?PERSON END ===================================== */
 
+
+
+                /* click on the image at the bottom of quotes.html to access this page */
+/*====================================== QUOTES.HTML?PERSON=RANDOM START ===================================== */
+
+
+
+/*[4] copy-paste-css, 'Simple CSS Button examples' (N/a), Date UNKNOWN. [Code].
+https://copy-paste-css.com/
+
+The button i used was under the 'biteable' header and was light blue
+*/
+
+
+/* the button on the randomizer page */
 #randomizer {
     margin-left: auto;
     margin-right: auto;
@@ -932,58 +1062,91 @@ https://www.w3docs.com/snippets/css/how-to-make-a-div-a-clickable-link.html
     display: none;
 }
 
+
+/* onhover/focus we play a little animation */
 #randomizer:hover,
 #randomizer:focus {
     transition: all .1s ease;
     box-shadow: 0 0 0 3px #1f1f19;
 }
 
-#quotes {
-    text-align: center;
-}
+/*====================================== QUOTES.HTML?PERSON=RANDOM END ===================================== */
 
 
-    /*QUOTES.HTML?PERSON= END*/
 
-/*universal footer code*/
+
+
+
+/*====================================== UNIVERSAL FOOTER CODE START ===================================== */
+
+/*styling of the footer */
 footer {
     height: auto;
     width: auto;
     padding-bottom: 20px;
     background-color: #1f1f19;
+    color:white;
 }
-
-#footer-container {
+/* all the footer links and the 'USEFUL LINKS' h5 tag goes here */
+#footer-top {
     padding-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    max-width: 600px;
+    max-width: 800px;
     text-align: center;
-}
 
+}
+/* the footer author AKA me  */
 #footer-author {
     text-align: center;
+    padding-top:50px;
 }
 
+/* make all the footer links white */
+.footer-link{
+    color:white;
+}
+/* when hovering a footer link color it nicely */
+.footer-link:hover{
+    color: grey;
+    transition: color .1s ease;
+}
+/* the footer links go in here */
 #footer-items {
     display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
-    justify-content: space-evenly;
     list-style-type: none;
+    justify-content:space-evenly;
 }
 
-#footer-items>li {
-    float: left;
+/* the container that holds the copyright and the author info, wrap reverse is so author wraps ontop */
+#footer-bottom{
+    width:80%;
+    margin-left:auto;
+    margin-right:auto;
+    display:flex;
+    flex-wrap:wrap-reverse;
+    justify-content:space-between;
 }
 
-#email-container {
-    margin-top: 40px;
+/* the footer line  */
+#footer-line{
+    background:white;
+    width:80%;
+    height:2px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:20px;
+
 }
 
-input,
-label {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+/* resize the footer-bottom, and allow  */
+@media(max-width:800px)
+{
+    #footer-bottom{
+        width:60%;
+        justify-content:center;
+
+    }
 }
+
+/*====================================== UNIVERSAL FOOTER CODE END ===================================== */
