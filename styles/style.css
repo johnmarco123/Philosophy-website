@@ -233,13 +233,15 @@ https://www.w3schools.com/howto/howto_js_dropdown.asp#:~:text=Example%20Explaine
 /*DROPDOWN MENU END*/
 /***********************************/
 
-
 /* here we hide the old navigation menu and show the mobile one */
 @media (max-width: 1025px) {
     #laptop-nav{
         display:none;
     }
-
+    #header{
+        margin-right:0px;
+        margin-left:0px;
+    }
     #nav-mobile {
         display: flex;
         justify-content:space-between;
