@@ -1,13 +1,15 @@
 /* here we set our universal font */
-*{
+* {
     font-family: Helvetica, Arial, sans-serif;
 
 }
+
 /* A nice grey highlight that fits our website theme for when the client highlights on any page*/
-*::selection{
-    background:grey;
-    color:white;
+*::selection {
+    background: grey;
+    color: white;
 }
+
 /* Basic spacing and font sizes for the html and body */
 html,
 body {
@@ -22,9 +24,10 @@ body {
 blockquote {
     color: black;
 }
+
 /* every paragraph in a blockquote we want centered (this is basically for quotes.html exclusively) */
-blockquote > p{
-    text-align:center;
+blockquote>p {
+    text-align: center;
 }
 
 /* ALL paragraphs we want to align left. No p tag should ever align in the center.
@@ -35,17 +38,18 @@ p {
     line-height: 24px;
 
 }
+
 /* For each and every link we don't want a underline present */
-a
-{
+a {
     text-decoration: none;
 }
+
 /*
  this '>' represents the things inside of the <a> tags. Therefore, any text inside of <a> tags we want black
  This is mainly for headers, and such. the nav bar we exclude from this as we want it to be white.
 */
 
- a > * {
+a>* {
     color: black
 }
 
@@ -54,10 +58,10 @@ a
     this helps visibility for the client to see exactly what they are hovering and
     provides a flawless and rewarding experience for the client
 */
-a>*:hover {       
+a>*:hover {
     color: blue;
     text-decoration: underline;
-} 
+}
 
 /* all headers get centered and should be black */
 h1,
@@ -66,16 +70,19 @@ h3 {
     color: black;
     text-align: center
 }
+
 /* we make images bigger when hovered with this. 
 This gives the user instant and pleasent feedback for whatever image they are hovering
 This class is used on every page and is universal to the website */
 .zoom:hover {
     transform: scale(1.02)
 }
+
 /* the transition we use for the zoom */
 .zoom {
     transition: transform .2s ease;
 }
+
 /* antoher universal class, we use this to have that nice shadow behind all the books */
 .shadow {
     box-shadow: 4px 4px 10px 0px #000000;
@@ -97,7 +104,7 @@ nav {
     position: fixed;
     z-index: 1;
     height: 50px;
-    top:0px;
+    top: 0px;
 }
 
 
@@ -107,6 +114,7 @@ nav li a {
     padding: 10px;
     color: white;
 }
+
 /* just some hovering color. we add focus here too so that non mouse users can see the effect*/
 nav li a:hover,
 nav li a:focus {
@@ -115,34 +123,35 @@ nav li a:focus {
 }
 
 /* the <ol> container for the main navigation at the top of the screen. */
-#nav-list{
-    max-width:600px;
-    width:100%;
-    display:flex;
-    justify-content:center;
-    height:20px;
+#nav-list {
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 20px;
 }
 
 /* we remove the <ol> dot with this */
-#nav-list > li{
+#nav-list>li {
     list-style-type: none;
 }
+
 /* this is the main header at the top of every page on the left 'Knowledge News' */
-#header{
+#header>a {
     color: white;
     border-radius: 3%;
-    width:230px;
+    width: 230px;
     position: relative;
     bottom: 10px;
-    text-decoration:none;
-    margin-right:150px;
-    margin-left:50px;
+    text-decoration: none;
+    margin-right: 150px;
+    margin-left: 50px;
 }
 
 
 /* the hover for the title at the top left */
-#header:hover{
-    color:grey;
+#header>a:hover {
+    color: grey;
 }
 
 
@@ -203,7 +212,7 @@ https://www.w3schools.com/howto/howto_js_dropdown.asp#:~:text=Example%20Explaine
     display: none;
     position: absolute;
     top: 50px;
-    right:0px;
+    right: 0px;
     background-color: #f1f1f1;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -233,18 +242,16 @@ https://www.w3schools.com/howto/howto_js_dropdown.asp#:~:text=Example%20Explaine
 /*DROPDOWN MENU END*/
 /***********************************/
 
+
 /* here we hide the old navigation menu and show the mobile one */
 @media (max-width: 1025px) {
-    #laptop-nav{
-        display:none;
+    #laptop-nav {
+        display: none;
     }
-    #header{
-        margin-right:0px;
-        margin-left:0px;
-    }
+
     #nav-mobile {
         display: flex;
-        justify-content:space-between;
+        justify-content: space-between;
 
     }
 }
@@ -290,21 +297,23 @@ the two at the bottom */
     display: flex;
     justify-content: space-evenly;
     padding-top: 75px;
-    margin-right:auto;
-    margin-left:auto;
-    gap:50px;
+    margin-right: auto;
+    margin-left: auto;
+    gap: 50px;
 }
 
 /* the side articles in the top 3 articles on the news page */
 .side {
     width: 100%;
     max-width: 250px;
-    text-align:center;
+    text-align: center;
 }
+
 /* we use this for images we want small */
-.small{
-    width:200px;
+.small {
+    width: 200px;
 }
+
 /* this is for the middle image on the news page, and for images we want big */
 .center,
 .big {
@@ -324,15 +333,15 @@ the two at the bottom */
  all the articles have the news class, we resize them so they all match the same size
  
 */
-@media(max-width:1025px)
-{
-    .news-container{
-        flex-wrap:wrap;
-        max-width:500px;
+@media(max-width:1025px) {
+    .news-container {
+        flex-wrap: wrap;
+        max-width: 500px;
     }
-    .news{
-        max-width:450px;
-            
+
+    .news {
+        max-width: 450px;
+
     }
 }
 
@@ -375,28 +384,34 @@ the two at the bottom */
     text-decoration: underline;
     color: blue;
 }
+
 .book-links {
     color: black;
 }
+
 /* this contains the picture and the description for every book */
 .book-content {
     display: flex;
     height: auto;
 }
+
 /* inside the content, this is the image  */
 .book-img {
     margin: 20px;
     max-width: 100px;
 }
+
 /* the book title */
 .book-title {
     margin-bottom: 0px;
     color: black
 }
+
 /* and the book description */
 .book-description {
     padding: 0px 20px;
 }
+
 /* this line neatly seperates the book content */
 .book-line {
     margin-left: auto;
@@ -501,13 +516,12 @@ You can find this code in the scripts.js file, inside the loadBookPage function.
 
 
 /*====================================== BOOKS.HTML END ===================================== */
-                        /* to access this next page click on a book in books.html */
+/* to access this next page click on a book in books.html */
 /*====================================== BOOKS.HTML?BOOK START ===================================== */
 
 /*this is the individual book page being hidden until the user clicks a book this contains ALL of
 books.html?book's content*/
-#individual-book-container
-{
+#individual-book-container {
     display: none;
 }
 
@@ -529,7 +543,7 @@ books.html?book's content*/
 /* the book image itself */
 #book-page-img {
     max-width: 250px;
-    margin:20px;
+    margin: 20px;
 }
 
 /* everything under the landing container, this is the container that holds it all */
@@ -589,26 +603,31 @@ underneath that header */
     padding: 0px 10px;
 
 }
+
 /* in this page we want our links to stand out */
 .report-link {
     color: black;
     font-weight: bold;
 }
+
 /* when hovering a link on reports, we want it to also highlight alike our headers in index.html*/
 .report-link:hover,
 .report-link:focus {
     text-decoration: underline;
     color: blue;
 }
+
 /* we seperate our list items so they are more easily readable */
 .report-list-item {
     margin-bottom: 20px;
 }
+
 /* our site map  */
 #site-map {
     width: 100%;
 
 }
+
 /* the container for our site map */
 #site-map-container {
     width: 100%;
@@ -617,38 +636,43 @@ underneath that header */
     margin-right: auto;
 }
 
-#wireframe-img{
-    width:400px;
+#wireframe-img {
+    width: 400px;
 }
-#wireframe-container{
-    text-align:center;
+
+#wireframe-container {
+    text-align: center;
 
 
 }
-#wireframe-output{
-    background:grey;
-    max-width:700px;
-    height:700px;
-    margin-left:auto;
-    margin-right:auto;
-    padding-top:50px;
+
+#wireframe-output {
+    background: grey;
+    max-width: 700px;
+    height: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
 }
-#wireframe-choices{
-    width:400px;
-    display:flex;
-    margin-left:auto;
-    margin-right:auto;
-    justify-content:space-evenly;
-    margin-bottom:15px;
+
+#wireframe-choices {
+    width: 400px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-evenly;
+    margin-bottom: 15px;
 }
-.wireframe-buttons{
-    border-radius:100%;
-    width:65px;
-    height:65px;
+
+.wireframe-buttons {
+    border-radius: 100%;
+    width: 65px;
+    height: 65px;
 }
-.wireframe-buttons:hover{
-    background:black;
-    color:white;
+
+.wireframe-buttons:hover {
+    background: black;
+    color: white;
     transition: all ease .3s;
 }
 
@@ -703,6 +727,7 @@ underneath that header */
     display: flex;
     justify-content: center;
 }
+
 /* the image of each article */
 .meditation-article-img {
     max-width: 300px;
@@ -738,6 +763,7 @@ phone.  */
     height: 30px;
     background: rgba(255, 255, 255, 0.45);
 }
+
 /* the line that seperates each article container./ */
 .meditation-article-line {
     width: 100%;
@@ -798,6 +824,7 @@ phone.  */
     margin-right: auto;
     padding: 0px 20px;
 }
+
 /* the image we show in the individual article */
 #meditation-individual-img {
     max-width: 350px;
@@ -807,16 +834,17 @@ phone.  */
 
 /*====================================== STOICISM.HTML START ===================================== */
 /* the main container for the stoicism news page */
-#stoicism-news-container{
-    margin-top:50px;
+#stoicism-news-container {
+    margin-top: 50px;
 }
+
 /* there are two of these containers, one contains the first row of stories, and one contains the second row */
 .stoic-container {
     list-style-type: none;
     display: flex;
     flex-wrap: wrap;
     max-width: 1200px;
-    margin-top:80px;
+    margin-top: 80px;
     margin-left: auto;
     margin-right: auto;
     justify-content: space-evenly;
@@ -852,24 +880,26 @@ phone.  */
     max-width: 600px;
     width: 100%;
 }
+
 /* the first resize  shifts two books to the next row, this happens when the width is less then 1400px
    the second resize happens when the width is less then 1025, this is when we make all the elements fit
    in a vertical column*/
-@media (max-width:1400px)
-{
-    .stoic-book-group{
-        max-width:1200px;
+@media (max-width:1400px) {
+    .stoic-book-group {
+        max-width: 1200px;
     }
 }
-@media(max-width:1025px)
-{
-    .stoic-book-container{
-        max-width:400px;
+
+@media(max-width:1025px) {
+    .stoic-book-container {
+        max-width: 400px;
     }
-    .stoic-container{
-        max-width:500px
+
+    .stoic-container {
+        max-width: 500px
     }
 }
+
 /*====================================== STOICISM.HTML END ===================================== */
 
 
@@ -892,12 +922,13 @@ phone.  */
     margin-right: auto;
     display: flex;
     justify-content: center;
-    text-align:center;
+    text-align: center;
 }
+
 /* the main and only image in the page */
 #stoicism-individual-article-img {
     max-width: 250px;
-} 
+}
 
 /* this container (which is inside the landing container) contains a title and title info */
 #stoicism-individual-article-title-container {
@@ -978,15 +1009,15 @@ elements has this class. These list elements contain a image of the person and t
 
 /* this container contains everything for the individual person, its hidden by default
 and shown when the client clicks on a person in quotes.html. */
-#individual-quotes-container{
-    display:none
+#individual-quotes-container {
+    display: none
 }
 
 /* this contains an image of the person clicked, as well as a small description of them.
 its right at the top of the screen when you click on a person */
 #quote-page-landing-container {
     display: flex;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     max-width: 1030px;
     justify-content: center;
     margin-left: auto;
@@ -997,10 +1028,12 @@ its right at the top of the screen when you click on a person */
 #quote-page-intro {
     max-width: 450px;
 }
+
 /* the image of the person */
 #quote-page-img {
     height: 450px;
 }
+
 /* here we space the container for the description, as well as the image so they fit nicely.*/
 #quote-page-description-container,
 #quote-page-img {
@@ -1028,15 +1061,17 @@ its right at the top of the screen when you click on a person */
     padding-bottom: 50px;
     border-bottom: grey solid 1px;
 }
+
 /* on the last quote we want to remove the border */
 #quote-9 {
     border-bottom: none;
 }
+
 /*====================================== QUOTES.HTML?PERSON END ===================================== */
 
 
 
-                /* click on the image at the bottom of quotes.html to access this page */
+/* click on the image at the bottom of quotes.html to access this page */
 /*====================================== QUOTES.HTML?PERSON=RANDOM START ===================================== */
 
 
@@ -1087,8 +1122,9 @@ footer {
     width: auto;
     padding-bottom: 20px;
     background-color: #1f1f19;
-    color:white;
+    color: white;
 }
+
 /* all the footer links and the 'USEFUL LINKS' h5 tag goes here */
 #footer-top {
     padding-top: 20px;
@@ -1098,55 +1134,57 @@ footer {
     text-align: center;
 
 }
+
 /* the footer author AKA me  */
 #footer-author {
     text-align: center;
-    padding-top:50px;
+    padding-top: 50px;
 }
 
 /* make all the footer links white */
-.footer-link{
-    color:white;
+.footer-link {
+    color: white;
 }
+
 /* when hovering a footer link color it nicely */
-.footer-link:hover{
+.footer-link:hover {
     color: grey;
     transition: color .1s ease;
 }
+
 /* the footer links go in here */
 #footer-items {
     display: flex;
     list-style-type: none;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
 }
 
 /* the container that holds the copyright and the author info, wrap reverse is so author wraps ontop */
-#footer-bottom{
-    width:80%;
-    margin-left:auto;
-    margin-right:auto;
-    display:flex;
-    flex-wrap:wrap-reverse;
-    justify-content:space-between;
+#footer-bottom {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-between;
 }
 
 /* the footer line  */
-#footer-line{
-    background:white;
-    width:80%;
-    height:2px;
-    margin-left:auto;
-    margin-right:auto;
-    margin-top:20px;
+#footer-line {
+    background: white;
+    width: 80%;
+    height: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
 
 }
 
 /* resize the footer-bottom, and allow  */
-@media(max-width:800px)
-{
-    #footer-bottom{
-        width:60%;
-        justify-content:center;
+@media(max-width:800px) {
+    #footer-bottom {
+        width: 60%;
+        justify-content: center;
 
     }
 }

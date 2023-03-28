@@ -9,15 +9,15 @@
     <meta charset="UTF-8">
 
     <!--Description of the website -->
-    <meta name="description" content="Knowledge News - A news website
+    <meta name="description" content="Knowledge News - A News website
     to help the world be a better, and smarter place.">
 
     <!--This is the author of the webpage, aka myself-->
     <meta name="author" content="John-Marco Tasillo">
 
-    
+
     <!--Here we put some keywords to help search engine optimization-->
-    <meta name=”keywords” content="home, information, help, news, stoicism, books, knowledge, smart">
+    <meta name=”keywords” content="home, information, help, News, stoicism, books, knowledge, smart">
 
     <!--This helps us scale our website width dependant upon the width of the device being used.-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,12 +34,10 @@
 
 <body>
     <!--Our main navigation menu -->
-    <nav aria-label="navigation">
-        <a href="index.html">
+    <nav id="laptop-nav" aria-label="navigation">
         <!--This is our main header on the left of the screen on every webpage-->
-            <h1 id="header">Knowledge News</h1>
-        </a>
-    <!--Our webpage links that are at the top of the screen-->
+        <h1 id="header"><a href="index.html">Knowledge News</a></h1>
+        <!--Our webpage links that are at the top of the screen-->
         <ul id="nav-list">
             <li><a href="index.html">News</a></li>
             <li><a href="quotes.html">Quotes</a></li>
@@ -51,7 +49,7 @@
 
     </nav>
 
-<!--
+    <!--
             /*[1] W3SCHOOLS, 'How TO - Clickable Dropdown' (N/a), Date UNKNOWN. [Code].
             https://www.w3schools.com/howto/howto_js_dropdown.asp#:~:text=Example%20Explained,dropdown%20menu%20correctly%20with%20CSS.*
 
@@ -74,26 +72,24 @@
             This was to allow for mobile interaction as html onclick seemed to have issues handling that.
         -->
 
-<nav id="nav-mobile" aria-label="Navigation mobile">
-    <a href="index.html">
-    <!--This is our main header on the left of the screen on every webpage-->
-    <h1 id="header">Knowledge News</h1>
-        </a>
-    <div class="dropdown">
-        <span id="dropdown-container">
-            <img id="dropdown-pic" class="dropbtn mobile-nav" src="images/drop.png" alt="drop-down menu button">
-        </span>
-        <div id="myDropdown" class="dropdown-content">
-            <a class="nav-link mobile-nav" href="index.html">News</a>
-            <a class="nav-link mobile-nav" href="quotes.html">Quotes</a>
-            <a class="nav-link mobile-nav" href="books.html">Books</a>
-            <a class="nav-link mobile-nav" href="stoicism.html">Stoicism</a>
-            <a class="nav-link mobile-nav" href="meditations.html">Meditations</a>
-            <a class="nav-link mobile-nav" href="report.html">Report</a>
+    <nav id="nav-mobile" aria-label="Navigation mobile">
+        <!--This is our main header on the left of the screen on every webpage-->
+        <h1 id="header"><a href="index.html">Knowledge News</a></h1>
+        <div class="dropdown">
+            <span id="dropdown-container">
+                <img id="dropdown-pic" class="dropbtn mobile-nav" src="images/drop.png" alt="drop-down menu button">
+            </span>
+            <div id="myDropdown" class="dropdown-content">
+                <a class="nav-link mobile-nav" href="index.html">News</a>
+                <a class="nav-link mobile-nav" href="quotes.html">Quotes</a>
+                <a class="nav-link mobile-nav" href="books.html">Books</a>
+                <a class="nav-link mobile-nav" href="stoicism.html">Stoicism</a>
+                <a class="nav-link mobile-nav" href="meditations.html">Meditations</a>
+                <a class="nav-link mobile-nav" href="report.html">Report</a>
+            </div>
         </div>
-    </div>
-</nav>
-<div id="progress-bar"></div>
+    </nav>
+    <div id="progress-bar"></div>
     <!--the main container that holds all the content on the visible page-->
     <div id="main-container">
         <!-- container 1/2. This is before a person is clicked, after one is clicked this container
@@ -115,7 +111,7 @@
                         <h3>Eric Thomas</h3>
                     </a>
                 </li>
-                    <!--the above gets repeated 11 more times below, therefore i won't bother commenting it.  -->
+                <!--the above gets repeated 11 more times below, therefore i won't bother commenting it.  -->
                 <li class="quotes-article">
                     <a href="quotes.html?person=dalai-lama">
                         <img class="quote-author zoom" src="images/dalai-lama.png" alt="The Dalai lama">
@@ -314,22 +310,22 @@
 </body>
 <footer>
     <div id="footer-top">
-            <h5>USEFUL LINKS</h5>
-                <div id="footer-items">
-                    <a class="footer-link" href="index.html">News</a>
-                    <a class="footer-link" href="quotes.html">Quotes</a>
-                    <a class="footer-link" href="books.html">Books</a>
-                    <a class="footer-link" href="stoicism.html">Stoicism</a>
-                    <a class="footer-link" href="meditations.html">Meditations</a>
-                    <a class="footer-link" href="report.html">Report</a>
-                </div>
+        <h5>USEFUL LINKS</h5>
+        <div id="footer-items">
+            <a class="footer-link" href="index.html">News</a>
+            <a class="footer-link" href="quotes.html">Quotes</a>
+            <a class="footer-link" href="books.html">Books</a>
+            <a class="footer-link" href="stoicism.html">Stoicism</a>
+            <a class="footer-link" href="meditations.html">Meditations</a>
+            <a class="footer-link" href="report.html">Report</a>
+        </div>
     </div>
     <div id="footer-line"></div>
     <div id="footer-bottom">
         <p id="copyright">@2023 Knowledge News. All Rights Reserved</p>
         <p>Author: John-Marco Tasillo</p>
     </div>
-    
+
 </footer>
 
 </html>

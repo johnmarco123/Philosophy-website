@@ -15,7 +15,7 @@
     <!--This is the author of the webpage, aka myself-->
     <meta name="author" content="John-Marco Tasillo">
 
-    
+
     <!--Here we put some keywords to help search engine optimization-->
     <meta name=”keywords” content="home, information, help, news, stoicism, books, knowledge, smart">
 
@@ -34,12 +34,10 @@
 
 <body>
     <!--Our main navigation menu -->
-    <nav aria-label="navigation">
-        <a href="index.html">
+    <nav id="laptop-nav" aria-label="navigation">
         <!--This is our main header on the left of the screen on every webpage-->
-            <h1 id="header">Knowledge News</h1>
-        </a>
-    <!--Our webpage links that are at the top of the screen-->
+        <h1 id="header"><a href="index.html">Knowledge News</a></h1>
+        <!--Our webpage links that are at the top of the screen-->
         <ul id="nav-list">
             <li><a href="index.html">News</a></li>
             <li><a href="quotes.html">Quotes</a></li>
@@ -51,7 +49,7 @@
 
     </nav>
 
-<!--
+    <!--
             /*[1] W3SCHOOLS, 'How TO - Clickable Dropdown' (N/a), Date UNKNOWN. [Code].
             https://www.w3schools.com/howto/howto_js_dropdown.asp#:~:text=Example%20Explained,dropdown%20menu%20correctly%20with%20CSS.*
 
@@ -74,26 +72,24 @@
             This was to allow for mobile interaction as html onclick seemed to have issues handling that.
         -->
 
-<nav id="nav-mobile" aria-label="Navigation mobile">
-    <a href="index.html">
-    <!--This is our main header on the left of the screen on every webpage-->
-    <h1 id="header">Knowledge News</h1>
-        </a>
-    <div class="dropdown">
-        <span id="dropdown-container">
-            <img id="dropdown-pic" class="dropbtn mobile-nav" src="images/drop.png" alt="drop-down menu button">
-        </span>
-        <div id="myDropdown" class="dropdown-content">
-            <a class="nav-link mobile-nav" href="index.html">News</a>
-            <a class="nav-link mobile-nav" href="quotes.html">Quotes</a>
-            <a class="nav-link mobile-nav" href="books.html">Books</a>
-            <a class="nav-link mobile-nav" href="stoicism.html">Stoicism</a>
-            <a class="nav-link mobile-nav" href="meditations.html">Meditations</a>
-            <a class="nav-link mobile-nav" href="report.html">Report</a>
+    <nav id="nav-mobile" aria-label="Navigation mobile">
+        <!--This is our main header on the left of the screen on every webpage-->
+        <h1 id="header"><a href="index.html">Knowledge News</a></h1>
+        <div class="dropdown">
+            <span id="dropdown-container">
+                <img id="dropdown-pic" class="dropbtn mobile-nav" src="images/drop.png" alt="drop-down menu button">
+            </span>
+            <div id="myDropdown" class="dropdown-content">
+                <a class="nav-link mobile-nav" href="index.html">News</a>
+                <a class="nav-link mobile-nav" href="quotes.html">Quotes</a>
+                <a class="nav-link mobile-nav" href="books.html">Books</a>
+                <a class="nav-link mobile-nav" href="stoicism.html">Stoicism</a>
+                <a class="nav-link mobile-nav" href="meditations.html">Meditations</a>
+                <a class="nav-link mobile-nav" href="report.html">Report</a>
+            </div>
         </div>
-    </div>
-</nav>
-<div id="progress-bar"></div>
+    </nav>
+    <div id="progress-bar"></div>
     <!-- the main container that holds all the information on the website. -->
     <div id="main-container">
         <!-- a report container for styling purposes -->
@@ -115,7 +111,7 @@
             <h2>Inspiration:</h2>
             <h3>State 3 things that have inspired you when creating your website (e.g. guest speakers,
                 websites, artists, blogs).</h3>
-                <!-- I often, in this document sort my answers in lists as it is easier to read.
+            <!-- I often, in this document sort my answers in lists as it is easier to read.
                 Theres not much more to explain in this document, all i do is answer the questions stated. -->
             <ol class="report-list">
                 <li class="report-list-item">
@@ -146,8 +142,8 @@
                     are using a screen reader.
                 </li>
                 <li class="report-list-item">
-                    The entire website is entirely functional with a mobile device, it will adjust as neccecary for
-                    whatever size screen the client is using.
+                    The contrast on the website is easy for anyone to read, whether that be in sunlight or for clients
+                    who have impaired vision. The website is almost entirely black and white to meet this requirement.
                 </li>
                 <li class="report-list-item">
                     The entire website can be navigated with tab (to choose what to click), enter (to click whats in
@@ -349,57 +345,65 @@
         <h3>Wireframes:</h3>
         <div id="wireframe-container">
             <div id="wireframe-choice">
-                <input type="radio" id="news" name="wireframes" value="news.html"  onclick="reportWireframeSwitcher('news')">
+                <input type="radio" id="news" name="wireframes" value="news.html"
+                    onclick="reportWireframeSwitcher('news')">
                 <label for="news">News</label>
 
-                <input type="radio" id="quotes" name="wireframes" value="quotes.html" onclick="reportWireframeSwitcher('quotes')">
+                <input type="radio" id="quotes" name="wireframes" value="quotes.html"
+                    onclick="reportWireframeSwitcher('quotes')">
                 <label for="quotes">Quotes</label>
 
-                <input type="radio" id="books" name="wireframes" value="books.html" onclick="reportWireframeSwitcher('books')">
+                <input type="radio" id="books" name="wireframes" value="books.html"
+                    onclick="reportWireframeSwitcher('books')">
                 <label for="books">Books</label>
 
-                <input type="radio" id="stoicism" name="wireframes" value="stoicism.html" onclick="reportWireframeSwitcher('stoicism')">
+                <input type="radio" id="stoicism" name="wireframes" value="stoicism.html"
+                    onclick="reportWireframeSwitcher('stoicism')">
                 <label for="stoicism">Stoicism</label>
 
-                <input type="radio" id="meditations" name="wireframes" value="meditations.html" onclick="reportWireframeSwitcher('meditations')">
+                <input type="radio" id="meditations" name="wireframes" value="meditations.html"
+                    onclick="reportWireframeSwitcher('meditations')">
                 <label for="meditations">Meditations</label>
 
-                <input type="radio" id="report" name="wireframes" value="report.html" onclick="reportWireframeSwitcher('report')">
+                <input type="radio" id="report" name="wireframes" value="report.html"
+                    onclick="reportWireframeSwitcher('report')">
                 <label for="report">Report</label>
             </div>
             <div id="wireframe-output">
                 <div id="wireframe-choices">
-                    <button class=wireframe-buttons id="wireframe-previous" onclick="reportNextWireframe('prev')">Previous</button>
+                    <button class=wireframe-buttons id="wireframe-previous"
+                        onclick="reportNextWireframe('prev')">Previous</button>
                     <h3 id="wireframe-header">Picture</h3>
-                    <button class=wireframe-buttons id="wireframe-next" onclick="reportNextWireframe('next')">Next</button>
+                    <button class=wireframe-buttons id="wireframe-next"
+                        onclick="reportNextWireframe('next')">Next</button>
                 </div>
-                    <img id="wireframe-img" alt="a picture of a wireframe">
+                <img id="wireframe-img" alt="a picture of a wireframe">
             </div>
         </div>
 
     </div>
 
-<!--here we connect our javascript to our webpage, it must be called here for the website to work-->
-<script src="scripts/script.js"></script>
+    <!--here we connect our javascript to our webpage, it must be called here for the website to work-->
+    <script src="scripts/script.js"></script>
 </body>
 <footer>
     <div id="footer-top">
-            <h5>USEFUL LINKS</h5>
-                <div id="footer-items">
-                    <a class="footer-link" href="index.html">News</a>
-                    <a class="footer-link" href="quotes.html">Quotes</a>
-                    <a class="footer-link" href="books.html">Books</a>
-                    <a class="footer-link" href="stoicism.html">Stoicism</a>
-                    <a class="footer-link" href="meditations.html">Meditations</a>
-                    <a class="footer-link" href="report.html">Report</a>
-                </div>
+        <h5>USEFUL LINKS</h5>
+        <div id="footer-items">
+            <a class="footer-link" href="index.html">News</a>
+            <a class="footer-link" href="quotes.html">Quotes</a>
+            <a class="footer-link" href="books.html">Books</a>
+            <a class="footer-link" href="stoicism.html">Stoicism</a>
+            <a class="footer-link" href="meditations.html">Meditations</a>
+            <a class="footer-link" href="report.html">Report</a>
+        </div>
     </div>
     <div id="footer-line"></div>
     <div id="footer-bottom">
         <p id="copyright">@2023 Knowledge News. All Rights Reserved</p>
         <p>Author: John-Marco Tasillo</p>
     </div>
-    
+
 </footer>
 
 </html>

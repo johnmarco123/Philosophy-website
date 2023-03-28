@@ -15,7 +15,7 @@
     <!--This is the author of the webpage, aka myself-->
     <meta name="author" content="John-Marco Tasillo">
 
-    
+
     <!--Here we put some keywords to help search engine optimization-->
     <meta name=”keywords” content="home, information, help, news, stoicism, books, knowledge, smart">
 
@@ -34,12 +34,10 @@
 
 <body>
     <!--Our main navigation menu -->
-    <nav aria-label="navigation">
-        <a href="index.html">
+    <nav id="laptop-nav" aria-label="navigation">
         <!--This is our main header on the left of the screen on every webpage-->
-            <h1 id="header">Knowledge News</h1>
-        </a>
-    <!--Our webpage links that are at the top of the screen-->
+        <h1 id="header"><a href="index.html">Knowledge News</a></h1>
+        <!--Our webpage links that are at the top of the screen-->
         <ul id="nav-list">
             <li><a href="index.html">News</a></li>
             <li><a href="quotes.html">Quotes</a></li>
@@ -51,7 +49,7 @@
 
     </nav>
 
-<!--
+    <!--
             /*[1] W3SCHOOLS, 'How TO - Clickable Dropdown' (N/a), Date UNKNOWN. [Code].
             https://www.w3schools.com/howto/howto_js_dropdown.asp#:~:text=Example%20Explained,dropdown%20menu%20correctly%20with%20CSS.*
 
@@ -74,26 +72,24 @@
             This was to allow for mobile interaction as html onclick seemed to have issues handling that.
         -->
 
-<nav id="nav-mobile" aria-label="Navigation mobile">
-    <a href="index.html">
-    <!--This is our main header on the left of the screen on every webpage-->
-    <h1 id="header">Knowledge News</h1>
-        </a>
-    <div class="dropdown">
-        <span id="dropdown-container">
-            <img id="dropdown-pic" class="dropbtn mobile-nav" src="images/drop.png" alt="drop-down menu button">
-        </span>
-        <div id="myDropdown" class="dropdown-content">
-            <a class="nav-link mobile-nav" href="index.html">News</a>
-            <a class="nav-link mobile-nav" href="quotes.html">Quotes</a>
-            <a class="nav-link mobile-nav" href="books.html">Books</a>
-            <a class="nav-link mobile-nav" href="stoicism.html">Stoicism</a>
-            <a class="nav-link mobile-nav" href="meditations.html">Meditations</a>
-            <a class="nav-link mobile-nav" href="report.html">Report</a>
+    <nav id="nav-mobile" aria-label="Navigation mobile">
+        <!--This is our main header on the left of the screen on every webpage-->
+        <h1 id="header"><a href="index.html">Knowledge News</a></h1>
+        <div class="dropdown">
+            <span id="dropdown-container">
+                <img id="dropdown-pic" class="dropbtn mobile-nav" src="images/drop.png" alt="drop-down menu button">
+            </span>
+            <div id="myDropdown" class="dropdown-content">
+                <a class="nav-link mobile-nav" href="index.html">News</a>
+                <a class="nav-link mobile-nav" href="quotes.html">Quotes</a>
+                <a class="nav-link mobile-nav" href="books.html">Books</a>
+                <a class="nav-link mobile-nav" href="stoicism.html">Stoicism</a>
+                <a class="nav-link mobile-nav" href="meditations.html">Meditations</a>
+                <a class="nav-link mobile-nav" href="report.html">Report</a>
+            </div>
         </div>
-    </div>
-</nav>
-<div id="progress-bar"></div>
+    </nav>
+    <div id="progress-bar"></div>
     <!-- the main container, that includes everything -->
     <div id="main-container">
         <!--The actual container that we style for the meditations page-->
@@ -108,7 +104,7 @@
                         </a>
 
 
-                        
+
                         <!--NOTE, THESE TITLES AUGHT TO MATCH AS THEY ARE THE SAME STORY!-->
                         <!--MOBILE version when the width is smaller then 808px we show this-->
                         <div id="meditation-main-story-overlay">
@@ -119,7 +115,7 @@
                             </h3>
                         </div>
                     </div>
-                                      <!--computer version-->
+                    <!--computer version-->
                     <!-- When the width is smaller then 808px we hide this-->
                     <div id="meditation-main-story-info">
                         <h2>
@@ -136,7 +132,7 @@
 
                     </div>
 
-  
+
                 </article>
             </div>
             <!-- This container includes all the rest of the articles. -->
@@ -199,9 +195,8 @@
                         </a>
                         <div class="meditation-article-overlay">
                             <h3>
-                                <a class="meditation-article-title"
-                                    href="meditations.html?article=what-is-mindfulness">
-                                    What Is Mindfulness?                                
+                                <a class="meditation-article-title" href="meditations.html?article=what-is-mindfulness">
+                                    What Is Mindfulness?
                                 </a>
                             </h3>
                         </div>
@@ -277,10 +272,10 @@
 
             <article id="meditation-individual-article">
 
-                    <img id="meditation-individual-img" alt="">
+                <img id="meditation-individual-img" alt="">
 
-                    <h3 id="meditation-individual-title"></h3>
-                    <p id="meditation-individual-title-info"></p>
+                <h3 id="meditation-individual-title"></h3>
+                <p id="meditation-individual-title-info"></p>
                 <h3 id="meditation-individual-header-0"></h3>
                 <div id="meditation-individual-info-0"></div>
                 <h3 id="meditation-individual-header-1"></h3>
@@ -292,16 +287,16 @@
         </div>
 
     </div>
-            <!--
+    <!--
         This uh-oh-page gets displayed if the client somehow searched for a book that doesn't exist.
         If you want to see this functionality
         
     -->
     <div id="uh-oh-page">
-    <a href="meditations.html">
-        <img id='uh-oh-img' src="images/uh-oh.png" alt="A picture displaying the message Uh oh">
-    </a>
-</div>
+        <a href="meditations.html">
+            <img id='uh-oh-img' src="images/uh-oh.png" alt="A picture displaying the message Uh oh">
+        </a>
+    </div>
     <!--DO NOT MOVE OR REMOVE THIS SCRIPT TAG AS IT WILL BREAK THE ENTIRE WEBSITE!
             The placement of this script tag allows the previous HTML elements to be
             edited by our scripts/script.js file. If this were to be removed or moved the
@@ -310,22 +305,22 @@
 </body>
 <footer>
     <div id="footer-top">
-            <h5>USEFUL LINKS</h5>
-                <div id="footer-items">
-                    <a class="footer-link" href="index.html">News</a>
-                    <a class="footer-link" href="quotes.html">Quotes</a>
-                    <a class="footer-link" href="books.html">Books</a>
-                    <a class="footer-link" href="stoicism.html">Stoicism</a>
-                    <a class="footer-link" href="meditations.html">Meditations</a>
-                    <a class="footer-link" href="report.html">Report</a>
-                </div>
+        <h5>USEFUL LINKS</h5>
+        <div id="footer-items">
+            <a class="footer-link" href="index.html">News</a>
+            <a class="footer-link" href="quotes.html">Quotes</a>
+            <a class="footer-link" href="books.html">Books</a>
+            <a class="footer-link" href="stoicism.html">Stoicism</a>
+            <a class="footer-link" href="meditations.html">Meditations</a>
+            <a class="footer-link" href="report.html">Report</a>
+        </div>
     </div>
     <div id="footer-line"></div>
     <div id="footer-bottom">
         <p id="copyright">@2023 Knowledge News. All Rights Reserved</p>
         <p>Author: John-Marco Tasillo</p>
     </div>
-    
+
 </footer>
 
 </html>

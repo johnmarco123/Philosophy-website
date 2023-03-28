@@ -1,3 +1,4 @@
+//when the window loads... this runs
 window.onload = function () {
     //==PROGRESS BAR CODE START==//
     let bar = document.getElementById("progress-bar");
@@ -128,9 +129,9 @@ window.onload = function () {
 ***********************************************************************/
 
 //displays an error page when called (only on books.html, quotes.html, and sctoicism.html)
-const uhOh = () =>{
-     document.getElementById('uh-oh-page').style.display = 'block';
-     document.getElementById('main-container').style.display = 'none';
+const uhOh = () => {
+    document.getElementById('uh-oh-page').style.display = 'block';
+    document.getElementById('main-container').style.display = 'none';
 }
 //START PAGE EDITOR
 //grab the url
@@ -639,7 +640,7 @@ const activateQuotePage = option => {
 
                     //here we set oldlastpick to equal the last item of the current list, 
                     //we do this so the next list will not start with the last item of the previous list
-                    oldLastPick  = listOfRandomPeople[listOfRandomPeople.length - 1]
+                    oldLastPick = listOfRandomPeople[listOfRandomPeople.length - 1]
 
                     //****IMPORTANT****
                     //here we continue the loop until listofrandompeople is empty, we do this because we periodically
@@ -713,7 +714,7 @@ const activateQuotePage = option => {
 // we use this to seperate flipping to the next page (in books.html)
 // and clicking a book (which leads to books.html?book=...)
 const activateBookPage = option => {
-    
+
     // the virtual lbirary that holds all our books as objects and all their data
     const virtualLibrary = {
 
@@ -1283,13 +1284,13 @@ const activateBookPage = option => {
 
         //here we check if the book actually exists, if it doesnt we give an error 
         //the uh oh function displays the uhoh page and hides the main content for this one
-        if(!book){
+        if (!book) {
             uhOh();
         }
 
         // here we make an array of all the book data we have to change (other then the alt, img and href)
         const elements_to_change = ['title', 'description', 'sentence', 'points', 'passages', 'summary']
-    
+
         //we then iterate through all of them, changing them one at a time
         for (item of elements_to_change) {
             //if we are on points, this should activate
@@ -1328,7 +1329,7 @@ const activateBookPage = option => {
 
                 //if we are on the summary.
             } else if (item == 'summary') {
-                
+
                 //we set our counter to zero(this keeps track of when to finish)
                 let i = 0;
 
@@ -1375,126 +1376,125 @@ const activateBookPage = option => {
 
         //if the client clicked next page, then we activate this option.
     } else if (option == 'next-page') {
-             //if it is top_5_books, we want to load those top 5 books, and remove the numbers at the bottom of the screen
-             //this gets activated by clicking the top5 books on the news page
-             if (databaseName == 'top_5_books') {
+        //if it is top_5_books, we want to load those top 5 books, and remove the numbers at the bottom of the screen
+        //this gets activated by clicking the top5 books on the news page
+        if (databaseName == 'top_5_books') {
 
-                //hide the numbers at the bottom of the screen
-                document.getElementById('next-page-menu').style.display = 'none';
-    
-                //the book we are currentlyon
-                let currentBook;
-                //these are our top 5 book names, make sure they correspond with the propper key from the virtual library if you decide to change them
-                //simply changing these names to match the name you want in virtual library will actually work to change the best5book page simply.
-                let top_5_book_names = ['the_obstacle_is_the_way', 'stillness_is_the_key', 'mans_search_for_meaning', 'meditations', 'atomic_habits']
-                //note, we must use < 5 here since we can only show 5 books. We use this instead of a "for of" loop, as it is easier to code and read in this case
-                for (let i = 0; i < 5; i++) {
-                    //current book we are dumping into the html
-                    currentBook = virtualLibrary[top_5_book_names[i]];
+            //hide the numbers at the bottom of the screen
+            document.getElementById('next-page-menu').style.display = 'none';
 
-                    //set its title, the ${i+1}. simply just adds the number of the book in ranking from 1 - 5
-                    document.getElementById(`book-${i}-title`).innerHTML = `${i + 1}. ${currentBook.title}`
+            //the book we are currentlyon
+            let currentBook;
+            //these are our top 5 book names, make sure they correspond with the propper key from the virtual library if you decide to change them
+            //simply changing these names to match the name you want in virtual library will actually work to change the best5book page simply.
+            let top_5_book_names = ['the_obstacle_is_the_way', 'stillness_is_the_key', 'mans_search_for_meaning', 'meditations', 'atomic_habits']
+            //note, we must use < 5 here since we can only show 5 books. We use this instead of a "for of" loop, as it is easier to code and read in this case
+            for (let i = 0; i < 5; i++) {
+                //current book we are dumping into the html
+                currentBook = virtualLibrary[top_5_book_names[i]];
 
-                    //set its description
-                    document.getElementById(`book-${i}-description`).innerHTML = currentBook.description;
+                //set its title, the ${i+1}. simply just adds the number of the book in ranking from 1 - 5
+                document.getElementById(`book-${i}-title`).innerHTML = `${i + 1}. ${currentBook.title}`
 
-                    //set its image
-                    document.getElementById(`book-${i}-img`).setAttribute('src', currentBook.img)
+                //set its description
+                document.getElementById(`book-${i}-description`).innerHTML = currentBook.description;
 
-                    //set the images alt
-                    document.getElementById(`book-${i}-img`).setAttribute('alt', currentBook.alt)
+                //set its image
+                document.getElementById(`book-${i}-img`).setAttribute('src', currentBook.img)
 
-                    //link the image and the header to the appropiate location (therefore when the book is clicked it links to the
-                    //propper location
-                    document.getElementsByClassName(`book-${i}-link`)[0].setAttribute('href', `books.html?book=${currentBook.href}`)
-                    document.getElementsByClassName(`book-${i}-link`)[1].setAttribute('href', `books.html?book=${currentBook.href}`)
-                }
-    
+                //set the images alt
+                document.getElementById(`book-${i}-img`).setAttribute('alt', currentBook.alt)
+
+                //link the image and the header to the appropiate location (therefore when the book is clicked it links to the
+                //propper location
+                document.getElementsByClassName(`book-${i}-link`)[0].setAttribute('href', `books.html?book=${currentBook.href}`)
+                document.getElementsByClassName(`book-${i}-link`)[1].setAttribute('href', `books.html?book=${currentBook.href}`)
             }
-    
-            //if its not top_5_books, then we want to highlight the propper page number at the bottom, and load the books assosiated with that page number
-            else {
-                //a list of all the book titles in an array
-                const booksTitlesArray = Object.keys(virtualLibrary);
 
-                //the max amount of pages that should be functional. since each page holds up to five books,
-                //then if there are 16 books, we would need 4 pages to display all the books...
-                let maxPages = Math.ceil(booksTitlesArray.length / 5)
-    
-                /*
-                if there is a databaseName, this means the user clicked next page, or
-                they typed in the url a non existent page. so we filter this here.
-                We check if the page number is between 0 and the max pages, if so then we continue on
-                if not we give the uhOh error!
-                 */
+        }
 
-                /**if there is no databasename, the must be books.html, and can swiftly skip the if statement.*/
+        //if its not top_5_books, then we want to highlight the propper page number at the bottom, and load the books assosiated with that page number
+        else {
+            //a list of all the book titles in an array
+            const booksTitlesArray = Object.keys(virtualLibrary);
 
-                if(databaseName){
-                    if(!(databaseName > 0 && databaseName <= maxPages))
-                    {
-                        uhOh()
-                    }
+            //the max amount of pages that should be functional. since each page holds up to five books,
+            //then if there are 16 books, we would need 4 pages to display all the books...
+            let maxPages = Math.ceil(booksTitlesArray.length / 5)
+
+            /*
+            if there is a databaseName, this means the user clicked next page, or
+            they typed in the url a non existent page. so we filter this here.
+            We check if the page number is between 0 and the max pages, if so then we continue on
+            if not we give the uhOh error!
+             */
+
+            /**if there is no databasename, the must be books.html, and can swiftly skip the if statement.*/
+
+            if (databaseName) {
+                if (!(databaseName > 0 && databaseName <= maxPages)) {
+                    uhOh()
                 }
-    
-    
-                //we use or 1, if the user has not clicked a link yet, to default to highlighting the number one
-                let pageNum = parseInt(databaseName || 1)
-
-                //we highlight the correct circle corresponding to the pagenum
-                let circle = document.getElementById(`books-page-${pageNum}`)
-
-                //we set our number variable (which is the first child of the circle element)
-                let number = circle.children[1];
-
-                //we set the circles background color 
-                circle.style.background = '#1f1f19';
-
-                //and the numbers color as well
-                number.style.color = `white`;
-    
-                //since each page shows 5 books, we want page 1 to start at element 0, if its page 2 we want it to start
-                //at element 5. we do this because the for loop below will simply grab five books ascending from the number
-                //that this is. (example, if startAt = 7, the for loop would iterate and show books 7, 8, 9, 10, and 11)
-                const startAt = (pageNum - 1) * 5 
-                
-                //the current book we're on
-                let currentBook;
-
-                //we can hardcode 5 books as we only show 5 books a page, and that is hard coded in the html.
-                for (let i = 0; i < 5; i++) {
-
-                    //here we add 'startAt' to make sure if its another page, we don't retrive the same books
-                    //in other words, we add 5 for every page, so page 2 starts at book 5, page 3, book 10, and so on
-                    currentBook = virtualLibrary[booksTitlesArray[i + startAt]];
-
-                    //if there isnt a book, this means we reached the end of our virtual library and we should stop trying
-                    //to set books
-                    if (!currentBook) {
-                        break
-                    };
-
-                    //set the books title
-                    document.getElementById(`book-${i}-title`).innerHTML = currentBook.title
-
-                    //set the books description
-                    document.getElementById(`book-${i}-description`).innerHTML = currentBook.description
-
-                    //set the books img
-                    document.getElementById(`book-${i}-img`).setAttribute('src', currentBook.img)
-
-                    //set the book imgs alt
-                    document.getElementById(`book-${i}-img`).setAttribute('alt', currentBook.alt)
-
-                    //set the link for the header and the image itself so that once you click on it it leads you to the correct
-                    //destination
-                    document.getElementsByClassName(`book-${i}-link`)[0].setAttribute('href', `books.html?book=${currentBook.href}`)
-                    document.getElementsByClassName(`book-${i}-link`)[1].setAttribute('href', `books.html?book=${currentBook.href}`)
-                }
-    
             }
-    
-    
+
+
+            //we use or 1, if the user has not clicked a link yet, to default to highlighting the number one
+            let pageNum = parseInt(databaseName || 1)
+
+            //we highlight the correct circle corresponding to the pagenum
+            let circle = document.getElementById(`books-page-${pageNum}`)
+
+            //we set our number variable (which is the first child of the circle element)
+            let number = circle.children[1];
+
+            //we set the circles background color 
+            circle.style.background = '#1f1f19';
+
+            //and the numbers color as well
+            number.style.color = `white`;
+
+            //since each page shows 5 books, we want page 1 to start at element 0, if its page 2 we want it to start
+            //at element 5. we do this because the for loop below will simply grab five books ascending from the number
+            //that this is. (example, if startAt = 7, the for loop would iterate and show books 7, 8, 9, 10, and 11)
+            const startAt = (pageNum - 1) * 5
+
+            //the current book we're on
+            let currentBook;
+
+            //we can hardcode 5 books as we only show 5 books a page, and that is hard coded in the html.
+            for (let i = 0; i < 5; i++) {
+
+                //here we add 'startAt' to make sure if its another page, we don't retrive the same books
+                //in other words, we add 5 for every page, so page 2 starts at book 5, page 3, book 10, and so on
+                currentBook = virtualLibrary[booksTitlesArray[i + startAt]];
+
+                //if there isnt a book, this means we reached the end of our virtual library and we should stop trying
+                //to set books
+                if (!currentBook) {
+                    break
+                };
+
+                //set the books title
+                document.getElementById(`book-${i}-title`).innerHTML = currentBook.title
+
+                //set the books description
+                document.getElementById(`book-${i}-description`).innerHTML = currentBook.description
+
+                //set the books img
+                document.getElementById(`book-${i}-img`).setAttribute('src', currentBook.img)
+
+                //set the book imgs alt
+                document.getElementById(`book-${i}-img`).setAttribute('alt', currentBook.alt)
+
+                //set the link for the header and the image itself so that once you click on it it leads you to the correct
+                //destination
+                document.getElementsByClassName(`book-${i}-link`)[0].setAttribute('href', `books.html?book=${currentBook.href}`)
+                document.getElementsByClassName(`book-${i}-link`)[1].setAttribute('href', `books.html?book=${currentBook.href}`)
+            }
+
+        }
+
+
     }
 }
 
@@ -1689,7 +1689,7 @@ const activateMeditationPage = () => {
         let article = meditationsArticles[databaseName]
 
         //if the article doesn't exist we throw the uh oh error.
-        if(!article){
+        if (!article) {
             uhOh()
         }
 
@@ -1864,13 +1864,13 @@ const activateStoicismPage = () => {
     const article = stoicArticles[databaseName];
 
     //if there is no article we display the uh oh error
-    if(!article){
+    if (!article) {
         uhOh()
     }
 
     //then we get all the sections the article has
     const sections = article.allinfo
-    
+
     //we then get the amount of sections we have as a number
     const sectionsLength = Object.keys(sections).length
 
@@ -1924,55 +1924,87 @@ const activateStoicismPage = () => {
 }
 
 
-/* 
-    this function does the following:
-    1.) Detects which radio button is clicked and shows that set of pictures
-    2.) shows where you are in the batch of wires frames, example: 1/5, or 5/5
-    3.) cycles through the pictures when the next and previous buttons are clicked on report.html
-*/
+
+
+//we set these global variables for the code below...
+
+//this is the current array of wireframe images that we will show to the client
 let currentWireframeArray;
+
+//this is the INDEX of the wireframe currently on the screen
 let currentWireframe = 0;
+
+//this is the 'site' that is being requested, in other words, the category that the client would like to
+//see wireframes from
 let site;
+
+//the base path to all the pictures
 let wireFramePath = 'images/wireframes/'
+
+//the current image to show, we simply define it here, but we set it later on
 let img;
-//activated on menu click
+
+//this function uses all the variables above to set the describing header (which says how many pictures you've
+//viewed for the given category, example (news-page 1/5)
 const updateWireframe = () => {
+    //we set the header to something like 'news-page 1/5' the word news, the number 1 and the number 5 are all variables from above
     document.getElementById('wireframe-header').innerHTML = `${site}-page ${currentWireframe} / ${currentWireframeArray.length}`
+
+    //here we set the img path, notice the -1, if we don't do this then we will miss out on the first image as javascript
+    //code starts at 0 when indexing an array
     img = wireFramePath + currentWireframeArray[currentWireframe - 1]
+
+    //and we simply set the image here
     document.getElementById('wireframe-img').setAttribute('src', img)
 }
+
+//this function takes a category as input, it recieves this input from the radio buttons on the website.
+//it then shows the first image for that given wireframe array, and properly sets all the above variables.
+//in other words, on any radio button click this function activates.
 const reportWireframeSwitcher = (category = 'news') => {
+    //we set this to 1 so the header will also start at '1' rather then zero.
     currentWireframe = 1;
     // i hardcoded all the images, even though they have repeating names just for clarity sake
     const wireframes = {
-        news:['news1.jpg','news2.jpg','news3.jpg', 'news4.jpg'],
-        quotes:['quotes1.jpg','quotes2.jpg','quotes3.jpg', 'quotes4.jpg'],
-        books:['books1.jpg','books2.jpg','books3.jpg','books4.jpg','books5.jpg', 'books6.jpg'],
-        stoicism:['stoicism1.jpg','stoicism2.jpg','stoicism3.jpg'],
-        meditations:['meditations1.jpg','meditations2.jpg','meditations3.jpg', 'meditations4.jpg'],
-        report:['report1.jpg']
+        news: ['news1.jpg', 'news2.jpg', 'news3.jpg', 'news4.jpg'],
+        quotes: ['quotes1.jpg', 'quotes2.jpg', 'quotes3.jpg', 'quotes4.jpg'],
+        books: ['books1.jpg', 'books2.jpg', 'books3.jpg', 'books4.jpg', 'books5.jpg', 'books6.jpg'],
+        stoicism: ['stoicism1.jpg', 'stoicism2.jpg', 'stoicism3.jpg'],
+        meditations: ['meditations1.jpg', 'meditations2.jpg', 'meditations3.jpg', 'meditations4.jpg'],
+        report: ['report1.jpg']
     }
-    for(let wireframe of Object.keys(wireframes))
-    {
+    //we iterate through all the wireframe names in the wireframe object
+    for (let wireframe of Object.keys(wireframes)) {
 
-        if(category == wireframe)
-        {
+        //if the category matches, 
+        if (category == wireframe) {
+
+            //then we simply set our currentWireframeArray to that array
             currentWireframeArray = wireframes[wireframe];
+
+            //we also save the category name in the variable site, we do this so we can display it later
             site = category;
         }
     }
+    //we then update the wireframe with these new details
     updateWireframe();
 }
 
+//this is the functionality for the next and previous buttons, it simply increases or decreases our
+//current wireframe count
 const reportNextWireframe = option => {
-    if(currentWireframe < currentWireframeArray.length && option == 'next')
-    {
+
+    //if the client clicks next, and the number is less then the amount of wireframes in that array
+    if (currentWireframe < currentWireframeArray.length && option == 'next') {
+        //then we allow the counter to increase
         currentWireframe++;
     }
-    else if(currentWireframe > 1 && option == 'prev')
-    {
+    //if the user clicks previously, and the counter is above one, 
+    else if (currentWireframe > 1 && option == 'prev') {
+        //we allow the decrease of the counter
         currentWireframe--;
     }
+    //we then call updatewireframe to display the new image and data
     updateWireframe()
 }
 
@@ -2007,6 +2039,6 @@ else if (url.includes('meditations.html?article=')) {
     document.getElementById('stoicism-news-container').style.display = 'none';
     document.getElementById('stoicism-individual-article-container').style.display = 'block';
     activateStoicismPage();
-} else if (url.includes('report.html')){
+} else if (url.includes('report.html')) {
     reportWireframeSwitcher()
 }

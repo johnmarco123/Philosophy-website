@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!--In the off chance someone is using a old internet explorer version, this will help.-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +15,7 @@
     <!--This is the author of the webpage, aka myself-->
     <meta name="author" content="John-Marco Tasillo">
 
-    
+
     <!--Here we put some keywords to help search engine optimization-->
     <meta name=”keywords” content="home, information, help, news, stoicism, books, knowledge, smart">
 
@@ -33,12 +34,10 @@
 
 <body>
     <!--Our main navigation menu -->
-    <nav aria-label="navigation">
-        <a href="index.html">
+    <nav id="laptop-nav" aria-label="navigation">
         <!--This is our main header on the left of the screen on every webpage-->
-            <h1 id="header">Knowledge News</h1>
-        </a>
-    <!--Our webpage links that are at the top of the screen-->
+        <h1 id="header"><a href="index.html">Knowledge News</a></h1>
+        <!--Our webpage links that are at the top of the screen-->
         <ul id="nav-list">
             <li><a href="index.html">News</a></li>
             <li><a href="quotes.html">Quotes</a></li>
@@ -50,7 +49,7 @@
 
     </nav>
 
-<!--
+    <!--
             /*[1] W3SCHOOLS, 'How TO - Clickable Dropdown' (N/a), Date UNKNOWN. [Code].
             https://www.w3schools.com/howto/howto_js_dropdown.asp#:~:text=Example%20Explained,dropdown%20menu%20correctly%20with%20CSS.*
 
@@ -73,26 +72,24 @@
             This was to allow for mobile interaction as html onclick seemed to have issues handling that.
         -->
 
-<nav id="nav-mobile" aria-label="Navigation mobile">
-    <a href="index.html">
-    <!--This is our main header on the left of the screen on every webpage-->
-    <h1 id="header">Knowledge News</h1>
-        </a>
-    <div class="dropdown">
-        <span id="dropdown-container">
-            <img id="dropdown-pic" class="dropbtn mobile-nav" src="images/drop.png" alt="drop-down menu button">
-        </span>
-        <div id="myDropdown" class="dropdown-content">
-            <a class="nav-link mobile-nav" href="index.html">News</a>
-            <a class="nav-link mobile-nav" href="quotes.html">Quotes</a>
-            <a class="nav-link mobile-nav" href="books.html">Books</a>
-            <a class="nav-link mobile-nav" href="stoicism.html">Stoicism</a>
-            <a class="nav-link mobile-nav" href="meditations.html">Meditations</a>
-            <a class="nav-link mobile-nav" href="report.html">Report</a>
+    <nav id="nav-mobile" aria-label="Navigation mobile">
+        <!--This is our main header on the left of the screen on every webpage-->
+        <h1 id="header"><a href="index.html">Knowledge News</a></h1>
+        <div class="dropdown">
+            <span id="dropdown-container">
+                <img id="dropdown-pic" class="dropbtn mobile-nav" src="images/drop.png" alt="drop-down menu button">
+            </span>
+            <div id="myDropdown" class="dropdown-content">
+                <a class="nav-link mobile-nav" href="index.html">News</a>
+                <a class="nav-link mobile-nav" href="quotes.html">Quotes</a>
+                <a class="nav-link mobile-nav" href="books.html">Books</a>
+                <a class="nav-link mobile-nav" href="stoicism.html">Stoicism</a>
+                <a class="nav-link mobile-nav" href="meditations.html">Meditations</a>
+                <a class="nav-link mobile-nav" href="report.html">Report</a>
+            </div>
         </div>
-    </div>
-</nav>
-<div id="progress-bar"></div>
+    </nav>
+    <div id="progress-bar"></div>
     <!-- the main container for all the content, (except the uh oh page which gets activated when a user
         tries to access a non existant article) -->
     <div id="main-container">
@@ -103,31 +100,31 @@
             <h1>Learn From The Great Stoics!</h1>
             <!-- here we have the top stories, we seperate this for styling purposes -->
             <div class="stoic-container">
-                    <!-- each article has a title, a description and an image, the image and the title link
+                <!-- each article has a title, a description and an image, the image and the title link
                     to the propper location. In this particular article it requests a sub-link from stoicism.html
                     this will trigger the container 'stoicism-news-container' to be hidden, and to show the individual
                     article that was clicked. That container starts off blank and gets filled in using javascript code -->
-                    <article class="stoic-article">
-                        <a href="stoicism.html?article=what-is-stoicism">
-                            <img class="stoic zoom" src="images/zeno.png"
-                                alt="A black and white photo of the creator of stoic philosophy, Zeno">
-                        </a>
-                        <h2>What Is Stoicism</h2>
-                        <p>
-                            The lost art of practicing stoicism, a philosophy for how to live a great life
-                            despite adversity
-                        </p>
-                    </article>
-                    <article class="stoic-article">
-                        <a href="quotes.html?person=marcus-aurelius">
-                            <img class="stoic zoom" src="images/marcus-aurelius.png"
-                                alt="A picture of the emperer Marcus Aurelius">
-                        </a>
-                        <h2>Roman Emperer Marcus Aurelius</h2>
-                        <p>
-                            What lessons can we learn about life from the great Roman Emperor Marcus Aurelius?
-                        </p>
-                    </article>
+                <article class="stoic-article">
+                    <a href="stoicism.html?article=what-is-stoicism">
+                        <img class="stoic zoom" src="images/zeno.png"
+                            alt="A black and white photo of the creator of stoic philosophy, Zeno">
+                    </a>
+                    <h2>What Is Stoicism</h2>
+                    <p>
+                        The lost art of practicing stoicism, a philosophy for how to live a great life
+                        despite adversity
+                    </p>
+                </article>
+                <article class="stoic-article">
+                    <a href="quotes.html?person=marcus-aurelius">
+                        <img class="stoic zoom" src="images/marcus-aurelius.png"
+                            alt="A picture of the emperer Marcus Aurelius">
+                    </a>
+                    <h2>Roman Emperer Marcus Aurelius</h2>
+                    <p>
+                        What lessons can we learn about life from the great Roman Emperor Marcus Aurelius?
+                    </p>
+                </article>
             </div>
 
             <h1>The Best Books On Stoicism</h1>
@@ -135,7 +132,7 @@
             and a description. Each of these books link to the propper location in books.html. It works just the same as the
             first stoicism article, it hides the first books.html container, reveals the second, and the javascript injects the data
             corresponding to whatever book the client clicked -->
-    
+
             <ol class="stoic-container">
                 <li class="stoic-book-group">
                     <article class="stoic-book-container">
@@ -218,7 +215,7 @@
                     </div>
                 </div>
                 <div id="stoicism-individual-article-info-container">
-    
+
                 </div>
             </article>
         </main>
@@ -238,22 +235,22 @@
 </body>
 <footer>
     <div id="footer-top">
-            <h5>USEFUL LINKS</h5>
-                <div id="footer-items">
-                    <a class="footer-link" href="index.html">News</a>
-                    <a class="footer-link" href="quotes.html">Quotes</a>
-                    <a class="footer-link" href="books.html">Books</a>
-                    <a class="footer-link" href="stoicism.html">Stoicism</a>
-                    <a class="footer-link" href="meditations.html">Meditations</a>
-                    <a class="footer-link" href="report.html">Report</a>
-                </div>
+        <h5>USEFUL LINKS</h5>
+        <div id="footer-items">
+            <a class="footer-link" href="index.html">News</a>
+            <a class="footer-link" href="quotes.html">Quotes</a>
+            <a class="footer-link" href="books.html">Books</a>
+            <a class="footer-link" href="stoicism.html">Stoicism</a>
+            <a class="footer-link" href="meditations.html">Meditations</a>
+            <a class="footer-link" href="report.html">Report</a>
+        </div>
     </div>
     <div id="footer-line"></div>
     <div id="footer-bottom">
         <p id="copyright">@2023 Knowledge News. All Rights Reserved</p>
         <p>Author: John-Marco Tasillo</p>
     </div>
-    
+
 </footer>
 
 </html>

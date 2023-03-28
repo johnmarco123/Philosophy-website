@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!--We declare the language as english, as that is our language for the website.-->
 <html lang="en">
+
 <head>
     <!--In the off chance someone is using a old internet explorer version, this will help.-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +16,7 @@
     <!--This is the author of the webpage, aka myself-->
     <meta name="author" content="John-Marco Tasillo">
 
-    
+
     <!--Here we put some keywords to help search engine optimization-->
     <meta name=”keywords” content="home, information, help, news, stoicism, books, knowledge, smart">
 
@@ -34,22 +35,20 @@
 
 <body>
     <!--Our main navigation menu -->
-        <nav aria-label="navigation">
-            <a href="index.html">
-            <!--This is our main header on the left of the screen on every webpage-->
-                <h1 id="header">Knowledge News</h1>
-            </a>
+    <nav id="laptop-nav" aria-label="navigation">
+        <!--This is our main header on the left of the screen on every webpage-->
+        <h1 id="header"><a href="index.html">Knowledge News</a></h1>
         <!--Our webpage links that are at the top of the screen-->
-            <ul id="nav-list">
-                <li><a href="index.html">News</a></li>
-                <li><a href="quotes.html">Quotes</a></li>
-                <li><a href="books.html">Books</a></li>
-                <li><a href="stoicism.html">Stoicism</a></li>
-                <li><a href="meditations.html">Meditations</a></li>
-                <li><a href="report.html">Report.html</a></li>
-            </ul>
+        <ul id="nav-list">
+            <li><a href="index.html">News</a></li>
+            <li><a href="quotes.html">Quotes</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="stoicism.html">Stoicism</a></li>
+            <li><a href="meditations.html">Meditations</a></li>
+            <li><a href="report.html">Report.html</a></li>
+        </ul>
 
-        </nav>
+    </nav>
 
     <!--
                 /*[1] W3SCHOOLS, 'How TO - Clickable Dropdown' (N/a), Date UNKNOWN. [Code].
@@ -75,10 +74,8 @@
             -->
 
     <nav id="nav-mobile" aria-label="Navigation mobile">
-        <a href="index.html">
         <!--This is our main header on the left of the screen on every webpage-->
-        <h1 id="header">Knowledge News</h1>
-            </a>
+        <h1 id="header"><a href="index.html">Knowledge News</a></h1>
         <div class="dropdown">
             <span id="dropdown-container">
                 <img id="dropdown-pic" class="dropbtn mobile-nav" src="images/drop.png" alt="drop-down menu button">
@@ -270,18 +267,18 @@
                 <h1 id="book-page-title"></h1>
                 <div id="book-page-landing-container">
                     <span>
-                <!--the clicked book image gets set as this images src, and an alt gets set as well-->
+                        <!--the clicked book image gets set as this images src, and an alt gets set as well-->
                         <img class="shadow" id="book-page-img">
                     </span>
                     <span id="book-page-description-container">
                         <!--this element is only visible when the screen width is less then 710px-->
                         <h2 id="book-page-landing-introduction">Introduction</h2>
-                    <!-- again, here a description gets injected-->
+                        <!-- again, here a description gets injected-->
                         <p id="book-page-description"></p>
                     </span>
                 </div>
                 <div id="book-details">
-                <!--and all this below gets injected accordingly aswell.-->
+                    <!--and all this below gets injected accordingly aswell.-->
                     <h2>Book in a sentence</h2>
                     <p id="book-page-sentence"></p>
                     <h2>Main points</h2>
@@ -298,7 +295,7 @@
             </div>
         </div>
     </main>
-        <!--
+    <!--
         This uh-oh-page gets displayed if the client somehow searched for a book that doesn't exist.
         If you want to see this functionality
         
@@ -317,22 +314,22 @@
 </body>
 <footer>
     <div id="footer-top">
-            <h5>USEFUL LINKS</h5>
-                <div id="footer-items">
-                    <a class="footer-link" href="index.html">News</a>
-                    <a class="footer-link" href="quotes.html">Quotes</a>
-                    <a class="footer-link" href="books.html">Books</a>
-                    <a class="footer-link" href="stoicism.html">Stoicism</a>
-                    <a class="footer-link" href="meditations.html">Meditations</a>
-                    <a class="footer-link" href="report.html">Report</a>
-                </div>
+        <h5>USEFUL LINKS</h5>
+        <div id="footer-items">
+            <a class="footer-link" href="index.html">News</a>
+            <a class="footer-link" href="quotes.html">Quotes</a>
+            <a class="footer-link" href="books.html">Books</a>
+            <a class="footer-link" href="stoicism.html">Stoicism</a>
+            <a class="footer-link" href="meditations.html">Meditations</a>
+            <a class="footer-link" href="report.html">Report</a>
+        </div>
     </div>
     <div id="footer-line"></div>
     <div id="footer-bottom">
         <p id="copyright">@2023 Knowledge News. All Rights Reserved</p>
         <p>Author: John-Marco Tasillo</p>
     </div>
-    
+
 </footer>
 
 </html>
