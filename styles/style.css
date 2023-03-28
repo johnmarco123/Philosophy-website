@@ -248,7 +248,11 @@ https://www.w3schools.com/howto/howto_js_dropdown.asp#:~:text=Example%20Explaine
     #laptop-nav {
         display: none;
     }
-
+    #header>a
+    {
+    margin-left: 0px;
+    margin-right:0px;
+    }
     #nav-mobile {
         display: flex;
         justify-content: space-between;
